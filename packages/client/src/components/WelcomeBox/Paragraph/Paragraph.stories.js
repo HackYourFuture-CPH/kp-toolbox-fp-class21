@@ -3,7 +3,7 @@ import { Paragraph } from './Paragraph.component';
 
 export default {
   title: 'Welcome/Paragraph',
-  component: Paragraph.component,
+  component: Paragraph,
 };
 
 export const paragraph = (args) => <Paragraph {...args} />;
