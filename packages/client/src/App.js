@@ -3,16 +3,19 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { LandingPage } from './containers/LandingPage/LandingPage.Container';
 import { PageNotFound } from './containers/PageNotFound/PageNotFound.Container';
+import { Main } from './components/Main/Main';
 
 function App() {
   return (
     <div className="app">
-      <Router>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </Router>
+      <Main>
+        <Router>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </Router>
+      </Main>
     </div>
   );
 }

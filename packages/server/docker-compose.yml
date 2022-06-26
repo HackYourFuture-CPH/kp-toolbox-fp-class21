@@ -11,6 +11,6 @@ services:
     env_file:
       - .env
     ports:
-      - '$MYSQL_PORT:3306'
+      - '3307:3306'
 volumes:
   mysql_data:
