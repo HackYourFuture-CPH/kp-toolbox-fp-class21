@@ -1,5 +1,5 @@
-import { Heading } from "./Heading.component";
-import React from "react";
+import { Heading } from './Heading.component';
+import React from 'react';
 
 export default {
   /* 👇 The title prop is optional. */
@@ -12,5 +12,5 @@ const Template = (args) => <Heading {...args} />;
 // 👇 Each story then reuses that template
 export const Primary = Template.bind({});
 Primary.args = {
-  title: 'Hello and welcome to the KAOSPILOT toolbox !'
+  title: 'Hello and welcome to the KAOSPILOT toolbox !',
 };
