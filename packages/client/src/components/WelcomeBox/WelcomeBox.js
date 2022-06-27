@@ -6,12 +6,12 @@ import { Paragraph } from './Paragraph/Paragraph.component';
 
 export const WelcomeBox = () => {
   return (
-    <div className="welcome-box-wrapper">
+    <section className="welcome-box-wrapper">
       <div className="welcome-box-content">
         <Heading />
         <ImagePlaceHolder />
         <Paragraph />
       </div>
-    </div>
+    </section>
   );
 };
