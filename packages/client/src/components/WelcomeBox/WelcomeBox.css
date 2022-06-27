@@ -1,3 +1,10 @@
+.welcome-box-wrapper,
+.welcome-box-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .welcome-box-wrapper {
   width: 100%; /*In relation to the parent component*/
   height: 20rem;
@@ -5,15 +12,9 @@
   height: fit-content;
   background-color: inherit;
   color: #f5f5f5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .welcome-box-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 78%;
   text-align: center;
 }
