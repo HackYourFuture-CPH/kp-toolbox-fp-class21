@@ -29,6 +29,11 @@
   text-underline-offset: 0.5rem;
 }
 
+.logo a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 .navbar-links {
   font-size: 1.5rem;
   display: flex;
@@ -36,4 +41,9 @@
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 2rem;
+}
+
+.navbar-links a {
+  color: #ffffff;
+  text-decoration: none;
 }
