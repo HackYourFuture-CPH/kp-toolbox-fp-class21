@@ -2,7 +2,7 @@ import React from 'react';
 import { WelcomeBox } from './WelcomeBox';
 
 export default {
-  title: 'WelcomeBox',
+  title: 'Components/WelcomeBox/WelcomeBox',
   component: WelcomeBox,
 };
 

@@ -3,7 +3,7 @@ import React from 'react';
 
 export default {
   /* 👇 The title prop is optional. */
-  title: 'Heading title',
+  title: 'Components/WelcomeBox/Heading',
 };
 
 // 👇 We create a “template” of how args map to rendering
