@@ -4,17 +4,15 @@ import './Navbar.css';
 export const Navbar = () => {
   return (
     <div className="navigation-bar">
-      <nav>
-        <div className="logo">
-          <span>KAOSPILOT toolbox</span>
-        </div>
-        <div className="navbar-links">
-          <li>About toolbox</li>
-          <li>Contact us</li>
-          <li>Log In</li>
-          <li>Favourites</li>
-        </div>
-      </nav>
+      <div className="logo">
+        <span>KAOSPILOT toolbox</span>
+      </div>
+      <div className="navbar-links">
+        <li>about toolbox</li>
+        <li>contact us</li>
+        <li>log In</li>
+        <li>favourites</li>
+      </div>
     </div>
   );
 };
