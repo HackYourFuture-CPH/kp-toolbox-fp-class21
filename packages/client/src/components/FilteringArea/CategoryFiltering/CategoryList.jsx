@@ -12,7 +12,7 @@ const tools = [
 
 export const CategoryList = () => {
   return (
-    <>
+    <div className="layout">
       <h2 className="category-title">Browse by CATEGORY</h2>
       <div className="category-container">
         <div className="category-left-side-container">
@@ -29,6 +29,6 @@ export const CategoryList = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
