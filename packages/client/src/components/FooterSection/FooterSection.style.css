@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+.footerSection {
+  font-family: 'Open Sans', sans-serif;
+  background-color: rgba(40, 48, 49);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.footerContentSection {
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1220px;
+  height: 260px;
+}
+
+.footerCopyrightSection {
+  background-color: rgba(23, 23, 23, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 100vw;
+}
+
+.footerCopyrightInfoSection {
+  font-size: 0.875;
+  color: rgba(255, 255, 255, 1);
+  width: 1220px;
+  text-align: right;
+}
+
+@media screen and (max-width: 1220px) {
+  .footerContentSection {
+    width: 90vw;
+  }
+  .footerCopyrightInfoSection {
+    width: 90vw;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .footerContentSection {
+    width: 90vw;
+  }
+  .footerCopyrightInfoSection {
+    width: 90vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+.footerContentSection {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.footerCopyrightInfoSection {
+  font-size: 0.6;
+}
+
+}
