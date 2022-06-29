@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-.footerSection {
+.footer-container {
   font-family: 'Open Sans', sans-serif;
   background-color: rgba(40, 48, 49);
   display: flex;
@@ -9,7 +9,7 @@
   width: 100vw;
 }
 
-.footerContentSection {
+.footer-content-section {
   background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
@@ -18,7 +18,7 @@
   height: 260px;
 }
 
-.footerCopyrightSection {
+.footer-copyright-section {
   background-color: rgba(23, 23, 23, 1);
   display: flex;
   justify-content: center;
@@ -27,7 +27,7 @@
   width: 100vw;
 }
 
-.footerCopyrightInfoSection {
+.footer-copyright-infosection {
   font-size: 0.875;
   color: rgba(255, 255, 255, 1);
   width: 1220px;
@@ -52,19 +52,19 @@
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .logo-text {
-    font-family: "Open Sans";
-    margin: auto;
-    font-size: 4rem;
-    line-height: 1.5rem;
-    font-weight: 600;
-    color: rgba(245, 245, 245, 1);
-    text-decoration: underline;
-    text-underline-offset: 1rem;
-    padding-bottom: 1.7rem;
+  font-family: "Open Sans";
+  margin: auto;
+  font-size: 4rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  color: rgba(245, 245, 245, 1);
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+  padding-bottom: 1.7rem;
 }
 
 .social-media-logo-container {
@@ -74,92 +74,103 @@ a {
 }
 
 .social-media-logo {
-      width: 3.8rem;
+  width: 3.8rem;
   height: 3.8rem;
 }
 
 @media screen and (max-width: 1220px) {
-  .footerContentSection {
+  .footer-content-section {
     width: 90vw;
   }
-  .footerCopyrightInfoSection {
+
+  .footer-copyright-infosection {
     width: 90vw;
   }
+
   .placeholder-container {
     width: 18rem;
     height: 3rem;
   }
+
   .placeholder-text {
     width: 18rem;
     height: 3rem;
   }
+
   .logo-text {
     font-size: 3rem;
-}
+  }
 }
 
 @media screen and (max-width: 900px) {
-  .footerContentSection {
+  .footer-content-section {
     width: 90vw;
   }
-  .footerCopyrightInfoSection {
+
+  .footer-copyright-infossection {
     width: 90vw;
   }
+
   .placeholder-container {
     width: 14rem;
     height: 2.5rem;
   }
+
   .placeholder-text {
     width: 14rem;
     height: 2.5rem;
     font-size: 0.8rem;
   }
+
   .logo-text {
     font-size: 2rem;
-}
-.social-media-logo-container {
-  gap: 1.5rem;
-}
+  }
 
-.social-media-logo {
-  width: 2rem;
-  height: 2rem;
-}
+  .social-media-logo-container {
+    gap: 1.5rem;
+  }
+
+  .social-media-logo {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 
 @media screen and (max-width: 500px) {
-.footerContentSection {
-  display: flex;
-  flex-direction: column;
-  align-items: space-between;
-  justify-content: center;
-  gap: 2rem;
-}
+  .footer-content-section {
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: center;
+    gap: 2rem;
+  }
 
-.footerCopyrightInfoSection {
-  font-size: 0.6;
-}
+  .footer-copyright-infosection {
+    font-size: 0.6;
+  }
 
-.placeholder-container {
-  width: 10rem;
-  height: 2.5rem;
-}
-.placeholder-text {
-  width: 10rem;
-  height: 2.5rem;
-  font-size: 0.8rem;
-}
-.logo-text {
-  font-size: 1rem;
-}
+  .placeholder-container {
+    width: 10rem;
+    height: 2.5rem;
+  }
 
-.social-media-logo-container {
-  gap: 2rem;
-}
+  .placeholder-text {
+    width: 10rem;
+    height: 2.5rem;
+    font-size: 0.8rem;
+  }
 
-.social-media-logo {
-  width: 2rem;
-  height: 2rem;
-}
+  .logo-text {
+    font-size: 1.8rem;
+  }
+
+  .social-media-logo-container {
+    gap: 2rem;
+  }
+
+  .social-media-logo {
+    width: 2rem;
+    height: 2rem;
+  }
 
 }
