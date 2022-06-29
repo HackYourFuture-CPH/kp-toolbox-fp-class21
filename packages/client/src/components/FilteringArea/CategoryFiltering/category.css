@@ -16,21 +16,20 @@ a:hover {
   border: 4px solid rgba(140, 92, 2, 1);
 }
 
-body {
-  background: linear-gradient(
-    180deg,
-    rgba(28, 56, 64, 0.7) 0%,
-    rgba(28, 65, 64, 0.8) 0.01%,
-    rgba(7, 27, 32, 0.5) 100%
-  );
-  mix-blend-mode: normal;
-}
+/* body {
+  
+} */
 
 .layout {
-  fill: url(../../../assets/body-background-image-concrete.png);
-  /* background-repeat: no-repeat; */
-  /* fill: url('https://s3-alpha-sig.figma.com/img/2fdc/7546/fb620270d044f0ee7c886e08e0eae8a1?Expires=1657497600&Signature=IdEdhDBzu7nfx~J5C0THIGEoiBuVrcauVrCslE62IeEuczruPWWkyEowaS5hFZB6HRR4THjBOT-hi69-gYHm14mN5uvoE4F0uiW78ybb3GKzRnWw7uDNxi2A9JjSzNSvJ-NWAo~TsJ1y~d5W7EzetPjDn~YDTtZOo2XnwsJze1cBqPfMic3F~QsB~w~blnfNyA9fo-ZyjvJGTXUbY0T4arUNWhZAwtHqkDBBNeZ1l~rZf2jKVNZlOk48UY-5rVnVKWCl~KlIoTj1f9mySYeScGh4IO9lH7s2L8MTtlpsdvVXHSZPQxXuzOccKTC4C145cYO9PWkxvcOsagICFufmRg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'); */
-  /* mix-blend-mode: normal; */
+  padding-bottom: 18px;
+  background-image: linear-gradient(
+      180deg,
+      rgba(28, 56, 64, 0.7) 0%,
+      rgba(28, 65, 64, 0.8) 0.01%,
+      rgba(7, 27, 32, 0.5) 100%
+    ),
+    url(../../../assets/body-background-image-concrete.png);
+  mix-blend-mode: normal;
 }
 
 /* remove it before push */
@@ -96,7 +95,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 16px;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* Container for double square component on the right side */
@@ -118,7 +117,6 @@ body {
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
   border-right: 1px solid rgba(0, 0, 0, 1);
 }
 
