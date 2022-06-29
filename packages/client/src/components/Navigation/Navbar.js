@@ -1,12 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faUser,
-  faArrowRightFromBracket,
-  faHeart,
-} from '@fortawesome/free-solid-svg-icons';
 
 export const Navbar = () => {
   return (
@@ -19,23 +13,25 @@ export const Navbar = () => {
         </div>
         <nav className="navbar-links">
           <Link to="/about-toolbox">about toolbox</Link>
+
           <Link to="/contact-us">contact us</Link>
-          <Link to="/user-name">
-            <FontAwesomeIcon icon={faUser}> </FontAwesomeIcon>
-            Hi, name
-          </Link>
-          <Link to="/log-in">
-            <FontAwesomeIcon icon={faUser}> </FontAwesomeIcon>
-            log In
-          </Link>
-          <Link to="/log-out">
-            <FontAwesomeIcon icon={faArrowRightFromBracket}> </FontAwesomeIcon>
-            log out
-          </Link>
-          <Link to="/favourites">
-            <FontAwesomeIcon icon={faHeart}> </FontAwesomeIcon>
-            favourites
-          </Link>
+
+          <div className="user-name-container">
+            <span className="nav-icon-placeholder"> icon</span>
+            <Link to="/user-name">Hi, name</Link>
+          </div>
+          <div className="log-in-container">
+            <span className="nav-icon-placeholder"> icon</span>
+            <Link to="/log-in">log In</Link>
+          </div>
+          <div className="log-out-container">
+            <span className="nav-icon-placeholder"> icon</span>
+            <Link to="/log-out">log out</Link>
+          </div>
+          <div className="favourite-container">
+            <span className="nav-icon-placeholder"> icon</span>
+            <Link to="/favourites">favourites</Link>
+          </div>
         </nav>
       </div>
     </div>

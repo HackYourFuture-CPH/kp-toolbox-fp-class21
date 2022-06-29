@@ -4,16 +4,6 @@
   padding: 0;
   margin: 0;
 }
-.navigation-bar-container {
-  width: 1220px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 6rem;
-  border-bottom: 1.5rem solid transparent;
-  border-image: url('../../../public/assets/images/tape-cut.png') 50;
-}
 
 .navigation-bar {
   margin-bottom: 10px;
@@ -27,40 +17,58 @@
     url('../../../public/assets/images/body-background-image-concrete.png');
   background-repeat: repeat;
   font-family: 'Open Sans';
-  color: #ffffff;
+  color: rgba(255, 255, 255, 1);
   text-decoration: none;
   list-style: none;
+  border-bottom: 1.5rem solid transparent;
+  border-image: url('../../../public/assets/images/tape-cut.png') 50;
 }
 
-.logo {
+.navigation-bar-container {
+  width: 1220px;
+  margin: auto;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 6rem;
+}
+
+.logo a {
+  color: rgba(255, 255, 255, 1);
   font-size: 2rem;
   text-decoration: solid;
   text-decoration-line: underline;
   text-underline-offset: 0.5rem;
 }
 
-.logo a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
 .navbar-links {
-  font-size: 1.5rem;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: flex-end;
+  align-items: center;
   gap: 2rem;
 }
-
 .navbar-links a {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 1);
+  font-size: 1rem;
   text-decoration: none;
 }
-
-.navbar-links icon {
-  font-size: 0.25rem;
+.nav-icon-placeholder {
+  aspect-ratio: 1/1;
+  border-style: solid;
+  display: flex;
+  align-items: center;
+}
+.user-name-container,
+.log-in-container,
+.log-out-container,
+.favourite-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  height: 6rem;
+  width: 8rem;
+  width: auto;
 }
 
 @media screen and (max-width: 1300px) {
