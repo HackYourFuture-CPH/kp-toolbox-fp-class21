@@ -1,9 +1,9 @@
-import React from "react";
-import { addDecorator } from "@storybook/react";
-import { MemoryRouter } from "react-router-dom";
+import React from 'react';
+import { addDecorator } from '@storybook/react';
+import { MemoryRouter } from 'react-router-dom';
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -13,5 +13,5 @@ export const parameters = {
 };
 
 addDecorator((story) => (
-  <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
 ));
