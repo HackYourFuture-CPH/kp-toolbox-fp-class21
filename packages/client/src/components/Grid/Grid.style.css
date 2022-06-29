@@ -1,0 +1,11 @@
+.grid-tools-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.625rem;
+}
+
+.item {
+  width: 25rem;
+  height: 25rem;
+}
