@@ -6,12 +6,12 @@ export const Footer = () => {
   return (
     <footer className="footer-container">
       <div className="footer-content-section">
-        <article>
+        <div>
           <Link to="/">
             <p className="logo-text">KAOSPILOT</p>
           </Link>
-        </article>
-        <article className="social-media-logo-container">
+        </div>
+        <div className="social-media-logo-container">
           <Link to="/">
             <img
               className="social-media-logo"
@@ -33,7 +33,7 @@ export const Footer = () => {
               alt="Facebook-icon"
             />
           </Link>
-        </article>
+        </div>
         <div className="placeholder-container">
           <p className="placeholder-text">DISCLAIMER PLACEHOLDER</p>
         </div>
@@ -43,8 +43,4 @@ export const Footer = () => {
       </div>
     </footer>
   );
-};
-
-Footer.defaultProps = {
-  title: 'Primary',
 };
