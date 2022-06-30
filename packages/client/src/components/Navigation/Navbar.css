@@ -17,10 +17,11 @@
     url('../../../public/assets/images/body-background-image-concrete.png');
   background-repeat: repeat;
   font-family: 'Open Sans';
+  font-weight: 600;
   color: rgba(255, 255, 255, 1);
   text-decoration: none;
   list-style: none;
-  border-bottom: 1.5rem solid transparent;
+  border-bottom: 1rem solid transparent;
   border-image: url('../../../public/assets/images/tape-cut.png') 50;
 }
 
@@ -49,7 +50,7 @@
 }
 .navbar-links a {
   color: rgba(255, 255, 255, 1);
-  font-size: 1rem;
+  font-size: 1.25rem;
   text-decoration: none;
 }
 .nav-icon-placeholder {
@@ -69,6 +70,7 @@
   height: 6rem;
   width: 8rem;
   width: auto;
+  font-size: 1.25rem;
 }
 
 @media screen and (max-width: 1300px) {
