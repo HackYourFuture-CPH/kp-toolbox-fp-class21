@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import icon from './Vector_385.png';
 
 export const TimeFrame = () => {
   const [selectedTimeFrame, setTimeFrame] = useState('1-200');
@@ -72,7 +73,7 @@ export const TimeFrame = () => {
       <span style={timeFrame}> TIME FRAME</span>
       <section style={containerStyle} className="time-frame-div">
         <section style={containerStyle}>
-          <img style={clockStyle} src="./Vector 385.png" alt="" />
+          <img style={clockStyle} src={icon} alt="timeframe" />
           <button
             type="button"
             style={style3}

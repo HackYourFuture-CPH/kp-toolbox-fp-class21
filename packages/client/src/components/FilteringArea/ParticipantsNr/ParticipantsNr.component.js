@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import icon from './filter-participants-vector-people.png';
 
 export const ParticipantsNr = () => {
   const [selectedParticipantsNr, setParticipantsNr] = useState('1-200');
@@ -60,11 +61,7 @@ export const ParticipantsNr = () => {
       <span style={ParticipantsNrStyle}> NUMBER OF PARTICIPANTS</span>
       <section style={containerStyle} className="time-frame-div">
         <section style={containerStyle}>
-          <img
-            style={peopleStyle}
-            src="./filter-participants-vector-people.png"
-            alt=""
-          />
+          <img style={peopleStyle} src={icon} alt="paticipants" />
           <button
             type="button"
             style={style3}
