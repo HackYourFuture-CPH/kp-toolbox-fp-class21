@@ -1,13 +1,22 @@
 import React from 'react';
+// import PropTypes from 'prop-types';
 
 export const CategoryDoubleContainer = (tool) => {
   const { category } = tool;
   return (
-    <a href="/" className="category-double-container">
+    <button type="button" className="category-double-container">
       <div className="category-icon-container">
         <img className="category-icon" src="" alt="tool" />
       </div>
       <div className="category-double-title-container">{category}</div>
-    </a>
+    </button>
   );
 };
+
+// CategoryDoubleContainer.propTypes = {
+//   tool: PropTypes.isRequired,
+// };
+
+// CategoryDoubleContainer.defaultProps = {
+//   tool: 'CategoryDoubleContainer',
+// };

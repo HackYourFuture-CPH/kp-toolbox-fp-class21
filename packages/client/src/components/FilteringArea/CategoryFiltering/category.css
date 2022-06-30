@@ -8,12 +8,15 @@
   padding: 0;
 }
 
-a:link {
+/* a:link {
   text-decoration: none;
+} */
+.category-single-title-container:hover {
+  outline: 0.25rem solid rgba(140, 92, 2, 1);
 }
 
-a:hover {
-  border: 4px solid rgba(140, 92, 2, 1);
+.category-double-container:hover {
+  outline: 0.25rem solid rgba(140, 92, 2, 1);
 }
 
 /* body {
@@ -21,7 +24,7 @@ a:hover {
 } */
 
 .layout {
-  padding-bottom: 18px;
+  padding-bottom: 1.125rem;
   background-image: linear-gradient(
       180deg,
       rgba(28, 56, 64, 0.7) 0%,
@@ -35,9 +38,9 @@ a:hover {
 /* remove it before push */
 /* Styling for temporary container for testing css  */
 .just-a-parent-container {
-  width: 1220px;
+  width: 75rem;
   margin: 0 auto;
-  padding-bottom: 18px;
+  padding-bottom: 1.125rem;
   background: rgba(245, 245, 245, 0.05);
   mix-blend-mode: normal;
 }
@@ -45,37 +48,41 @@ a:hover {
 
 /* Category title */
 .category-title {
-  color: white;
+  color: rgb(245, 245, 245);
   text-align: left;
-  padding: 18px 0;
-  padding-left: 87px;
+  padding: 1.125rem 0;
+  padding-left: 5.4rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 2rem;
+  line-height: 1.425rem;
 }
 
 /* Main container for Category section */
 .category-container {
   display: flex;
   width: 100%;
-  height: 294px;
+  height: 18.375rem;
   padding: 0 89px;
 }
 
 /* Container for single square component on the left side */
 .category-left-side-container {
-  width: 144px;
-  height: 288px;
-  margin-right: 10px;
+  width: 9rem;
+  height: 18rem;
+  margin-right: 0.625rem;
 }
 
 /* Single square component on the left side */
 .category-single-title-container,
 .category-single-icon-container {
   display: inline-block;
-  margin-top: 3px;
-  margin-bottom: 3px;
-  margin-right: 10px;
-  width: 144px;
-  height: 144px;
-  border: 2px solid black;
+  margin-top: 0.188rem;
+  margin-bottom: 0.188rem;
+  margin-right: 0.555rem;
+  width: 9rem;
+  height: 9rem;
+  border: 0.125rem solid black;
 }
 
 .category-single-icon-container {
@@ -89,12 +96,12 @@ a:hover {
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
-  color: white;
+  color: rgb(245, 245, 245);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 16px;
+  font-size: 1rem;
+  line-height: 1rem;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -107,23 +114,24 @@ a:hover {
 /* Double square component on the right side */
 .category-double-container {
   display: flex;
-  margin: 3px;
-  width: 288px;
-  height: 144px;
-  border: 2px solid black;
+  margin: 0.188rem;
+  width: 18rem;
+  height: 9rem;
+  border: 0.125rem solid black;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .category-icon-container {
   justify-content: center;
   width: 100%;
   height: 100%;
-  border-right: 1px solid rgba(0, 0, 0, 1);
+  border-right: 0.0625rem solid rgba(0, 0, 0, 1);
 }
 
 .category-double-title-container {
   width: 100%;
   height: 100%;
-  border-width: 3px;
+  border-width: 0.188rem;
 
   border-color: black;
 }

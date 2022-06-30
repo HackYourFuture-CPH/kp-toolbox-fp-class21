@@ -3,7 +3,10 @@ import { CategoryDoubleContainer } from './CategoryDoubleContainer';
 
 const tools = [
   { id: 1, category: 'Energizers' },
-  { id: 2, category: 'Action & decision making' },
+  {
+    id: 2,
+    category: `Action & decision making`,
+  },
   { id: 3, category: 'Innovation & ideation' },
   { id: 4, category: 'Meeting & facilitation' },
   { id: 5, category: 'Team development & collaboration' },
@@ -16,9 +19,9 @@ export const CategoryList = () => {
       <h2 className="category-title">Browse by CATEGORY</h2>
       <div className="category-container">
         <div className="category-left-side-container">
-          <a href="/" className="category-single-title-container">
+          <button type="button" className="category-single-title-container">
             Show all
-          </a>
+          </button>
           <div className="category-single-icon-container">
             <img className="category-icon" src="" alt="tool" />
           </div>
