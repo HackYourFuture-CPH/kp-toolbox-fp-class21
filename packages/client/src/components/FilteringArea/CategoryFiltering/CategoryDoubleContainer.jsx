@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
 export const CategoryDoubleContainer = (tool) => {
   const { category } = tool;
@@ -12,11 +11,3 @@ export const CategoryDoubleContainer = (tool) => {
     </button>
   );
 };
-
-// CategoryDoubleContainer.propTypes = {
-//   tool: PropTypes.isRequired,
-// };
-
-// CategoryDoubleContainer.defaultProps = {
-//   tool: 'CategoryDoubleContainer',
-// };
