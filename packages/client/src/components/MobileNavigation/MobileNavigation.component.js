@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import './MobileNavigation.css';
 
-export const MobileNavigation = ({ isOpenStory, ...props }) => {
-  const [isOpen, setIsOpen] = useState(isOpenStory);
+export const MobileNavigation = () => {
+  const [isOpen, setIsOpen] = useState(false);
   function openMobileNav() {
     setIsOpen(true);
   }
@@ -38,11 +37,4 @@ export const MobileNavigation = ({ isOpenStory, ...props }) => {
       </div>
     </div>
   );
-};
-
-MobileNavigation.propTypes = {
-  isOpenStory: PropTypes.bool,
-};
-MobileNavigation.defaultProps = {
-  isOpenStory: false,
 };

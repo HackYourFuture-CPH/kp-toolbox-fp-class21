@@ -6,9 +6,6 @@ export default {
   title: 'Mobile Navigation Menu',
   component: MobileNavigation.component,
 };
-const TemplateMobileNavigataion = (args) => <MobileNavigation {...args} />;
+const TemplateMobileNavigataion = () => <MobileNavigation />;
 
 export const mobileNavigataionOpened = TemplateMobileNavigataion.bind({});
-mobileNavigataionOpened.args = {
-  isOpenStory: true,
-};
