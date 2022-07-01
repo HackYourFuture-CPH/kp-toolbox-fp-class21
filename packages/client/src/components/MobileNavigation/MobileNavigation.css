@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.mobile-navigation-container .mobile-navbar-links-wrapper {
+  background: linear-gradient(180deg, rgba(28, 56, 64, 0.7) 0%, rgba(28, 65, 64, 0.7) 0.01%, rgba(28, 65, 64, 0.7) 100%),
+    url("../../../public/assets/images/body-background-image-concrete.png");
+  background-repeat: repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.666s ease-out;
+  width: 100vw;
+  height: 0;
+
+}
+
+.mobile-navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
+}
+
+.mobile-navigation a {
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: 'Open Sans';
+}
+
+.mobile-navbar-btn {
+  border: none;
+  background: none;
+  border-radius: 0;
+  cursor: pointer;
+  padding: 0;
+  aspect-ratio: 1/1;
+}
+
+.mobile-navbar-links-wrapper .mobile-navbar-btn {
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+  display: block;
+  margin-left: auto;
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+
+.mobile-navigation-container--opened .mobile-navbar-links-wrapper .mobile-navbar-btn {
+  opacity: 1;
+}
+
+.mobile-navigation-container.mobile-navigation-container--opened .mobile-navbar-links-wrapper {
+  height: 100vh;
+}
