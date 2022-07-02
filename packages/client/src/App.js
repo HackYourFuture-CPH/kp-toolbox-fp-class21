@@ -11,25 +11,19 @@ function App() {
     <div className="app">
       <Router>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="*" element={<PageNotFound />} />
-          <Route path="/about-toolbox" element={<for_about file />} />
-          <Route path="/contact-us" element={<for_contact_us file />} />
-          <Route path="/user-name" element={<for_user_name file />} />
-          <Route path="/log-in" element={<for_log_in file />} />
-          <Route path="/log-out" element={<for_log_out file />} />
-          <Route path="/favourites" element={<for_favourites file />} />
-        </Routes>
-      </Router>
-      <Main>
-        <Router>
+        <Main>
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="*" element={<PageNotFound />} />
+            <Route path="/about-toolbox" element={<for_about file />} />
+            <Route path="/contact-us" element={<for_contact_us file />} />
+            <Route path="/user-name" element={<for_user_name file />} />
+            <Route path="/log-in" element={<for_log_in file />} />
+            <Route path="/log-out" element={<for_log_out file />} />
+            <Route path="/favourites" element={<for_favourites file />} />
           </Routes>
-        </Router>
-      </Main>
+        </Main>
+      </Router>
     </div>
   );
 }
