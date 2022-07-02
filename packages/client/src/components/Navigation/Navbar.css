@@ -1,19 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-* {
-  padding: 0;
-  margin: 0;
-}
-
 .navigation-bar {
-  margin-bottom: 10px;
   width: 100%;
-  background: linear-gradient(
-      180deg,
+  background: linear-gradient(180deg,
       rgba(28, 56, 64, 0.7) 0%,
       rgba(28, 65, 64, 0.7) 0.01%,
-      rgba(28, 65, 64, 0.7) 100%
-    ),
+      rgba(28, 65, 64, 0.7) 100%),
     url('../../../public/assets/images/body-background-image-concrete.png');
   background-repeat: repeat;
   font-family: 'Open Sans';
@@ -48,17 +40,20 @@
   align-items: center;
   gap: 2rem;
 }
+
 .navbar-links a {
   color: rgba(255, 255, 255, 1);
   font-size: 1.25rem;
   text-decoration: none;
 }
+
 .nav-icon-placeholder {
   aspect-ratio: 1/1;
   border-style: solid;
   display: flex;
   align-items: center;
 }
+
 .user-name-container,
 .log-in-container,
 .log-out-container,
@@ -71,6 +66,10 @@
   width: 8rem;
   width: auto;
   font-size: 1.25rem;
+}
+
+.hide {
+  display: none;
 }
 
 @media screen and (max-width: 1300px) {
