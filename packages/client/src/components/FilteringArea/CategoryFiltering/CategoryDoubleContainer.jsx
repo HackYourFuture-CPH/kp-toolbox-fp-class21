@@ -4,7 +4,7 @@ export const CategoryDoubleContainer = (tool) => {
   const { category } = tool;
   return (
     <button type="button" className="category-double-container">
-      <div className="category-icon-container">
+      <div className="category-icon-container mobile-hide">
         <img className="category-icon" src="" alt="tool" />
       </div>
       <div className="category-double-title-container">{category}</div>

@@ -5,11 +5,11 @@ export const TimeFrame = () => {
   const [selectedTimeFrame, setTimeFrame] = useState('1-200');
 
   return (
-    <section>
+    <section className="flex-column">
       {/* TIME FRAME */}
-      <div className="category-title1"> TIME FRAME</div>
-      <section className="containerStyle">
-        <section className="containerStyle">
+      <h2 className="category-title1"> TIME FRAME</h2>
+      <section className="flex mobile-flex-vertical">
+        <section className="flex flex-grow-double">
           <img className="clockStyle" src={icon} alt="timeframe" />
           <button
             type="button"
@@ -21,10 +21,10 @@ export const TimeFrame = () => {
             SHOW ALL
           </button>
         </section>
-        <section className="style">
+        <section className="small-buttons-section">
           <button
             type="button"
-            className="style2"
+            className="small-filtering-button"
             onClick={() => {
               setTimeFrame('1-4');
             }}
@@ -33,7 +33,7 @@ export const TimeFrame = () => {
           </button>
           <button
             type="button"
-            className="style2"
+            className="small-filtering-button"
             onClick={() => {
               setTimeFrame('5-10');
             }}
@@ -42,7 +42,7 @@ export const TimeFrame = () => {
           </button>
           <button
             type="button"
-            className="style2"
+            className="small-filtering-button"
             onClick={() => {
               setTimeFrame('11-20');
             }}
@@ -51,7 +51,7 @@ export const TimeFrame = () => {
           </button>
           <button
             type="button"
-            className="style2"
+            className="small-filtering-button"
             onClick={() => {
               setTimeFrame('21-50');
             }}
@@ -60,7 +60,7 @@ export const TimeFrame = () => {
           </button>
           <button
             type="button"
-            className="style2"
+            className="small-filtering-button"
             onClick={() => {
               setTimeFrame('51-100');
             }}
@@ -69,7 +69,7 @@ export const TimeFrame = () => {
           </button>
           <button
             type="button"
-            className="style2"
+            className="small-filtering-button"
             onClick={() => {
               setTimeFrame('101-200');
             }}

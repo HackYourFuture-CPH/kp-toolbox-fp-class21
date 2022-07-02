@@ -19,10 +19,13 @@ export const CategoryList = () => {
       <div className="category-title">Browse by CATEGORY</div>
       <div className="category-container">
         <div className="category-left-side-container">
-          <button type="button" className="category-single-title-container">
+          <button
+            type="button"
+            className="category-single-title-container mobile-single-container"
+          >
             Show all
           </button>
-          <div className="category-single-icon-container">
+          <div className="category-single-icon-container mobile-single-container">
             <img className="category-icon" src="" alt="tool" />
           </div>
         </div>

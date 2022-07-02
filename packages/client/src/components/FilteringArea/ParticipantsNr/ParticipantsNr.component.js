@@ -5,12 +5,12 @@ export const ParticipantsNr = () => {
   const [selectedParticipantsNr, setParticipantsNr] = useState('1-200');
 
   return (
-    <section>
+    <section className="flex-column">
       {/* ParticipantsNr */}
-      <div className="category-title1">NUMBER OF PARTICIPANTS </div>
-      <section className="containerStyle">
-        <section className="containerStyle">
-          <img className="peopleStyle" src={icon} alt="paticipants" />
+      <h2 className="category-title1">NUMBER OF PARTICIPANTS </h2>
+      <section className="flex mobile-flex-vertical">
+        <section className="flex">
+          <img className="peopleStyle" src={icon} alt="participants" />
           <button
             type="button"
             className="category-single-title-container"
@@ -21,10 +21,10 @@ export const ParticipantsNr = () => {
             SHOW ALL
           </button>
         </section>
-        <section className="style">
+        <section className="small-buttons-section">
           <button
             type="button"
-            className="style2"
+            className="small-filtering-button"
             onClick={() => {
               setParticipantsNr('1-4');
             }}
@@ -33,7 +33,7 @@ export const ParticipantsNr = () => {
           </button>
           <button
             type="button"
-            className="style2"
+            className="small-filtering-button"
             onClick={() => {
               setParticipantsNr('5-10');
             }}
@@ -42,7 +42,7 @@ export const ParticipantsNr = () => {
           </button>
           <button
             type="button"
-            className="style2"
+            className="small-filtering-button"
             onClick={() => {
               setParticipantsNr('11-20');
             }}
@@ -51,7 +51,7 @@ export const ParticipantsNr = () => {
           </button>
           <button
             type="button"
-            className="style2"
+            className="small-filtering-button"
             onClick={() => {
               setParticipantsNr('21-50');
             }}
@@ -60,7 +60,7 @@ export const ParticipantsNr = () => {
           </button>
           <button
             type="button"
-            className="style2"
+            className="small-filtering-button"
             onClick={() => {
               setParticipantsNr('51-100');
             }}
@@ -69,7 +69,7 @@ export const ParticipantsNr = () => {
           </button>
           <button
             type="button"
-            className="style2"
+            className="small-filtering-button"
             onClick={() => {
               setParticipantsNr('101-200');
             }}
