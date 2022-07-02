@@ -2,7 +2,7 @@ import React from 'react';
 import { ToolsGrid } from './ToolsGrid.component';
 
 export default {
-  title: 'Grid',
+  title: 'Example/ToolsGrid',
   component: ToolsGrid.component,
 };
 
