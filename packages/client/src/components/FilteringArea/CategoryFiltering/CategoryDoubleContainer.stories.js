@@ -6,4 +6,4 @@ export default {
   component: CategoryDoubleContainer,
 };
 
-export const categoryDoubleContainer = () => <CategoryDoubleContainer />;
+export const Primary = () => <CategoryDoubleContainer />;
