@@ -17,7 +17,7 @@ export const MobileNavigation = () => {
     >
       <button
         type="button"
-        className="mobile-navbar-btn"
+        className="mobile-navbar-btn nav-icon-placeholder"
         onClick={openMobileNav}
       >
         icon
@@ -25,7 +25,7 @@ export const MobileNavigation = () => {
       <div className="mobile-navbar-links-wrapper">
         <button
           type="button"
-          className="mobile-navbar-btn"
+          className="mobile-navbar-btn nav-icon-placeholder"
           onClick={closeMobileNav}
         >
           icon
