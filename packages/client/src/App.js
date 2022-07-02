@@ -4,6 +4,7 @@ import './App.css';
 import { LandingPage } from './containers/LandingPage/LandingPage.Container';
 import { PageNotFound } from './containers/PageNotFound/PageNotFound.Container';
 import { Navbar } from './components/Navigation/Navbar';
+import { Main } from './components/Main/Main';
 
 function App() {
   return (
@@ -21,6 +22,14 @@ function App() {
           <Route path="/favourites" element={<for_favourites file />} />
         </Routes>
       </Router>
+      <Main>
+        <Router>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </Router>
+      </Main>
     </div>
   );
 }
