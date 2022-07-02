@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { MobileNavigation } from '../MobileNavigation/MobileNavigation.component';
 import './Navbar.css';
 
 export const Navbar = ({ isLogedIn, userName, ...props }) => {
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   return (
     <header className="navigation-bar">
       <div className="navigation-bar-container">
         <div className="logo">
-          <Link to="./">
+          <Link to="/">
             <span>KAOSPILOT toolbox</span>
           </Link>
         </div>
@@ -24,7 +25,7 @@ export const Navbar = ({ isLogedIn, userName, ...props }) => {
           <div className={`user-name-container ${!isLogedIn ? 'hide' : ''}`}>
             <span className="nav-icon-placeholder"> icon</span>
             <Link className="navbar-link" to="/user-name">
-              Hi, {userName}!{' '}
+              Hi, {userName}!
             </Link>
           </div>
           <div className={`log-in-container ${isLogedIn ? 'hide' : ''}`}>
@@ -45,8 +46,17 @@ export const Navbar = ({ isLogedIn, userName, ...props }) => {
               favourites
             </Link>
           </div>
-          <MobileNavigation />
+          <button
+            type="button"
+            className="nav-icon-placeholder mobile-open-btn"
+            onClick={() => {
+              setIsMobileNavOpen(!isMobileNavOpen);
+            }}
+          >
+            {isMobileNavOpen ? 'x' : 'icon'}
+          </button>
         </nav>
+        <MobileNavigation open={isMobileNavOpen} />
       </div>
     </header>
   );

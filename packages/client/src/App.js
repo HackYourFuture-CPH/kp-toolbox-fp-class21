@@ -15,12 +15,12 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="*" element={<PageNotFound />} />
-            <Route path="/about-toolbox" element={<for_about file />} />
-            <Route path="/contact-us" element={<for_contact_us file />} />
-            <Route path="/user-name" element={<for_user_name file />} />
-            <Route path="/log-in" element={<for_log_in file />} />
-            <Route path="/log-out" element={<for_log_out file />} />
-            <Route path="/favourites" element={<for_favourites file />} />
+            <Route path="/about-toolbox" element="" />
+            <Route path="/contact-us" element="" />
+            <Route path="/user-name" element="" />
+            <Route path="/log-in" element="" />
+            <Route path="/log-out" element="" />
+            <Route path="/favourites" element="" />
           </Routes>
         </Main>
       </Router>

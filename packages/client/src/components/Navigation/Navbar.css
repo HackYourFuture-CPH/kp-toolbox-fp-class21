@@ -63,6 +63,7 @@ header>* {
   color: rgba(255, 255, 255, 1);
 }
 
+
 .navbar-links-container {
   display: flex;
   justify-content: flex-end;
@@ -77,11 +78,25 @@ header>* {
 
 .nav-icon-placeholder {
   aspect-ratio: 1/1;
-  border-style: solid;
-  border-width: 1px;
+  height: 2rem;
+  border: 1px solid rgba(255, 255, 255, 1);
   display: flex;
   align-items: center;
 }
+
+.nav-icon-placeholder,
+.mobile-open-btn {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.mobile-open-btn {
+  background: transparent;
+  padding: 0;
+  z-index: 999;
+  cursor: pointer;
+}
+
 
 .user-name-container,
 .log-in-container,
@@ -92,7 +107,8 @@ header>* {
   justify-content: flex-end;
 }
 
-.hide {
+.hide,
+.mobile-open-btn {
   display: none;
 }
 
@@ -109,6 +125,10 @@ header>* {
 
   .navigation-bar-container {
     padding: 0;
+  }
+
+  .mobile-open-btn {
+    display: block;
   }
 }
 

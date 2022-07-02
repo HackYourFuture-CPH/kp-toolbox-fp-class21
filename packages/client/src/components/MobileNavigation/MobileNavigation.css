@@ -1,68 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
-.mobile-navigation-container .mobile-navbar-links-wrapper {
+.mobile-navigation {
   background: linear-gradient(180deg, rgba(28, 56, 64, 0.7) 0%, rgba(28, 65, 64, 0.7) 0.01%, rgba(28, 65, 64, 0.7) 100%),
     url("../../../public/assets/images/body-background-image-concrete.png");
   background-repeat: repeat;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: all 0.666s ease-out;
+  z-index: 1;
   width: 100vw;
-  height: 0;
-  z-index: 999;
-}
-
-
-
-.mobile-navigation {
+  height: 0%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  transition: visibility 0.5s ease-in-out, height 0.65s ease-in-out;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 10vh;
-  opacity: 0;
+  justify-content: center;
+  align-content: center;
 }
 
-.mobile-navigation a {
-  font-size: 1.5rem;
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  font-family: 'Open Sans';
-}
-
-.mobile-navbar-btn {
-  font-size: 1rem;
-  border: none;
-  background: none;
-  border-radius: 0;
-  cursor: pointer;
-  padding: 0;
-  aspect-ratio: 1/1;
-}
-
-.mobile-navbar-links-wrapper .mobile-navbar-btn {
-  opacity: 0;
-  transition: opacity 0.2s ease-out;
-  display: block;
-  margin-left: auto;
-  margin-top: 1rem;
-  margin-right: 1rem;
-}
-
-.mobile-navigation-container--opened .mobile-navbar-links-wrapper .mobile-navbar-btn {
-  opacity: 1;
-}
-
-.mobile-navigation-container.mobile-navigation-container--opened .mobile-navbar-links-wrapper {
+.mobile-navigation.open {
+  visibility: visible;
   height: 100vh;
 }
 
-.mobile-navigation-container.mobile-navigation-container--opened .mobile-navigation {
-  opacity: 1;
-}
 
-@media screen and (min-width: 1231px) {
-  .mobile-navigation-container {
-    display: none;
-  }
+.mobile-navigation a {
+  font-size: 1.25rem;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Open Sans';
 }

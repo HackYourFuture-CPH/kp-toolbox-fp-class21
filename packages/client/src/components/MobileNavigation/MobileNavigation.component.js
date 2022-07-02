@@ -1,40 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './MobileNavigation.css';
 
-export const MobileNavigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  function openMobileNav() {
-    setIsOpen(true);
-  }
-  function closeMobileNav() {
-    setIsOpen(false);
-  }
+export const MobileNavigation = (props) => {
+  const isOpenClass = props.open
+    ? 'mobile-navigation open'
+    : 'mobile-navigation';
   return (
-    <div
-      className={`mobile-navigation-container ${
-        isOpen ? 'mobile-navigation-container--opened' : ' '
-      }`}
-    >
-      <button
-        type="button"
-        className="mobile-navbar-btn nav-icon-placeholder"
-        onClick={openMobileNav}
-      >
-        icon
-      </button>
-      <div className="mobile-navbar-links-wrapper">
-        <button
-          type="button"
-          className="mobile-navbar-btn nav-icon-placeholder"
-          onClick={closeMobileNav}
-        >
-          icon
-        </button>
-        <nav className="mobile-navigation">
-          <a href="/about-toolbox">about toolbox</a>
-          <a href="/contact-us">contact us</a>
-        </nav>
-      </div>
-    </div>
+    <nav className={isOpenClass}>
+      <Link to="/about-toolbox">about toolbox</Link>
+      <Link to="/contact-us">contact us</Link>
+    </nav>
   );
+};
+MobileNavigation.propTypes = {
+  open: PropTypes.bool.isRequired,
 };
