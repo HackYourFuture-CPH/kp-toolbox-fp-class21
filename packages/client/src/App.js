@@ -7,12 +7,12 @@ import { PageNotFound } from './containers/PageNotFound/PageNotFound.Container';
 function App() {
   return (
     <div className="app">
-      <Router>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </Router>
+        <Router>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </Router>
     </div>
   );
 }
