@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import icon from './filter-participants-vector-people.png';
+import PropTypes, { func } from 'prop-types';
 
-export const ParticipantsNr = () => {
-  const [selectedParticipantsNr, setParticipantsNr] = useState('1-200');
-
+export const ParticipantsNr = ({ setSelectedValue }) => {
   return (
     <section className="flex-column">
       {/* ParticipantsNr */}
@@ -15,7 +14,7 @@ export const ParticipantsNr = () => {
             type="button"
             className="category-single-title-container"
             onClick={() => {
-              setParticipantsNr('1-200');
+              setSelectedValue('1-200');
             }}
           >
             SHOW ALL
@@ -26,7 +25,7 @@ export const ParticipantsNr = () => {
             type="button"
             className="small-filtering-button"
             onClick={() => {
-              setParticipantsNr('1-4');
+              setSelectedValue('1-4');
             }}
           >
             1-4
@@ -35,7 +34,7 @@ export const ParticipantsNr = () => {
             type="button"
             className="small-filtering-button"
             onClick={() => {
-              setParticipantsNr('5-10');
+              setSelectedValue('5-10');
             }}
           >
             5-10
@@ -44,7 +43,7 @@ export const ParticipantsNr = () => {
             type="button"
             className="small-filtering-button"
             onClick={() => {
-              setParticipantsNr('11-20');
+              setSelectedValue('11-20');
             }}
           >
             11-20
@@ -53,7 +52,7 @@ export const ParticipantsNr = () => {
             type="button"
             className="small-filtering-button"
             onClick={() => {
-              setParticipantsNr('21-50');
+              setSelectedValue('21-50');
             }}
           >
             21-50
@@ -62,7 +61,7 @@ export const ParticipantsNr = () => {
             type="button"
             className="small-filtering-button"
             onClick={() => {
-              setParticipantsNr('51-100');
+              setSelectedValue('51-100');
             }}
           >
             51-100
@@ -71,7 +70,7 @@ export const ParticipantsNr = () => {
             type="button"
             className="small-filtering-button"
             onClick={() => {
-              setParticipantsNr('101-200');
+              setSelectedValue('101-200');
             }}
           >
             101-200
@@ -80,4 +79,12 @@ export const ParticipantsNr = () => {
       </section>
     </section>
   );
+};
+
+ParticipantsNr.defaultProps = {
+  setSelectedValue: func,
+};
+
+ParticipantsNr.propTypes = {
+  setSelectedValue: PropTypes.func,
 };

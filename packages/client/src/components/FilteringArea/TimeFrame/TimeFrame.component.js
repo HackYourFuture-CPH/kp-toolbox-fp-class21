@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import icon from './Vector_385.png';
+import PropTypes, { func } from 'prop-types';
 
-export const TimeFrame = () => {
-  const [selectedTimeFrame, setTimeFrame] = useState('1-200');
-
+export const TimeFrame = ({ setSelectedValue }) => {
   return (
     <section className="flex-column">
       {/* TIME FRAME */}
@@ -15,7 +14,7 @@ export const TimeFrame = () => {
             type="button"
             className="category-single-title-container"
             onClick={() => {
-              setTimeFrame('1-200');
+              setSelectedValue('1-200');
             }}
           >
             SHOW ALL
@@ -26,7 +25,7 @@ export const TimeFrame = () => {
             type="button"
             className="small-filtering-button"
             onClick={() => {
-              setTimeFrame('1-4');
+              setSelectedValue('1-4');
             }}
           >
             1-4
@@ -35,7 +34,7 @@ export const TimeFrame = () => {
             type="button"
             className="small-filtering-button"
             onClick={() => {
-              setTimeFrame('5-10');
+              setSelectedValue('5-10');
             }}
           >
             5-10
@@ -44,7 +43,7 @@ export const TimeFrame = () => {
             type="button"
             className="small-filtering-button"
             onClick={() => {
-              setTimeFrame('11-20');
+              setSelectedValue('11-20');
             }}
           >
             11-20
@@ -53,7 +52,7 @@ export const TimeFrame = () => {
             type="button"
             className="small-filtering-button"
             onClick={() => {
-              setTimeFrame('21-50');
+              setSelectedValue('21-50');
             }}
           >
             21-50
@@ -62,7 +61,7 @@ export const TimeFrame = () => {
             type="button"
             className="small-filtering-button"
             onClick={() => {
-              setTimeFrame('51-100');
+              setSelectedValue('51-100');
             }}
           >
             51-100
@@ -71,7 +70,7 @@ export const TimeFrame = () => {
             type="button"
             className="small-filtering-button"
             onClick={() => {
-              setTimeFrame('101-200');
+              setSelectedValue('101-200');
             }}
           >
             101-200
@@ -80,4 +79,12 @@ export const TimeFrame = () => {
       </section>
     </section>
   );
+};
+
+TimeFrame.defaultProps = {
+  setSelectedValue: func,
+};
+
+TimeFrame.propTypes = {
+  setSelectedValue: PropTypes.func,
 };

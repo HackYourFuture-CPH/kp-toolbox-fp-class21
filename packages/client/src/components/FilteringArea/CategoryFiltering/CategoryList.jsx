@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes, { func } from 'prop-types';
 import { CategoryDoubleContainer } from './CategoryDoubleContainer';
 
 const tools = [
@@ -13,7 +14,7 @@ const tools = [
   { id: 6, category: 'Check-in & check-out' },
 ];
 
-export const CategoryList = () => {
+export const CategoryList = ({ setSelectedValue }) => {
   return (
     <div className="layout">
       <div className="category-title">Browse by CATEGORY</div>
@@ -22,6 +23,9 @@ export const CategoryList = () => {
           <button
             type="button"
             className="category-single-title-container mobile-single-container"
+            onClick={() => {
+              setSelectedValue('');
+            }}
           >
             Show all
           </button>
@@ -31,10 +35,24 @@ export const CategoryList = () => {
         </div>
         <div className="category-right-side-container">
           {tools.map((tool) => (
-            <CategoryDoubleContainer key={tool.id} {...tool} />
+            <CategoryDoubleContainer
+              key={tool.id}
+              {...tool}
+              setSelectedValue={setSelectedValue}
+            />
           ))}
         </div>
       </div>
     </div>
   );
+};
+
+CategoryList.defaultProps = {
+  selectedValue: '',
+  setSelectedValue: func,
+};
+
+CategoryList.propTypes = {
+  selectedValue: PropTypes.string,
+  setSelectedValue: PropTypes.func,
 };
