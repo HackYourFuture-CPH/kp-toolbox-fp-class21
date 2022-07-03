@@ -102,7 +102,7 @@
 /* Container for single square component on the left side */
 .category-left-side-container {
   width: 9rem;
-  margin-right: 0.625rem;
+  margin-right: 0.1rem;
 }
 
 /* Single square component on the left side */
@@ -386,9 +386,20 @@
   .peopleStyle,
   .clockStyle,
   .category-single-title-container,
-  .category-single-icon-container {
+  .category-single-icon-container,
+  .category-double-container {
     width: 6rem;
     height: 6rem;
+  }
+
+  .filteringAreaWrapper,
+  .filteringAreaContent,
+  .category-container,
+  .participantNrTimeFrameSection {
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
   }
 
   .participantNrTimeFrameSection {
@@ -413,11 +424,7 @@
 
   .small-filtering-button {
     line-height: 1.5rem;
-  }
-
-  .category-double-container {
-    width: auto;
-    height: auto;
+    width: 5.5rem;
   }
 
   .mobile-hide {

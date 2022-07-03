@@ -7,8 +7,8 @@ export const ParticipantsNr = ({ setSelectedValue }) => {
     <section className="flex-column">
       {/* ParticipantsNr */}
       <h2 className="category-title1">NUMBER OF PARTICIPANTS </h2>
-      <section className="flex mobile-flex-vertical">
-        <section className="flex">
+      <div className="flex mobile-flex-vertical">
+        <div className="flex">
           <img className="peopleStyle" src={icon} alt="participants" />
           <button
             type="button"
@@ -19,8 +19,8 @@ export const ParticipantsNr = ({ setSelectedValue }) => {
           >
             SHOW ALL
           </button>
-        </section>
-        <section className="small-buttons-section">
+        </div>
+        <div className="small-buttons-section">
           <button
             type="button"
             className="small-filtering-button"
@@ -75,8 +75,8 @@ export const ParticipantsNr = ({ setSelectedValue }) => {
           >
             101-200
           </button>
-        </section>
-      </section>
+        </div>
+      </div>
     </section>
   );
 };

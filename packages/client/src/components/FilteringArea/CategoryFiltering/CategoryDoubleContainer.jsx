@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes, { func } from 'prop-types';
 
-export const CategoryDoubleContainer = (props) => {
-  const { category } = props.tool;
+export const CategoryDoubleContainer = (tool, { setSelectedValue }) => {
+  const { category } = tool;
   return (
     <button
       type="button"
       className="category-double-container"
-      onClick={() => props.setSelectedValue(category)}
+      onClick={() => setSelectedValue(category)}
     >
       <div className="category-icon-container mobile-hide">
         <img className="category-icon" src="" alt="tool" />
@@ -20,9 +20,4 @@ export const CategoryDoubleContainer = (props) => {
 CategoryDoubleContainer.defaultProps = {
   tool: ['any', 'array', 'object'],
   setSelectedValue: func,
-};
-
-CategoryDoubleContainer.propTypes = {
-  tool: ['any', 'array', 'object'],
-  setSelectedValue: PropTypes.func,
 };

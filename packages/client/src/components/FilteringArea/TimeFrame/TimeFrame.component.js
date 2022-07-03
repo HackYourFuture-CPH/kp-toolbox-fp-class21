@@ -7,8 +7,8 @@ export const TimeFrame = ({ setSelectedValue }) => {
     <section className="flex-column">
       {/* TIME FRAME */}
       <h2 className="category-title1"> TIME FRAME</h2>
-      <section className="flex mobile-flex-vertical">
-        <section className="flex flex-grow-double">
+      <div className="flex mobile-flex-vertical">
+        <div className="flex flex-grow-double">
           <img className="clockStyle" src={icon} alt="timeframe" />
           <button
             type="button"
@@ -19,8 +19,8 @@ export const TimeFrame = ({ setSelectedValue }) => {
           >
             SHOW ALL
           </button>
-        </section>
-        <section className="small-buttons-section">
+        </div>
+        <div className="small-buttons-section">
           <button
             type="button"
             className="small-filtering-button"
@@ -75,8 +75,8 @@ export const TimeFrame = ({ setSelectedValue }) => {
           >
             101-200
           </button>
-        </section>
-      </section>
+        </div>
+      </div>
     </section>
   );
 };
