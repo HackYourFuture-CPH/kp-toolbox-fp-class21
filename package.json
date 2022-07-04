@@ -5,7 +5,6 @@
     "packages/*"
   ],
   "engines": {
-    "npm": "please-use-yarn",
     "yarn": ">= 1.19.1",
     "node": ">= 16.15.1"
   },
