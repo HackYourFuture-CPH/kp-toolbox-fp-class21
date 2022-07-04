@@ -5,7 +5,7 @@ main {
       rgba(28, 65, 64, 0.8) 0.01%,
       rgba(7, 27, 32, 0.5) 100%
     ),
-    url('../../../public/assets/images/concrete-bw.png');
+    url('/assets/images/concrete-bw.png');
   background-repeat: repeat;
   height: 100vh;
 }
