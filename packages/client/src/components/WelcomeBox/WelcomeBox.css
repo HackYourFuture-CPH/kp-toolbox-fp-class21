@@ -1,0 +1,77 @@
+.welcome-box-wrapper,
+.welcome-box-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome-box-wrapper {
+  width: 100%; /*In relation to the parent component*/
+  height: 20rem;
+  margin: 0 auto 0 auto;
+  height: fit-content;
+  background-color: inherit;
+  color: #f5f5f5;
+}
+
+.welcome-box-content {
+  width: 78%;
+  text-align: center;
+}
+
+.welcome-box-heading {
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.welcome-box-image-placeholder {
+  height: 20vh;
+  width: 40vw;
+}
+
+.welcome-box-image-placeholder img {
+  width: inherit;
+  height: inherit;
+}
+
+.welcome-box-paragraph {
+  width: 70%;
+}
+
+@media screen and (min-width: 1px) and (max-width: 1220px) {
+  .welcome-box-image-placeholder {
+    width: 45vw;
+  }
+
+  .welcome-box-paragraph {
+    width: 75%;
+    font-size: 1.7vw;
+  }
+}
+
+@media screen and (min-width: 821px) and (max-width: 1219px) {
+  .welcome-box-paragraph {
+    width: 75%;
+    font-size: 1.5vw;
+  }
+}
+
+@media screen and (min-width: 1px) and (max-width: 820px) {
+  .welcome-box-heading {
+    font-size: 3vw;
+  }
+
+  .welcome-box-paragraph {
+    width: 87%;
+    font-size: 2.2vw;
+  }
+}
+
+@media screen and (min-width: 1px) and (max-width: 490px) {
+  .welcome-box-content {
+    width: 90%;
+  }
+  .welcome-box-paragraph {
+    font-size: 2.5vw;
+  }
+}
