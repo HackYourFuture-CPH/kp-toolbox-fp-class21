@@ -23,25 +23,31 @@ export const Navbar = ({ isLogedIn, userName, ...props }) => {
           </Link>
 
           <div className={`user-name-container ${!isLogedIn ? 'hide' : ''}`}>
-            <span className="nav-icon-placeholder"> icon</span>
+            <img src="/assets/vectors/vector-person-logged.svg" />
             <Link className="navbar-link" to="/user-name">
               Hi, {userName}!
             </Link>
           </div>
           <div className={`log-in-container ${isLogedIn ? 'hide' : ''}`}>
-            <span className="nav-icon-placeholder"> icon</span>
+            <img src="/assets/vectors/vector-person-not-logged.svg" />
             <Link className="navbar-link" to="/log-in">
               log In
             </Link>
           </div>
           <div className={`log-out-container ${!isLogedIn ? 'hide' : ''}`}>
-            <span className="nav-icon-placeholder"> icon</span>
+            <img src="/assets/vectors/vector-log-out.svg" />
             <Link className="navbar-link" to="/log-out">
               log out
             </Link>
           </div>
           <div className="favourite-container">
-            <span className="nav-icon-placeholder"> icon</span>
+            <img
+              src={`${
+                !isLogedIn
+                  ? '/assets/vectors/vector-favourites-empty-heart.svg'
+                  : '/assets/vectors/vector-favourites-full-heart.svg'
+              }`}
+            />
             <Link className="navbar-link" to="/favourites">
               favourites
             </Link>

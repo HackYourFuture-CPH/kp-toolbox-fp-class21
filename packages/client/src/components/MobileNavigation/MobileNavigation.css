@@ -7,7 +7,7 @@
       rgba(28, 65, 64, 0.7) 0.01%,
       rgba(28, 65, 64, 0.7) 100%
     ),
-    url('../../../public/assets/images/body-background-image-concrete.png');
+    url('../../../public/assets/images/concrete-bw.png');
   background-repeat: repeat;
   z-index: 1;
   width: 100vw;
