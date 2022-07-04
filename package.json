@@ -19,7 +19,8 @@
     "stylelint:fix": "yarn stylelint \"**/*.css\" --fix",
     "validate": "yarn prettier:check && yarn lint && yarn stylelint:check",
     "fix": "yarn prettier:fix && yarn lint:fix && yarn stylelint:fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "heroku-postbuild": "yarn workspace client build && cp -a packages/client/build/. packages/server/public/"
   },
   "devDependencies": {
     "eslint-plugin-prettier": "^4.0.0",
