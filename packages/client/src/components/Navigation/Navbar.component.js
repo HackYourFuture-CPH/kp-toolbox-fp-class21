@@ -23,43 +23,57 @@ export const Navbar = ({ isLogedIn, userName, ...props }) => {
           </Link>
 
           <div className={`user-name-container ${!isLogedIn ? 'hide' : ''}`}>
-            <img src="/assets/vectors/vector-person-logged.svg" />
             <Link className="navbar-link" to="/user-name">
-              Hi, {userName}!
+              <img
+                className="navbar-icon"
+                src="/assets/vectors/vector-person-logged.svg"
+                alt=""
+              />
+              <span> Hi, {userName}!</span>
             </Link>
           </div>
           <div className={`log-in-container ${isLogedIn ? 'hide' : ''}`}>
-            <img src="/assets/vectors/vector-person-not-logged.svg" />
             <Link className="navbar-link" to="/log-in">
-              log In
+              <img
+                className="navbar-icon"
+                src="/assets/vectors/vector-person-not-logged.svg"
+                alt=""
+              />
+              <span>sign in</span>
             </Link>
           </div>
           <div className={`log-out-container ${!isLogedIn ? 'hide' : ''}`}>
-            <img src="/assets/vectors/vector-log-out.svg" />
             <Link className="navbar-link" to="/log-out">
-              log out
+              <img
+                className="navbar-icon"
+                src="/assets/vectors/vector-log-out.svg"
+                alt=""
+              />
+              <span>sign out</span>
             </Link>
           </div>
           <div className="favourite-container">
-            <img
-              src={`${
-                !isLogedIn
-                  ? '/assets/vectors/vector-favourites-empty-heart.svg'
-                  : '/assets/vectors/vector-favourites-full-heart.svg'
-              }`}
-            />
             <Link className="navbar-link" to="/favourites">
-              favourites
+              <img
+                className="navbar-icon"
+                src={`${
+                  !isLogedIn
+                    ? '/assets/vectors/vector-favourites-empty-heart.svg'
+                    : '/assets/vectors/vector-favourites-full-heart.svg'
+                }`}
+                alt=""
+              />
+              <span>favourites</span>
             </Link>
           </div>
           <button
             type="button"
-            className="nav-icon-placeholder mobile-open-btn"
+            className={`mobile-open-btn ${isMobileNavOpen ? 'open' : ''}`}
             onClick={() => {
               setIsMobileNavOpen(!isMobileNavOpen);
             }}
           >
-            {isMobileNavOpen ? 'x' : 'icon'}
+            {isMobileNavOpen ? <span>&times;</span> : <span>&#x2630;</span>}
           </button>
         </nav>
         <MobileNavigation open={isMobileNavOpen} />
