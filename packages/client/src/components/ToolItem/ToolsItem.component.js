@@ -8,17 +8,21 @@ export const ToolsItem = () => {
       <div className="first">
         <div className="favourites-icon">
           <img
-            src="/assets/vectors/Vector-favourites.png"
+            src="/assets/vectors/vector-favourites-empty-heart.svg"
             alt="favourites-icon"
           />
         </div>
         <div className="icon-container">
           <div className="container-participants">
-            <div className="toolbox-img">i</div>
+            <div className="toolbox-img">
+              <img src="/assets/vectors/vector-people.svg" alt="people-icon" />
+            </div>
             <div className="toolbox-participants">5-10</div>
           </div>
           <div className="container-time">
-            <div className="toolbox-img">i</div>
+            <div className="toolbox-img">
+              <img src="/assets/vectors/vector-clock.svg" alt="time-icon" />
+            </div>
             <div className="toolbox-participants">1-4</div>
           </div>
         </div>
@@ -40,7 +44,7 @@ export const ToolsItem = () => {
         </div>
         <div className="title-image">
           <img
-            src="/assets/vectors/tool-pic-stinky-fish.png"
+            src="/assets/images/tool-pic-stinky-fish.png"
             alt="stinky-fish"
           />
         </div>
