@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+li {
+  list-style: none;
+}
+
+.first {
+  height: 314px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.second {
+  height: 82px;
+}
+
+.product-card-container {
+  aspect-ratio: 1/1;
+  width: 25rem;
+  height: 25rem;
+  box-sizing: border-box;
+  border-radius: 0.125rem;
+  border: 0.25rem solid rgba(0, 0, 0, 0.5);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+
+.favourites-icon {
+  display: flex;
+  justify-content: end;
+}
+
+.favourites-icon img {
+  aspect-ratio: 1/1;
+  width: 1.875rem;
+  height: 1.688rem;
+  margin-right: 0.25rem;
+  margin-top: 0.313rem;
+}
+
+.container-participants,
+.container-time {
+  display: flex;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.063rem;
+}
+
+.toolbox-img {
+  aspect-ratio: 1/1;
+  width: 1.5rem;
+  height: 1.5rem;
+  box-sizing: border-box;
+  border: 0.125rem solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.125rem;
+}
+
+.toolbox-participants {
+  margin-left: 0.188rem;
+  font-family: 'Abel';
+  font-style: normal;
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  color: rgba(245, 245, 245, 1);
+}
+
+.category-names li {
+  padding-right: 0.906rem;
+}
+
+.category-names {
+  font-family: 'Abel';
+  font-style: normal;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  justify-content: center;
+  color: rgba(245, 245, 245, 1);
+  margin-top: 1.125rem;
+  font-size: 1rem;
+  line-height: 0.875rem;
+  letter-spacing: 0.01em;
+}
+
+.toolbox-description-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbox-description-container {
+  width: 100%;
+}
+
+.product-description {
+  font-family: 'Abel';
+  font-style: normal;
+  font-size: 0.875rem;
+  line-height: 0.875rem;
+  text-align: center;
+  text-transform: lowercase;
+  color: rgb(245, 245, 245);
+  margin-left: 0.813rem;
+  margin-right: 0.813rem;
+  text-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.5);
+}
+
+.product-title {
+  text-align: center;
+  font-family: 'Abel';
+  font-size: 2rem;
+  line-height: 1.375;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  color: rgb(245, 245, 245);
+  margin: 1.25rem auto 0.5rem auto;
+  text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+}
+
+.title-image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.title-image img {
+  width: 16.25rem;
+  height: 6.25rem;
+}
+
+.product-button {
+  text-align: center;
+  letter-spacing: 0.05em;
+  height: 4.5rem;
+  width: 100%;
+  font-family: 'Abel';
+  font-weight: normal;
+  font-size: 2rem;
+  color: rgba(245, 245, 245, 1);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  padding: 0;
+}
+
+.product-button a {
+  color: rgba(245, 245, 245, 1);
+  text-decoration: none;
+}
+
+.tape-cut-img {
+  display: flex;
+}
+
+.tape-cut-img > img {
+  width: 100%;
+}
