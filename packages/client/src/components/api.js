@@ -1,4 +1,4 @@
-import getApiBaseUrl from "../../utils/getApiBaseURL";
+import getApiBaseUrl from "../utils/getApiBaseURL";
 
 export function getTools() {
   const promise = fetch(`${getApiBaseUrl()}/api/tools`).then((response) => response.json());

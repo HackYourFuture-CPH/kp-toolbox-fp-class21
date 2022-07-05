@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ToolsItem.style.css';
 import { Link } from 'react-router-dom';
 
-export const ToolsItem = () => {
+export const ToolsItem = ({ title, timeFrame, groupSize, description }) => {
   return (
     <div className="product-card-container">
       <div className="first">
@@ -17,13 +18,13 @@ export const ToolsItem = () => {
             <div className="toolbox-img">
               <img src="/assets/vectors/vector-people.svg" alt="people-icon" />
             </div>
-            <div className="toolbox-participants">5-10</div>
+            <div className="toolbox-participants">{groupSize}</div>
           </div>
           <div className="container-time">
             <div className="toolbox-img">
               <img src="/assets/vectors/vector-clock.svg" alt="time-icon" />
             </div>
-            <div className="toolbox-participants">1-4</div>
+            <div className="toolbox-participants">{timeFrame}</div>
           </div>
         </div>
         <div className="categorys-container">
@@ -35,12 +36,8 @@ export const ToolsItem = () => {
           </ul>
         </div>
         <div className="toolbox-description-container">
-          <span className="product-description">
-            share fears, anxieties and uncertainties related to the program
-            <br />
-            theme to create openness within a group.
-          </span>
-          <h6 className="product-title">STINKY FISH</h6>
+          <span className="product-description">{description}</span>
+          <h6 className="product-title">{title}</h6>
         </div>
         <div className="title-image">
           <img
@@ -61,4 +58,18 @@ export const ToolsItem = () => {
       </div>
     </div>
   );
+};
+
+ToolsItem.propTypes = {
+  title: PropTypes.string,
+  timeFrame: PropTypes.string,
+  groupSize: PropTypes.string,
+  description: PropTypes.string,
+};
+
+ToolsItem.defaultProps = {
+  title: null,
+  timeFrame: null,
+  groupSize: null,
+  description: null,
 };
