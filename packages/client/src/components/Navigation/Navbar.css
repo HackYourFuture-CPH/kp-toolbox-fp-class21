@@ -61,7 +61,7 @@ header > * {
 .logo a,
 .navbar-link {
   font-weight: 600;
-  color: rgba(255, 255, 255, 1);
+  color: rgb(245 245 245);
 }
 
 .user-name-container,
@@ -92,7 +92,7 @@ header > * {
 
 .mobile-open-btn {
   font-size: 2.5rem;
-  color: rgba(255, 255, 255, 1);
+  color: rgb(245 245 245);
   border: none;
   background: transparent;
   padding: 0;
@@ -203,5 +203,28 @@ header > * {
 @media screen and (max-width: 400px) {
   .logo a {
     font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .navbar-links-container {
+    gap: 0.3rem;
+  }
+
+  .navbar-icon {
+    height: 1.7rem;
+  }
+
+  .mobile-open-btn {
+    font-size: 1.7rem;
+  }
+
+  .mobile-open-btn.open {
+    font-size: 2.6rem;
+  }
+
+  .logo a {
+    font-size: 0.7rem;
+    text-underline-offset: 0.2rem;
   }
 }
