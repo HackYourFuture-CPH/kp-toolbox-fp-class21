@@ -1,4 +1,4 @@
-/* TODO: please delete this file once the database is implemented and get the data directly from the DB */
+/* TODO: please delete the file and refactor the code if you plan to get the data from DB */
 
 export const categories = [
   { id: 1, title: 'Innovation' },
