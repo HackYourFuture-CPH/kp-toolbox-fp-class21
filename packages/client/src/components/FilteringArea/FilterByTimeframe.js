@@ -9,33 +9,37 @@ const timeframes = [
 export const FilterByTimeframe = () => {
   return (
     <div className="filtering-category">
-      <h4 className="filtering-category-title">
-        Time frame <span className="lower-case">[minutes]</span>
-      </h4>
-      <div className="filtering-horizontal-flex">
-        <img
-          src="/assets/vectors/vector-clock.svg"
-          alt="number of participants"
-        />
-        <button type="button" className="show-all-button">
-          Show all
-        </button>
+      <div className="filtering-category-mobile-view">
+        <h4 className="filtering-category-title">
+          Time frame <span className="lower-case">[minutes]</span>
+        </h4>
+        <div className="filtering-horizontal-flex">
+          <img
+            src="/assets/vectors/vector-clock.svg"
+            alt="number of participants"
+          />
+          <button type="button" className="show-all-button">
+            Show all
+          </button>
+        </div>
       </div>
-      {timeframes.map((record) => {
-        return (
-          <div>
-            <input
-              type="checkbox"
-              className="filtering-checkbox"
-              value={record.id}
-              id={record.title}
-            />
-            <label className="filtering-option" htmlFor={record.title}>
-              {record.title}
-            </label>
-          </div>
-        );
-      })}
+      <div className="filtering-checkbox-mobile-view">
+        {timeframes.map((record) => {
+          return (
+            <div>
+              <input
+                type="checkbox"
+                className="filtering-checkbox"
+                value={record.id}
+                id={record.title}
+              />
+              <label className="filtering-option" htmlFor={record.title}>
+                {record.title}
+              </label>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
