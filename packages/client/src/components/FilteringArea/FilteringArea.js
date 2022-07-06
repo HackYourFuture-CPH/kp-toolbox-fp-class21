@@ -1,15 +1,30 @@
 import React from 'react';
 import './FilteringArea.css';
-import { FilterByCategory } from './FilterByCategory';
-import { FilterByNumParticipants } from './FilterByNumParticipants';
-import { FilterByTimeframe } from './FilterByTimeframe';
+import { FilteringSection } from './FilteringSection';
+import {
+  categories,
+  timeframes,
+  numberOfParticipants,
+} from './FilterArea.config';
 
 export const FilteringArea = () => {
   return (
     <section className="filtering-area">
-      <FilterByCategory />
-      <FilterByNumParticipants />
-      <FilterByTimeframe />
+      <FilteringSection
+        data={categories}
+        title="CATEGORY"
+        iconName="vector-categories"
+      />
+      <FilteringSection
+        data={numberOfParticipants}
+        title="NUMBER OF PARTICIPANTS"
+        iconName="vector-people"
+      />
+      <FilteringSection
+        data={timeframes}
+        title="TIME FRAME [minutes]"
+        iconName="vector-clock"
+      />
     </section>
   );
 };
