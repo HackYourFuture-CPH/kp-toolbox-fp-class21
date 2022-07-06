@@ -24,7 +24,7 @@ export const FilterByNumParticipants = () => {
       <div className="filtering-checkbox-mobile-view">
         {numberOfParticipants.map((record) => {
           return (
-            <div>
+            <div className="filtering-checkbox-element">
               <input
                 type="checkbox"
                 className="filtering-checkbox"

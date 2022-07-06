@@ -70,6 +70,9 @@
 .filtering-checkbox:checked + .filtering-option {
   border-color: #8c5c02;
 }
+.filtering-checkbox-element {
+  margin-bottom: 0.2rem;
+}
 
 @media screen and (max-width: 950px) {
   .filtering-area {
@@ -147,18 +150,32 @@
   }
   .filtering-checkbox-mobile-view-for-category .filtering-option {
     width: 36vw;
+    height: 1.7rem;
+  }
+  .filtering-option {
+    height: 1.7rem;
   }
   .filtering-category-title {
     width: 100%;
+  }
+  .filtering-category {
+    margin: 0% 0.4% 0% 0.2%;
   }
 }
 @media screen and (min-width: 1px) and (max-width: 300px) {
   .filtering-option,
   .show-all-button {
-    width: 20vw;
+    width: 25vw;
     font-size: 3.1vw;
+  }
+  .filtering-option {
+    height: 1.5rem;
   }
   .filtering-checkbox-mobile-view-for-category .filtering-option {
     width: 35vw;
+    height: 1.5rem;
+  }
+  .filtering-category {
+    margin: 0% 0.4% 0% 0.2%;
   }
 }

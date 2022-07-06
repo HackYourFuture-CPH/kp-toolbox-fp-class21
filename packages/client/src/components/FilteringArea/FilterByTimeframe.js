@@ -26,7 +26,7 @@ export const FilterByTimeframe = () => {
       <div className="filtering-checkbox-mobile-view">
         {timeframes.map((record) => {
           return (
-            <div>
+            <div className="filtering-checkbox-element">
               <input
                 type="checkbox"
                 className="filtering-checkbox"

@@ -22,7 +22,7 @@ export const FilterByCategory = () => {
       <div className="filtering-checkbox-mobile-view-for-category">
         {categories.map((category) => {
           return (
-            <div>
+            <div className="filtering-checkbox-element">
               <input
                 type="checkbox"
                 className="filtering-checkbox"
