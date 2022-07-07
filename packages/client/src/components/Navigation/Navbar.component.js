@@ -6,6 +6,45 @@ import './Navbar.css';
 
 export const Navbar = ({ isLogedIn, userName, ...props }) => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
+  let accountStatus = null;
+
+  if (isLogedIn) {
+    accountStatus = (
+      <div className="log-out-container">
+        <div className="user-name-container">
+          <img
+            className="navbar-icon"
+            src="/assets/vectors/vector-person-logged.svg"
+            alt="icon with person for user name in logged-in state"
+          />
+          <span> Hi, {userName}!</span>
+        </div>
+        <Link className="navbar-link" to="/sign-out">
+          <img
+            className="navbar-icon"
+            src="/assets/vectors/vector-log-out.svg"
+            alt="icon with person for logged-in state"
+          />
+          <span>sign out</span>
+        </Link>
+      </div>
+    );
+  } else {
+    accountStatus = (
+      <div className="log-in-container">
+        <Link className="navbar-link" to="/sign-in">
+          <img
+            className="navbar-icon"
+            src="/assets/vectors/vector-person-not-logged.svg"
+            alt="icon with person for logged-out state"
+          />
+          <span>sign in</span>
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <header className="navigation-bar">
       <div className="navigation-bar-container">
@@ -21,54 +60,24 @@ export const Navbar = ({ isLogedIn, userName, ...props }) => {
           <Link className="navbar-link" to="/contact-us">
             contact us
           </Link>
-
-          <div className={`user-name-container ${!isLogedIn ? 'hide' : ''}`}>
-            <Link className="navbar-link" to="/user-name">
-              <img
-                className="navbar-icon"
-                src="/assets/vectors/vector-person-logged.svg"
-                alt=""
-              />
-              <span> Hi, {userName}!</span>
-            </Link>
-          </div>
-          <div className={`log-in-container ${isLogedIn ? 'hide' : ''}`}>
-            <Link className="navbar-link" to="/log-in">
-              <img
-                className="navbar-icon"
-                src="/assets/vectors/vector-person-not-logged.svg"
-                alt=""
-              />
-              <span>sign in</span>
-            </Link>
-          </div>
-          <div className={`log-out-container ${!isLogedIn ? 'hide' : ''}`}>
-            <Link className="navbar-link" to="/log-out">
-              <img
-                className="navbar-icon"
-                src="/assets/vectors/vector-log-out.svg"
-                alt=""
-              />
-              <span>sign out</span>
-            </Link>
-          </div>
+          {accountStatus}
           <div className="favourite-container">
             <Link className="navbar-link" to="/favourites">
               <img
                 className="navbar-icon"
-                src={`${
+                src={
                   !isLogedIn
                     ? '/assets/vectors/vector-favourites-empty-heart.svg'
                     : '/assets/vectors/vector-favourites-full-heart.svg'
-                }`}
-                alt=""
+                }
+                alt="heart icon for favourites link"
               />
               <span>favourites</span>
             </Link>
           </div>
           <button
             type="button"
-            className={`mobile-open-btn ${isMobileNavOpen ? 'open' : ''}`}
+            className={`mobile-open-button ${isMobileNavOpen ? 'open' : ''}`}
             onClick={() => {
               setIsMobileNavOpen(!isMobileNavOpen);
             }}
@@ -83,10 +92,6 @@ export const Navbar = ({ isLogedIn, userName, ...props }) => {
 };
 
 Navbar.propTypes = {
-  isLogedIn: PropTypes.bool,
-  userName: PropTypes.string,
-};
-Navbar.defaultProps = {
-  isLogedIn: true,
-  userName: 'Magdalena',
+  isLogedIn: PropTypes.bool.isRequired,
+  userName: PropTypes.string.isRequired,
 };

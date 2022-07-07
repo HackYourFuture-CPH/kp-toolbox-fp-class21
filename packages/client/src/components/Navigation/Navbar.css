@@ -59,7 +59,8 @@ header > * {
 }
 
 .logo a,
-.navbar-link {
+.navbar-link,
+.user-name-container {
   font-weight: 600;
   color: rgb(245 245 245);
 }
@@ -78,7 +79,12 @@ header > * {
   gap: 2rem;
 }
 
-.navbar-link {
+.user-name-container {
+  margin-right: 2rem;
+}
+
+.navbar-link,
+.user-name-container {
   font-size: 1.25rem;
   text-decoration: none;
   display: flex;
@@ -90,7 +96,7 @@ header > * {
   margin-right: 0.3125rem;
 }
 
-.mobile-open-btn {
+.mobile-open-button {
   font-size: 2.5rem;
   color: rgb(245 245 245);
   border: none;
@@ -100,17 +106,16 @@ header > * {
   cursor: pointer;
 }
 
-.mobile-open-btn,
-.mobile-open-btn span {
+.mobile-open-button,
+.mobile-open-button span {
   line-height: 1;
 }
 
-.mobile-open-btn.open {
+.mobile-open-button.open {
   font-size: 4rem;
 }
 
-.hide,
-.mobile-open-btn {
+.mobile-open-button {
   display: none;
 }
 
@@ -122,11 +127,16 @@ header > * {
   .navbar-links-container {
     gap: 1.5rem;
   }
+
+  .user-name-container {
+    margin-right: 1.5rem;
+  }
 }
 
 @media screen and (max-width: 1230px) {
   .navbar-links-container > .navbar-link,
-  .navbar-link span {
+  .navbar-link span,
+  .user-name-container span {
     display: none;
   }
 
@@ -138,7 +148,7 @@ header > * {
     padding: 0;
   }
 
-  .mobile-open-btn {
+  .mobile-open-button {
     display: block;
   }
 }
@@ -160,6 +170,10 @@ header > * {
     gap: 1rem;
   }
 
+  .user-name-container {
+    margin-right: 1rem;
+  }
+
   .logo a {
     font-size: 1.3rem;
     text-underline-offset: 0.3rem;
@@ -169,11 +183,11 @@ header > * {
     height: 2.3rem;
   }
 
-  .mobile-open-btn {
+  .mobile-open-button {
     font-size: 2.3rem;
   }
 
-  .mobile-open-btn.open {
+  .mobile-open-button.open {
     font-size: 3.6rem;
   }
 }
@@ -183,15 +197,19 @@ header > * {
     gap: 0.5rem;
   }
 
+  .user-name-container {
+    margin-right: 0.5rem;
+  }
+
   .navbar-icon {
     height: 2rem;
   }
 
-  .mobile-open-btn {
+  .mobile-open-button {
     font-size: 2rem;
   }
 
-  .mobile-open-btn.open {
+  .mobile-open-button.open {
     font-size: 3.1rem;
   }
 
@@ -211,15 +229,19 @@ header > * {
     gap: 0.3rem;
   }
 
+  .user-name-container {
+    margin-right: 0.3rem;
+  }
+
   .navbar-icon {
     height: 1.7rem;
   }
 
-  .mobile-open-btn {
+  .mobile-open-button {
     font-size: 1.7rem;
   }
 
-  .mobile-open-btn.open {
+  .mobile-open-button.open {
     font-size: 2.6rem;
   }
 

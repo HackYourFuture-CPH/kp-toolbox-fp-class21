@@ -10,7 +10,8 @@ function App() {
   return (
     <div className="app">
       <Router>
-        <Navbar />
+        {/* properties to imitate logged-in/logged-out state of the navigation */}
+        <Navbar isLogedIn={true} userName="Magdalena" />
         <Main>
           <Routes>
             <Route path="/" element={<LandingPage />} />
@@ -18,8 +19,8 @@ function App() {
             <Route path="/about-toolbox" element="" />
             <Route path="/contact-us" element="" />
             <Route path="/user-name" element="" />
-            <Route path="/log-in" element="" />
-            <Route path="/log-out" element="" />
+            <Route path="/sign-in" element="" />
+            <Route path="/sign-out" element="" />
             <Route path="/favourites" element="" />
           </Routes>
         </Main>
