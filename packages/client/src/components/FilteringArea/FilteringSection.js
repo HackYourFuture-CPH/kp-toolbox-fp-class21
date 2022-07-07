@@ -48,7 +48,7 @@ export const FilteringSection = ({
           </button>
         </div>
       </div>
-      <div className="filtering-checkbox-mobile-view">
+      <div className={`filtering-checkbox-mobile-view-for-${checkboxName}`}>
         {/* if the data from DB will be use instead of the data from config file, you can pass needed keys as props not to create a separate file for each filtering section  */}
         {data.map((record) => {
           return (
