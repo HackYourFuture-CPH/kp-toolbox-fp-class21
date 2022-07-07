@@ -16,4 +16,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(`/api/`, router);
 
+// Handle every other route with index.html, which will serve the (compiled) React app.
+const serveSpa = function (request, response) {
+  response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+};
+app.get('*', serveSpa);
+
 module.exports = app;
