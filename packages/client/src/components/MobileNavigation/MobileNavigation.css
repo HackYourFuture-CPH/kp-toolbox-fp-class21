@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+.mobile-navigation {
+  background: linear-gradient(
+      180deg,
+      rgba(28, 56, 64, 0.7) 0%,
+      rgba(28, 65, 64, 0.7) 0.01%,
+      rgba(28, 65, 64, 0.7) 100%
+    ),
+    url('../../../public/assets/images/concrete-bw.png');
+  background-repeat: repeat;
+  z-index: 1;
+  width: 100vw;
+  height: 0%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  transition: visibility 0.5s ease-in-out, height 0.65s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.mobile-navigation.open {
+  visibility: visible;
+  height: 100vh;
+}
+
+.mobile-navigation a {
+  font-size: 1.25rem;
+  color: rgb(245 245 245);
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Open Sans';
+}

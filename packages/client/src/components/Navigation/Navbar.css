@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+header,
+header > * {
+  box-sizing: border-box;
+}
+
+.navigation-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6rem;
+  background: linear-gradient(
+      180deg,
+      rgba(28, 56, 64, 0.7) 0%,
+      rgba(28, 65, 64, 0.7) 0.01%,
+      rgba(28, 65, 64, 0.7) 100%
+    ),
+    url('../../../public/assets/images/concrete-bw.png');
+  background-repeat: repeat;
+  font-family: 'Open Sans';
+}
+
+.navigation-bar::after {
+  position: absolute;
+  width: 100%;
+  content: '';
+  bottom: 0;
+  left: 0;
+  height: 1rem;
+  background-image: url('../../../public/assets/images/tape-cut.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.navigation-bar-container {
+  width: 1220px;
+  height: calc(100% - 1rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: auto;
+  padding-left: 0.625rem;
+  padding-right: 1.25rem;
+}
+
+.logo a {
+  font-size: 1.75rem;
+  text-decoration: solid;
+  text-decoration-line: underline;
+  text-underline-offset: 0.5rem;
+}
+
+.logo a span {
+  display: block;
+  text-align: left;
+}
+
+.logo a,
+.navbar-link,
+.user-name-container {
+  font-weight: 600;
+  color: rgb(245 245 245);
+}
+
+.user-name-container,
+.log-in-container,
+.log-out-container,
+.favourite-container,
+.navbar-links-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navbar-links-container {
+  gap: 2rem;
+}
+
+.user-name-container {
+  margin-right: 2rem;
+}
+
+.navbar-link,
+.user-name-container {
+  font-size: 1.25rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-icon {
+  aspect-ratio: 1/1;
+  margin-right: 0.3125rem;
+}
+
+.mobile-open-button {
+  font-size: 2.5rem;
+  color: rgb(245 245 245);
+  border: none;
+  background: transparent;
+  padding: 0;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.mobile-open-button,
+.mobile-open-button span {
+  line-height: 1;
+}
+
+.mobile-open-button.open {
+  font-size: 4rem;
+}
+
+.mobile-open-button {
+  display: none;
+}
+
+@media screen and (max-width: 1300px) {
+  .navigation-bar-container {
+    width: 90vw;
+  }
+
+  .navbar-links-container {
+    gap: 1.5rem;
+  }
+
+  .user-name-container {
+    margin-right: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 1230px) {
+  .navbar-links-container > .navbar-link,
+  .navbar-link span,
+  .user-name-container span {
+    display: none;
+  }
+
+  .navbar-icon {
+    margin-right: 0;
+  }
+
+  .navigation-bar-container {
+    padding: 0;
+  }
+
+  .mobile-open-button {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .navigation-bar {
+    height: 4.5rem;
+  }
+
+  .navigation-bar-container {
+    height: calc(100% - 0.5rem);
+  }
+
+  .navigation-bar::after {
+    height: 0.5rem;
+  }
+
+  .navbar-links-container {
+    gap: 1rem;
+  }
+
+  .user-name-container {
+    margin-right: 1rem;
+  }
+
+  .logo a {
+    font-size: 1.3rem;
+    text-underline-offset: 0.3rem;
+  }
+
+  .navbar-icon {
+    height: 2.3rem;
+  }
+
+  .mobile-open-button {
+    font-size: 2.3rem;
+  }
+
+  .mobile-open-button.open {
+    font-size: 3.6rem;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .navbar-links-container {
+    gap: 0.5rem;
+  }
+
+  .user-name-container {
+    margin-right: 0.5rem;
+  }
+
+  .navbar-icon {
+    height: 2rem;
+  }
+
+  .mobile-open-button {
+    font-size: 2rem;
+  }
+
+  .mobile-open-button.open {
+    font-size: 3.1rem;
+  }
+
+  .logo a {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .logo a {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .navbar-links-container {
+    gap: 0.3rem;
+  }
+
+  .user-name-container {
+    margin-right: 0.3rem;
+  }
+
+  .navbar-icon {
+    height: 1.7rem;
+  }
+
+  .mobile-open-button {
+    font-size: 1.7rem;
+  }
+
+  .mobile-open-button.open {
+    font-size: 2.6rem;
+  }
+
+  .logo a {
+    font-size: 0.7rem;
+    text-underline-offset: 0.2rem;
+  }
+}
