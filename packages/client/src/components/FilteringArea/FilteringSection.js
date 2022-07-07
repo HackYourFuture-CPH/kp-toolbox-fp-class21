@@ -22,7 +22,7 @@ export const FilteringSection = ({
 
   const handleCheck = (e) => {
     const showAllButton = document.getElementById(`showAll-${checkboxName}`);
-    if ((showAllButton.style.borderColor = '#8c5c02')) {
+    if ((showAllButton.style.borderColor === '#8c5c02')) {
       showAllButton.style.borderColor = 'rgba(0, 0, 0, 0.2)';
     }
     if (e.target.checked) {
