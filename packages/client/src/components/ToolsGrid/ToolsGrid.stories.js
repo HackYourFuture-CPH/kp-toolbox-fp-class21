@@ -2,7 +2,7 @@ import React from 'react';
 import { ToolsGrid } from './ToolsGrid.component';
 
 export default {
-  title: 'Example SVitlana/ToolsGrid',
+  title: 'Example/ToolsGrid',
   component: ToolsGrid.component,
 };
 
