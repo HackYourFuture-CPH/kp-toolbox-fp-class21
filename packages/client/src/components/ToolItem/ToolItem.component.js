@@ -1,58 +1,101 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ToolItem.style.css';
 import { Link } from 'react-router-dom';
 
-export const ToolItem = () => {
+export const ToolItem = ({
+  title,
+  timeFrameMin,
+  timeFrameMax,
+  groupSizeMax,
+  groupSizeMin,
+  pitch,
+}) => {
+  let firstCategoryClassName = 'not-selected-category';
+  let secondCategoryClassName = 'not-selected-category';
+  let thirdCategoryClassName = 'not-selected-category';
+  let fourthCategoryClassName = 'not-selected-category';
+  const categories = ['INNOVATION', 'ACTION', 'TEAM']; //  should get it from category table when full database is ready,
+
+  for (let i = 0; i < categories.length; i += 1) {
+    if (categories[i] === 'INNOVATION') {
+      firstCategoryClassName = 'selected-category';
+    }
+    if (categories[i] === 'TEAM') {
+      secondCategoryClassName = 'selected-category';
+    }
+    if (categories[i] === 'ENERGIZER') {
+      thirdCategoryClassName = 'selected-category';
+    }
+    if (categories[i] === 'ACTION') {
+      fourthCategoryClassName = 'selected-category';
+    }
+  }
   return (
     <div className="product-card-container">
-      <div className="toolbox-top">
-        <div className="icons-container">
-          <div className="category-icon-bar">
-            <div className="category-icon">C1</div>
-            <div className="category-icon">C2</div>
-            <div className="category-icon">C3</div>
-            <div className="category-icon">C4</div>
-            <div className="category-icon">C5</div>
-            <div className="category-icon">C6</div>
-          </div>
-          <div className="category-image">img</div>
+      <div className="main-part-card">
+        <div className="favourites-icon">
+          <img
+            src="/assets/vectors/vector-favourites-empty-heart.svg"
+            alt="favourites-icon"
+          />
         </div>
-        <div className="toolbox-category-bar">
-          <p className="toolbox-category-text">
-            Team Development & Collaboration // Action & Decision Making //
-            Meeting & Facilitation
-          </p>
-        </div>
-      </div>
-      <div className="toolbox-title-container">
-        <h6 className="product-title">STINKY FISH</h6>
-        <span className="product-description">
-          share fears, anxieties and uncertainties related to the program
-          <br />
-          theme to create openness within a group.
-        </span>
-        <div className="toolbox-gradient">
-          <div className="toolbox-gradient-container">
-            <div className="container-participants">
-              <div className="toolbox-gradient-img">img</div>
-              <div className="toolbox-gradient-participants">5-10</div>
+        <div className="icon-container">
+          <div className="container-participants">
+            <div className="toolbox-img">
+              <img src="/assets/vectors/vector-people.svg" alt="people-icon" />
             </div>
-            <div className="container-time">
-              <div className="toolbox-gradient-img">img</div>
-              <div className="toolbox-gradient-participants">1-4</div>
-            </div>
+            <div className="toolbox-participants">{`${groupSizeMin}-${groupSizeMax}`}</div>
           </div>
-          <div className="toolbox-gradient-placeholder">Placeholder</div>
+          <div className="container-time">
+            <div className="toolbox-img">
+              <img src="/assets/vectors/vector-clock.svg" alt="time-icon" />
+            </div>
+            <div className="toolbox-participants">{`${timeFrameMin}-${timeFrameMax}`}</div>
+          </div>
+        </div>
+        <div className="categorys-container">
+          <ul className="category-names">
+            <li className={`${firstCategoryClassName}`}>INNOVATION</li>
+            <li className={`${secondCategoryClassName}`}>TEAM</li>
+            <li className={`${thirdCategoryClassName}`}>ENERGIZER</li>
+            <li className={`${fourthCategoryClassName}`}>ACTION</li>
+          </ul>
+        </div>
+        <div className="toolbox-description-container">
+          <span className="product-description">{pitch}</span>
+          <h6 className="product-title">{title}</h6>
+        </div>
+        <div className="title-image">
+          <img
+            src="/assets/images/tool-pic-stinky-fish.png"
+            alt="stinky-fish"
+          />
         </div>
       </div>
-      <div className="tape-cut-img">
-        <img src="/assets/images/tape-cut392.png" alt="tape" />
-      </div>
-      <div>
-        <button type="button" className="product-button-view">
-          <Link to="/">VIEW TOOL</Link>
+      <div className="button-container">
+        <button type="button" className="product-button">
+          <Link to="/ProductPage">VIEW TOOL</Link>
         </button>
       </div>
     </div>
   );
+};
+
+ToolItem.propTypes = {
+  title: PropTypes.string,
+  timeFrameMin: PropTypes.string,
+  timeFrameMax: PropTypes.string,
+  groupSizeMax: PropTypes.string,
+  groupSizeMin: PropTypes.string,
+  pitch: PropTypes.string,
+};
+
+ToolItem.defaultProps = {
+  title: null,
+  timeFrameMin: null,
+  timeFrameMax: null,
+  groupSizeMax: null,
+  groupSizeMin: null,
+  pitch: null,
 };

@@ -7,16 +7,17 @@ const HttpError = require('../lib/utils/http-error');
 const getTools = async () => {
   return knex('tools').select(
     'name',
-    'time_frame',
-    'group_size',
+    'time_frame_min',
+    'time_frame_max',
+    'group_size_min',
+    'group_size_max',
     'facilitation_level',
-    'material',
+    'materials',
+    'pitch',
     'description',
-    'steps',
-    'tool_origin',
-    'price',
+    'instructions',
+    'source',
     'picture',
-    'status',
     'created_at',
   );
 };
@@ -30,16 +31,17 @@ const getToolById = async (id) => {
     const tools = await knex('tools')
       .select(
         'name',
-        'time_frame',
-        'group_size',
+        'time_frame_min',
+        'time_frame_max',
+        'group_size_min',
+        'group_size_max',
         'facilitation_level',
-        'material',
+        'materials',
+        'pitch',
         'description',
-        'steps',
-        'tool_origin',
-        'price',
+        'instructions',
+        'source',
         'picture',
-        'status',
         'created_at',
       )
       .where({ id });

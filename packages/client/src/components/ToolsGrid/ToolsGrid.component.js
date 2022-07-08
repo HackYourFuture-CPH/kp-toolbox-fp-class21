@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getTools } from '../api';
 import './ToolsGrid.style.css';
-import { ToolsItem } from '../ToolItem/ToolsItem.component';
+import { ToolItem } from '../ToolItem/ToolItem.component';
 
 export const ToolsGrid = () => {
   const [tools, setResult] = useState();
@@ -20,13 +20,15 @@ export const ToolsGrid = () => {
   ) : (
     tools.map((tool, i) => {
       return (
-        <ToolsItem
+        <ToolItem
           index={i}
           key={tool.id}
           title={tool.name}
-          timeFrame={tool.time_frame}
-          groupSize={tool.group_size}
-          description={tool.descriprion}
+          timeFrameMin={tool.time_frame_min}
+          timeFrameMax={tool.time_frame_max}
+          groupSizeMin={tool.group_size_min}
+          groupSizeMax={tool.group_size_max}
+          pitch={tool.pitch}
         />
       );
     })

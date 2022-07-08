@@ -1,9 +1,9 @@
 import React from 'react';
-import { ToolsItem } from './ToolsItem.component';
+import { ToolItem } from './ToolItem.component';
 
 export default {
   title: 'Example/ToolsItem',
-  component: ToolsItem.component,
+  component: ToolItem.component,
 };
 
-export const Basic = () => <ToolsItem />;
+export const Basic = () => <ToolItem />;
