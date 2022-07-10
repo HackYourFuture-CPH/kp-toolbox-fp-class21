@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const ProductPage = () => {
+export const ToolDetailPage = () => {
   return <div>Product Details will be showen here</div>;
 };

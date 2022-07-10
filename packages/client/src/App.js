@@ -4,7 +4,7 @@ import './App.css';
 import { LandingPage } from './containers/LandingPage/LandingPage.Container';
 import { PageNotFound } from './containers/PageNotFound/PageNotFound.Container';
 import { Main } from './components/Main/Main';
-import { ProductPage } from './components/ProductPage/ProductPage.component';
+import { ToolDetailPage } from './components/ToolDetailPage/ToolDetailPage.component';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="*" element={<PageNotFound />} />
-            <Route path="/ProductPage" element={<ProductPage />} />
+            <Route path="/ToolDetailPage" element={<ToolDetailPage />} />
           </Routes>
         </Router>
       </Main>

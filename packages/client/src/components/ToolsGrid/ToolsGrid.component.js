@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { getTools } from '../api';
 import './ToolsGrid.style.css';
+import getApiBaseUrl from '../../utils/getApiBaseURL';
 import { ToolItem } from '../ToolItem/ToolItem.component';
 
 export const ToolsGrid = () => {
   const [tools, setResult] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
+  function getTools() {
+    const promise = fetch(`${getApiBaseUrl()}/api/tools`).then((response) =>
+      response.json(),
+    );
+
+    return promise;
+  }
   useEffect(() => {
     setIsLoading(true);
     getTools().then((response) => {

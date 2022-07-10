@@ -50,7 +50,7 @@ li {
 .toolbox-participants,
 .category-names,
 .tape-cut-img,
-.product-button {
+.tool-button {
   display: flex;
 }
 
@@ -73,7 +73,7 @@ li {
 .toolbox-participants,
 .category-names,
 .product-description,
-.product-button {
+.tool-button {
   font-family: 'Abel';
   font-style: normal;
 }
@@ -165,7 +165,7 @@ li {
   background-size: cover;
 }
 
-.product-button {
+.tool-button {
   background-color: inherit;
   text-align: center;
   letter-spacing: 0.05em;
@@ -180,7 +180,7 @@ li {
   justify-content: center;
 }
 
-.product-button a {
+.tool-button a {
   color: rgba(245, 245, 245, 1);
   text-decoration: none;
 }
@@ -203,7 +203,7 @@ li {
     font-size: 0.8rem;
   }
 
-  .product-button,
+  .tool-button,
   .product-title {
     font-size: 1.7rem;
   }
@@ -245,7 +245,7 @@ li {
     margin-bottom: 0.6rem;
   }
 
-  .product-button,
+  .tool-button,
   .product-title {
     font-size: 1.1rem;
   }
@@ -280,7 +280,7 @@ li {
     margin-bottom: 0;
   }
 
-  .product-button,
+  .tool-button,
   .product-title {
     font-size: 1rem;
   }
@@ -314,7 +314,7 @@ li {
     margin: 0.4rem auto 0.1rem auto;
   }
 
-  .product-button,
+  .tool-button,
   .product-description {
     font-size: 0.9rem;
   }
@@ -343,7 +343,7 @@ li {
     margin-bottom: 0;
   }
 
-  .product-button,
+  .tool-button,
   .product-title {
     font-size: 1.4rem;
   }
@@ -375,7 +375,7 @@ li {
     max-width: 55%;
   }
 
-  .product-button,
+  .tool-button,
   .product-title {
     font-size: 1.2rem;
   }
@@ -390,7 +390,7 @@ li {
     font-size: 0.7rem;
   }
 
-  .product-button,
+  .tool-button,
   .product-title {
     font-size: 1.1rem;
   }
@@ -412,7 +412,7 @@ li {
   }
 
   .product-title,
-  .product-button {
+  .tool-button {
     font-size: 1rem;
   }
 
@@ -431,7 +431,7 @@ li {
     font-size: 0.4rem;
   }
 
-  .product-button,
+  .tool-button,
   .product-title {
     font-size: 0.8rem;
   }
@@ -472,7 +472,7 @@ li {
     font-size: 0.9rem;
   }
 
-  .product-button,
+  .tool-button,
   .product-title {
     font-size: 1.5rem;
   }
@@ -487,7 +487,7 @@ li {
     font-size: 0.6rem;
   }
 
-  .product-button,
+  .tool-button,
   .product-title {
     font-size: 1.1rem;
   }

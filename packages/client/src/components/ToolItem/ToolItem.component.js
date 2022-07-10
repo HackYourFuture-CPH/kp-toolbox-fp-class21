@@ -74,8 +74,8 @@ export const ToolItem = ({
         </div>
       </div>
       <div className="button-container">
-        <button type="button" className="product-button">
-          <Link to="/ProductPage">VIEW TOOL</Link>
+        <button type="button" className="tool-button">
+          <Link to="/ToolDetailPage">VIEW TOOL</Link>
         </button>
       </div>
     </div>
