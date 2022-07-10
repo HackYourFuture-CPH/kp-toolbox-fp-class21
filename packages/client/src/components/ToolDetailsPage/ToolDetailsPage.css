@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Inter:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+}
+.tool-delails-background {
+  background: linear-gradient(
+      180deg,
+      rgba(28, 56, 64, 0.7) 0%,
+      rgba(28, 65, 64, 0.8) 0.01%,
+      rgba(7, 27, 32, 0.5) 100%
+    ),
+    url('../../../public/assets/images/concrete-bw.png');
+  background-repeat: repeat;
+  height: 100%;
+  padding: 2rem;
+  width: 100%;
+}
+
+.tool-details {
+  width: 1000px;
+  font-family: 'Abel';
+  color: rgba(245, 245, 245);
+}
+
+.tool-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 23.75rem;
+}
+
+.tool-image p {
+  font-family: 'Open Sans';
+  font-size: 1rem;
+  height: 2.5rem;
+}
+
+.tool-image h1 {
+  font-weight: 400;
+  font-size: 3rem;
+  height: 2.5rem;
+  color: rgba(245, 245, 245, 0.5);
+}
+
+.tool-image img {
+  height: 12.5rem;
+}
+
+.tool-criteria-summary {
+  margin-top: 50px;
+}
+.tool-criteria-summary li {
+  list-style: none;
+}
+
+.tool-pitch,
+.tool-description {
+  padding: 30px 40px;
+}
+
+.tool-picture-placeholder {
+  width: 1000px;
+  height: 200px;
+  border: 1px solid rgba(7, 27, 32, 0.5);
+  box-sizing: border-box;
+}
+
+.tool-instruction {
+  padding-top: 59px;
+  line-height: 28px;
+}
+
+@media screen and (max-width: 1300px) {
+  .tool-delails {
+    width: 90vw;
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "description": [
+    "Invite the group to explore the questions 'What is your challenge?' and 'What kind of help do you need?'",
+    "People sit in any number of small groups of 3 chairs, knee-to-knee seating preferred. No table!",
+    "In each round, one participant is the 'client', the others  'consultants'.",
+    "Everyone has an equal opportunity to receive and give coaching."
+  ],
+  "steps": [
+    {
+      "header": "Step 1",
+      "text": [
+        "Invite participants to reflect on the consulting question (the challenge and the help needed) they plan to ask when they are the clients. 1 min."
+      ]
+    },
+    {
+      "header": "Step 2",
+      "text": ["Groups have first client share his or her question. 1-2 min."]
+    },
+    {
+      "header": "Step 3",
+      "text": ["Consultants ask the client clarifying questions. 1-2 min."]
+    },
+    {
+      "header": "Step 4",
+      "text": [
+        "Client turns around with his or her back facing the consultants.",
+        "Together, the consultants generate ideas, suggestions, coaching advice. 4-5 min."
+      ]
+    },
+    {
+      "header": "Step 5",
+      "text": [
+        "Client turns around and shares what was most valuable about the experience. 1-2 min."
+      ]
+    },
+    {
+      "header": "Step 6",
+      "text": ["Groups switch to next person and repeat steps."]
+    }
+  ]
+}
