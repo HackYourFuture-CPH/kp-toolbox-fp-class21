@@ -54,7 +54,7 @@ export const ToolItem = ({
             <div className="toolbox-participants">{`${timeFrameMin}-${timeFrameMax}`}</div>
           </div>
         </div>
-        <div className="categorys-container">
+        <div className="categories-container">
           <ul className="category-names">
             <li className={`${firstCategoryClassName}`}>INNOVATION</li>
             <li className={`${secondCategoryClassName}`}>TEAM</li>

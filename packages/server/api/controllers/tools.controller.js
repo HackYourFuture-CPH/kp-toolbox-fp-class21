@@ -23,7 +23,7 @@ const getTools = async () => {
 };
 
 const getToolById = async (id) => {
-  if (!id) {
+  if (!Number(id)) {
     throw new HttpError('Id should be a number', 400);
   }
 
