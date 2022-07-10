@@ -15,6 +15,12 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="*" element={<PageNotFound />} />
             <Route path="/ToolDetailPage" element={<ToolDetailPage />} />
+            <Route path="/about-toolbox" element="" />
+            <Route path="/contact-us" element="" />
+            <Route path="/user-name" element="" />
+            <Route path="/sign-in" element="" />
+            <Route path="/sign-out" element="" />
+            <Route path="/favourites" element="" />
           </Routes>
         </Router>
       </Main>
