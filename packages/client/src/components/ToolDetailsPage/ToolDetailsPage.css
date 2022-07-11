@@ -6,12 +6,10 @@
 }
 
 .tool-details-container {
-  background: linear-gradient(
-      180deg,
+  background: linear-gradient(180deg,
       rgba(28, 56, 64, 0.7) 0%,
       rgba(28, 65, 64, 0.8) 0.01%,
-      rgba(7, 27, 32, 0.5) 100%
-    ),
+      rgba(7, 27, 32, 0.5) 100%),
     url('../../../public/assets/images/concrete-bw.png');
   background-repeat: repeat;
   padding-top: 2.75rem;
@@ -77,6 +75,10 @@ h3 {
   line-height: 2rem;
 }
 
+.tool-criteria-summary>li:first-child>span:first-child {
+  margin-left: 0.5rem;
+}
+
 .tool-criteria-summary li:not(:last-child) {
   margin-bottom: 1rem;
 }
@@ -85,7 +87,7 @@ h3 {
   margin: 2.5rem 0;
 }
 
-.tool-description > p:first-child {
+.tool-description>p:first-child {
   margin-bottom: 2.5rem;
 }
 
@@ -102,6 +104,6 @@ h3 {
   margin-bottom: 4.125rem;
 }
 
-.step-container > p:not(:last-child) {
+.step-container>p:not(:last-child) {
   margin-bottom: 0.8rem;
 }
