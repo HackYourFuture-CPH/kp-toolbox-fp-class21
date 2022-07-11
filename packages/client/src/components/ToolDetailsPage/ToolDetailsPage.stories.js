@@ -10,5 +10,5 @@ const Template = (args) => <ToolDetailsPage {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  text1: '',
+  toolName: 'STINKY FISH',
 };

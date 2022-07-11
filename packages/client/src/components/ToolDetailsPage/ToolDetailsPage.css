@@ -4,7 +4,8 @@
 * {
   margin: 0;
 }
-.tool-delails-background {
+
+.tool-details-container {
   background: linear-gradient(
       180deg,
       rgba(28, 56, 64, 0.7) 0%,
@@ -13,73 +14,94 @@
     ),
     url('../../../public/assets/images/concrete-bw.png');
   background-repeat: repeat;
-  height: 100%;
-  padding: 2rem;
-  width: 100%;
-}
-
-.tool-details {
-  max-width: 1000px;
+  padding-top: 2.75rem;
+  padding: 2.75rem 6.875rem;
   margin: 0px auto;
   font-family: 'Abel';
+  color: rgba(245, 245, 245, 0.5);
+  text-align: left;
+}
+
+.breadcrumbs,
+h1 {
+  text-align: center;
+}
+
+.breadcrumbs {
+  font-family: 'Open Sans';
+  font-size: 1rem;
   color: rgba(245, 245, 245);
 }
 
-.tool-image {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 23.75rem;
-}
-
-.tool-image p {
-  font-family: 'Open Sans';
-  font-size: 1rem;
-  height: 2.5rem;
-}
-
-.tool-image h1 {
+h1 {
   font-weight: 400;
   font-size: 3rem;
-  height: 2.5rem;
-  color: rgba(245, 245, 245, 0.5);
+  margin-top: 3.5rem;
+  margin-bottom: 2.5rem;
 }
 
-.tool-image img {
+.breadcrumbs span,
+h1 {
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: 400;
+}
+
+p,
+h3 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 400;
+}
+
+.tool-image {
   height: 12.5rem;
+  margin: auto;
+  display: block;
 }
 
 .tool-criteria-summary {
-  margin-top: 3.125rem;
+  margin-top: 3.5rem;
+  padding-left: 0;
+  list-style-type: none;
+  padding: 1.5rem 0;
+  border-top: 2px solid rgba(245, 245, 245);
+  border-bottom: 2px solid rgba(245, 245, 245);
 }
+
 .tool-criteria-summary li {
-  list-style: none;
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
-.tool-pitch,
+.tool-criteria-summary li:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
 .tool-description {
-  padding: 1.875rem 2.5rem;
+  margin: 2.5rem 0;
 }
 
-.tool-picture-placeholder {
-  width: 62.5rem;
-  aspect-ratio: 5/1;
-  border: 1px solid rgba(7, 27, 32, 0.5);
-  box-sizing: border-box;
+.tool-description > p:first-child {
+  margin-bottom: 2.5rem;
 }
 
-.tool-instruction {
-  padding-top: 3.7rem;
-  line-height: 2.3rem;
+.tool-instructions h2 {
+  margin-bottom: 2.375rem;
 }
 
-.instruction-container {
-  padding-bottom: 1.75rem;
+.tool-instructions h3 {
+  margin-bottom: 2rem;
 }
 
-@media screen and (max-width: 1300px) {
-  .tool-delails {
-    width: 90vw;
-  }
+.instructions-description,
+.step-container {
+  margin-bottom: 4.125rem;
+}
+
+.step-container > p:not(:last-child) {
+  margin-bottom: 0.8rem;
 }
