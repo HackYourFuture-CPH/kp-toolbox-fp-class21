@@ -35,13 +35,13 @@ export const ToolDetailsPage = ({ text1, ...props }) => {
           {toolData.description.map((descriptionParagraph) => {
             return <p>{descriptionParagraph}</p>;
           })}
-          <div>
-            <img className="tool-picture-placeholder" />
+          <div className="tool-picture-placeholder">
+            <img />
           </div>
           <div className="tool-instruction">
             <h3>Instructions:</h3>
             {toolData.steps.map((step) => (
-              <div>
+              <div className="instruction-container">
                 <p>{step.header}</p>
                 {step.text.map((textItem) => (
                   <p>{textItem}</p>

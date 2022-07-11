@@ -19,7 +19,8 @@
 }
 
 .tool-details {
-  width: 1000px;
+  max-width: 1000px;
+  margin: 0px auto;
   font-family: 'Abel';
   color: rgba(245, 245, 245);
 }
@@ -50,7 +51,7 @@
 }
 
 .tool-criteria-summary {
-  margin-top: 50px;
+  margin-top: 3.125rem;
 }
 .tool-criteria-summary li {
   list-style: none;
@@ -58,19 +59,23 @@
 
 .tool-pitch,
 .tool-description {
-  padding: 30px 40px;
+  padding: 1.875rem 2.5rem;
 }
 
 .tool-picture-placeholder {
-  width: 1000px;
-  height: 200px;
+  width: 62.5rem;
+  aspect-ratio: 5/1;
   border: 1px solid rgba(7, 27, 32, 0.5);
   box-sizing: border-box;
 }
 
 .tool-instruction {
-  padding-top: 59px;
-  line-height: 28px;
+  padding-top: 3.7rem;
+  line-height: 2.3rem;
+}
+
+.instruction-container {
+  padding-bottom: 1.75rem;
 }
 
 @media screen and (max-width: 1300px) {
