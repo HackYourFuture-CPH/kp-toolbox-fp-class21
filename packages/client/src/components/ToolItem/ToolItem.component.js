@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './ToolItem.style.css';
 import { Link } from 'react-router-dom';
@@ -11,6 +11,14 @@ export const ToolItem = ({
   groupSizeMin,
   pitch,
 }) => {
+  const [isFavourite, setIsFavourite] = useState(false);
+
+  const handleChangeFavourite = () => {
+    setIsFavourite((previousIcon) => {
+      return !previousIcon;
+    });
+  };
+
   let firstCategoryClassName = 'not-selected-category';
   let secondCategoryClassName = 'not-selected-category';
   let thirdCategoryClassName = 'not-selected-category';
@@ -35,10 +43,21 @@ export const ToolItem = ({
     <div className="product-card-container">
       <div className="main-part-card">
         <div className="favourites-icon">
-          <img
-            src="/assets/vectors/vector-favourites-empty-heart.svg"
-            alt="favourites-icon"
-          />
+          {isFavourite ? (
+            <img
+              src="/assets/vectors/vector-favourites-full-heart.svg"
+              alt="favourites-full-icon"
+              role="presentation"
+              onClick={handleChangeFavourite}
+            />
+          ) : (
+            <img
+              src="/assets/vectors/vector-favourites-empty-heart.svg"
+              alt="favourites-empty-icon"
+              role="presentation"
+              onClick={handleChangeFavourite}
+            />
+          )}
         </div>
         <div className="icon-container">
           <div className="container-participants">
