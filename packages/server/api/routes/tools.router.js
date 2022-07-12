@@ -7,7 +7,7 @@ const toolsController = require('../controllers/tools.controller');
 
 router.get('/', (req, res, next) => {
   toolsController
-    .getTools()
+    .getTools(req.query)
     .then((result) => res.json(result))
     .catch(next);
 });
