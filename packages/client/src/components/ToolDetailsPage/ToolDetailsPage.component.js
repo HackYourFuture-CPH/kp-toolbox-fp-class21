@@ -30,8 +30,8 @@ export const ToolDetailsPage = ({ tool, ...props }) => {
       <h1>{tool.name}</h1>
       <img
         className="tool-image"
-        src="/assets/images/tool-pic-stinky-fish.png"
-        alt="stinky fish"
+        src={tool.picture}
+        alt={`${tool.name} icon`}
       />
 
       <ul className="tool-criteria-summary">
@@ -74,5 +74,5 @@ export const ToolDetailsPage = ({ tool, ...props }) => {
 };
 
 ToolDetailsPage.propTypes = {
-  tool: PropTypes.object.isRequired,
+  tool: PropTypes.node.isRequired,
 };

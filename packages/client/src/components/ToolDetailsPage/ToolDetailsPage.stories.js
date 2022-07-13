@@ -58,6 +58,7 @@ Default.args = {
       ],
     },
     source: 'Hyper Island',
+    picture: '/assets/images/tool-pic-stinky-fish.png',
     categories: ['Team', 'Innovation'],
   },
 };
