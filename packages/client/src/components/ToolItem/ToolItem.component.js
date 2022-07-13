@@ -10,6 +10,7 @@ export const ToolItem = ({
   groupSizeMax,
   groupSizeMin,
   pitch,
+  picture,
 }) => {
   const [isFavourite, setIsFavourite] = useState(false);
 
@@ -86,10 +87,7 @@ export const ToolItem = ({
           <h6 className="product-title">{title}</h6>
         </div>
         <div className="title-image">
-          <img
-            src="/assets/images/tool-pic-stinky-fish.png"
-            alt="stinky-fish"
-          />
+          <img src={picture} alt="stinky-fish" />
         </div>
       </div>
       <div className="button-container">
@@ -108,6 +106,7 @@ ToolItem.propTypes = {
   groupSizeMax: PropTypes.string,
   groupSizeMin: PropTypes.string,
   pitch: PropTypes.string,
+  picture: PropTypes.string,
 };
 
 ToolItem.defaultProps = {
@@ -117,4 +116,5 @@ ToolItem.defaultProps = {
   groupSizeMax: null,
   groupSizeMin: null,
   pitch: null,
+  picture: null,
 };
