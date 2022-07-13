@@ -46,7 +46,7 @@ router.get('/', (req, res, next) => {
  *    produces: application/json
  *    parameters:
  *     - in: path
- *       name: ID
+ *       name: id
  *       schema:
  *         type: integer
  *         required: true
