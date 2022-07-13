@@ -1,4 +1,6 @@
+/* eslint-disable */
 import React from 'react';
+import getApiBaseUrl from '../../utils/getApiBaseURL';
 import PropTypes from 'prop-types';
 
 export const FilteringSection = ({
@@ -8,11 +10,29 @@ export const FilteringSection = ({
   checkboxName,
   selectedValue,
   setSelectedValue,
+  fetchKey,
 }) => {
   const iconLink = `/assets/vectors/${iconName}.svg`;
 
+  // function getTools() {
+  //   const promise = fetch(`${getApiBaseUrl()}/api/tools`).then((response) =>
+  //     response.json(),
+  //   );
+
+  //   return promise;
+  // }
+
+  // function getToolsByCategory(id) {
+  //   const promise = fetch(
+  //     `${getApiBaseUrl()}/api/tools?${fetchKey}[]=${id}`,
+  //   ).then((response) => response.json());
+
+  //   return promise;
+  // }
+
   const handleShowAll = (e) => {
     const all = document.getElementsByName(checkboxName);
+    console.log(all);
     for (let i = 0; i < all.length; i += 1) {
       if (all[i].type === 'checkbox') all[i].checked = false;
     }
@@ -21,6 +41,10 @@ export const FilteringSection = ({
   };
 
   const handleCheck = (e) => {
+    console.log(e.target.value);
+    getToolsByCategory(e.target.value).then((response) => {
+      console.log('getToolsByCategory', response);
+    });
     const showAllButton = document.getElementById(`showAll-${checkboxName}`);
     showAllButton.style.borderColor = 'rgba(0, 0, 0, 0.2)';
     if (e.target.checked) {
@@ -49,6 +73,8 @@ export const FilteringSection = ({
       <div className={`filtering-checkbox-mobile-view-for-${checkboxName}`}>
         {/* if the data from DB will be use instead of the data from config file, you can pass needed keys as props not to create a separate file for each filtering section  */}
         {data.map((record) => {
+          console.log('record', record);
+          console.log('data', data);
           return (
             <div className="filtering-checkbox-element" key={title + record.id}>
               <input
@@ -57,7 +83,7 @@ export const FilteringSection = ({
                 value={record.id}
                 id={record.title}
                 name={checkboxName}
-                onChange={handleCheck}
+                onChange={(e) => handleCheck(e)}
               />
               <label className="filtering-option" htmlFor={record.title}>
                 {record.title}

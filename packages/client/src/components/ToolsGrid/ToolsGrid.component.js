@@ -1,26 +1,36 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable */
+import React, { useState, useEffect, useContext } from 'react';
 import './ToolsGrid.style.css';
-import getApiBaseUrl from '../../utils/getApiBaseURL';
+// import getApiBaseUrl from '../../utils/getApiBaseURL';
 import { ToolItem } from '../ToolItem/ToolItem.component';
+import { ToolsContext } from '../../containers/LandingPage/Context';
 
 export const ToolsGrid = () => {
-  const [tools, setResult] = useState();
+  const { tools } = useContext(ToolsContext);
+  console.log('tools', tools);
+  const [newTools, setNewTools] = useState(tools);
   const [isLoading, setIsLoading] = useState(true);
 
-  function getTools() {
-    const promise = fetch(`${getApiBaseUrl()}/api/tools`).then((response) =>
-      response.json(),
-    );
+  // function getTools() {
+  //   const promise = fetch(`${getApiBaseUrl()}/api/tools`).then((response) =>
+  //     response.json(),
+  //   );
 
-    return promise;
-  }
+  //   return promise;
+  // }
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   getTools().then((response) => {
+  //     setResult(response);
+  //     setIsLoading(false);
+  //   });
+  // }, []);
+
   useEffect(() => {
     setIsLoading(true);
-    getTools().then((response) => {
-      setResult(response);
-      setIsLoading(false);
-    });
-  }, []);
+    setNewTools(newTools);
+    setIsLoading(false);
+  }, [newTools]);
 
   const toolsToRender = isLoading ? (
     <p>Loading...</p>

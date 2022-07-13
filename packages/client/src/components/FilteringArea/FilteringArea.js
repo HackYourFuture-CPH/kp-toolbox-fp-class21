@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+/* eslint-disable */
+import React, { useState, useContext } from 'react';
 import './FilteringArea.css';
 import { FilteringSection } from './FilteringSection';
+import { ToolsContext } from '../../containers/LandingPage/Context';
 import {
   categories,
   timeframes,
@@ -21,6 +23,7 @@ export const FilteringArea = () => {
         checkboxName="category"
         selectedValue={categoriesSelected}
         setSelectedValue={setCategoriesSelected}
+        fetchKey="categoriesSelected"
       />
       <FilteringSection
         data={numberOfParticipants}
@@ -29,6 +32,7 @@ export const FilteringArea = () => {
         checkboxName="participants"
         selectedValue={participantsNumSelected}
         setSelectedValue={setParticipantsNumSelected}
+        fetchKey="participantsNumSelected"
       />
       <FilteringSection
         data={timeframes}
@@ -37,6 +41,7 @@ export const FilteringArea = () => {
         checkboxName="timeframe"
         selectedValue={timeframesSelected}
         setSelectedValue={setTimeframesSelected}
+        fetchKey="timeframesSelected"
       />
     </section>
   );
