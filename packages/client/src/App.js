@@ -5,6 +5,7 @@ import { LandingPage } from './containers/LandingPage/LandingPage.Container';
 import { PageNotFound } from './containers/PageNotFound/PageNotFound.Container';
 import { Navbar } from './components/Navigation/Navbar.component';
 import { Main } from './components/Main/Main';
+import { ToolDetailPage } from './components/ToolDetailPage/ToolDetailPage.component';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="*" element={<PageNotFound />} />
+            <Route path="/ToolDetailPage" element={<ToolDetailPage />} />
             <Route path="/about-toolbox" element="" />
             <Route path="/contact-us" element="" />
             <Route path="/user-name" element="" />
