@@ -17,9 +17,9 @@ const toolsController = require('../controllers/tools.controller');
  * /tools:
  *  get:
  *    tags: [Tools]
- *    summary: Return the list of all tools
+ *    summary: Return the list of all or filtered tools
  *    description:
- *      Will return all tools.
+ *      Will return all or filtered tools.
  *    produces: application/json
  *    responses:
  *      200:

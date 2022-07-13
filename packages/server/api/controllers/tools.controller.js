@@ -20,19 +20,28 @@ const getTools = async (query) => {
       'tools.created_at',
     );
 
+  // Example for testing: /api/tools?categoriesSelected[]=3&categoriesSelected[]=1
   if ('categoriesSelected' in query) {
     tools = tools
       .join('tools_categories', 'tools_categories.tool_Id', '=', 'tools.id')
       .where(builder =>
-        query.categoriesSelected.forEach(item =>
+        query.categoriesSelected.forEach(item => {
+          if (!Number(item)) {
+            throw new HttpError('please specify the IDs of the categories that you want to select. They should be numbers. ', 400);
+          }
           builder.orWhere('tools_categories.category_Id', '=', item)
+        }
         )
       )
   }
 
+  // Example for testing: /api/tools?timeframesSelected[]=1&timeframesSelected[]=2
   if ('timeframesSelected' in query) {
     tools = tools.where(builder =>
       query.timeframesSelected.forEach(item => {
+        if (!Number(item)) {
+          throw new HttpError('please specify the IDs of the timeframes that you want to select. They should be numbers. ', 400);
+        }
         if (item === '1') {
           builder
             .orWhere('tools.time_frame_min', '=', '5')
@@ -53,9 +62,13 @@ const getTools = async (query) => {
     )
   }
 
+  // Example for testing: /api/tools?participantsNumSelected[]=2&participantsNumSelected[]=3
   if ('participantsNumSelected' in query) {
     tools = tools.where(builder =>
       query.participantsNumSelected.forEach(item => {
+        if (!Number(item)) {
+          throw new HttpError('please specify the IDs of the participants number that you want to select. They should be numbers. ', 400);
+        }
         if (item === '1') {
           builder
             .orWhere('tools.group_size_min', '=', '2')
