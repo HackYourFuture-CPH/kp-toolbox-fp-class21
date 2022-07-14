@@ -6,7 +6,7 @@ import './ToolDetailsPage.css';
 export const ToolDetailsPage = () => {
   const [tool, setTool] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [isDataEmpty, setisDataEmpty] = useState(false);
+  const [isDataEmpty, setIsDataEmpty] = useState(false);
   const params = useParams();
 
   useEffect(() => {
@@ -21,12 +21,10 @@ export const ToolDetailsPage = () => {
       fetchTool(params.id)
         .then((data) => {
           if (typeof data === 'object') {
-            setisDataEmpty(false);
-            const toolWithCategries = data[0];
-            toolWithCategries.categories = data.categories;
-            setTool(toolWithCategries);
+            setIsDataEmpty(false);
+            setTool(data[0]);
           } else {
-            setisDataEmpty(true);
+            setIsDataEmpty(true);
           }
         })
         .then(() => {
@@ -50,7 +48,7 @@ export const ToolDetailsPage = () => {
               : `${category.name} // `}
           </span>
         ))
-      : '';
+      : 'unknown';
 
     const toolTimeFrame = tool.time_frame_max
       ? `${tool.time_frame_min}-${tool.time_frame_max} minutes`

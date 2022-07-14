@@ -25,7 +25,7 @@ const getToolById = async (id) => {
   }
 
   try {
-    let tools = await knex('tools')
+    const tools = await knex('tools')
       .select(
         'name',
         'time_frame_min',
@@ -54,7 +54,7 @@ const getToolById = async (id) => {
         'categories.id',
       )
       .where('tools_categories.tool_id', '=', id);
-    tools = { ...tools, categories: categoriesList };
+    tools[0].categories = categoriesList;
     return tools;
   } catch (error) {
     return error.message;
