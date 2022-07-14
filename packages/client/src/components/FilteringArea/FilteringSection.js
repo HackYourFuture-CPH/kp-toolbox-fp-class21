@@ -1,7 +1,8 @@
 /* eslint-disable */
-import React from 'react';
+import React, { useContext } from 'react';
 import getApiBaseUrl from '../../utils/getApiBaseURL';
 import PropTypes from 'prop-types';
+import { ToolsContext } from '../../containers/LandingPage/Context';
 
 export const FilteringSection = ({
   title,
@@ -12,6 +13,7 @@ export const FilteringSection = ({
   setSelectedValue,
   fetchKey,
 }) => {
+  const { onCheckboxClick } = useContext(ToolsContext);
   const iconLink = `/assets/vectors/${iconName}.svg`;
 
   // function getTools() {
@@ -22,6 +24,15 @@ export const FilteringSection = ({
   //   return promise;
   // }
 
+  const handleShowAll = (e) => {
+    const all = document.getElementsByName(checkboxName);
+    for (let i = 0; i < all.length; i += 1) {
+      if (all[i].type === 'checkbox') all[i].checked = false;
+    }
+    e.target.style.borderColor = '#8c5c02';
+    setSelectedValue([]);
+  };
+
   // function getToolsByCategory(id) {
   //   const promise = fetch(
   //     `${getApiBaseUrl()}/api/tools?${fetchKey}[]=${id}`,
@@ -30,21 +41,12 @@ export const FilteringSection = ({
   //   return promise;
   // }
 
-  const handleShowAll = (e) => {
-    const all = document.getElementsByName(checkboxName);
-    console.log(all);
-    for (let i = 0; i < all.length; i += 1) {
-      if (all[i].type === 'checkbox') all[i].checked = false;
-    }
-    e.target.style.borderColor = '#8c5c02';
-    setSelectedValue([]);
-  };
-
   const handleCheck = (e) => {
-    console.log(e.target.value);
-    getToolsByCategory(e.target.value).then((response) => {
-      console.log('getToolsByCategory', response);
-    });
+    // getToolsByCategory(e.target.value, fetchKey)
+    // .then((response) => {
+    //   console.log('getToolsByCategory', response);
+    // });
+    onCheckboxClick(e, fetchKey);
     const showAllButton = document.getElementById(`showAll-${checkboxName}`);
     showAllButton.style.borderColor = 'rgba(0, 0, 0, 0.2)';
     if (e.target.checked) {
@@ -73,8 +75,6 @@ export const FilteringSection = ({
       <div className={`filtering-checkbox-mobile-view-for-${checkboxName}`}>
         {/* if the data from DB will be use instead of the data from config file, you can pass needed keys as props not to create a separate file for each filtering section  */}
         {data.map((record) => {
-          console.log('record', record);
-          console.log('data', data);
           return (
             <div className="filtering-checkbox-element" key={title + record.id}>
               <input

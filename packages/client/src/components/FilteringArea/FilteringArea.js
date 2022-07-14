@@ -9,7 +9,13 @@ import {
   numberOfParticipants,
 } from './FilterArea.config';
 
-export const FilteringArea = () => {
+export const FilteringArea = (props) => {
+  const {
+    tools: [tools, setTools],
+  } = {
+    tools: useState(0),
+    ...(props.state || {}),
+  };
   const [categoriesSelected, setCategoriesSelected] = useState([]);
   const [timeframesSelected, setTimeframesSelected] = useState([]);
   const [participantsNumSelected, setParticipantsNumSelected] = useState([]);
