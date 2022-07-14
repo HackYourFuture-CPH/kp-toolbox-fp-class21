@@ -6,6 +6,7 @@ import './ToolDetailsPage.css';
 export const ToolDetailsPage = () => {
   const [tool, setTool] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [isDataEmpty, setisDataEmpty] = useState(false);
   const params = useParams();
 
   useEffect(() => {
@@ -16,11 +17,17 @@ export const ToolDetailsPage = () => {
     }
     function setFetchTool() {
       setIsLoading(true);
+
       fetchTool(params.id)
         .then((data) => {
-          const toolWithCategries = data[0];
-          toolWithCategries.categories = data.categories;
-          setTool(toolWithCategries);
+          if (typeof data === 'object') {
+            setisDataEmpty(false);
+            const toolWithCategries = data[0];
+            toolWithCategries.categories = data.categories;
+            setTool(toolWithCategries);
+          } else {
+            setisDataEmpty(true);
+          }
         })
         .then(() => {
           setIsLoading(false);
@@ -29,75 +36,89 @@ export const ToolDetailsPage = () => {
     setFetchTool();
   }, [params.id]);
 
-  return isLoading ? (
-    <p>Loading</p>
-  ) : (
-    <div className="tool-details-container">
-      <p className="breadcrumbs">
-        KAOSPILOT toolbox / <span>{tool.name}</span>
-      </p>
-      <h1>{tool.name}</h1>
-      <img
-        className="tool-image"
-        src={tool.picture}
-        alt={`${tool.name} icon`}
-      />
+  let pageContent;
+  if (isLoading) {
+    pageContent = <p className="message">Loading</p>;
+  } else if (isDataEmpty) {
+    pageContent = <p className="message">Tool not found</p>;
+  } else {
+    const toolCategoriesList = tool.categories
+      ? tool.categories.map((category, index) => (
+          <span key={category.name}>
+            {tool.categories.length - 1 === index
+              ? category.name
+              : `${category.name} // `}
+          </span>
+        ))
+      : '';
 
-      <ul className="tool-criteria-summary">
-        <li>
-          CATEGORY:
-          {tool.categories
-            ? tool.categories.map((category, index) => (
-                <span key={category.name}>
-                  {tool.categories.length - 1 === index
-                    ? category.name
-                    : `${category.name} // `}
-                </span>
-              ))
-            : ''}
-        </li>
-        <li>
-          TIME FRAME:
-          {tool.time_frame_max
-            ? `${tool.time_frame_min}-${tool.time_frame_max} minutes`
-            : `${tool.time_frame_min} minutes`}
-        </li>
-        <li>
-          NUMBER OF PARTICIPANTS:
-          {tool.group_size_max
-            ? `${tool.group_size_min}-${tool.group_size_max}`
-            : `${tool.group_size_min}`}
-        </li>
-        <li>FACILITATION LEVEL: {tool.facilitation_level}</li>
-        <li>MATERIALS: {tool.materials}</li>
-        <li>SOURCE: {tool.source}</li>
-      </ul>
+    const toolTimeFrame = tool.time_frame_max
+      ? `${tool.time_frame_min}-${tool.time_frame_max} minutes`
+      : `${tool.time_frame_min} minutes`;
 
-      <div className="tool-description">
-        <p>{tool.pitch}</p>
-        <p>{tool.description}</p>
-      </div>
+    const toolGroupSize = tool.group_size_max
+      ? `${tool.group_size_min}-${tool.group_size_max}`
+      : `${tool.group_size_min}`;
 
-      <div className="tool-instructions">
-        <h2>Instructions:</h2>
-        {tool.instructions.description.length > 0 ? (
-          <div className="instructions-description">
-            {tool.instructions.description.map((descriptionParagraph) => {
-              return <p key={descriptionParagraph}>{descriptionParagraph}</p>;
-            })}
-          </div>
-        ) : (
-          ''
-        )}
-        {tool.instructions.steps.map((step) => (
-          <div className="step-container" key={step.header}>
-            <h3>{step.header}</h3>
-            {step.text.map((textItem) => (
-              <p key={textItem}>{textItem}</p>
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+    pageContent = (
+      <>
+        <p className="breadcrumbs">
+          KAOSPILOT toolbox / <span>{tool.name}</span>
+        </p>
+        <h1>{tool.name}</h1>
+        <img
+          className="tool-image"
+          src={tool.picture}
+          alt={`${tool.name} icon`}
+        />
+
+        <ul className="tool-criteria-summary">
+          <li>CATEGORY: {toolCategoriesList}</li>
+          <li>
+            TIME FRAME: <span>{toolTimeFrame}</span>
+          </li>
+          <li>
+            NUMBER OF PARTICIPANTS: <span>{toolGroupSize}</span>
+          </li>
+          <li>
+            FACILITATION LEVEL: <span> {tool.facilitation_level}</span>
+          </li>
+          <li>
+            MATERIALS: <span>{tool.materials}</span>
+          </li>
+          <li>
+            SOURCE: <span>{tool.source}</span>
+          </li>
+        </ul>
+
+        <div className="tool-description">
+          <p>{tool.pitch}</p>
+          <p>{tool.description}</p>
+        </div>
+
+        <div className="tool-instructions">
+          <h2>Instructions:</h2>
+          {tool.instructions.description.length > 0 ? (
+            <div className="instructions-description">
+              {tool.instructions.description.map((descriptionParagraph) => {
+                return <p key={descriptionParagraph}>{descriptionParagraph}</p>;
+              })}
+            </div>
+          ) : (
+            ''
+          )}
+          {tool.instructions.steps.map((step) => (
+            <div className="step-container" key={step.header}>
+              <h3>{step.header}</h3>
+              {step.text.map((textItem) => (
+                <p key={textItem}>{textItem}</p>
+              ))}
+            </div>
+          ))}
+        </div>
+      </>
+    );
+  }
+
+  return <div className="tool-details-container">{pageContent}</div>;
 };
