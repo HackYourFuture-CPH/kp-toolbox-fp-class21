@@ -58,5 +58,9 @@ export const Sorting = (props) => {
 };
 
 Sorting.propTypes = {
-  setSelected: PropTypes.func.isRequired,
+  setSelected: PropTypes.func,
+};
+
+Sorting.defaultProps = {
+  setSelected: null,
 };
