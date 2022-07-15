@@ -101,10 +101,10 @@ export const ToolItem = ({
 
 ToolItem.propTypes = {
   title: PropTypes.string,
-  timeFrameMin: PropTypes.string,
-  timeFrameMax: PropTypes.string,
-  groupSizeMax: PropTypes.string,
-  groupSizeMin: PropTypes.string,
+  timeFrameMin: PropTypes.number,
+  timeFrameMax: PropTypes.number,
+  groupSizeMax: PropTypes.number,
+  groupSizeMin: PropTypes.number,
   pitch: PropTypes.string,
   picture: PropTypes.string,
 };
