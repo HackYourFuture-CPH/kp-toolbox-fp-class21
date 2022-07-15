@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Inter:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+}
+
+.tool-details-container {
+  padding-top: 2.75rem;
+  padding: 2.75rem 6.875rem;
+  margin: 0px auto;
+  font-family: 'Abel';
+  color: rgba(245, 245, 245, 0.5);
+  text-align: left;
+}
+
+.message {
+  text-align: center;
+}
+
+.breadcrumbs,
+h1 {
+  text-align: center;
+}
+
+.breadcrumbs {
+  font-family: 'Open Sans';
+  font-size: 1rem;
+  color: rgba(245, 245, 245);
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 3rem;
+  margin-top: 3.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.breadcrumbs span,
+h1 {
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: 400;
+}
+
+p,
+h3 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 400;
+}
+
+.tool-image {
+  height: 12.5rem;
+  margin: auto;
+  display: block;
+}
+
+.tool-criteria-summary {
+  margin-top: 3.5rem;
+  padding-left: 0;
+  list-style-type: none;
+  padding: 1.5rem 0;
+  border-top: 2px solid rgba(245, 245, 245);
+  border-bottom: 2px solid rgba(245, 245, 245);
+}
+
+.tool-criteria-summary li {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.tool-criteria-summary li span {
+  margin-left: 0.3rem;
+}
+
+.tool-criteria-summary li:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.tool-description {
+  margin: 2.5rem 0;
+}
+
+.tool-description > p:first-child {
+  margin-bottom: 2.5rem;
+}
+
+.tool-instructions h2 {
+  margin-bottom: 2.375rem;
+}
+
+.tool-instructions h3 {
+  margin-bottom: 2rem;
+}
+
+.instructions-description,
+.step-container {
+  margin-bottom: 4.125rem;
+}
+
+.step-container > p:not(:last-child) {
+  margin-bottom: 0.8rem;
+}
+
+@media screen and (max-width: 1199px) {
+  .tool-details-container {
+    padding: 2rem 4rem;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  h1 {
+    font-size: 2.75rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .tool-description > p:first-child,
+  .tool-instructions h2 {
+    margin-bottom: 1.75rem;
+  }
+
+  p,
+  h3,
+  .tool-criteria-summary li {
+    font-size: 1.3rem;
+  }
+
+  .tool-criteria-summary li {
+    line-height: 1.5rem;
+  }
+
+  .tool-instructions h3 {
+    margin-bottom: 1.5rem;
+  }
+
+  .instructions-description,
+  .step-container {
+    margin-bottom: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .tool-details-container {
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .tool-details-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .tool-image {
+    height: 10rem;
+  }
+
+  h1 {
+    font-size: 2.3rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .tool-details-container {
+    padding: 0.5rem 0.825rem;
+  }
+
+  .tool-criteria-summary li {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  p,
+  h3 {
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+
+  .tool-instructions h3 {
+    margin-bottom: 1rem;
+  }
+
+  .tool-description > p:first-child,
+  .tool-instructions h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .instructions-description,
+  .step-container {
+    margin-bottom: 2.5rem;
+  }
+
+  .tool-image {
+    height: 8rem;
+  }
+
+  .tool-criteria-summary li:not(:last-child) {
+    margin-bottom: 0.3rem;
+  }
+
+  .tool-description {
+    margin: 2rem 0;
+  }
+
+  .tool-criteria-summary {
+    margin-top: 2rem;
+    padding: 1rem 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .breadcrumbs {
+    font-size: 0.85rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  p,
+  h3 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .tool-image {
+    height: 5.5rem;
+  }
+
+  .instructions-description,
+  .step-container {
+    margin-bottom: 1.75rem;
+  }
+
+  .tool-criteria-summary {
+    margin-top: 1.75rem;
+    padding: 0.5rem 0;
+  }
+
+  .tool-description {
+    margin: 1.75rem 0;
+  }
+
+  .tool-instructions h3 {
+    margin-bottom: 0.875rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .tool-details-container {
+    padding: 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  p,
+  h3 {
+    font-size: 0.875rem;
+  }
+
+  .tool-image {
+    height: 5rem;
+  }
+}
