@@ -18,27 +18,20 @@ export const ToolItem = ({
       return !previousIcon;
     });
   };
-
-  let firstCategoryClassName = 'not-selected-category';
-  let secondCategoryClassName = 'not-selected-category';
-  let thirdCategoryClassName = 'not-selected-category';
-  let fourthCategoryClassName = 'not-selected-category';
-  const categories = ['INNOVATION', 'ACTION', 'TEAM']; //  should get it from category table when full database is ready,
-
-  for (let i = 0; i < categories.length; i += 1) {
-    if (categories[i] === 'INNOVATION') {
-      firstCategoryClassName = 'selected-category';
-    }
-    if (categories[i] === 'TEAM') {
-      secondCategoryClassName = 'selected-category';
-    }
-    if (categories[i] === 'ENERGIZER') {
-      thirdCategoryClassName = 'selected-category';
-    }
-    if (categories[i] === 'ACTION') {
-      fourthCategoryClassName = 'selected-category';
-    }
-  }
+  const availableCategories = ['INNOVATION', 'ACTION', 'ENERGIZER', 'TEAM'];
+  const toolCategories = ['ACTION', 'TEAM', 'INNOVATION']; //  should get it from category table when full database and api is ready,
+  const categoriesStreakOut = availableCategories.map((category) => {
+    const isCategoryForTheTool = toolCategories.includes(category);
+    return (
+      <li>
+        {isCategoryForTheTool ? (
+          <li className="selected-category">{category}</li>
+        ) : (
+          <li className="not-selected-category">{category}</li>
+        )}
+      </li>
+    );
+  });
   return (
     <div className="product-card-container">
       <div className="main-part-card">
@@ -74,12 +67,7 @@ export const ToolItem = ({
           </div>
         </div>
         <div className="categories-container">
-          <ul className="category-names">
-            <li className={`${firstCategoryClassName}`}>INNOVATION</li>
-            <li className={`${secondCategoryClassName}`}>TEAM</li>
-            <li className={`${thirdCategoryClassName}`}>ENERGIZER</li>
-            <li className={`${fourthCategoryClassName}`}>ACTION</li>
-          </ul>
+          <ul className="category-names">{categoriesStreakOut}</ul>
         </div>
         <div className="toolbox-description-container">
           <span className="product-description">{pitch}</span>
