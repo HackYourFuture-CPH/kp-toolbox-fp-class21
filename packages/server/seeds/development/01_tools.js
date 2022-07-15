@@ -13,7 +13,7 @@ exports.seed = async function (knex) {
       group_size_min: 2,
       group_size_max: 100,
       facilitation_level: 'Beginner',
-      materials: 'A4 paper &amp; pens',
+      materials: 'A4 paper & pens',
       pitch:
         'Rapidly generate ideas and tap into the collective knowledge with this simple tool.',
       description:

@@ -1,6 +1,3 @@
-/* TODO: This is an example controller to illustrate a server side controller.
-Can be deleted as soon as the first real controller is added. */
-
 const knex = require('../../config/db');
 const HttpError = require('../lib/utils/http-error');
 
@@ -48,6 +45,16 @@ const getToolById = async (id) => {
     if (tools.length === 0) {
       throw new Error(`incorrect entry with the id of ${id}`, 404);
     }
+    const categoriesList = await knex('categories')
+      .select('categories.name')
+      .join(
+        'tools_categories',
+        'tools_categories.category_id',
+        '=',
+        'categories.id',
+      )
+      .where('tools_categories.tool_id', '=', id);
+    tools[0].categories = categoriesList;
     return tools;
   } catch (error) {
     return error.message;
