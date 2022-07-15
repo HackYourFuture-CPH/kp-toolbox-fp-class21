@@ -1,89 +1,88 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
 .sorting-wrapper {
-    height: 44px;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    padding: 66px 0 0 0;
+  height: 44px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 66px 0 0 0;
 }
 
 .sorting-area-general {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .sorting-area {
-    width: 166px;
-    height: 120px;
-    font-family: 'Open Sans';
-    color: rgb(245 245 245);
-    padding-right: 15px;
+  width: 166px;
+  height: 120px;
+  font-family: 'Open Sans';
+  color: rgb(245 245 245);
+  padding-right: 15px;
 }
 
 .sorting-button-general {
-    cursor: pointer;
-    border: none;
-    color: rgb(245 245 245);
-    font-family: 'Open Sans';
-    text-transform: uppercase;
-    font-weight: 400;
+  cursor: pointer;
+  border: none;
+  color: rgb(245 245 245);
+  font-family: 'Open Sans';
+  text-transform: uppercase;
+  font-weight: 400;
 }
 
-
 .sortby-button {
-    width: 100%;
-    background: inherit;
-    font-weight: 400;
-    font-size: 1.5rem;
-    line-height: 2.1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 4px 0 10px;
+  width: 100%;
+  background: inherit;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 2.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px 0 10px;
 }
 
 .sorting-header {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .sorting-options-area {
-    background-color: rgba(29, 45, 45);
-    height: 100%;
-    padding: 0px 8px 0 12px;
-    justify-content: space-evenly;
-    z-index: 1;
+  background-color: rgba(29, 45, 45);
+  height: 100%;
+  padding: 0px 8px 0 12px;
+  justify-content: space-evenly;
+  z-index: 1;
 }
 
 .sorting-options-button {
-    background-color: #1d2d2d;
-    font-size: 1rem;
-    line-height: 1.36rem;
+  background-color: #1d2d2d;
+  font-size: 1rem;
+  line-height: 1.36rem;
 }
 
 @media screen and (max-width: 820px) {
-    .sorting-wrapper {
-        padding: 20.5px 0 0 0;
-    }
+  .sorting-wrapper {
+    padding: 20.5px 0 0 0;
+  }
 
-    .sorting-area {
-        padding-right: 0;
-    }
+  .sorting-area {
+    padding-right: 0;
+  }
 }
 
 @media screen and (max-width: 463px) {
-    .sorting-wrapper {
-        padding: 38px 0 0 0;
-    }
+  .sorting-wrapper {
+    padding: 38px 0 0 0;
+  }
 
-    .sorting-options-button {
-        font-size: 0.8rem;
-    }
+  .sorting-options-button {
+    font-size: 0.8rem;
+  }
 
-    .sorting-area {
-        width: 153px;
-        padding-right: 0;
-    }
+  .sorting-area {
+    width: 153px;
+    padding-right: 0;
+  }
 }
