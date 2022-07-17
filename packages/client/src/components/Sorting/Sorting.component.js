@@ -31,6 +31,7 @@ export const Sorting = (props) => {
             <button
               onClick={(e) => {
                 props.setSelected(e.target.value);
+                setIsOpen(!isOpen);
               }}
               value="a-z"
               type="button"
@@ -41,6 +42,7 @@ export const Sorting = (props) => {
             <button
               onClick={(e) => {
                 props.setSelected(e.target.value);
+                setIsOpen(!isOpen);
               }}
               value="date"
               type="button"

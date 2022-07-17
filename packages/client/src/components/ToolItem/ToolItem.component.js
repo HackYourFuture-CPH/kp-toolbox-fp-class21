@@ -40,6 +40,9 @@ export const ToolItem = ({
       fourthCategoryClassName = 'selected-category';
     }
   }
+
+  const altForToolPicture = picture.slice(20, -4);
+
   return (
     <div className="product-card-container">
       <div className="main-part-card">
@@ -87,7 +90,7 @@ export const ToolItem = ({
           <h6 className="product-title">{title}</h6>
         </div>
         <div className="title-image">
-          <img src={picture} alt="stinky-fish" />
+          <img src={picture} alt={`Tool ${altForToolPicture}`} />
         </div>
       </div>
       <div className="button-container">
