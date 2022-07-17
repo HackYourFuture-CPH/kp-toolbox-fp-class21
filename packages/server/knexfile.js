@@ -27,7 +27,7 @@ module.exports = {
     },
     pool: { min: 0, max: 7 },
     seeds: {
-      directory: path.join(__dirname, '/seeds/production'),
+      directory: path.join(__dirname, '/seeds/development'),
     },
   },
 };
