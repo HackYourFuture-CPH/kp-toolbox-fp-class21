@@ -10,7 +10,7 @@ const getCategories = async () => {
 };
 
 const getCategoriesById = async (id) => {
-  if (!id) {
+  if (!Number(id)) {
     throw new HttpError('Id should be a number', 400);
   }
 
