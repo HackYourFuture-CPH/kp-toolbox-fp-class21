@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import './ToolsGrid.style.css';
 import getApiBaseUrl from '../../utils/getApiBaseURL';
 import { ToolItem } from '../ToolItem/ToolItem.component';
+import { Sorting } from '../Sorting/Sorting.component';
 
 export const ToolsGrid = () => {
-  const [tools, setResult] = useState();
+  const [tools, setResult] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [selected, setSelected] = useState('');
 
   function getTools() {
     const promise = fetch(`${getApiBaseUrl()}/api/tools`).then((response) =>
       response.json(),
     );
-
     return promise;
   }
   useEffect(() => {
@@ -22,24 +23,57 @@ export const ToolsGrid = () => {
     });
   }, []);
 
+  const sortedTools = useMemo(() => {
+    let result = tools;
+    if (selected === 'a-z') {
+      result = result.sort((a, b) => {
+        const titleA = a.name.toUpperCase();
+        const titleB = b.name.toUpperCase();
+        if (titleA < titleB) {
+          return -1;
+        }
+        if (titleA > titleB) {
+          return 1;
+        }
+        return 0;
+      });
+    } else if (selected === 'date') {
+      result = result.sort((a, b) => {
+        const dateA = new Date(a.created_at);
+        const dateB = new Date(b.created_at);
+        return dateB - dateA;
+      });
+    }
+    return result;
+  }, [tools, selected]);
+
   const toolsToRender = isLoading ? (
     <p>Loading...</p>
   ) : (
-    tools.map((tool, i) => {
-      return (
-        <ToolItem
-          index={i}
-          key={tool.id}
-          title={tool.name}
-          timeFrameMin={tool.time_frame_min}
-          timeFrameMax={tool.time_frame_max}
-          groupSizeMin={tool.group_size_min}
-          groupSizeMax={tool.group_size_max}
-          pitch={tool.pitch}
-        />
-      );
-    })
+    <>
+      {sortedTools.map((tool, i) => {
+        return (
+          <ToolItem
+            index={i}
+            key={tool.id}
+            title={tool.name}
+            picture={tool.picture}
+            timeFrameMin={tool.time_frame_min}
+            timeFrameMax={tool.time_frame_max}
+            groupSizeMin={tool.group_size_min}
+            groupSizeMax={tool.group_size_max}
+            pitch={tool.pitch}
+            categories={tool.categories}
+          />
+        );
+      })}
+    </>
   );
 
-  return <div className="grid-tools-container">{toolsToRender}</div>;
+  return (
+    <div>
+      <Sorting setSelected={setSelected} />
+      <div className="grid-tools-container">{toolsToRender}</div>
+    </div>
+  );
 };
