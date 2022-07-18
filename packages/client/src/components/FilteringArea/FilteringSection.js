@@ -13,7 +13,7 @@ export const FilteringSection = ({
   setSelectedValue,
   fetchKey,
 }) => {
-  const { onCheckboxClick } = useContext(ToolsContext);
+  const { onCheckboxClick, onShowAllButtonClick } = useContext(ToolsContext);
   const iconLink = `/assets/vectors/${iconName}.svg`;
 
   // function getTools() {
@@ -25,7 +25,9 @@ export const FilteringSection = ({
   // }
 
   const handleShowAll = (e) => {
+    onShowAllButtonClick();
     const all = document.getElementsByName(checkboxName);
+    console.log('all', all);
     for (let i = 0; i < all.length; i += 1) {
       if (all[i].type === 'checkbox') all[i].checked = false;
     }
@@ -48,6 +50,9 @@ export const FilteringSection = ({
     // });
     onCheckboxClick(e, fetchKey);
     const showAllButton = document.getElementById(`showAll-${checkboxName}`);
+    console.log('showAllButton', showAllButton);
+    console.log('fetchKey', fetchKey);
+
     showAllButton.style.borderColor = 'rgba(0, 0, 0, 0.2)';
     if (e.target.checked) {
       setSelectedValue(selectedValue.filter((item) => item !== e.target.value));

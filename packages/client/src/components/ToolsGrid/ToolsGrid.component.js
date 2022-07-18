@@ -8,8 +8,8 @@ import { ToolsContext } from '../../containers/LandingPage/Context';
 export const ToolsGrid = () => {
   const { tools } = useContext(ToolsContext);
   console.log('tools', tools);
-  const [newTools, setNewTools] = useState(tools);
-  const [isLoading, setIsLoading] = useState(true);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   // function getTools() {
   //   const promise = fetch(`${getApiBaseUrl()}/api/tools`).then((response) =>
@@ -25,12 +25,6 @@ export const ToolsGrid = () => {
   //     setIsLoading(false);
   //   });
   // }, []);
-
-  useEffect(() => {
-    setIsLoading(true);
-    setNewTools(newTools);
-    setIsLoading(false);
-  }, [newTools]);
 
   const toolsToRender = isLoading ? (
     <p>Loading...</p>

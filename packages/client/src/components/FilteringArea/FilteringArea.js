@@ -1,21 +1,14 @@
 /* eslint-disable */
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import './FilteringArea.css';
 import { FilteringSection } from './FilteringSection';
-import { ToolsContext } from '../../containers/LandingPage/Context';
 import {
   categories,
   timeframes,
   numberOfParticipants,
 } from './FilterArea.config';
 
-export const FilteringArea = (props) => {
-  const {
-    tools: [tools, setTools],
-  } = {
-    tools: useState(0),
-    ...(props.state || {}),
-  };
+export const FilteringArea = () => {
   const [categoriesSelected, setCategoriesSelected] = useState([]);
   const [timeframesSelected, setTimeframesSelected] = useState([]);
   const [participantsNumSelected, setParticipantsNumSelected] = useState([]);
