@@ -2,7 +2,7 @@ const knex = require('../../config/db');
 const HttpError = require('../lib/utils/http-error');
 
 const getTools = async () => {
-  let toolsWithCategory = [];
+  let toolsWithCategories = [];
   const tools = await knex('tools').select(
     'id',
     'name',
@@ -28,7 +28,7 @@ const getTools = async () => {
       'categories.id',
     );
 
-  toolsWithCategory = tools.map((tool) => {
+  toolsWithCategories = tools.map((tool) => {
     const result = [];
     categoriesList.map((category) => {
       if (tool.id === category.tool_id) {
@@ -38,7 +38,7 @@ const getTools = async () => {
     });
     return { ...tool, categories: result };
   });
-  return toolsWithCategory;
+  return toolsWithCategories;
 };
 
 const getToolById = async (id) => {
