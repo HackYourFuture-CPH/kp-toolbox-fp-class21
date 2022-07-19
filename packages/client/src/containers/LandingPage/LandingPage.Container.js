@@ -6,26 +6,17 @@ import './LandingPage.Style.css';
 import { ToolsGrid } from '../../components/ToolsGrid/ToolsGrid.component';
 import { ToolsContext } from './Context';
 
-const baseUrl = `${getApiBaseUrl()}/api/tools`;
-
-localStorage.setItem('searchKey', baseUrl);
-
 export const LandingPage = () => {
   const [tools, setTools] = useState([]);
-  // const [baseUrl, setBaseUrl] = useState(`${getApiBaseUrl()}/api/tools`);
-
-  let key = '';
-  console.log('key', key);
+  const [baseUrl, setBaseUrl] = useState(`${getApiBaseUrl()}/api/tools`);
 
   function getAllTools() {
     const promise = fetch(baseUrl).then((response) => response.json());
-    // console.log('getAllTools', response);
 
     return promise;
   }
 
   function onShowAllButtonClick() {
-    localStorage.setItem('searchKey', baseUrl);
     getAllTools().then((data) => {
       setTools(data);
     });
@@ -34,30 +25,35 @@ export const LandingPage = () => {
   function getFilteredTools(newKey) {
     console.log('newKey', newKey);
     const promise = fetch(newKey).then((response) => response.json());
-    // console.log('getFilteredTools', response);
 
     return promise;
   }
   const onCheckboxClick = (e, fetchKey) => {
+    setTools([]);
     const url = `${fetchKey}[]=${e.target.value}`;
-    const localStorageKey = localStorage.getItem('searchKey');
-    console.log('localStorageKey ', localStorageKey);
-    const isIncludes = localStorageKey.includes('?');
+    const isIncludes = baseUrl.includes('?');
     if (!isIncludes) {
-      const key = `${localStorageKey}?${url}`;
-      localStorage.setItem('searchKey', key);
+      setBaseUrl((prevUrl) => prevUrl.concat(`?${url}`));
     } else {
-      const key = `${localStorageKey}&${url}`;
-      localStorage.setItem('searchKey', key);
+      setBaseUrl((prevUrl) => prevUrl.concat(`&${url}`));
     }
-    const searchKey = localStorage.getItem('searchKey');
-    getFilteredTools(searchKey).then((response) => {
-      console.log('searchKey', searchKey);
-
-      console.log('getFilteredTools', response);
-      setTools(response);
-    });
   };
+
+  useEffect(() => {
+    getFilteredTools(baseUrl).then((tools) => {
+      console.log('tools', tools);
+
+      const newTools = tools.filter(
+        (value, index, self) =>
+          index ===
+          self.findIndex(
+            (t) => t.place === value.place && t.name === value.name,
+          ),
+      );
+      console.log('newTools', newTools);
+      setTools(newTools);
+    });
+  }, [baseUrl]);
 
   console.log('baseUrl', baseUrl);
 

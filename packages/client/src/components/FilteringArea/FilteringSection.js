@@ -16,14 +16,6 @@ export const FilteringSection = ({
   const { onCheckboxClick, onShowAllButtonClick } = useContext(ToolsContext);
   const iconLink = `/assets/vectors/${iconName}.svg`;
 
-  // function getTools() {
-  //   const promise = fetch(`${getApiBaseUrl()}/api/tools`).then((response) =>
-  //     response.json(),
-  //   );
-
-  //   return promise;
-  // }
-
   const handleShowAll = (e) => {
     onShowAllButtonClick();
     const all = document.getElementsByName(checkboxName);
@@ -35,19 +27,7 @@ export const FilteringSection = ({
     setSelectedValue([]);
   };
 
-  // function getToolsByCategory(id) {
-  //   const promise = fetch(
-  //     `${getApiBaseUrl()}/api/tools?${fetchKey}[]=${id}`,
-  //   ).then((response) => response.json());
-
-  //   return promise;
-  // }
-
   const handleCheck = (e) => {
-    // getToolsByCategory(e.target.value, fetchKey)
-    // .then((response) => {
-    //   console.log('getToolsByCategory', response);
-    // });
     onCheckboxClick(e, fetchKey);
     const showAllButton = document.getElementById(`showAll-${checkboxName}`);
     console.log('showAllButton', showAllButton);
