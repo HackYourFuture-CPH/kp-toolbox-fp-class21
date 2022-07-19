@@ -10,6 +10,7 @@ export const ToolItem = ({
   groupSizeMax,
   groupSizeMin,
   pitch,
+  picture,
 }) => {
   const [isFavourite, setIsFavourite] = useState(false);
 
@@ -39,6 +40,9 @@ export const ToolItem = ({
       fourthCategoryClassName = 'selected-category';
     }
   }
+
+  const altForToolPicture = picture.slice(20, -4);
+
   return (
     <div className="product-card-container">
       <div className="main-part-card">
@@ -86,10 +90,7 @@ export const ToolItem = ({
           <h6 className="product-title">{title}</h6>
         </div>
         <div className="title-image">
-          <img
-            src="/assets/images/tool-pic-stinky-fish.png"
-            alt="stinky-fish"
-          />
+          <img src={picture} alt={`Tool ${altForToolPicture}`} />
         </div>
       </div>
       <div className="button-container">
@@ -103,11 +104,12 @@ export const ToolItem = ({
 
 ToolItem.propTypes = {
   title: PropTypes.string,
-  timeFrameMin: PropTypes.string,
-  timeFrameMax: PropTypes.string,
-  groupSizeMax: PropTypes.string,
-  groupSizeMin: PropTypes.string,
+  timeFrameMin: PropTypes.number,
+  timeFrameMax: PropTypes.number,
+  groupSizeMax: PropTypes.number,
+  groupSizeMin: PropTypes.number,
   pitch: PropTypes.string,
+  picture: PropTypes.string,
 };
 
 ToolItem.defaultProps = {
@@ -117,4 +119,5 @@ ToolItem.defaultProps = {
   groupSizeMax: null,
   groupSizeMin: null,
   pitch: null,
+  picture: null,
 };
