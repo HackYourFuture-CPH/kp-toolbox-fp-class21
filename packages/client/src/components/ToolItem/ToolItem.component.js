@@ -20,20 +20,12 @@ export const ToolItem = ({
       return !previousIcon;
     });
   };
-  const availableCategories = ['INNOVATION', 'ACTION', 'ENERGIZER', 'TEAM'];
-  const toolCategories = categories.map((category) => {
-    return category.toUpperCase();
-  });
+  const availableCategories = ['Innovation', 'Action', 'Energizer', 'Team'];
   const categoriesStreakOut = availableCategories.map((category) => {
-    const isCategoryForTheTool = toolCategories.includes(category);
-    return (
-      <li>
-        {isCategoryForTheTool ? (
-          <li className="selected-category">{category}</li>
-        ) : (
-          <li className="not-selected-category">{category}</li>
-        )}
-      </li>
+    return categories.includes(category) ? (
+      <li className="selected-category">{category.toUpperCase()}</li>
+    ) : (
+      <li className="not-selected-category">{category.toUpperCase()}</li>
     );
   });
   const altForToolPicture = picture.slice(20, -4);
@@ -111,5 +103,5 @@ ToolItem.defaultProps = {
   groupSizeMin: null,
   pitch: null,
   picture: null,
-  categories: null,
+  categories: [],
 };
