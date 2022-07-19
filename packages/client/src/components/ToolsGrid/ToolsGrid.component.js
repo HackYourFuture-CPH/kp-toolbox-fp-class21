@@ -63,6 +63,7 @@ export const ToolsGrid = () => {
             groupSizeMin={tool.group_size_min}
             groupSizeMax={tool.group_size_max}
             pitch={tool.pitch}
+            categories={tool.categories}
           />
         );
       })}

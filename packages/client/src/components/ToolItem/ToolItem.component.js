@@ -11,6 +11,7 @@ export const ToolItem = ({
   groupSizeMin,
   pitch,
   picture,
+  categories,
 }) => {
   const [isFavourite, setIsFavourite] = useState(false);
 
@@ -19,28 +20,14 @@ export const ToolItem = ({
       return !previousIcon;
     });
   };
-
-  let firstCategoryClassName = 'not-selected-category';
-  let secondCategoryClassName = 'not-selected-category';
-  let thirdCategoryClassName = 'not-selected-category';
-  let fourthCategoryClassName = 'not-selected-category';
-  const categories = ['INNOVATION', 'ACTION', 'TEAM']; //  should get it from category table when full database is ready,
-
-  for (let i = 0; i < categories.length; i += 1) {
-    if (categories[i] === 'INNOVATION') {
-      firstCategoryClassName = 'selected-category';
-    }
-    if (categories[i] === 'TEAM') {
-      secondCategoryClassName = 'selected-category';
-    }
-    if (categories[i] === 'ENERGIZER') {
-      thirdCategoryClassName = 'selected-category';
-    }
-    if (categories[i] === 'ACTION') {
-      fourthCategoryClassName = 'selected-category';
-    }
-  }
-
+  const availableCategories = ['Innovation', 'Action', 'Energizer', 'Team'];
+  const categoriesStreakOut = availableCategories.map((category) => {
+    return categories.includes(category) ? (
+      <li className="selected-category">{category.toUpperCase()}</li>
+    ) : (
+      <li className="not-selected-category">{category.toUpperCase()}</li>
+    );
+  });
   const altForToolPicture = picture.slice(20, -4);
 
   return (
@@ -78,12 +65,7 @@ export const ToolItem = ({
           </div>
         </div>
         <div className="categories-container">
-          <ul className="category-names">
-            <li className={`${firstCategoryClassName}`}>INNOVATION</li>
-            <li className={`${secondCategoryClassName}`}>TEAM</li>
-            <li className={`${thirdCategoryClassName}`}>ENERGIZER</li>
-            <li className={`${fourthCategoryClassName}`}>ACTION</li>
-          </ul>
+          <ul className="category-names">{categoriesStreakOut}</ul>
         </div>
         <div className="toolbox-description-container">
           <span className="product-description">{pitch}</span>
@@ -110,6 +92,7 @@ ToolItem.propTypes = {
   groupSizeMin: PropTypes.number,
   pitch: PropTypes.string,
   picture: PropTypes.string,
+  categories: PropTypes.arrayOf(PropTypes.string),
 };
 
 ToolItem.defaultProps = {
@@ -120,4 +103,5 @@ ToolItem.defaultProps = {
   groupSizeMin: null,
   pitch: null,
   picture: null,
+  categories: [],
 };

@@ -2,7 +2,9 @@ const knex = require('../../config/db');
 const HttpError = require('../lib/utils/http-error');
 
 const getTools = async () => {
-  return knex('tools').select(
+  let toolsWithCategories = [];
+  const tools = await knex('tools').select(
+    'id',
     'name',
     'time_frame_min',
     'time_frame_max',
@@ -17,6 +19,26 @@ const getTools = async () => {
     'picture',
     'created_at',
   );
+  const categoriesList = await knex('categories')
+    .select('categories.name', 'tools_categories.tool_id')
+    .join(
+      'tools_categories',
+      'tools_categories.category_id',
+      '=',
+      'categories.id',
+    );
+
+  toolsWithCategories = tools.map((tool) => {
+    const result = [];
+    categoriesList.map((category) => {
+      if (tool.id === category.tool_id) {
+        result.push(category.name);
+      }
+      return result;
+    });
+    return { ...tool, categories: result };
+  });
+  return toolsWithCategories;
 };
 
 const getToolById = async (id) => {
