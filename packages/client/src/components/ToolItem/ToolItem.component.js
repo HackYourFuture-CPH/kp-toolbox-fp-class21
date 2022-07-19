@@ -11,9 +11,32 @@ export const ToolItem = ({
   groupSizeMin,
   pitch,
 }) => {
-  const [isFavourite, setIsFavourite] = useState(false);
+  /*
+   * Check if item is in favourite list
+   */
+  function isFavouriteItem(itemTitle) {
+    // get favourite list from getItem
+    const favTools = window.localStorage.getItem('favourites');
+    // return false if Favourite_Tool does not exist in storage
+    if (!favTools) {
+      return false;
+    }
+    const parsed = JSON.parse(favTools);
+    // check if itemTitle is in Favourite_Tool storage item
+    return parsed.some((v) => v === itemTitle);
+  }
+
+  const [isFavourite, setIsFavourite] = useState(isFavouriteItem(title));
+
+  const addFavouriteTool = () => {};
+  const removeFavouriteTool = () => {};
 
   const handleChangeFavourite = () => {
+    if (!isFavourite) {
+      addFavouriteTool();
+    } else {
+      removeFavouriteTool();
+    }
     setIsFavourite((previousIcon) => {
       return !previousIcon;
     });

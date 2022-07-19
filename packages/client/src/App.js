@@ -6,6 +6,7 @@ import { PageNotFound } from './containers/PageNotFound/PageNotFound.Container';
 import { Navbar } from './components/Navigation/Navbar.component';
 import { Main } from './components/Main/Main';
 import { ToolDetailsPage } from './components/ToolDetailsPage/ToolDetailsPage.component';
+import { FavoritesToolPage } from './components/FavoritesToolPage/FavoritesToolPage.component'
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
             <Route path="/user-name" element="" />
             <Route path="/sign-in" element="" />
             <Route path="/sign-out" element="" />
-            <Route path="/favourites" element="" />
+            <Route path="/favourites" element={<FavoritesToolPage />} />
           </Routes>
         </Main>
       </Router>
