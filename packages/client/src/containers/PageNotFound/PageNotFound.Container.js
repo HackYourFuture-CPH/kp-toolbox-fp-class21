@@ -1,6 +1,5 @@
 import React from 'react';
 import './PageNotFound.Style.css';
-import { ToolDetailsPage } from '../../components/ToolDetailsPage/ToolDetailsPage.component';
 
 export const PageNotFound = () => {
   return (
