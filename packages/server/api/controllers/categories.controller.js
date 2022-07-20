@@ -3,10 +3,7 @@ const HttpError = require('../lib/utils/http-error');
 const moment = require('moment-timezone');
 
 const getCategories = async () => {
-  return knex('categories').select(
-    'categories.id',
-    'categories.name',
-  );
+  return knex('categories').select('categories.id', 'categories.name');
 };
 
 const getCategoriesById = async (id) => {
@@ -27,10 +24,7 @@ const getCategoriesById = async (id) => {
   }
 };
 
-const editCategories = async (
-  categoriesId,
-  updatedCategories,
-) => {
+const editCategories = async (categoriesId, updatedCategories) => {
   if (!categoriesId) {
     throw new HttpError('categoriesId should be a number', 400);
   }

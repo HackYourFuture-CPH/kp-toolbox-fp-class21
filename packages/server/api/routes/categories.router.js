@@ -22,7 +22,7 @@ const categoriesController = require('../controllers/categories.controller');
  *        description: Unexpected error.
  */
 router.get('/', (req, res, next) => {
-    categoriesController
+  categoriesController
     .getCategories()
     .then((result) => res.json(result))
     .catch(next);
@@ -53,7 +53,7 @@ router.get('/', (req, res, next) => {
  *        description: Unexpected error.
  */
 router.get('/:id', (req, res, next) => {
-    categoriesController
+  categoriesController
     .getCategoriesById(req.params.id)
     .then((result) => res.json(result))
     .catch(next);
@@ -87,7 +87,7 @@ router.get('/:id', (req, res, next) => {
  *        description: Unexpected error.
  */
 router.post('/', (req, res) => {
-    categoriesController
+  categoriesController
     .createCategories(req.body)
     .then((result) => res.json(result))
     .catch((error) => {
@@ -127,7 +127,7 @@ router.post('/', (req, res) => {
  *        description: Unexpected error.
  */
 router.patch('/:id', (req, res, next) => {
-    categoriesController
+  categoriesController
     .editCategories(req.params.id, req.body)
     .then((result) => res.json(result))
     .catch(next);
@@ -154,14 +154,12 @@ router.patch('/:id', (req, res, next) => {
  *        description: Unexpected error.
  */
 router.delete('/:id', (req, res) => {
-    categoriesController
+  categoriesController
     .deleteCategories(req.params.id, req)
     .then((result) => {
       // If result is equal to 0, then that means the categories id does not exist
       if (result === 0) {
-        res
-          .status(404)
-          .send('The categories ID you provided does not exist.');
+        res.status(404).send('The categories ID you provided does not exist.');
       } else {
         res.json({ success: true });
       }
