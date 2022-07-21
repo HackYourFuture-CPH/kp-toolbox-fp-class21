@@ -22,66 +22,66 @@ const getTools = async (query) => {
   if ('categoriesSelected' in query) {
     tools = tools
       .join('tools_categories', 'tools_categories.tool_Id', '=', 'tools.id')
-      .where((builder) =>
+      .where((orBuilder) =>
         query.categoriesSelected.forEach((item) => {
-          if (!Number(parseInt(item))) {
+          if (!Number(parseInt(item, 10))) {
             throw new HttpError(
               'please specify the IDs of the categories that you want to select. They should be numbers. ',
               400,
             );
           }
-          builder.orWhere('tools_categories.category_Id', '=', item);
+          orBuilder.orWhere('tools_categories.category_Id', '=', item);
         }),
       );
   }
 
   if ('timeframesSelected' in query) {
-    tools = tools.where((builder) =>
+    tools = tools.where((orBuilder) =>
       query.timeframesSelected.forEach((item) => {
-        if (!Number(parseInt(item))) {
+        if (!Number(parseInt(item, 10))) {
           throw new HttpError(
             'please specify the IDs of the timeframes that you want to select. They should be numbers. ',
             400,
           );
         }
         if (item === '1') {
-          builder.orWhere('tools.time_frame_min', '=', '5');
+          orBuilder.orWhere('tools.time_frame_min', '=', '5');
         }
         if (item === '2') {
-          builder.orWhere((builder) =>
-            builder
+          orBuilder.orWhere((andBuilder) =>
+            andBuilder
               .andWhere('tools.time_frame_min', '<=', '30')
               .andWhere('tools.time_frame_max', '>=', '60'),
           );
         }
         if (item === '3') {
-          builder.orWhere('tools.time_frame_max', '=', '120');
+          orBuilder.orWhere('tools.time_frame_max', '=', '120');
         }
       }),
     );
   }
 
   if ('participantsNumSelected' in query) {
-    tools = tools.where((builder) =>
+    tools = tools.where((orBuilder) =>
       query.participantsNumSelected.forEach((item) => {
-        if (!Number(parseInt(item))) {
+        if (!Number(parseInt(item, 10))) {
           throw new HttpError(
             'please specify the IDs of the participants number that you want to select. They should be numbers. ',
             400,
           );
         }
         if (item === '1') {
-          builder.orWhere('tools.group_size_min', '=', '2');
+          orBuilder.orWhere('tools.group_size_min', '=', '2');
         }
         if (item === '2') {
-          builder.orWhere((builder) =>
-            builder
+          orBuilder.orWhere((andBuilder) =>
+            andBuilder
               .andWhere('tools.group_size_min', '<=', '20')
               .andWhere('tools.group_size_max', '>=', '40'),
           );
         }
         if (item === '3') {
-          builder.orWhere('tools.group_size_max', '=', '100');
+          orBuilder.orWhere('tools.group_size_max', '=', '100');
         }
       }),
     );
@@ -164,18 +164,18 @@ const postTools = async (body) => {
           '=',
           'tools_categories.category_id',
         )
-        .where((builder) =>
+        .where((orBuilder) =>
           body.categoriesSelected.forEach((item) => {
-            builder.orWhere('categories.name', '=', item.title);
+            orBuilder.orWhere('categories.name', '=', item.title);
           }),
         );
     }
 
     if ('timeframesSelected' in body) {
-      tools = tools.where((builder) =>
+      tools = tools.where((orBuilder) =>
         body.timeframesSelected.forEach((item) => {
-          builder.orWhere((builder) =>
-            builder
+          orBuilder.orWhere((andBuilder) =>
+            andBuilder
               .andWhere('tools.time_frame_min', '<=', item.time_frame_min)
               .andWhere('tools.time_frame_max', '>=', item.time_frame_max),
           );
@@ -184,10 +184,10 @@ const postTools = async (body) => {
     }
 
     if ('participantsNumSelected' in body) {
-      tools = tools.where((builder) =>
+      tools = tools.where((orBuilder) =>
         body.participantsNumSelected.forEach((item) => {
-          builder.orWhere((builder) =>
-            builder
+          orBuilder.orWhere((andBuilder) =>
+            andBuilder
               .andWhere('tools.group_size_min', '<=', item.group_size_min)
               .andWhere('tools.group_size_max', '>=', item.group_size_max),
           );

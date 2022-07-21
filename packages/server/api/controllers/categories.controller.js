@@ -30,7 +30,7 @@ const editCategories = async (categoriesId, updatedCategories) => {
   }
 
   return knex('categories').where({ id: categoriesId }).update({
-    name: updatedcategories.name,
+    name: updatedCategories.name,
     updatedAt: moment().format(),
   });
 };
