@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState } from 'react';
 import './FilteringArea.css';
 import { FilteringSection } from './FilteringSection';

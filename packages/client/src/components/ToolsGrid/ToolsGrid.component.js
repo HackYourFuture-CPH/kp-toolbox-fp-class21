@@ -1,32 +1,12 @@
-/* eslint-disable */
-import React, { useState, useEffect, useContext, useMemo } from 'react';
+import React, { useState, useContext, useMemo } from 'react';
 import './ToolsGrid.style.css';
-// import getApiBaseUrl from '../../utils/getApiBaseURL';
 import { ToolItem } from '../ToolItem/ToolItem.component';
 import { Sorting } from '../Sorting/Sorting.component';
 import { ToolsContext } from '../../containers/LandingPage/Context';
 
 export const ToolsGrid = () => {
-  const { tools } = useContext(ToolsContext);
-  console.log('tools', tools);
+  const { tools, isLoading } = useContext(ToolsContext);
   const [selected, setSelected] = useState('');
-
-  const [isLoading, setIsLoading] = useState(false);
-
-  // function getTools() {
-  //   const promise = fetch(`${getApiBaseUrl()}/api/tools`).then((response) =>
-  //     response.json(),
-  //   );
-
-  //   return promise;
-  // }
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   getTools().then((response) => {
-  //     setResult(response);
-  //     setIsLoading(false);
-  //   });
-  // }, []);
 
   const sortedTools = useMemo(() => {
     let result = tools;
