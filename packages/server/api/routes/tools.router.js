@@ -66,4 +66,27 @@ router.get('/:id', (req, res, next) => {
     .catch(next);
 });
 
+/**
+ * @swagger
+ * /tools:
+ *  post:
+ *    tags: [Tools]
+ *    summary: Return the list of filtered tools
+ *    description:
+ *      Will return filtered tools by posting the filter parameters.
+ *    produces: application/json
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ */
+
+router.post('/', (req, res, next) => {
+  toolsController
+    .postTools(req.body)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
 module.exports = router;
