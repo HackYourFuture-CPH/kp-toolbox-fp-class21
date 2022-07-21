@@ -17,9 +17,9 @@ const toolsController = require('../controllers/tools.controller');
  * /tools:
  *  get:
  *    tags: [Tools]
- *    summary: Return the list of all tools
+ *    summary: Return the list of all or filtered tools
  *    description:
- *      Will return all tools.
+ *      Will return all or filtered tools.
  *    produces: application/json
  *    responses:
  *      200:
@@ -30,7 +30,7 @@ const toolsController = require('../controllers/tools.controller');
 
 router.get('/', (req, res, next) => {
   toolsController
-    .getTools()
+    .getTools(req.query)
     .then((result) => res.json(result))
     .catch(next);
 });
@@ -62,6 +62,29 @@ router.get('/', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
   toolsController
     .getToolById(req.params.id)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
+/**
+ * @swagger
+ * /tools:
+ *  post:
+ *    tags: [Tools]
+ *    summary: Return the list of filtered tools
+ *    description:
+ *      Will return filtered tools by posting the filter parameters.
+ *    produces: application/json
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ */
+
+router.post('/', (req, res, next) => {
+  toolsController
+    .postTools(req.body)
     .then((result) => res.json(result))
     .catch(next);
 });

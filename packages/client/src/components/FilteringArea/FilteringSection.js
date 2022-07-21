@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { ToolsContext } from '../../containers/LandingPage/Context';
 
 export const FilteringSection = ({
   title,
@@ -8,10 +9,14 @@ export const FilteringSection = ({
   checkboxName,
   selectedValue,
   setSelectedValue,
+  fetchKey,
 }) => {
+  const { addQueryParam, removeQueryParam, getAllTools } =
+    useContext(ToolsContext);
   const iconLink = `/assets/vectors/${iconName}.svg`;
 
   const handleShowAll = (e) => {
+    getAllTools();
     const all = document.getElementsByName(checkboxName);
     for (let i = 0; i < all.length; i += 1) {
       if (all[i].type === 'checkbox') all[i].checked = false;
@@ -25,8 +30,11 @@ export const FilteringSection = ({
     showAllButton.style.borderColor = 'rgba(0, 0, 0, 0.2)';
     if (e.target.checked) {
       setSelectedValue(selectedValue.filter((item) => item !== e.target.value));
+      e.target.style.borderColor = '#8c5c02';
+      addQueryParam(e, fetchKey);
     } else {
       setSelectedValue((prevValue) => prevValue.concat(e.target.value));
+      removeQueryParam(e, fetchKey);
     }
   };
 
@@ -57,7 +65,7 @@ export const FilteringSection = ({
                 value={record.id}
                 id={record.title}
                 name={checkboxName}
-                onChange={handleCheck}
+                onChange={(e) => handleCheck(e)}
               />
               <label className="filtering-option" htmlFor={record.title}>
                 {record.title}
@@ -82,6 +90,7 @@ FilteringSection.defaultProps = {
   checkboxName: '',
   selectedValue: [],
   setSelectedValue: () => {},
+  fetchKey: '',
 };
 
 FilteringSection.propTypes = {
@@ -96,4 +105,5 @@ FilteringSection.propTypes = {
   checkboxName: PropTypes.string,
   selectedValue: PropTypes.arrayOf(PropTypes.string),
   setSelectedValue: PropTypes.func,
+  fetchKey: PropTypes.string,
 };

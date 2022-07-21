@@ -58,6 +58,7 @@
 .show-all-button {
   width: 100%;
   line-height: 24px;
+  border-color: rgb(140, 92, 2);
 }
 
 .filtering-checkbox {

@@ -1,27 +1,12 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useContext, useMemo } from 'react';
 import './ToolsGrid.style.css';
-import getApiBaseUrl from '../../utils/getApiBaseURL';
 import { ToolItem } from '../ToolItem/ToolItem.component';
 import { Sorting } from '../Sorting/Sorting.component';
+import { ToolsContext } from '../../containers/LandingPage/Context';
 
 export const ToolsGrid = () => {
-  const [tools, setResult] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { tools, isLoading } = useContext(ToolsContext);
   const [selected, setSelected] = useState('');
-
-  function getTools() {
-    const promise = fetch(`${getApiBaseUrl()}/api/tools`).then((response) =>
-      response.json(),
-    );
-    return promise;
-  }
-  useEffect(() => {
-    setIsLoading(true);
-    getTools().then((response) => {
-      setResult(response);
-      setIsLoading(false);
-    });
-  }, []);
 
   const sortedTools = useMemo(() => {
     let result = tools;
