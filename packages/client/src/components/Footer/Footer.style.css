@@ -55,7 +55,7 @@ footer {
 }
 
 .copyright-disclaimer-container {
-  width: 613px;
+  width: 50%;
   height: 100px;
   justify-content: center;
   box-sizing: border-box;
@@ -64,7 +64,7 @@ footer {
 }
 
 .find-information-container {
-  width: 381px;
+  width: 30%;
   height: 100px;
 }
 
@@ -79,7 +79,7 @@ footer {
 .find-information-text {
   font-weight: 400;
   font-size: 1.125rem;
-  padding: 0.625px 0.438rem;
+  padding: 0 0.438rem;
 }
 
 .links-container {

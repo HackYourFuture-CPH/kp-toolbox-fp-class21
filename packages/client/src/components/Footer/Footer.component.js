@@ -13,7 +13,17 @@ export const Footer = () => {
               owners.
             </p>
             <p className="copyright-disclaimer-text">
-              Are you an owner to a method/tool, please contact us.
+              Are you an owner to a method/tool, please
+              <Link
+                to="#"
+                onClick={(e) => {
+                  window.location.href = 'mailto:no-reply@example.com';
+                  e.preventDefault();
+                }}
+              >
+                contact us
+              </Link>
+              .
             </p>
           </div>
           <div className="find-information-container">
