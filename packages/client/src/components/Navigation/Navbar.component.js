@@ -3,10 +3,15 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { MobileNavigation } from '../MobileNavigation/MobileNavigation.component';
 import './Navbar.css';
+import { UserAuth } from '../../firebase/AuthContext';
 
 export const Navbar = ({ isLogedIn, userName, ...props }) => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const googleSignIn = UserAuth();
 
+  const handleSignIn = async () => {
+    await googleSignIn();
+  };
   let accountStatus = null;
 
   if (isLogedIn) {
@@ -20,27 +25,27 @@ export const Navbar = ({ isLogedIn, userName, ...props }) => {
           />
           <span> Hi, {userName}!</span>
         </div>
-        <Link className="navbar-link" to="/sign-out">
+        <button type="button" className="navbar-link">
           <img
             className="navbar-icon"
             src="/assets/vectors/vector-log-out.svg"
             alt="icon with person for logged-in state"
           />
           <span>sign out</span>
-        </Link>
+        </button>
       </div>
     );
   } else {
     accountStatus = (
       <div className="log-in-container">
-        <Link className="navbar-link" to="/sign-in">
+        <button type="button" className="navbar-link" onClick={handleSignIn}>
           <img
             className="navbar-icon"
             src="/assets/vectors/vector-person-not-logged.svg"
             alt="icon with person for logged-out state"
           />
           <span>sign in</span>
-        </Link>
+        </button>
       </div>
     );
   }
