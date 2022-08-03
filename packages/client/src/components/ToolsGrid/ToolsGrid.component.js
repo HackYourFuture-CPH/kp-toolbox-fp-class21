@@ -52,20 +52,7 @@ export const ToolsGrid = () => {
   ) : (
     <>
       {sortedTools.map((tool, i) => {
-        return (
-          <ToolItem
-            index={i}
-            key={tool.id}
-            title={tool.name}
-            picture={tool.picture}
-            timeFrameMin={tool.time_frame_min}
-            timeFrameMax={tool.time_frame_max}
-            groupSizeMin={tool.group_size_min}
-            groupSizeMax={tool.group_size_max}
-            pitch={tool.pitch}
-            categories={tool.categories}
-          />
-        );
+        return <ToolItem index={i} key={tool.id} tool={tool} />;
       })}
     </>
   );

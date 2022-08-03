@@ -3,16 +3,15 @@ import PropTypes from 'prop-types';
 import './ToolItem.style.css';
 import { Link } from 'react-router-dom';
 
-export const ToolItem = ({
-  title,
-  timeFrameMin,
-  timeFrameMax,
-  groupSizeMax,
-  groupSizeMin,
-  pitch,
-  picture,
-  categories,
-}) => {
+export const ToolItem = ({ tool }) => {
+  const title = tool.name;
+  const { picture } = tool;
+  const timeFrameMin = tool.time_frame_min;
+  const timeFrameMax = tool.time_frame_max;
+  const groupSizeMin = tool.group_size_min;
+  const groupSizeMax = tool.group_size_max;
+  const { pitch } = tool;
+  const { categories } = tool;
   const [isFavourite, setIsFavourite] = useState(false);
 
   const handleChangeFavourite = () => {
@@ -85,22 +84,24 @@ export const ToolItem = ({
 };
 
 ToolItem.propTypes = {
-  title: PropTypes.string,
-  timeFrameMin: PropTypes.number,
-  timeFrameMax: PropTypes.number,
-  groupSizeMax: PropTypes.number,
-  groupSizeMin: PropTypes.number,
+  tool: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+  name: PropTypes.string,
+  time_frame_min: PropTypes.number,
+  time_frame_max: PropTypes.number,
+  group_size_max: PropTypes.number,
+  group_size_min: PropTypes.number,
   pitch: PropTypes.string,
   picture: PropTypes.string,
   categories: PropTypes.arrayOf(PropTypes.string),
 };
 
 ToolItem.defaultProps = {
-  title: null,
-  timeFrameMin: null,
-  timeFrameMax: null,
-  groupSizeMax: null,
-  groupSizeMin: null,
+  tool: [],
+  name: null,
+  time_frame_min: null,
+  time_frame_max: null,
+  group_size_max: null,
+  group_size_min: null,
   pitch: null,
   picture: null,
   categories: [],
