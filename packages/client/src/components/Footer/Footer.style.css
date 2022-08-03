@@ -1,176 +1,223 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+footer,
+footer > * {
+  box-sizing: border-box;
+}
+
+footer,
+.footer-bg,
 .footer-container,
-.footer-content-section,
-.footer-copyright-section,
-.placeholder-text {
+.copyright-disclaimer-container,
+.find-information-container,
+.logo-socialmedia-container,
+.links-container,
+.social-media-logo-container {
   display: flex;
   align-items: center;
 }
 
-.footer-container,
-.footer-copyright-section {
-  width: 100vw;
-}
-
-.footer-content-section,
-.footer-copyright-infosection {
-  width: 1220px;
-}
-
-.footer-container {
-  background-color: rgba(40, 48, 49);
+footer,
+.copyright-disclaimer-container,
+.links-container,
+.footer-bg {
   flex-direction: column;
 }
 
-.footer-content-section {
-  background-color: rgba(0, 0, 0, 0.3);
+.footer-container,
+.links-container {
   justify-content: space-between;
-  height: 260px;
 }
 
-.footer-copyright-section {
-  background-color: rgba(23, 23, 23, 1);
+footer {
+  height: 180px;
   justify-content: center;
-  height: 40px;
+  background: linear-gradient(
+      180deg,
+      rgba(28, 56, 64, 0.7) 0%,
+      rgba(28, 65, 64, 0.8) 0.01%,
+      rgba(7, 27, 32, 0.5) 100%
+    ),
+    url('../../../public/assets/images/concrete-bw.png');
+  background-repeat: repeat;
+  mix-blend-mode: normal;
 }
 
-.footer-copyright-infosection {
-  font-size: 0.875;
-  color: rgba(255, 255, 255, 1);
-  text-align: right;
+.footer-bg {
+  background-color: rgba(0, 0, 0, 0.3);
+  mix-blend-mode: normal;
 }
 
-.placeholder-container {
-  width: 25rem;
-  height: 3.75rem;
-  border: 0.25rem solid rgba(188, 122, 0, 1);
-  padding: 0.06rem 0.93rem 0.06rem 1.56rem;
+.footer-container {
+  width: 1220px;
+  height: 140px;
+  background-color: rgba(245, 245, 245, 0.05);
 }
 
-.placeholder-text {
+.copyright-disclaimer-container {
+  width: 50%;
+  height: 100px;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 2px solid rgba(140, 92, 2, 1);
+  margin-left: 6px;
+}
+
+.find-information-container {
+  width: 30%;
+  height: 100px;
+}
+
+.copyright-disclaimer-text,
+.find-information-text,
+.logo-link-text {
+  font-family: 'Open Sans';
   color: rgba(245, 245, 245, 1);
-  font-weight: 600;
-  margin: auto;
-  width: 25rem;
-  height: 3.75rem;
 }
 
-.logo-text {
-  margin: auto;
-  font-size: 4rem;
-  line-height: 1.5rem;
-  font-weight: 600;
+.copyright-disclaimer-text,
+.find-information-text {
+  font-weight: 400;
+  font-size: 1.125rem;
+  padding: 0 0.438rem;
+}
+
+.links-container {
+  gap: 1.75rem;
+  margin-right: 6px;
+}
+
+a {
+  text-decoration: none;
   color: rgba(245, 245, 245, 1);
+}
+
+.logo-link-text {
+  font-size: 2rem;
+  font-weight: 600;
   text-decoration: underline;
-  text-underline-offset: 1rem;
-  padding-bottom: 1.7rem;
+  text-underline-offset: 9px;
 }
 
 .social-media-logo-container {
-  display: flex;
-  gap: 3.25rem;
+  gap: 2rem;
 }
 
 .social-media-logo {
-  width: 3.8rem;
-  height: 3.8rem;
+  width: 36px;
+  height: 36px;
 }
 
-@media screen and (max-width: 1220px) {
-  .footer-content-section,
-  .footer-copyright-infosection {
+.footer-rectangle-background {
+  background: rgba(23, 23, 23, 1);
+  height: 40px;
+  width: 100%;
+}
+
+@media screen and (max-width: 1300px) {
+  .footer-container {
     width: 90vw;
+    gap: 1rem;
   }
 
-  .placeholder-container,
-  .placeholder-text {
-    width: 18rem;
-    height: 3rem;
-  }
-
-  .logo-text {
-    font-size: 3rem;
-  }
-}
-
-@media screen and (max-width: 1080px) {
-  .placeholder-container,
-  .placeholder-text {
-    width: 16rem;
-    height: 2.8rem;
-  }
-
-  .placeholder-text {
+  .copyright-disclaimer-text,
+  .find-information-text {
     font-size: 1rem;
   }
 
-  .logo-text {
-    font-size: 2.7rem;
-  }
-
-  .social-media-logo-container {
-    gap: 1.5rem;
-  }
-
-  .social-media-logo {
-    width: 3rem;
-    height: 3rem;
+  .find-information-text {
+    padding: 0rem;
   }
 }
 
-@media screen and (max-width: 900px) {
-  .placeholder-container,
-  .placeholder-text {
-    width: 14rem;
-    height: 2.5rem;
-  }
-
-  .placeholder-text {
-    font-size: 0.8rem;
-  }
-
-  .logo-text {
-    font-size: 2rem;
-  }
-
-  .social-media-logo-container {
-    gap: 1.5rem;
-  }
-
-  .social-media-logo {
-    width: 2rem;
-    height: 2rem;
+@media screen and (max-width: 1184px) {
+  .copyright-disclaimer-text,
+  .find-information-text {
+    font-size: 0.875rem;
   }
 }
 
-@media screen and (max-width: 740px) {
-  .footer-content-section {
-    display: flex;
-    flex-direction: column;
-    align-items: space-between;
-    justify-content: center;
-    gap: 2rem;
+@media screen and (max-width: 1070px) {
+  .copyright-disclaimer-container {
+    width: 60%;
+    margin: 1.2rem 0 1.31rem 1.5rem;
+    padding: 0.625rem;
   }
 
-  .footer-copyright-infosection {
-    font-size: 0.6;
+  .copyright-disclaimer-text {
+    font-size: 0.875rem;
+    line-height: 1rem;
   }
 
-  .placeholder-container,
-  .placeholder-text {
-    width: 10rem;
-    height: 2.5rem;
+  .copyright-disclaimer-text:first-child {
+    margin-bottom: 1rem;
   }
 
-  .logo-text {
+  .find-information-container {
+    display: none;
+  }
+
+  .links-container {
+    width: 172px;
+    margin: 0 10% 0 32px;
+  }
+}
+
+@media screen and (max-width: 605px) {
+  footer {
+    height: 302px;
+  }
+
+  .footer-container {
+    height: 262px;
+    flex-direction: column-reverse;
+  }
+
+  .copyright-disclaimer-container {
+    width: fit-content;
+    margin: 1.71rem 1.375rem 0.95rem 1.375rem;
+  }
+
+  .copyright-disclaimer-text {
+    font-size: 0.75rem;
+  }
+
+  .links-container {
+    width: 182px;
+    height: 38px;
+    margin: 24px 0 0 0;
+  }
+
+  .social-media-logo-container {
+    gap: 1.8rem;
+  }
+
+  .social-media-logo {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media screen and (max-width: 310px) {
+  .footer-container {
+    flex-direction: column-reverse;
+  }
+
+  .copyright-disclaimer-container {
+    margin: 1.5rem 1rem 1rem 1rem;
+    padding: 0;
+  }
+
+  .logo-link-text {
     font-size: 1.8rem;
   }
 
   .social-media-logo-container {
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .social-media-logo {
-    width: 2rem;
-    height: 2rem;
+    width: 36px;
+    height: 36px;
   }
 }
