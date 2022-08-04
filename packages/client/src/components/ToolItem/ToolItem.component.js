@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import './ToolItem.style.css';
 import { Link } from 'react-router-dom';
 
-export const ToolItem = ({
-  title,
-  timeFrameMin,
-  timeFrameMax,
-  groupSizeMax,
-  groupSizeMin,
-  pitch,
-}) => {
+export const ToolItem = ({ tool }) => {
+  const title = tool.name;
+  const { picture } = tool;
+  const timeFrameMin = tool.time_frame_min;
+  const timeFrameMax = tool.time_frame_max;
+  const groupSizeMin = tool.group_size_min;
+  const groupSizeMax = tool.group_size_max;
+  const { pitch } = tool;
+  const { categories } = tool;
   const [isFavourite, setIsFavourite] = useState(false);
 
   const handleChangeFavourite = () => {
@@ -18,27 +19,16 @@ export const ToolItem = ({
       return !previousIcon;
     });
   };
+  const availableCategories = ['Innovation', 'Action', 'Energizer', 'Team'];
+  const categoriesStreakOut = availableCategories.map((category) => {
+    return categories.includes(category) ? (
+      <li className="selected-category">{category.toUpperCase()}</li>
+    ) : (
+      <li className="not-selected-category">{category.toUpperCase()}</li>
+    );
+  });
+  const altForToolPicture = picture.slice(20, -4);
 
-  let firstCategoryClassName = 'not-selected-category';
-  let secondCategoryClassName = 'not-selected-category';
-  let thirdCategoryClassName = 'not-selected-category';
-  let fourthCategoryClassName = 'not-selected-category';
-  const categories = ['INNOVATION', 'ACTION', 'TEAM']; //  should get it from category table when full database is ready,
-
-  for (let i = 0; i < categories.length; i += 1) {
-    if (categories[i] === 'INNOVATION') {
-      firstCategoryClassName = 'selected-category';
-    }
-    if (categories[i] === 'TEAM') {
-      secondCategoryClassName = 'selected-category';
-    }
-    if (categories[i] === 'ENERGIZER') {
-      thirdCategoryClassName = 'selected-category';
-    }
-    if (categories[i] === 'ACTION') {
-      fourthCategoryClassName = 'selected-category';
-    }
-  }
   return (
     <div className="product-card-container">
       <div className="main-part-card">
@@ -74,27 +64,19 @@ export const ToolItem = ({
           </div>
         </div>
         <div className="categories-container">
-          <ul className="category-names">
-            <li className={`${firstCategoryClassName}`}>INNOVATION</li>
-            <li className={`${secondCategoryClassName}`}>TEAM</li>
-            <li className={`${thirdCategoryClassName}`}>ENERGIZER</li>
-            <li className={`${fourthCategoryClassName}`}>ACTION</li>
-          </ul>
+          <ul className="category-names">{categoriesStreakOut}</ul>
         </div>
         <div className="toolbox-description-container">
           <span className="product-description">{pitch}</span>
           <h6 className="product-title">{title}</h6>
         </div>
         <div className="title-image">
-          <img
-            src="/assets/images/tool-pic-stinky-fish.png"
-            alt="stinky-fish"
-          />
+          <img src={picture} alt={`Tool ${altForToolPicture}`} />
         </div>
       </div>
       <div className="button-container">
         <button type="button" className="tool-button">
-          <Link to="/ToolDetailPage">VIEW TOOL</Link>
+          <Link to={`/tools/${'id'}`}>VIEW TOOL</Link>
         </button>
       </div>
     </div>
@@ -102,19 +84,25 @@ export const ToolItem = ({
 };
 
 ToolItem.propTypes = {
-  title: PropTypes.string,
-  timeFrameMin: PropTypes.string,
-  timeFrameMax: PropTypes.string,
-  groupSizeMax: PropTypes.string,
-  groupSizeMin: PropTypes.string,
+  tool: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+  name: PropTypes.string,
+  time_frame_min: PropTypes.number,
+  time_frame_max: PropTypes.number,
+  group_size_max: PropTypes.number,
+  group_size_min: PropTypes.number,
   pitch: PropTypes.string,
+  picture: PropTypes.string,
+  categories: PropTypes.arrayOf(PropTypes.string),
 };
 
 ToolItem.defaultProps = {
-  title: null,
-  timeFrameMin: null,
-  timeFrameMax: null,
-  groupSizeMax: null,
-  groupSizeMin: null,
+  tool: [],
+  name: null,
+  time_frame_min: null,
+  time_frame_max: null,
+  group_size_max: null,
+  group_size_min: null,
   pitch: null,
+  picture: null,
+  categories: [],
 };
