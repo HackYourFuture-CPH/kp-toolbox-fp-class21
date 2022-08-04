@@ -1,112 +1,61 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import getApiBaseUrl from '../../utils/getApiBaseURL';
-import { FilteringArea } from '../../components/FilteringArea/FilteringArea';
+import React, { useEffect } from 'react';
+import {
+  FilteringArea,
+  FilteringSection,
+  useFilteringSection,
+} from '../../components/FilteringArea';
 import './LandingPage.Style.css';
 import { ToolsGrid } from '../../components/ToolsGrid/ToolsGrid.component';
-import { ToolsContext } from './Context';
+import { useFilteredTools } from './useFilteredTools';
+import {
+  categoriesMock,
+  numberOfParticipantsMock,
+  timeframesMock,
+} from './filterMockData';
 
 export const LandingPage = () => {
-  const [tools, setTools] = useState([]);
-  const [baseUrl, setBaseUrl] = useState(`${getApiBaseUrl()}/api/tools`);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // fetching all tools
-  const getAllTools = useCallback(() => {
-    function fetchAllTools() {
-      setIsLoading(true);
-      setBaseUrl(`${getApiBaseUrl()}/api/tools`);
-      const promise = fetch(baseUrl).then((response) => response.json());
-      return promise;
-    }
-    fetchAllTools().then((data) => {
-      setIsLoading(false);
-      setTools(data);
-    });
-  }, [baseUrl]);
-
-  // fetching specific tools
-  function getFilteredTools(newKey) {
-    setIsLoading(true);
-    const promise = fetch(newKey).then((response) => response.json());
-    return promise;
-  }
-
-  // Modifying a query string, by adding a new query param. Triggers by pressing on a checkbox
-  const addQueryParam = useCallback(
-    (e, fetchKey) => {
-      const url = `${fetchKey}[]=${e.target.value}`;
-      // Check if it gonna be a first query param
-      const isIncludes = baseUrl.includes('?');
-      if (!isIncludes) {
-        setBaseUrl((prevUrl) => prevUrl.concat(`?${url}`));
-      } else {
-        setBaseUrl((prevUrl) => prevUrl.concat(`&${url}`));
-      }
-    },
-    [baseUrl],
-  );
-
-  // Modifying a query string, by deleting an already existing query param. Triggers by pressing on the same checkbox on a second time
-  const removeQueryParam = useCallback(
-    (e, fetchKey) => {
-      const url = `${fetchKey}[]=${e.target.value}`;
-
-      // All possible query params
-      const queryParams = {
-        queryParamBeginWithQuestionMark: `?${url}`,
-        queryParamBeginWithAmpersand: `&${url}`,
-        queryParamEndWithAmpersand: `${url}&`,
-      };
-
-      function checkIfBaseUrlAlreadyIncludeQueryParamToDelete(queries) {
-        for (const key in queryParams) {
-          if (Object.hasOwnProperty.call(queryParams, key)) {
-            const element = queryParams[key];
-            const isInclude = baseUrl.includes(element);
-            if (isInclude) {
-              const newBaseUrl = baseUrl.replace(element, '');
-              setBaseUrl(newBaseUrl);
-            }
-          }
-        }
-      }
-
-      checkIfBaseUrlAlreadyIncludeQueryParamToDelete(queryParams);
-    },
-    [baseUrl],
-  );
+  const { filterActions, tools } = useFilteredTools();
+  const categories = useFilteringSection();
+  const numberOfParticipants = useFilteringSection();
+  const timeframes = useFilteringSection();
 
   useEffect(() => {
-    getFilteredTools(baseUrl).then((data) => {
-      const newTools = data.filter(
-        (value, index, self) =>
-          index ===
-          self.findIndex(
-            (t) => t.place === value.place && t.name === value.name,
-          ),
-      );
-      setIsLoading(false);
-      setTools(newTools);
-    });
-  }, [baseUrl]);
-
-  const value = useMemo(
-    () => ({
-      tools,
-      isLoading,
-      addQueryParam,
-      removeQueryParam,
-      getAllTools,
-    }),
-    [tools, isLoading, addQueryParam, removeQueryParam, getAllTools],
-  );
+    categories.setOptions(categoriesMock);
+    numberOfParticipants.setOptions(numberOfParticipantsMock);
+    timeframes.setOptions(timeframesMock);
+    // It is just a mock data
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="landing-page-container">
-      <ToolsContext.Provider value={value}>
-        <FilteringArea />
-        <ToolsGrid />
-      </ToolsContext.Provider>
+      <FilteringArea>
+        <FilteringSection
+          {...categories}
+          title="CATEGORY"
+          iconName="vector-categories"
+          checkboxName="category"
+          fetchKey="category"
+          {...filterActions}
+        />
+        <FilteringSection
+          {...numberOfParticipants}
+          title="NUMBER OF PARTICIPANTS"
+          iconName="vector-people"
+          checkboxName="participants"
+          fetchKey="participantsNumber"
+          {...filterActions}
+        />
+        <FilteringSection
+          {...timeframes}
+          title="TIME FRAME [minutes]"
+          iconName="vector-clock"
+          checkboxName="timeframe"
+          fetchKey="timeframe"
+          {...filterActions}
+        />
+      </FilteringArea>
+      <ToolsGrid {...tools} />
     </div>
   );
 };

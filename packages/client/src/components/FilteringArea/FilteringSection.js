@@ -1,18 +1,18 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { ToolsContext } from '../../containers/LandingPage/Context';
 
 export const FilteringSection = ({
   title,
-  data,
+  options,
   iconName,
   checkboxName,
-  selectedValue,
-  setSelectedValue,
+  selectedOptions,
+  setSelectedOptions,
   fetchKey,
+  addQueryParam,
+  removeQueryParam,
+  getAllTools,
 }) => {
-  const { addQueryParam, removeQueryParam, getAllTools } =
-    useContext(ToolsContext);
   const iconLink = `/assets/vectors/${iconName}.svg`;
 
   const handleShowAll = (e) => {
@@ -22,18 +22,20 @@ export const FilteringSection = ({
       if (all[i].type === 'checkbox') all[i].checked = false;
     }
     e.target.style.borderColor = '#8c5c02';
-    setSelectedValue([]);
+    setSelectedOptions([]);
   };
 
   const handleCheck = (e) => {
     const showAllButton = document.getElementById(`showAll-${checkboxName}`);
     showAllButton.style.borderColor = 'rgba(0, 0, 0, 0.2)';
     if (e.target.checked) {
-      setSelectedValue(selectedValue.filter((item) => item !== e.target.value));
+      setSelectedOptions(
+        selectedOptions.filter((item) => item !== e.target.value),
+      );
       e.target.style.borderColor = '#8c5c02';
       addQueryParam(e, fetchKey);
     } else {
-      setSelectedValue((prevValue) => prevValue.concat(e.target.value));
+      setSelectedOptions((prevValue) => prevValue.concat(e.target.value));
       removeQueryParam(e, fetchKey);
     }
   };
@@ -56,7 +58,7 @@ export const FilteringSection = ({
       </div>
       <div className={`filtering-checkbox-mobile-view-for-${checkboxName}`}>
         {/* if the data from DB will be use instead of the data from config file, you can pass needed keys as props not to create a separate file for each filtering section  */}
-        {data.map((record) => {
+        {options.map((record) => {
           return (
             <div className="filtering-checkbox-element" key={title + record.id}>
               <input
@@ -80,7 +82,7 @@ export const FilteringSection = ({
 
 FilteringSection.defaultProps = {
   title: '',
-  data: PropTypes.arrayOf(
+  options: PropTypes.arrayOf(
     PropTypes.shape({
       id: 0,
       title: '',
@@ -88,14 +90,17 @@ FilteringSection.defaultProps = {
   ),
   iconName: '',
   checkboxName: '',
-  selectedValue: [],
-  setSelectedValue: () => {},
+  selectedOptions: [],
+  setSelectedOptions: () => {},
   fetchKey: '',
+  addQueryParam: () => {},
+  removeQueryParam: () => {},
+  getAllTools: () => {},
 };
 
 FilteringSection.propTypes = {
   title: PropTypes.string,
-  data: PropTypes.arrayOf(
+  options: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
       title: PropTypes.string,
@@ -103,7 +108,10 @@ FilteringSection.propTypes = {
   ),
   iconName: PropTypes.string,
   checkboxName: PropTypes.string,
-  selectedValue: PropTypes.arrayOf(PropTypes.string),
-  setSelectedValue: PropTypes.func,
+  selectedOptions: PropTypes.arrayOf(PropTypes.string),
+  setSelectedOptions: PropTypes.func,
   fetchKey: PropTypes.string,
+  addQueryParam: PropTypes.func,
+  removeQueryParam: PropTypes.func,
+  getAllTools: PropTypes.func,
 };

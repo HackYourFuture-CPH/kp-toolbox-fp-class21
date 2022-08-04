@@ -19,11 +19,11 @@ const getTools = async (query) => {
     'tools.created_at',
   );
 
-  if ('categoriesSelected' in query) {
+  if ('category' in query) {
     tools = tools
       .join('tools_categories', 'tools_categories.tool_Id', '=', 'tools.id')
       .where((orBuilder) =>
-        query.categoriesSelected.forEach((item) => {
+        query.category.forEach((item) => {
           if (!Number(parseInt(item, 10))) {
             throw new HttpError(
               'please specify the IDs of the categories that you want to select. They should be numbers. ',
@@ -35,9 +35,9 @@ const getTools = async (query) => {
       );
   }
 
-  if ('timeframesSelected' in query) {
+  if ('timeframe' in query) {
     tools = tools.where((orBuilder) =>
-      query.timeframesSelected.forEach((item) => {
+      query.timeframe.forEach((item) => {
         if (!Number(parseInt(item, 10))) {
           throw new HttpError(
             'please specify the IDs of the timeframes that you want to select. They should be numbers. ',
@@ -61,9 +61,9 @@ const getTools = async (query) => {
     );
   }
 
-  if ('participantsNumSelected' in query) {
+  if ('participantsNumber' in query) {
     tools = tools.where((orBuilder) =>
-      query.participantsNumSelected.forEach((item) => {
+      query.participantsNumber.forEach((item) => {
         if (!Number(parseInt(item, 10))) {
           throw new HttpError(
             'please specify the IDs of the participants number that you want to select. They should be numbers. ',
@@ -155,7 +155,7 @@ const postTools = async (body) => {
       'tools.created_at',
     );
 
-    if ('categoriesSelected' in body) {
+    if ('category' in body) {
       tools
         .join('tools_categories', 'tools_categories.tool_id', '=', 'tools.id')
         .join(
@@ -165,15 +165,15 @@ const postTools = async (body) => {
           'tools_categories.category_id',
         )
         .where((orBuilder) =>
-          body.categoriesSelected.forEach((item) => {
+          body.category.forEach((item) => {
             orBuilder.orWhere('categories.name', '=', item.title);
           }),
         );
     }
 
-    if ('timeframesSelected' in body) {
+    if ('timeframe' in body) {
       tools = tools.where((orBuilder) =>
-        body.timeframesSelected.forEach((item) => {
+        body.timeframe.forEach((item) => {
           orBuilder.orWhere((andBuilder) =>
             andBuilder
               .andWhere('tools.time_frame_min', '<=', item.time_frame_min)
@@ -183,9 +183,9 @@ const postTools = async (body) => {
       );
     }
 
-    if ('participantsNumSelected' in body) {
+    if ('participantsNumber' in body) {
       tools = tools.where((orBuilder) =>
-        body.participantsNumSelected.forEach((item) => {
+        body.participantsNumber.forEach((item) => {
           orBuilder.orWhere((andBuilder) =>
             andBuilder
               .andWhere('tools.group_size_min', '<=', item.group_size_min)

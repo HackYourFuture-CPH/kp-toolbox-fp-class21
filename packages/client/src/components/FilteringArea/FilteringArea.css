@@ -58,7 +58,7 @@
 .show-all-button {
   width: 100%;
   line-height: 24px;
-  border-color: rgb(140, 92, 2);
+  border-color: rgba(140, 92, 2, 1);
 }
 
 .filtering-checkbox {
@@ -66,9 +66,9 @@
   position: absolute;
   cursor: pointer;
 }
-
+.show-all-button:checked,
 .filtering-checkbox:checked + .filtering-option {
-  border-color: #8c5c02;
+  border-color: rgba(140, 92, 2, 1);
 }
 .filtering-checkbox-element {
   margin-bottom: 0.2rem;

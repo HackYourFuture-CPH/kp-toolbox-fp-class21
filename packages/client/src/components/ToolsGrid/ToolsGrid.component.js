@@ -1,11 +1,10 @@
-import React, { useState, useContext, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import './ToolsGrid.style.css';
 import { ToolItem } from '../ToolItem/ToolItem.component';
 import { Sorting } from '../Sorting/Sorting.component';
-import { ToolsContext } from '../../containers/LandingPage/Context';
 
-export const ToolsGrid = () => {
-  const { tools, isLoading } = useContext(ToolsContext);
+export const ToolsGrid = ({ tools, isLoading }) => {
   const [selected, setSelected] = useState('');
 
   const sortedTools = useMemo(() => {
@@ -60,4 +59,9 @@ export const ToolsGrid = () => {
       <div className="grid-tools-container">{toolsToRender}</div>
     </div>
   );
+};
+
+ToolsGrid.propTypes = {
+  tools: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
