@@ -72,6 +72,8 @@ const getToolById = async (id) => {
 
 const createNewTool = async (body) => {
   await knex('tools').insert({
+    // this will change according to the UI design, for now it is just required fields from DB
+
     name: body.name,
     time_frame_min: body.time_frame_min,
     group_size_min: body.group_size_min,
