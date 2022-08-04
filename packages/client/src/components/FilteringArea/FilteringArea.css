@@ -66,10 +66,12 @@
   position: absolute;
   cursor: pointer;
 }
+
 .show-all-button:checked,
 .filtering-checkbox:checked + .filtering-option {
   border-color: rgba(140, 92, 2, 1);
 }
+
 .filtering-checkbox-element {
   margin-bottom: 0.2rem;
 }
@@ -79,6 +81,7 @@
     width: 90vw;
     gap: 0 0.3rem;
   }
+
   .filtering-category {
     margin: 0% 1% 0% 1%;
   }
@@ -87,6 +90,7 @@
   .filtering-category-title {
     font-size: 2vw;
   }
+
   .filtering-area {
     gap: 0 0.5rem;
   }
@@ -95,9 +99,11 @@
   .filtering-category-title {
     font-size: 2.1vw;
   }
+
   .filtering-category {
     margin: 0% 0.2% 0% 0.2%;
   }
+
   .filtering-area {
     gap: 0 0.3rem;
   }
@@ -111,19 +117,23 @@
   .filtering-horizontal-flex {
     justify-content: baseline;
   }
+
   .filtering-category-mobile-view {
     display: flex;
   }
+
   .filtering-category-title {
     font-size: 3vw;
     line-height: 100%;
     padding-left: 0.5rem;
     width: 90%;
   }
+
   .filtering-category {
     width: 100%;
     margin: 0% 0.4% 0% 0.2%;
   }
+
   .filtering-option {
     width: 25vw;
     font-size: 3vw;
@@ -135,6 +145,7 @@
     font-size: 3vw;
     width: 42vw;
   }
+
   .filtering-checkbox-mobile-view-for-category,
   .filtering-checkbox-mobile-view-for-timeframe,
   .filtering-checkbox-mobile-view-for-participants {
@@ -155,6 +166,7 @@
     width: 42vw;
     font-size: 3.7vw;
   }
+
   .filtering-checkbox-mobile-view-for-category .filtering-option {
     width: 40vw;
     height: 1.2rem;
@@ -164,9 +176,11 @@
     height: 1.2rem;
     font-size: 3.7vw;
   }
+
   .filtering-category {
     margin: 0% 0.4% 0% 0.2%;
   }
+
   .filtering-category-title {
     font-size: 3.7vw;
     padding-left: 0.1rem;
