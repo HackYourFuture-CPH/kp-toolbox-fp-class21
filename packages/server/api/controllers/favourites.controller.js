@@ -5,7 +5,7 @@ const postFavorites = async (body) => {
   return favourites;
 };
 
-const getAllFavourites = async (userId) => {
+const getAllUsersFavourites = async (userId) => {
   const favourites = await knex('tools')
     .select(
       'tools.id',
@@ -43,6 +43,6 @@ const deleteFavourites = async (toolId, userId, body) => {
 
 module.exports = {
   postFavorites,
-  getAllFavourites,
+  getAllUsersFavourites,
   deleteFavourites,
 };
