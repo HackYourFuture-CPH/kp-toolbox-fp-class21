@@ -33,11 +33,11 @@ const getAllUsersFavourites = async (userId) => {
   return favourites;
 };
 
-const deleteFavourites = async (toolId, userId, body) => {
+const deleteFavourites = async (body) => {
   const favourites = await knex('favourites')
-    .delete(body)
-    .where({ tool_id: toolId })
-    .andWhere({ user_id: userId });
+    .where({ tool_id: body.tool_id })
+    .andWhere({ user_id: body.user_id })
+    .del();
   return favourites;
 };
 
