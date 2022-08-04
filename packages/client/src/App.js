@@ -5,6 +5,7 @@ import { LandingPage } from './containers/LandingPage/LandingPage.Container';
 import { PageNotFound } from './containers/PageNotFound/PageNotFound.Container';
 import { Navbar } from './components/Navigation/Navbar.component';
 import { Main } from './components/Main/Main';
+import { FavouritePage } from './components/FavoritesToolPage/FavoritesToolPage.component';
 import { ToolDetailsPage } from './components/ToolDetailsPage/ToolDetailsPage.component';
 import { Footer } from './components/Footer/Footer.component';
 
@@ -24,7 +25,7 @@ function App() {
             <Route path="/user-name" element="" />
             <Route path="/sign-in" element="" />
             <Route path="/sign-out" element="" />
-            <Route path="/favourites" element="" />
+            <Route path="/favourites" element={<FavouritePage />} />
           </Routes>
         </Main>
         <Footer />
