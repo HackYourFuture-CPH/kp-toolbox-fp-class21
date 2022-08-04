@@ -39,8 +39,15 @@ router.post('/', (req, res, next) => {
  *    tags: [Favourites]
  *    summary: Get all favourite tools
  *    description:
- *      Will return all favourite tools
+ *      Will return all favourite tools with matching user_id
  *    produces: application/json
+ *     parameters:
+ *        - in: body
+ *         name: id
+ *         schema:
+ *           type: integer
+ *           required: true
+ *           description: The user id
  *    responses:
  *      200:
  *        description: Successful request
@@ -50,7 +57,7 @@ router.post('/', (req, res, next) => {
 
 router.get('/', (req, res, next) => {
   favouritesController
-    .getAllFavourites()
+    .getAllFavourites(req.body.id)
     .then((result) => res.json(result))
     .catch(next);
 });

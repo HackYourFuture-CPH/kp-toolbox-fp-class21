@@ -3,6 +3,7 @@ const HttpError = require('../lib/utils/http-error');
 
 const getTools = async () => {
   return knex('tools').select(
+    'id',
     'name',
     'time_frame_min',
     'time_frame_max',

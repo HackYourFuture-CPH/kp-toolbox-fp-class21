@@ -5,6 +5,7 @@ const router = express.Router();
 const exampleResources = require('./exampleResources.router');
 
 const tools = require('./tools.router');
+const favourites = require('./favourites.router');
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -37,5 +38,6 @@ router.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 router.use('/exampleResources', exampleResources);
 
 router.use('/tools', tools);
+router.use('/favourites', favourites);
 
 module.exports = router;
