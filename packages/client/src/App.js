@@ -5,6 +5,7 @@ import { LandingPage } from './containers/LandingPage/LandingPage.Container';
 import { PageNotFound } from './containers/PageNotFound/PageNotFound.Container';
 import { Navbar } from './components/Navigation/Navbar.component';
 import { Main } from './components/Main/Main';
+import { FavouritePage } from './components/FavoritesToolPage/FavoritesToolPage.component';
 import { ToolDetailsPage } from './components/ToolDetailsPage/ToolDetailsPage.component';
 import { Footer } from './components/Footer/Footer.component';
 import { AuthContextProvider } from './firebase/AuthContext';
@@ -14,7 +15,6 @@ function App() {
     <div className="app">
       <Router>
         <AuthContextProvider>
-          {/* properties to imitate logged-in/logged-out state of the navigation */}
           <Navbar />
           <Main>
             <Routes>
@@ -24,7 +24,7 @@ function App() {
               <Route path="/about-toolbox" element="" />
               <Route path="/contact-us" element="" />
               <Route path="/user-name" element="" />
-              <Route path="/favourites" element="" />
+              <Route path="/favourites" element={<FavouritePage />} />
             </Routes>
           </Main>
           <Footer />
