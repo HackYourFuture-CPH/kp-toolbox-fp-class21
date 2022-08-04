@@ -1,12 +1,13 @@
 const express = require('express');
+
 const router = express.Router({ mergeParams: true });
 const favouritesController = require('../controllers/favourites.controller');
 
 /**
  * @swagger
  * tags:
- *    name: Tools
- *    description: Toolbox API
+ *    name: Favourites
+ *    description: Favourites API
  */
 
 /**
@@ -34,30 +35,30 @@ router.post('/', (req, res, next) => {
 
 /**
  * @swagger
- * /api/favorites:
- *  get:
- *    tags: [Favourites]
- *    summary: Get all favourite tools
- *    description:
- *      Will return all favourite tools with matching user_id
- *    produces: application/json
+ * /favourites/{id}:
+ *   get:
+ *     tags: [Favourites]
+ *     summary: Get all users favourite tools
+ *     description:
+ *       Will return all favourite tools with matching user_id
+ *     produces: application/json
  *     parameters:
- *        - in: body
- *         name: id
- *         schema:
+ *      - in: body
+ *        name: id
+ *        schema:
  *           type: integer
  *           required: true
  *           description: The user id
- *    responses:
- *      200:
- *        description: Successful request
- *      5XX:
- *        description: Unexpected error
+ *     responses:
+ *       200:
+ *         description: Successful request
+ *       5XX:
+ *         description: Unexpected error
  */
 
-router.get('/', (req, res, next) => {
+router.get('/:id', (req, res, next) => {
   favouritesController
-    .getAllFavourites(req.body.id)
+    .getAllUsersFavourites(req.params.id)
     .then((result) => res.json(result))
     .catch(next);
 });
