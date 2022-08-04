@@ -5,14 +5,31 @@ const postFavorites = async (body) => {
   return favourites;
 };
 
-const getAllFavourites = async () => {
+const getAllFavourites = async (userId) => {
   const favourites = await knex('tools')
-    .select('*')
+    .select(
+      'tools.id',
+      'tools.name',
+      knex.raw('GROUP_CONCAT (categories.name) as categories'),
+      'tools.time_frame_min',
+      'tools.time_frame_max',
+      'tools.group_size_min',
+      'tools.group_size_max',
+      'tools.facilitation_level',
+      'tools.materials',
+      'tools.pitch',
+      'tools.description',
+      'tools.instructions',
+      'tools.source',
+      'tools.picture',
+      'tools.created_at',
+    )
     .join('favourites', 'favourites.tool_id', '=', 'tools.id')
     .join('users', 'users.id', '=', 'favourites.user_id')
     .join('tools_categories', 'tools_categories.tool_id', '=', 'tools.id')
     .join('categories', 'tools_categories.category_id', '=', 'categories.id')
-    .where('users.id', '=', '3');
+    .where('users.id', '=', userId)
+    .groupBy('tools.id');
   return favourites;
 };
 
