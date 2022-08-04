@@ -66,4 +66,44 @@ router.get('/:id', (req, res, next) => {
     .catch(next);
 });
 
+/**
+ * @swagger
+ * /exampleResources:
+ *  post:
+ *    tags:
+ *    - exampleResources
+ *    summary: Create a exampleResource
+ *    description:
+ *      Will create a exampleResource.
+ *    produces: application/json
+ *    parameters:
+ *      - in: body
+ *        name: exampleResource
+ *        description: The exampleResource to create.
+ *        schema:
+ *          type: object
+ *          required:
+ *            - title
+ *          properties:
+ *            title:
+ *              type: string
+ *    responses:
+ *      201:
+ *        description: ExampleResources created
+ *      5XX:
+ *        description: Unexpected error.
+ */
+
+router.post('/', (req, res) => {
+  toolsController
+    .createNewTool(req.body)
+    .then((result) => res.json(result))
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.log(error);
+
+      res.status(400).send('Bad request').end();
+    });
+});
+
 module.exports = router;

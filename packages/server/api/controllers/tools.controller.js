@@ -61,7 +61,22 @@ const getToolById = async (id) => {
   }
 };
 
+const createNewTool = async (body) => {
+  await knex('tools').insert({
+    name: body.name,
+    time_frame_min: body.time_frame_min,
+    group_size_min: body.group_size_min,
+    facilitation_level: body.facilitation_level,
+    description: body.description,
+  });
+
+  return {
+    successful: true,
+  };
+};
+
 module.exports = {
   getTools,
   getToolById,
+  createNewTool,
 };
