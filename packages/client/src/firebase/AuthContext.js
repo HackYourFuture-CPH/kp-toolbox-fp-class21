@@ -8,6 +8,9 @@ import {
   useCallback,
 } from 'react';
 import {
+  useNavigate
+} from 'react-router-dom';
+import {
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
@@ -21,6 +24,7 @@ const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [isAuth, setIsAuth] = useState(false);
+  const navigate = useNavigate();
 
   const googleSignIn = useCallback(() => {
     const provider = new GoogleAuthProvider();
@@ -41,7 +45,8 @@ export const AuthContextProvider = ({ children }) => {
   const logOut = useCallback(() => {
     signOut(auth);
     setIsAuth(false);
-  }, []);
+    navigate('/');
+  }, [navigate]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {

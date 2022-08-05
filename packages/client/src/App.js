@@ -12,8 +12,9 @@ import { AuthContextProvider } from './firebase/AuthContext';
 function App() {
   return (
     <div className="app">
-      <AuthContextProvider>
-        <Router>
+      
+      <Router>
+        <AuthContextProvider>
           {/* properties to imitate logged-in/logged-out state of the navigation */}
           <Navbar />
           <Main>
@@ -27,9 +28,10 @@ function App() {
               <Route path="/favourites" element="" />
             </Routes>
           </Main>
-          <Footer />
-        </Router>
+        <Footer />
       </AuthContextProvider>
+        </Router>
+      
     </div>
   );
 }
