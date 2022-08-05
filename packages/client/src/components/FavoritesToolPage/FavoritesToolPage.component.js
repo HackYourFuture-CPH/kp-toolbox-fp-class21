@@ -3,6 +3,7 @@ import getApiBaseUrl from '../../utils/getApiBaseURL';
 import { ToolItem } from '../ToolItem/ToolItem.component';
 import { Sorting } from '../Sorting/Sorting.component';
 
+// using this user_id needed before Firebase implemented
 const userId = 1;
 
 export const FavouritePage = () => {
