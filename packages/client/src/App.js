@@ -27,6 +27,7 @@ function App() {
               <Route path="/favourites" element="" />
             </Routes>
           </Main>
+          <Footer />
         </Router>
       </AuthContextProvider>
     </div>
