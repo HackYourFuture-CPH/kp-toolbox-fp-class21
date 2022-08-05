@@ -59,8 +59,19 @@ header > * {
   text-align: left;
 }
 
+.navbar-button {
+  background-color: inherit;
+  outline: none;
+  border: none;
+}
+
+.navbar-button:hover {
+  cursor: pointer;
+}
+
 .logo a,
 .navbar-link,
+.navbar-button,
 .user-name-container {
   font-weight: 600;
   color: rgb(245 245 245);
@@ -85,6 +96,7 @@ header > * {
 }
 
 .navbar-link,
+.navbar-button,
 .user-name-container {
   font-size: 1.25rem;
   text-decoration: none;

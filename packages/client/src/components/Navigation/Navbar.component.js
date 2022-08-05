@@ -21,7 +21,7 @@ export const Navbar = ({ isAuth, userName, ...props }) => {
           />
           <span> Hi, {userName}!</span>
         </div>
-        <button type="button" className="navbar-link">
+        <button type="button" className="navbar-button">
           <img
             className="navbar-icon"
             src="/assets/vectors/vector-log-out.svg"
@@ -36,7 +36,7 @@ export const Navbar = ({ isAuth, userName, ...props }) => {
       <div className="log-in-container">
         <button
           type="button"
-          className="navbar-link"
+          className="navbar-button"
           onClick={signInWithGoogle}
         >
           <img
