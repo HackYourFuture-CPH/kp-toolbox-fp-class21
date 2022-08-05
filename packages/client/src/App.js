@@ -6,6 +6,8 @@ import { PageNotFound } from './containers/PageNotFound/PageNotFound.Container';
 import { Navbar } from './components/Navigation/Navbar.component';
 import { Main } from './components/Main/Main';
 import { ToolDetailsPage } from './components/ToolDetailsPage/ToolDetailsPage.component';
+import { AuthContextProvider } from './firebase/AuthContext';
+import { Footer } from './components/Footer/Footer.component';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -13,7 +15,7 @@ function App() {
     <div className="app">
       <Router>
         {/* properties to imitate logged-in/logged-out state of the navigation */}
-        <Navbar isLogedIn={isAuth} userName="Magdalena" />
+        <Navbar isAuth={isAuth} userName="Magdalena" />
         <Main>
           <Routes>
             <Route path="/" element={<LandingPage />} />
@@ -25,6 +27,7 @@ function App() {
             <Route path="/favourites" element="" />
           </Routes>
         </Main>
+        <Footer />
       </Router>
     </div>
   );
