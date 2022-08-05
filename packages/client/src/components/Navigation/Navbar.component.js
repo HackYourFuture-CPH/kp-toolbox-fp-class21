@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { MobileNavigation } from '../MobileNavigation/MobileNavigation.component';
 import './Navbar.css';
-import { signInWithGoogle } from '../../firebase/firebase';
+import { UserAuth } from '../../firebase/AuthContext';
 
-export const Navbar = ({ isAuth, userName, ...props }) => {
+export const Navbar = ({ ...props }) => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-
+  const { googleSignIn, logOut, user } = UserAuth();
   let accountStatus = null;
 
-  if (isAuth) {
+  if (user) {
     accountStatus = (
       <div className="log-out-container">
         <div className="user-name-container">
@@ -19,9 +19,9 @@ export const Navbar = ({ isAuth, userName, ...props }) => {
             src="/assets/vectors/vector-person-logged.svg"
             alt="icon with person for user name in logged-in state"
           />
-          <span> Hi, {userName}!</span>
+          <span> Hi, {user.displayName}!</span>
         </div>
-        <button type="button" className="navbar-button">
+        <button type="button" className="navbar-button" onClick={logOut}>
           <img
             className="navbar-icon"
             src="/assets/vectors/vector-log-out.svg"
@@ -34,11 +34,7 @@ export const Navbar = ({ isAuth, userName, ...props }) => {
   } else {
     accountStatus = (
       <div className="log-in-container">
-        <button
-          type="button"
-          className="navbar-button"
-          onClick={signInWithGoogle}
-        >
+        <button type="button" className="navbar-button" onClick={googleSignIn}>
           <img
             className="navbar-icon"
             src="/assets/vectors/vector-person-not-logged.svg"
@@ -71,7 +67,7 @@ export const Navbar = ({ isAuth, userName, ...props }) => {
               <img
                 className="navbar-icon"
                 src={
-                  !isAuth
+                  !user
                     ? '/assets/vectors/vector-favourites-empty-heart.svg'
                     : '/assets/vectors/vector-favourites-full-heart.svg'
                 }
