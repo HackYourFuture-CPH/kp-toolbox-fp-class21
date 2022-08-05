@@ -6,7 +6,6 @@ import { PageNotFound } from './containers/PageNotFound/PageNotFound.Container';
 import { Navbar } from './components/Navigation/Navbar.component';
 import { Main } from './components/Main/Main';
 import { ToolDetailsPage } from './components/ToolDetailsPage/ToolDetailsPage.component';
-import { AuthContextProvider } from './firebase/AuthContext';
 import { Footer } from './components/Footer/Footer.component';
 
 function App() {
