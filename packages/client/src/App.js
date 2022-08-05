@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { LandingPage } from './containers/LandingPage/LandingPage.Container';
@@ -12,7 +12,6 @@ import { AuthContextProvider } from './firebase/AuthContext';
 function App() {
   return (
     <div className="app">
-      
       <Router>
         <AuthContextProvider>
           {/* properties to imitate logged-in/logged-out state of the navigation */}
@@ -28,10 +27,9 @@ function App() {
               <Route path="/favourites" element="" />
             </Routes>
           </Main>
-        <Footer />
-      </AuthContextProvider>
-        </Router>
-      
+          <Footer />
+        </AuthContextProvider>
+      </Router>
     </div>
   );
 }
