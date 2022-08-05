@@ -7,9 +7,7 @@ import {
   useMemo,
   useCallback,
 } from 'react';
-import {
-  useNavigate
-} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   GoogleAuthProvider,
   signInWithPopup,
@@ -23,7 +21,6 @@ const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
-  const [isAuth, setIsAuth] = useState(false);
   const navigate = useNavigate();
 
   const googleSignIn = useCallback(() => {
@@ -31,20 +28,21 @@ export const AuthContextProvider = ({ children }) => {
     signInWithPopup(auth, provider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        const { userInfo } = result;
+        // const token = credential.accessToken;
+        // const { userInfo } = result;
+        return credential;
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const { email } = error.customData;
-        const credential = GoogleAuthProvider.credentialFromError(error);
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
+        // const { email } = error.customData;
+        // const credential = GoogleAuthProvider.credentialFromError(error);
+        return error;
       });
   }, []);
 
   const logOut = useCallback(() => {
     signOut(auth);
-    setIsAuth(false);
     navigate('/');
   }, [navigate]);
 
