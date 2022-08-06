@@ -7,7 +7,7 @@ import { Sorting } from '../Sorting/Sorting.component';
 const userId = 1;
 
 export const FavouritePage = () => {
-  const [Favourites, setFavourites] = useState([]);
+  const [favourites, setFavourites] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selected, setSelected] = useState('');
 
@@ -30,7 +30,7 @@ export const FavouritePage = () => {
   }, []);
 
   const sortedTools = useMemo(() => {
-    let result = Favourites;
+    let result = favourites;
     if (selected === 'a-z') {
       result = result.sort((a, b) => {
         const titleA = a.name.toUpperCase();
@@ -43,7 +43,8 @@ export const FavouritePage = () => {
         }
         return 0;
       });
-    } else if (selected === 'date') {
+    }
+    if (selected === 'date') {
       result = result.sort((a, b) => {
         const dateA = new Date(a.created_at);
         const dateB = new Date(b.created_at);
@@ -51,7 +52,7 @@ export const FavouritePage = () => {
       });
     }
     return result;
-  }, [Favourites, selected]);
+  }, [favourites, selected]);
 
   const toolsToRender = isLoading ? (
     <p>Loading...</p>
