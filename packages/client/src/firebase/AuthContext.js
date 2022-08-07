@@ -1,5 +1,4 @@
-import {
-  React,
+import React, {
   useEffect,
   useContext,
   createContext,
