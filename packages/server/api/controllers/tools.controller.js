@@ -17,7 +17,12 @@ const getTools = async (query) => {
     'tools.source',
     'tools.picture',
     'tools.created_at',
-  );
+    knex.raw('GROUP_CONCAT ( categories.name ) as categories'),
+    )
+    .from('tools')
+    .join('tools_categories', 'tools_categories.tool_id', '=', 'tools.id')
+    .join('categories', 'tools_categories.category_id', '=', 'categories.id')
+    .groupBy('tools.id');
 
   if ('category' in query) {
     tools = tools
