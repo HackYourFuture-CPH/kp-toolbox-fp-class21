@@ -4,9 +4,9 @@
  */
 exports.seed = async function (knex) {
   // Deletes ALL existing entries
-  await knex('tools').del();
-  await knex('tools').insert([
+  await knex('tools').upsert([
     {
+      id: 1,
       name: '1-2-4-ALL',
       time_frame_min: 5,
       time_frame_max: 30,
@@ -52,6 +52,7 @@ exports.seed = async function (knex) {
       picture: '/assets/images/tool-pic-124-all.png',
     },
     {
+      id: 2,
       name: 'STINKY FISH',
       time_frame_min: 5,
       time_frame_max: 30,
@@ -101,6 +102,7 @@ exports.seed = async function (knex) {
       picture: '/assets/images/tool-pic-stinky-fish.png',
     },
     {
+      id: 3,
       name: 'PURPOSE TO PRACTICE',
       time_frame_min: 60,
       time_frame_max: 120,
@@ -158,6 +160,7 @@ exports.seed = async function (knex) {
       picture: '/assets/images/tool-pic-purpose-to-practice.png',
     },
     {
+      id: 4,
       name: 'COUNT UP',
       time_frame_min: 5,
       time_frame_max: 30,
@@ -189,6 +192,7 @@ exports.seed = async function (knex) {
       picture: '/assets/images/tool-pic-count-up.png',
     },
     {
+      id: 5,
       name: 'WORLD CAFÉ',
       time_frame_min: 60,
       time_frame_max: 120,
@@ -235,6 +239,7 @@ exports.seed = async function (knex) {
       picture: '/assets/images/tool-pic-world-cafe.png',
     },
     {
+      id: 6,
       name: 'OPEN SPACE TECHNOLOGY',
       time_frame_min: 60,
       time_frame_max: 120,
@@ -282,6 +287,7 @@ exports.seed = async function (knex) {
       picture: '/assets/images/tool-pic-open-space-technology.png',
     },
     {
+      id: 7,
       name: 'ECOCYCLE PLANNING',
       time_frame_min: 60,
       time_frame_max: 120,
@@ -352,6 +358,7 @@ exports.seed = async function (knex) {
       picture: '/assets/images/tool-pic-ecocycle-planning.png',
     },
     {
+      id: 8,
       name: 'LIGHTNING DECISION JAM (LDJ)',
       time_frame_min: 30,
       time_frame_max: 120,
@@ -452,6 +459,7 @@ exports.seed = async function (knex) {
       picture: '/assets/images/tool-pic-lightning-decision-jam.png',
     },
     {
+      id: 9,
       name: 'PARKING LOT',
       time_frame_min: 5,
       time_frame_max: 120,
@@ -491,6 +499,7 @@ exports.seed = async function (knex) {
       picture: '/assets/images/tool-pic-parking-lot.png',
     },
     {
+      id: 10,
       name: 'APPLE DRAWING IDEATION',
       time_frame_min: 5,
       time_frame_max: 60,
@@ -547,6 +556,7 @@ exports.seed = async function (knex) {
       picture: '/assets/images/tool-pic-apple-drawing-ideation.png',
     },
     {
+      id: 11,
       name: 'LINE OF ALIGNMENT',
       time_frame_min: 5,
       time_frame_max: 30,
@@ -583,6 +593,7 @@ exports.seed = async function (knex) {
       picture: '/assets/images/tool-pic-line-of-alignment.png',
     },
     {
+      id: 12,
       name: 'TROIKA CONSULTING',
       time_frame_min: 5,
       time_frame_max: 30,
