@@ -11,19 +11,19 @@ export function useFilteredTools() {
     function fetchAllTools() {
       setIsLoading(true);
       setBaseUrl(`${getApiBaseUrl()}/api/tools`);
+
       const promise = fetch(baseUrl).then((response) => response.json());
       return promise;
     }
     fetchAllTools().then((data) => {
       setIsLoading(false);
-      setTools(data);
     });
   }, [baseUrl]);
 
   // Modifying a query string, by adding a new query param. Triggers by pressing on a checkbox
   const addQueryParam = useCallback(
-    (e, fetchKey) => {
-      const url = `${fetchKey}[]=${e.target.value}`;
+    (optionID, fetchKey) => {
+      const url = `${fetchKey}[]=${optionID}`;
       // Check if it gonna be a first query param
       const isIncludes = baseUrl.includes('?');
       if (!isIncludes) {
@@ -37,8 +37,8 @@ export function useFilteredTools() {
 
   // Modifying a query string, by deleting an already existing query param. Triggers by pressing on the same checkbox on a second time
   const removeQueryParam = useCallback(
-    (e, fetchKey) => {
-      const url = `${fetchKey}[]=${e.target.value}`;
+    (optionID, fetchKey) => {
+      const url = `${fetchKey}[]=${optionID}`;
 
       // All possible query params
       const queryParams = {
@@ -67,9 +67,6 @@ export function useFilteredTools() {
 
   // fetching specific tools
   function getFilteredTools(newKey) {
-    // eslint-disable-next-line no-console
-    console.log(newKey, newKey);
-
     setIsLoading(true);
     const promise = fetch(newKey).then((response) => response.json());
     return promise;

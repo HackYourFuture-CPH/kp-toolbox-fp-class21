@@ -58,7 +58,7 @@
 .show-all-button {
   width: 100%;
   line-height: 24px;
-  border-color: rgba(140, 92, 2, 1);
+  /* border-color: rgba(140, 92, 2, 1); */
 }
 
 .filtering-checkbox {
@@ -67,10 +67,14 @@
   cursor: pointer;
 }
 
-.show-all-button:checked,
-.filtering-checkbox:checked + .filtering-option {
+.checked {
   border-color: rgba(140, 92, 2, 1);
 }
+
+/* .show-all-button:checked, */
+/* .filtering-checkbox:checked + .filtering-option {
+  border-color: rgba(140, 92, 2, 1);
+} */
 
 .filtering-checkbox-element {
   margin-bottom: 0.2rem;
