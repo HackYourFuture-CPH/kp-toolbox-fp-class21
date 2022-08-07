@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { MobileNavigation } from '../MobileNavigation/MobileNavigation.component';
 import './Navbar.css';
@@ -90,9 +89,4 @@ export const Navbar = ({ ...props }) => {
       </div>
     </header>
   );
-};
-
-Navbar.propTypes = {
-  isAuth: PropTypes.bool.isRequired,
-  userName: PropTypes.string.isRequired,
 };

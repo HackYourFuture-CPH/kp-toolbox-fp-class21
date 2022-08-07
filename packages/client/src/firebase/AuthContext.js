@@ -72,9 +72,9 @@ export const UserAuth = () => {
 };
 
 AuthContextProvider.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.arrayOf(PropTypes.element),
 };
 
 AuthContextProvider.defaultProps = {
-  children: PropTypes.element,
+  children: PropTypes.arrayOf(PropTypes.element),
 };
