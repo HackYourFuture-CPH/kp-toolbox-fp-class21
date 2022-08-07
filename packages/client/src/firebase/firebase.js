@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyARcKPPTVo1aqOCnH-_QAf8rnt3LyUyArY',
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: 'class21-fp-toolbox.firebaseapp.com',
   projectId: 'class21-fp-toolbox',
   storageBucket: 'class21-fp-toolbox.appspot.com',
