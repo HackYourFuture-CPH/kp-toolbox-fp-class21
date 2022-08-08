@@ -7,23 +7,6 @@ import { Loader } from '../Loader/Loader.component';
 
 export const ToolsGrid = ({ tools, isLoading }) => {
   const [selected, setSelected] = useState('');
-
-  function getTools() {
-    const promise = fetch(`${getApiBaseUrl()}/api/tools`).then((response) =>
-      response.json(),
-    );
-    return promise;
-  }
-  useEffect(() => {
-    setIsLoading(true);
-    getTools().then((response) => {
-      setResult(response);
-      setTimeout(() => {
-        setIsLoading(false);
-      });
-    }, 1000);
-  }, []);
-
   const sortedTools = useMemo(() => {
     let result = tools;
     if (selected === 'a-z') {
@@ -49,9 +32,7 @@ export const ToolsGrid = ({ tools, isLoading }) => {
   }, [tools, selected]);
 
   const toolsToRender = isLoading ? (
-    <div>
-      <Loader />
-    </div>
+    <Loader />
   ) : (
     <div className="grid-tools-container">
       {sortedTools.map((tool, i) => {
