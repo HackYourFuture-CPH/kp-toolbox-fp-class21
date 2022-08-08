@@ -1,13 +1,11 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import './ToolsGrid.style.css';
-import getApiBaseUrl from '../../utils/getApiBaseURL';
 import { ToolItem } from '../ToolItem/ToolItem.component';
 import { Sorting } from '../Sorting/Sorting.component';
 import { Loader } from '../Loader/Loader.component';
 
-export const ToolsGrid = () => {
-  const [tools, setResult] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+export const ToolsGrid = ({ tools, isLoading }) => {
   const [selected, setSelected] = useState('');
 
   function getTools() {
@@ -68,4 +66,9 @@ export const ToolsGrid = () => {
       <div>{toolsToRender}</div>
     </div>
   );
+};
+
+ToolsGrid.propTypes = {
+  tools: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
