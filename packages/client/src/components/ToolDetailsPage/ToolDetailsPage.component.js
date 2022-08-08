@@ -60,11 +60,12 @@ export const ToolDetailsPage = () => {
 
     pageContent = (
       <>
-        
-          <p className="breadcrumbs">
-          <Link to='/'> KAOSPILOT toolbox / <span>{tool.name}</span></Link>
-           
-          </p>
+        <p className="breadcrumbs">
+          <Link to="/">
+            {' '}
+            KAOSPILOT toolbox / <span>{tool.name}</span>
+          </Link>
+        </p>
         <h1>{tool.name}</h1>
         <img
           className="tool-image"
