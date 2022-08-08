@@ -3,6 +3,7 @@ import './ToolsGrid.style.css';
 import getApiBaseUrl from '../../utils/getApiBaseURL';
 import { ToolItem } from '../ToolItem/ToolItem.component';
 import { Sorting } from '../Sorting/Sorting.component';
+import { Loader } from '../Loader/Loader.component';
 
 export const ToolsGrid = () => {
   const [tools, setResult] = useState([]);
@@ -19,8 +20,10 @@ export const ToolsGrid = () => {
     setIsLoading(true);
     getTools().then((response) => {
       setResult(response);
-      setIsLoading(false);
-    });
+      setTimeout(() => {
+        setIsLoading(false);
+      });
+    }, 1000);
   }, []);
 
   const sortedTools = useMemo(() => {
@@ -48,19 +51,21 @@ export const ToolsGrid = () => {
   }, [tools, selected]);
 
   const toolsToRender = isLoading ? (
-    <p>Loading...</p>
+    <div>
+      <Loader />
+    </div>
   ) : (
-    <>
+    <div className="grid-tools-container">
       {sortedTools.map((tool, i) => {
         return <ToolItem index={i} key={tool.id} tool={tool} />;
       })}
-    </>
+    </div>
   );
 
   return (
     <div>
       <Sorting setSelected={setSelected} />
-      <div className="grid-tools-container">{toolsToRender}</div>
+      <div>{toolsToRender}</div>
     </div>
   );
 };
