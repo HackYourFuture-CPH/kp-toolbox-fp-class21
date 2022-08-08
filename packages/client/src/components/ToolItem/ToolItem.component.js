@@ -116,7 +116,7 @@ export const ToolItem = ({ tool }) => {
       </div>
       <div className="button-container">
         <button type="button" className="tool-button">
-          <Link to={`/tools/${id}`}>VIEW TOOL</Link>
+          <Link to={`/tools/${tool.id}`}>VIEW TOOL</Link>
         </button>
       </div>
     </div>
