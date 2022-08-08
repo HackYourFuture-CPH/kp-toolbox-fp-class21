@@ -8,6 +8,7 @@ import { Main } from './components/Main/Main';
 import { FavouritePage } from './components/FavoritesToolPage/FavoritesToolPage.component';
 import { ToolDetailsPage } from './components/ToolDetailsPage/ToolDetailsPage.component';
 import { Footer } from './components/Footer/Footer.component';
+import { AuthContextProvider } from './firebase/AuthContext';
 
 function App() {
   return (
