@@ -1,11 +1,12 @@
 .searchInputDiv {
   width: 30%;
-  height: 25px;
+  height: 26px;
   background-color: rgba(245, 245, 245, 0.05);
   margin: 10px 0px 25px 0px;
-  padding-left: 3rem;
-  border-width: thin;
-  border-color: rgb(230, 228, 228);
+  padding-left: 2.5rem;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  -webkit-appearance: none;
 }
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -18,12 +19,50 @@
 
 .searchBarDiv {
   position: relative;
+  width: 100%;
 }
 
 .searchBarDiv img {
   position: absolute;
   left: 34%;
-  /* padding: 10px 12px; */
   pointer-events: none;
   top: 1rem;
+}
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+  .searchInputDiv {
+    width: 30vw;
+  }
+  .searchBarDiv img {
+    left: 32%;
+  }
+}
+@media screen and (min-width: 800px) and (max-width: 999px) {
+  .searchInputDiv {
+    width: 35vw;
+  }
+  .searchBarDiv img {
+    left: 29%;
+  }
+}
+@media screen and (min-width: 491px) and (max-width: 799px) {
+  .searchInputDiv {
+    width: 40vw;
+  }
+  .searchBarDiv img {
+    left: 26%;
+  }
+}
+
+@media screen and (min-width: 301px) and (max-width: 490px) {
+  .searchInputDiv {
+    width: 76vw;
+  }
+  .searchBarDiv img {
+    left: 5%;
+  }
+}
+@media screen and (min-width: 1px) and (max-width: 300px) {
+  .searchInputDiv {
+    width: 73vw;
+  }
 }
