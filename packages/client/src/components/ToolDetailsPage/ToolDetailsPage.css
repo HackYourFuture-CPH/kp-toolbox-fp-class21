@@ -89,6 +89,26 @@ h3 {
   margin-bottom: 2.5rem;
 }
 
+.tool-description > p:nth-child(2) {
+  margin-bottom: 2.5rem;
+}
+
+.tool-description > p:nth-child(3) {
+  width: 100%;
+  height: 1rem;
+  background-image: url('../../../public/assets/images/tape-cut.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tool-description > img:nth-child(4) {
+  position: relative;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: luminosity;
+  opacity: 0.7;
+}
+
 .tool-instructions h2 {
   margin-bottom: 2.375rem;
 }
@@ -151,6 +171,10 @@ h3 {
 }
 
 @media screen and (max-width: 650px) {
+  .tool-description > p:nth-child(3) {
+    height: 0.5rem;
+  }
+
   .tool-details-container {
     padding: 1.5rem 1rem;
   }
