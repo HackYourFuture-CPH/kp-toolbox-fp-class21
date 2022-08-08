@@ -2,37 +2,41 @@ const knex = require('../../config/db');
 const HttpError = require('../lib/utils/http-error');
 
 const getTools = async (query) => {
-  let tools = knex('tools').select(
-    'tools.id',
-    'tools.name',
-    'tools.time_frame_min',
-    'tools.time_frame_max',
-    'tools.group_size_min',
-    'tools.group_size_max',
-    'tools.facilitation_level',
-    'tools.materials',
-    'tools.pitch',
-    'tools.description',
-    'tools.instructions',
-    'tools.source',
-    'tools.picture',
-    'tools.created_at',
-  );
+  let tools = knex
+    .select(
+      'tools.id',
+      'tools.name',
+      'tools.time_frame_min',
+      'tools.time_frame_max',
+      'tools.group_size_min',
+      'tools.group_size_max',
+      'tools.facilitation_level',
+      'tools.materials',
+      'tools.pitch',
+      'tools.description',
+      'tools.instructions',
+      'tools.source',
+      'tools.picture',
+      'tools.created_at',
+      knex.raw('GROUP_CONCAT ( categories.name ) as categories'),
+    )
+    .from('tools')
+    .join('tools_categories', 'tools_categories.tool_id', '=', 'tools.id')
+    .join('categories', 'tools_categories.category_id', '=', 'categories.id')
+    .groupBy('tools.id');
 
   if ('category' in query) {
-    tools = tools
-      .join('tools_categories', 'tools_categories.tool_Id', '=', 'tools.id')
-      .where((orBuilder) =>
-        query.category.forEach((item) => {
-          if (!Number(parseInt(item, 10))) {
-            throw new HttpError(
-              'please specify the IDs of the categories that you want to select. They should be numbers. ',
-              400,
-            );
-          }
-          orBuilder.orWhere('tools_categories.category_Id', '=', item);
-        }),
-      );
+    tools = tools.where((orBuilder) =>
+      query.category.forEach((item) => {
+        if (!Number(parseInt(item, 10))) {
+          throw new HttpError(
+            'please specify the IDs of the categories that you want to select. They should be numbers. ',
+            400,
+          );
+        }
+        orBuilder.orWhere('tools_categories.category_id', '=', item);
+      }),
+    );
   }
 
   if ('timeframe' in query) {

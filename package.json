@@ -20,7 +20,7 @@
     "validate": "yarn prettier:check && yarn lint && yarn stylelint:check",
     "fix": "yarn prettier:fix && yarn lint:fix && yarn stylelint:fix",
     "prepare": "husky install",
-    "heroku-postbuild": "yarn workspace client build && cp -a packages/client/build/. packages/server/public/"
+    "heroku-postbuild": "yarn workspace client build && cp -a packages/client/build/. packages/server/public/ && yarn workspace server db:setup"
   },
   "devDependencies": {
     "eslint-config-airbnb": "^19.0.4",

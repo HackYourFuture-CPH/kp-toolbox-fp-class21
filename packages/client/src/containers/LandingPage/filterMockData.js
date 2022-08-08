@@ -1,10 +1,10 @@
 /* TODO: please delete the file and refactor the code if you plan to get the data from DB */
 
 export const categoriesMock = [
-  { id: 1, title: 'Innovation' },
-  { id: 2, title: 'Team' },
-  { id: 3, title: 'Energizer' },
-  { id: 4, title: 'Action' },
+  { id: 1, title: 'Team' },
+  { id: 2, title: 'Action' },
+  { id: 3, title: 'Innovation' },
+  { id: 4, title: 'Energizer' },
 ];
 
 export const timeframesMock = [
