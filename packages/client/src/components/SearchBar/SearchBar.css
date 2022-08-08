@@ -1,0 +1,11 @@
+.searchInputDiv {
+  width: 30%;
+  height: 25px;
+  background-color: rgba(245, 245, 245, 0.05);
+  margin: 10px 0px 10px 0px;
+}
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(245, 245, 245);
+  opacity: 1; /* Firefox */
+}

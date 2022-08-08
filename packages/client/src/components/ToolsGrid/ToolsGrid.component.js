@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import './ToolsGrid.style.css';
 import getApiBaseUrl from '../../utils/getApiBaseURL';
 import { ToolItem } from '../ToolItem/ToolItem.component';
 import { Sorting } from '../Sorting/Sorting.component';
 
-export const ToolsGrid = () => {
+export const ToolsGrid = ({ searchBarText }) => {
   const [tools, setResult] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selected, setSelected] = useState('');
@@ -25,6 +26,12 @@ export const ToolsGrid = () => {
 
   const sortedTools = useMemo(() => {
     let result = tools;
+    if (searchBarText) {
+      result = result.filter((tooltomap) =>
+        tooltomap.name.toLowerCase().includes(searchBarText.toLowerCase()),
+      );
+      return result;
+    }
     if (selected === 'a-z') {
       result = result.sort((a, b) => {
         const titleA = a.name.toUpperCase();
@@ -44,8 +51,9 @@ export const ToolsGrid = () => {
         return dateB - dateA;
       });
     }
+
     return result;
-  }, [tools, selected]);
+  }, [tools, selected, searchBarText]);
 
   const toolsToRender = isLoading ? (
     <p>Loading...</p>
@@ -63,4 +71,11 @@ export const ToolsGrid = () => {
       <div className="grid-tools-container">{toolsToRender}</div>
     </div>
   );
+};
+ToolsGrid.propTypes = {
+  searchBarText: PropTypes.string,
+};
+
+ToolsGrid.defaultProps = {
+  searchBarText: null,
 };
