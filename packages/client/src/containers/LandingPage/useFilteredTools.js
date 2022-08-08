@@ -20,6 +20,40 @@ export function useFilteredTools() {
     });
   }, [baseUrl]);
 
+  // Removing all already selected options that belongs to a showAll button
+  const removeAllQueryParamsFromFilteringSection = useCallback(
+    (fetchKey, options) => {
+      let newUrl = baseUrl;
+      options.forEach((option) => {
+        const url = `${fetchKey}[]=${option.id}`;
+
+        // All possible query params
+        const queryParams = {
+          queryParamBeginWithQuestionMark: `?${url}`,
+          queryParamBeginWithAmpersand: `&${url}`,
+          queryParamEndWithAmpersand: `${url}&`,
+        };
+
+        function checkIfBaseUrlAlreadyIncludeQueryParamToDelete(queries) {
+          for (const key in queryParams) {
+            if (Object.hasOwnProperty.call(queryParams, key)) {
+              const element = queryParams[key];
+              const isInclude = baseUrl.includes(element);
+              if (isInclude) {
+                const updatedUrl = newUrl.replace(element, '');
+                newUrl = updatedUrl;
+                return;
+              }
+            }
+          }
+        }
+        checkIfBaseUrlAlreadyIncludeQueryParamToDelete(queryParams);
+      });
+      setBaseUrl(newUrl);
+    },
+    [baseUrl],
+  );
+
   // Modifying a query string, by adding a new query param. Triggers by pressing on a checkbox
   const addQueryParam = useCallback(
     (optionID, fetchKey) => {
@@ -89,8 +123,20 @@ export function useFilteredTools() {
   return useMemo(
     () => ({
       tools: { tools, isLoading },
-      filterActions: { getAllTools, addQueryParam, removeQueryParam },
+      filterActions: {
+        getAllTools,
+        addQueryParam,
+        removeQueryParam,
+        removeAllQueryParamsFromFilteringSection,
+      },
     }),
-    [addQueryParam, getAllTools, isLoading, removeQueryParam, tools],
+    [
+      addQueryParam,
+      getAllTools,
+      isLoading,
+      removeQueryParam,
+      removeAllQueryParamsFromFilteringSection,
+      tools,
+    ],
   );
 }

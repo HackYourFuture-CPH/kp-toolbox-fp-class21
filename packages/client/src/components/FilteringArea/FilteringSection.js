@@ -11,14 +11,14 @@ export const FilteringSection = ({
   fetchKey,
   addQueryParam,
   removeQueryParam,
-  getAllTools,
+  removeAllQueryParamsFromFilteringSection,
 }) => {
   const [isShowAllSelected, setIsShowAllSelected] = useState(true);
 
   const iconLink = `/assets/vectors/${iconName}.svg`;
 
   const handleShowAll = (e) => {
-    getAllTools();
+    removeAllQueryParamsFromFilteringSection(fetchKey, options);
     setIsShowAllSelected(true);
     setSelectedOptions([]);
   };
@@ -101,7 +101,7 @@ FilteringSection.defaultProps = {
   fetchKey: '',
   addQueryParam: () => {},
   removeQueryParam: () => {},
-  getAllTools: () => {},
+  removeAllQueryParamsFromFilteringSection: () => {},
 };
 
 FilteringSection.propTypes = {
@@ -119,5 +119,5 @@ FilteringSection.propTypes = {
   fetchKey: PropTypes.string,
   addQueryParam: PropTypes.func,
   removeQueryParam: PropTypes.func,
-  getAllTools: PropTypes.func,
+  removeAllQueryParamsFromFilteringSection: PropTypes.func,
 };
