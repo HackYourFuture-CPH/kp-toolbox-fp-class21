@@ -10,7 +10,7 @@ export const Main = ({ children, ...props }) => {
         <img
           className="kpImg"
           src="/assets/images/kp.png"
-          alt=""
+          alt="KAOSPILOT Image"
           width="1219.88px"
           height="597.86px"
         />
