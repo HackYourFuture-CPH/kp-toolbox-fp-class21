@@ -4,6 +4,7 @@ import './App.css';
 import { LandingPage } from './containers/LandingPage/LandingPage.Container';
 import { PageNotFound } from './containers/PageNotFound/PageNotFound.Container';
 import { Navbar } from './components/Navigation/Navbar.component';
+import { AboutToolbox } from './components/AboutToolbox/AboutToolbox.component';
 import { Main } from './components/Main/Main';
 import { ToolDetailsPage } from './components/ToolDetailsPage/ToolDetailsPage.component';
 import { Footer } from './components/Footer/Footer.component';
@@ -19,7 +20,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="*" element={<PageNotFound />} />
             <Route path="/tools/:id" element={<ToolDetailsPage />} />
-            <Route path="/about-toolbox" element="" />
+            <Route path="/about-toolbox" element={<AboutToolbox />} />
             <Route path="/contact-us" element="" />
             <Route path="/user-name" element="" />
             <Route path="/sign-in" element="" />
