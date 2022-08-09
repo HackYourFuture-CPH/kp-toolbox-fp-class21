@@ -65,4 +65,7 @@
   .searchInputDiv {
     width: 73vw;
   }
+  .searchBarDiv img {
+    left: 5%;
+  }
 }
