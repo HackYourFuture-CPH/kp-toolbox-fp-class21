@@ -15,6 +15,7 @@ import {
 } from 'firebase/auth';
 import { auth } from './firebase';
 import PropTypes from 'prop-types';
+import getApiBaseUrl from '../utils/getApiBaseURL';
 
 const AuthContext = createContext();
 
@@ -45,9 +46,39 @@ export const AuthContextProvider = ({ children }) => {
     navigate('/');
   }, [navigate]);
 
+  function addUser(authUser) {
+    fetch(`${getApiBaseUrl()}/api/users`, {
+      method: 'POST',
+      body: JSON.stringify({
+        name: authUser.displayName,
+        email: authUser.email,
+        firebase_id: authUser.uid,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((result) => {
+      if (!result.ok) {
+        return Promise.reject(result.error);
+      }
+    });
+  }
+
   useEffect(() => {
+    function checkUserExist(authUser) {
+      fetch(`${getApiBaseUrl()}/api/users/${authUser.uid}`)
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.length === 0) {
+            addUser(authUser);
+          }
+        });
+    }
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      if (currentUser) {
+        checkUserExist(currentUser);
+      }
     });
     return () => {
       unsubscribe();
