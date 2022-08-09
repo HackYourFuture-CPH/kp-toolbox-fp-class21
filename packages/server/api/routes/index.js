@@ -6,6 +6,8 @@ const exampleResources = require('./exampleResources.router');
 
 const tools = require('./tools.router');
 
+const contactUsForm = require('./contactUsForm.router');
+
 /* GET home page. */
 // router.get('/', function(req, res, next) {
 //   res.render('index', { title: 'Express' });
@@ -37,5 +39,7 @@ router.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 router.use('/exampleResources', exampleResources);
 
 router.use('/tools', tools);
+
+router.use('/contactUsForm', contactUsForm);
 
 module.exports = router;
