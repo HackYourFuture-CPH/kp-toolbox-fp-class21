@@ -21,6 +21,7 @@ const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  const [userId, setUserId] = useState(null);
   const navigate = useNavigate();
 
   const googleSignIn = useCallback(() => {
@@ -43,6 +44,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const logOut = useCallback(() => {
     signOut(auth);
+    setUserId(null);
     navigate('/');
   }, [navigate]);
 
@@ -57,11 +59,17 @@ export const AuthContextProvider = ({ children }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-    }).then((result) => {
-      if (!result.ok) {
-        return Promise.reject(result.error);
-      }
-    });
+    })
+      .then((response) => {
+        if (!response.ok) {
+          return Promise.reject(response.error);
+        }
+        return response;
+      })
+      .then((result) => result.json())
+      .then((data) => {
+        setUserId(data[0]);
+      });
   }
 
   useEffect(() => {
@@ -71,6 +79,8 @@ export const AuthContextProvider = ({ children }) => {
         .then((result) => {
           if (result.length === 0) {
             addUser(authUser);
+          } else {
+            setUserId(result[0].id);
           }
         });
     }
@@ -86,8 +96,8 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   const contextValues = useMemo(
-    () => ({ googleSignIn, logOut, user }),
-    [googleSignIn, logOut, user],
+    () => ({ googleSignIn, logOut, user, userId }),
+    [googleSignIn, logOut, user, userId],
   );
 
   return (
