@@ -49,6 +49,16 @@ export const ToolItem = ({ tool }) => {
             />
           )}
         </div>
+        <div className="toolbox-description-container">
+          <h6 className="product-title">{title}</h6>
+          <span className="product-description">{pitch}</span>
+        </div>
+        <div className="title-image">
+          <img src={picture} alt={`Tool ${altForToolPicture}`} />
+        </div>
+        <div className="categories-container">
+          <ul className="category-names">{categoriesStreakOut}</ul>
+        </div>
         <div className="icon-container">
           <div className="container-participants">
             <div className="toolbox-img">
@@ -62,16 +72,6 @@ export const ToolItem = ({ tool }) => {
             </div>
             <div className="toolbox-participants">{`${timeFrameMin}-${timeFrameMax}`}</div>
           </div>
-        </div>
-        <div className="categories-container">
-          <ul className="category-names">{categoriesStreakOut}</ul>
-        </div>
-        <div className="toolbox-description-container">
-          <span className="product-description">{pitch}</span>
-          <h6 className="product-title">{title}</h6>
-        </div>
-        <div className="title-image">
-          <img src={picture} alt={`Tool ${altForToolPicture}`} />
         </div>
       </div>
       <div className="button-container">
