@@ -4,8 +4,6 @@
  */
 
 exports.seed = async function (knex) {
-  // Deletes ALL existing entries
-  await knex('tools_categories').del();
   await knex('tools_categories').insert([
     {
       tool_id: 1,
