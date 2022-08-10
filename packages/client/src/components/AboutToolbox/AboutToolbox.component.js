@@ -7,7 +7,7 @@ export const AboutToolbox = () => {
       <h4 className="about-toolbox-small-title">KAOSPILOT toolbox /ABOUT US</h4>
       <h1 className="about-toolbox-main-title">ABOUT KAOSPILOT</h1>
       <hr className="horizontal-solid-line" />
-      <div className="container">
+      <div className="about-toolbox-container">
         <img
           className="about-toolbox-image"
           src="assets/images/concrete-bw.png"
