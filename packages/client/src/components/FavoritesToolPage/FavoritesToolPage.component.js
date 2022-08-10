@@ -2,11 +2,10 @@ import React, { useState, useEffect, useMemo } from 'react';
 import getApiBaseUrl from '../../utils/getApiBaseURL';
 import { ToolItem } from '../ToolItem/ToolItem.component';
 import { Sorting } from '../Sorting/Sorting.component';
-
-// using this user_id needed before Firebase implemented
-const userId = 1;
+import { UserAuth } from '../../firebase/AuthContext';
 
 export const FavouritePage = () => {
+  const { userId } = UserAuth();
   const [favourites, setFavourites] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selected, setSelected] = useState('');
@@ -26,8 +25,10 @@ export const FavouritePage = () => {
         throw error;
       }
     }
-    fetchFavourites();
-  }, []);
+    if (userId) {
+      fetchFavourites();
+    }
+  }, [userId]);
 
   const sortedTools = useMemo(() => {
     let result = favourites;
