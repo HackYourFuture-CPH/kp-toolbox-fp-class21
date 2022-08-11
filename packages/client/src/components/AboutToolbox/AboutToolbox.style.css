@@ -1,29 +1,33 @@
 * {
   margin: 0;
 }
-.about-toolbox-container {
+.about-toolbox-main-section {
   position: relative;
-  text-align: center;
-  color: white;
 }
 .about-toolbox-text {
+  margin-top: 5rem;
   position: absolute;
-  font-size: 1.6rem;
+  font-size: 1.25rem;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 65vw;
-  height: 100vh;
+  text-align: left;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  height: 100%;
+  color: #f5f5f5;
+  text-shadow: 2px 2px 2px rgba(28, 56, 64, 0.9);
 }
 .about-toolbox-image {
-  margin: 7em;
-  width: 80%;
-  height: 100vh;
-  margin: auto;
-}
-.kaospilot-image {
   width: 100%;
   margin: auto;
+  height: 54.11vh;
+}
+.kaospilot-image {
+  width: 33.312%;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 .about-toolbox-small-title {
   width: 70%;
@@ -42,7 +46,7 @@
   width: 80%;
   margin-right: auto;
   margin-left: auto;
-  height: 3.125rem;
+  /* height: 3.125rem; */
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
@@ -50,6 +54,7 @@
   line-height: 2.375rem;
   text-align: center;
   color: #f5f5f5;
+  padding-bottom: 0.2rem;
 }
 .horizontal-solid-line {
   width: 80%;
@@ -61,6 +66,14 @@
   border-color: #f5f5f5;
   opacity: 0.5;
 }
+@media screen and (max-width: 1230px) {
+  .about-toolbox-main-section {
+    height: 65%;
+  }
+  .about-toolbox-text {
+    font-size: 1rem;
+  }
+}
 @media screen and (min-width: 651px) {
   .about-toolbox-text {
     width: 70%;
@@ -68,40 +81,46 @@
 }
 @media screen and (max-width: 750px) {
   .about-toolbox-text {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
   }
 }
 @media screen and (max-width: 650px) {
   .about-toolbox-text {
-    font-size: 1rem;
+    width: 80%;
+    font-size: 0.85rem;
   }
-  .about-toolbox-main-title {
-    padding-bottom: 0.5rem;
+  .horizontal-solid-line {
+    margin-top: 2rem;
   }
 }
 
 @media screen and (max-width: 490px) {
   .about-toolbox-text {
-    font-size: 0.9rem;
+    width: 80%;
+    font-size: 0.7rem;
   }
 }
 
 @media screen and (max-width: 425px) {
   .about-toolbox-text {
-    font-size: 0.8rem;
+    margin-top: 2rem;
+    width: 90%;
+    font-size: 0.5rem;
   }
 }
 
 @media screen and (max-width: 350px) {
-  .about-toolbox-text {
-    font-size: 0.7rem;
-  }
+  /* .about-toolbox-text {
+    width: 80%;
+    font-size: 0.5rem;
+  } */
   .about-toolbox-main-title {
     font-size: 2rem;
   }
 }
 @media screen and (max-width: 280px) {
   .about-toolbox-text {
-    font-size: 0.5rem;
+    width: 90%;
+    font-size: 0.4rem;
   }
 }
