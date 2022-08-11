@@ -3,46 +3,17 @@ import { Link } from 'react-router-dom';
 import { MobileNavigation } from '../MobileNavigation/MobileNavigation.component';
 import './Navbar.css';
 import { UserAuth } from '../../firebase/AuthContext';
+import { LoggedInUser } from './LoggedInUser.component';
+import { GuestUser } from './GuestUser.component';
 
 export const Navbar = ({ ...props }) => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const { googleSignIn, logOut, user } = UserAuth();
   let accountStatus = null;
-
   if (user) {
-    accountStatus = (
-      <div className="log-out-container">
-        <div className="user-name-container">
-          <img
-            className="navbar-icon"
-            src="/assets/vectors/vector-person-logged.svg"
-            alt="icon with person for user name in logged-in state"
-          />
-          <span> Hi, {user.displayName}!</span>
-        </div>
-        <button type="button" className="navbar-button" onClick={logOut}>
-          <img
-            className="navbar-icon"
-            src="/assets/vectors/vector-log-out.svg"
-            alt="icon with person for logged-in state"
-          />
-          <span>sign out</span>
-        </button>
-      </div>
-    );
+    accountStatus = LoggedInUser(logOut, user);
   } else {
-    accountStatus = (
-      <div className="log-in-container">
-        <button type="button" className="navbar-button" onClick={googleSignIn}>
-          <img
-            className="navbar-icon"
-            src="/assets/vectors/vector-person-not-logged.svg"
-            alt="icon with person for logged-out state"
-          />
-          <span>sign in</span>
-        </button>
-      </div>
-    );
+    accountStatus = GuestUser(googleSignIn);
   }
 
   return (
