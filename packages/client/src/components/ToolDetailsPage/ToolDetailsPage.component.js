@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import getApiBaseUrl from '../../utils/getApiBaseURL';
 import './ToolDetailsPage.css';
+import { Loader } from '../Loader/Loader.component';
 
 export const ToolDetailsPage = () => {
   const [tool, setTool] = useState({});
@@ -28,7 +29,7 @@ export const ToolDetailsPage = () => {
           }
         })
         .then(() => {
-          setIsLoading(false);
+          setIsLoading(true);
         });
     }
     setFetchTool();
@@ -36,9 +37,14 @@ export const ToolDetailsPage = () => {
 
   let pageContent;
   if (isLoading) {
-    pageContent = <p className="message">Loading</p>;
+    pageContent = (
+      <div className='LoadingMessage'>
+        <span>Loading...</span>
+        <Loader />
+      </div>
+    );
   } else if (isDataEmpty) {
-    pageContent = <p className="message">Tool not found</p>;
+    pageContent = <p>Tool not found</p>;
   } else {
     const toolCategoriesList = tool.categories
       ? tool.categories.map((category, index) => (

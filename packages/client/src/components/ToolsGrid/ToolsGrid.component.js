@@ -32,7 +32,10 @@ export const ToolsGrid = ({ tools, isLoading }) => {
   }, [tools, selected]);
 
   const toolsToRender = isLoading ? (
-    <Loader />
+    <div className="LoadingMessage">
+      <span>Loading tool...</span>
+      <Loader />
+    </div>
   ) : (
     <div className="grid-tools-container">
       {sortedTools.map((tool, i) => {
