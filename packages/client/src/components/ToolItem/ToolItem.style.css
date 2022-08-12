@@ -23,7 +23,6 @@ li {
   aspect-ratio: 1/1;
   box-sizing: border-box;
   border-radius: 0.125rem;
-  border: 0.25rem solid rgba(0, 0, 0, 0.5);
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.4) 0%,
@@ -349,6 +348,9 @@ li {
 }
 
 @media screen and (max-width: 820px) {
+  .grid-tools-container {
+    gap: 0.25rem;
+  }
   .toolbox-participants {
     font-size: 1rem;
   }
