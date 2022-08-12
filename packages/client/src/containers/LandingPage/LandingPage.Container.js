@@ -14,7 +14,7 @@ import {
 } from './filterMockData';
 
 export const LandingPage = () => {
-  const { filterActions, tools } = useFilteredTools();
+  const { filterActions, tools, filters } = useFilteredTools();
   const categories = useFilteringSection();
   const numberOfParticipants = useFilteringSection();
   const timeframes = useFilteringSection();
@@ -31,6 +31,7 @@ export const LandingPage = () => {
     <div className="landing-page-container">
       <FilteringArea>
         <FilteringSection
+          selectedOptions={filters.category}
           {...categories}
           title="CATEGORY"
           iconName="vector-categories"
@@ -39,6 +40,7 @@ export const LandingPage = () => {
           {...filterActions}
         />
         <FilteringSection
+          selectedOptions={filters.participantsNumber}
           {...numberOfParticipants}
           title="NUMBER OF PARTICIPANTS"
           iconName="vector-people"
@@ -47,6 +49,7 @@ export const LandingPage = () => {
           {...filterActions}
         />
         <FilteringSection
+          selectedOptions={filters.timeframe}
           {...timeframes}
           title="TIME FRAME [minutes]"
           iconName="vector-clock"
