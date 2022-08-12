@@ -62,7 +62,6 @@ export const ToolDetailsPage = () => {
       <>
         <p className="breadcrumbs">
           <Link to="/">
-            {' '}
             KAOSPILOT toolbox / <span>{tool.name}</span>
           </Link>
         </p>
@@ -99,8 +98,6 @@ export const ToolDetailsPage = () => {
           <img
             src="/assets/images/Kaospilot_admissionworkshop9_2016_BW 1.png"
             alt="Kaospilot Admission workshop 2016"
-            width="1003.65px"
-            height="300px"
           />
         </div>
 

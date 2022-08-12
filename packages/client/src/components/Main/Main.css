@@ -1,10 +1,8 @@
 main {
-  background: linear-gradient(
-      180deg,
+  background: linear-gradient(180deg,
       rgba(28, 56, 64, 0.7) 0%,
       rgba(28, 65, 64, 0.8) 0.01%,
-      rgba(7, 27, 32, 0.5) 100%
-    ),
+      rgba(7, 27, 32, 0.5) 100%),
     url('../../../public/assets/images/concrete-bw.png');
   background-repeat: repeat;
   min-height: 100vh;
@@ -21,5 +19,11 @@ main {
 @media screen and (max-width: 1300px) {
   .main-container {
     width: 90vw;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .main-container {
+    padding-top: 4.5rem;
   }
 }
