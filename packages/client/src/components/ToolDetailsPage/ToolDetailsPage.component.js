@@ -38,7 +38,7 @@ export const ToolDetailsPage = () => {
   let pageContent;
   if (isLoading) {
     pageContent = (
-      <div className='LoadingMessage'>
+      <div className="LoadingMessage">
         <span>Loading...</span>
         <Loader />
       </div>
