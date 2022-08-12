@@ -15,7 +15,7 @@ export const Footer = () => {
               Copyright Kaospilot. All methods & tools © their respective
               owners.
               <br />
-              Are you an owner of a method/tool, please contact us
+              Are you an owner of a method or tool? Please contact us.
             </p>
           </div>
           <div className="links-container">
@@ -50,7 +50,7 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="footer-rectangle-background" />
+      <div className="footer-black-bar" />
     </footer>
   );
 };
