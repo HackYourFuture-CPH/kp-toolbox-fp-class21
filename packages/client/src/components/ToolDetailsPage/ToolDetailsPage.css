@@ -22,7 +22,7 @@
 }
 .LoadingMessage span {
   position: absolute;
-  font-size: small;
+  font-size: 15px;
 }
 
 .message {
@@ -164,6 +164,10 @@ h3 {
 @media screen and (max-width: 650px) {
   .tool-details-container {
     padding: 1.5rem 1rem;
+  }
+
+  .LoadingMessage span {
+    font-size: 8px;
   }
 
   .tool-image {
