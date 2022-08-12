@@ -29,7 +29,7 @@ export const ToolDetailsPage = () => {
           }
         })
         .then(() => {
-          setIsLoading(true);
+          setIsLoading(false);
         });
     }
     setFetchTool();
