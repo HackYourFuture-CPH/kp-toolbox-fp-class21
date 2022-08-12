@@ -37,7 +37,6 @@ export function useFilteredTools() {
     setQueryString(`?${newQueryString}`);
   }, [filters]);
 
-  // Removing all already selected options that belongs to a showAll button
   const clearFilters = useCallback(
     (fetchKey) => {
       setFilters({
@@ -48,7 +47,6 @@ export function useFilteredTools() {
     [filters],
   );
 
-  // Modifying a query string, by adding a new query param. Triggers by pressing on a checkbox
   const addFilter = useCallback(
     (optionID, fetchKey) => {
       setFilters({
@@ -59,7 +57,6 @@ export function useFilteredTools() {
     [filters],
   );
 
-  // Modifying a query string, by deleting an already existing query param. Triggers by pressing on the same checkbox on a second time
   const removeFilter = useCallback(
     (optionID, fetchKey) => {
       setFilters({
