@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import './ToolsGrid.style.css';
 import { ToolItem } from '../ToolItem/ToolItem.component';
 import { Sorting } from '../Sorting/Sorting.component';
+import { Loader } from '../Loader/Loader.component';
 
 export const ToolsGrid = ({ tools, isLoading }) => {
   const [selected, setSelected] = useState('');
-
   const sortedTools = useMemo(() => {
     let result = tools;
     if (selected === 'a-z') {
@@ -32,19 +32,22 @@ export const ToolsGrid = ({ tools, isLoading }) => {
   }, [tools, selected]);
 
   const toolsToRender = isLoading ? (
-    <p>Loading...</p>
+    <div className="LoadingMessage">
+      <span>Loading tool...</span>
+      <Loader />
+    </div>
   ) : (
-    <>
+    <div className="grid-tools-container">
       {sortedTools.map((tool, i) => {
         return <ToolItem index={i} key={tool.id} tool={tool} />;
       })}
-    </>
+    </div>
   );
 
   return (
     <div>
       <Sorting setSelected={setSelected} />
-      <div className="grid-tools-container">{toolsToRender}</div>
+      <div>{toolsToRender}</div>
     </div>
   );
 };
