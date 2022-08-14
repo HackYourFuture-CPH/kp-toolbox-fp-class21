@@ -1,6 +1,10 @@
 const knex = require('../../config/db');
+const HttpError = require('../../api/lib/utils/http-error');
 
 const createTool = async (body) => {
+  if (Object.keys(body).length === 0 || body === {}) {
+    throw new HttpError('Message: Bad Input', 422);
+  }
   await knex('tools').insert({
     name: body.name,
     time_frame_min: body.time_frame_min,
