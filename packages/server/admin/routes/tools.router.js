@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router({ mergeParams: true });
 
 const toolsController = require('../controllers/tools.controller');
@@ -39,6 +40,28 @@ router.post('/', (req, res) => {
       // eslint-disable-next-line no-console
       console.log(error);
 
+      res.status(400).send('Bad request').end();
+    });
+});
+
+router.put('/:id', (req, res) => {
+  toolsController
+    .updateToolById(req.params.id, req.body)
+    .then((result) => res.json(result))
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.log(error);
+      res.status(400).send('Bad request').end();
+    });
+});
+
+router.delete('/:id', (req, res) => {
+  toolsController
+    .deleteToolById(req.params.id)
+    .then((result) => res.json(result))
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.log(error);
       res.status(400).send('Bad request').end();
     });
 });
