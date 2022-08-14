@@ -3,94 +3,97 @@ import getApiBaseUrl from '../../utils/getApiBaseURL';
 
 export function useFilteredTools() {
   const [tools, setTools] = useState([]);
-  const [baseUrl, setBaseUrl] = useState(`${getApiBaseUrl()}/api/tools`);
+  const [queryString, setQueryString] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-
-  // fetching all tools
-  const getAllTools = useCallback(() => {
-    function fetchAllTools() {
-      setIsLoading(true);
-      setBaseUrl(`${getApiBaseUrl()}/api/tools`);
-
-      const promise = fetch(baseUrl).then((response) => response.json());
-      return promise;
-    }
-    fetchAllTools().then((data) => {
-      setIsLoading(false);
-    });
-  }, [baseUrl]);
-
-  // Modifying a query string, by adding a new query param. Triggers by pressing on a checkbox
-  const addQueryParam = useCallback(
-    (optionID, fetchKey) => {
-      const url = `${fetchKey}[]=${optionID}`;
-      // Check if it gonna be a first query param
-      const isIncludes = baseUrl.includes('?');
-      if (!isIncludes) {
-        setBaseUrl((prevUrl) => prevUrl.concat(`?${url}`));
-      } else {
-        setBaseUrl((prevUrl) => prevUrl.concat(`&${url}`));
-      }
-    },
-    [baseUrl],
-  );
-
-  // Modifying a query string, by deleting an already existing query param. Triggers by pressing on the same checkbox on a second time
-  const removeQueryParam = useCallback(
-    (optionID, fetchKey) => {
-      const url = `${fetchKey}[]=${optionID}`;
-
-      // All possible query params
-      const queryParams = {
-        queryParamBeginWithQuestionMark: `?${url}`,
-        queryParamBeginWithAmpersand: `&${url}`,
-        queryParamEndWithAmpersand: `${url}&`,
-      };
-
-      function checkIfBaseUrlAlreadyIncludeQueryParamToDelete(queries) {
-        for (const key in queryParams) {
-          if (Object.hasOwnProperty.call(queryParams, key)) {
-            const element = queryParams[key];
-            const isInclude = baseUrl.includes(element);
-            if (isInclude) {
-              const newBaseUrl = baseUrl.replace(element, '');
-              setBaseUrl(newBaseUrl);
-            }
-          }
-        }
-      }
-
-      checkIfBaseUrlAlreadyIncludeQueryParamToDelete(queryParams);
-    },
-    [baseUrl],
-  );
-
-  // fetching specific tools
-  function getFilteredTools(newKey) {
-    setIsLoading(true);
-    const promise = fetch(newKey).then((response) => response.json());
-    return promise;
-  }
+  const [filters, setFilters] = useState({
+    category: [],
+    timeframe: [],
+    participantsNumber: [],
+  });
 
   useEffect(() => {
-    getFilteredTools(baseUrl).then((data) => {
-      const newTools = data.filter(
-        (value, index, self) =>
+    if (
+      filters.category === 0 &&
+      filters.participantsNumber === 0 &&
+      filters.timeframe === 0
+    ) {
+      setQueryString('');
+      return;
+    }
+
+    const category = filters.category
+      .map((option) => `category[]=${option}`)
+      .join('&');
+    const participantsNumber = filters.participantsNumber
+      .map((option) => `participantsNumber[]=${option}`)
+      .join('&');
+    const timeframe = filters.timeframe
+      .map((option) => `timeframe[]=${option}`)
+      .join('&');
+
+    const newQueryString = [category, participantsNumber, timeframe]
+      .filter((option) => option !== '')
+      .join('&');
+    setQueryString(`?${newQueryString}`);
+  }, [filters]);
+
+  const clearFilters = useCallback(
+    (fetchKey) => {
+      setFilters({
+        ...filters,
+        [fetchKey]: [],
+      });
+    },
+    [filters],
+  );
+
+  const addFilter = useCallback(
+    (optionID, fetchKey) => {
+      setFilters({
+        ...filters,
+        [fetchKey]: filters[fetchKey].concat([optionID]),
+      });
+    },
+    [filters],
+  );
+
+  const removeFilter = useCallback(
+    (optionID, fetchKey) => {
+      setFilters({
+        ...filters,
+        [fetchKey]: filters[fetchKey].filter((filter) => filter !== optionID),
+      });
+    },
+    [filters],
+  );
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetch(`${getApiBaseUrl()}/api/tools${queryString}`)
+      .then((response) => response.json())
+      .then((data) => {
+        // This operation of removing off duplicates of tools can be performed on the server side
+        const removeDuplicates = (value, index, self) =>
           index ===
           self.findIndex(
             (t) => t.place === value.place && t.name === value.name,
-          ),
-      );
-      setIsLoading(false);
-      setTools(newTools);
-    });
-  }, [baseUrl]);
+          );
+        const newTools = data.filter(removeDuplicates);
+        setIsLoading(false);
+        setTools(newTools);
+      });
+  }, [queryString]);
 
   return useMemo(
     () => ({
       tools: { tools, isLoading },
-      filterActions: { getAllTools, addQueryParam, removeQueryParam },
+      filters,
+      filterActions: {
+        addFilter,
+        removeFilter,
+        clearFilters,
+      },
     }),
-    [addQueryParam, getAllTools, isLoading, removeQueryParam, tools],
+    [addFilter, filters, isLoading, removeFilter, clearFilters, tools],
   );
 }
