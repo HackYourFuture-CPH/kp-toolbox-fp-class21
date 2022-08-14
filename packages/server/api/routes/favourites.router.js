@@ -19,6 +19,19 @@ const favouritesController = require('../controllers/favourites.controller');
  *    description:
  *      Will add tool to favourite table
  *    produces: application/json
+ *    parameters:
+ *      - in: body
+ *        name: tool_id
+ *        schema:
+ *           type: integer
+ *           required: true
+ *           description: The tool id
+ *      - in: body
+ *        name: user_id
+ *        schema:
+ *           type: integer
+ *           required: true
+ *           description: The user id
  *    responses:
  *      200:
  *        description: Successful request
@@ -43,7 +56,7 @@ router.post('/', (req, res, next) => {
  *       Will return all favourite tools with matching user_id
  *     produces: application/json
  *     parameters:
- *      - in: body
+ *      - in: params
  *        name: id
  *        schema:
  *           type: integer
@@ -59,6 +72,42 @@ router.post('/', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
   favouritesController
     .getAllUsersFavourites(req.params.id)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
+/**
+ * @swagger
+ * /favourites:
+ *   delete:
+ *     tags: [Favourites]
+ *     summary: Delete favourite tool for user
+ *     description:
+ *       Will delete favourite tool with matching user_id
+ *     produces: application/json
+ *     parameters:
+ *      - in: body
+ *        name: tool_id
+ *        schema:
+ *           type: integer
+ *           required: true
+ *           description: The tool id
+ *      - in: body
+ *        name: user_id
+ *        schema:
+ *           type: integer
+ *           required: true
+ *           description: The user id
+ *     responses:
+ *       200:
+ *         description: Successful request
+ *       5XX:
+ *         description: Unexpected error
+ */
+
+router.delete('/', (req, res, next) => {
+  favouritesController
+    .deleteFavourites(req.body)
     .then((result) => res.json(result))
     .catch(next);
 });
