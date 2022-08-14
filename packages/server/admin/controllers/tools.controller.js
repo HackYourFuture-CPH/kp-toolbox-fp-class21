@@ -22,6 +22,11 @@ const createTool = async (body) => {
   };
 };
 
+const deleteToolById = async (toolId) => {
+  return knex('tools').where({ id: toolId }).del();
+};
+
 module.exports = {
   createTool,
+  deleteToolById,
 };
