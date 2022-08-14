@@ -47,3 +47,11 @@ The project is organised as a mono-repository, meaning there is a single project
 | `yarn build`                           | Will build a production ready React project.                                                            | client               |                               |     |
 | `yarn storybook-build`                 | Will build a production ready Storybook project.                                                        | client               |                               |     |
 |                                        |                                                                                                         |                      |                               |     |
+
+## Firebase setup
+
+To test the Firebase authentification, you need to add the following credential to the env file in the client folder.
+
+REACT_APP_FIREBASE_API_KEY=AIzaSyARcKPPTVo1aqOCnH-\_QAf8rnt3LyUyArY
+
+P.S. for the students: Ideally there should be a kwallet for the credentials, so in future projects make sure you follow security regualtions of the company you are working for.

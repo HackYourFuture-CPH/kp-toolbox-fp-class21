@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { WelcomeBox } from '../../components/WelcomeBox/WelcomeBox';
 import {
   FilteringArea,
   FilteringSection,
@@ -29,6 +30,7 @@ export const LandingPage = () => {
 
   return (
     <div className="landing-page-container">
+      <WelcomeBox />
       <FilteringArea>
         <FilteringSection
           selectedOptions={filters.category}
