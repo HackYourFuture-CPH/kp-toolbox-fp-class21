@@ -44,19 +44,26 @@ router.post('/', (req, res) => {
     });
 });
 
+router.put('/:id', (req, res) => {
+  toolsController
+    .updateToolById(req.params.id, req.body)
+    .then((result) => res.json(result))
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.log(error);
+      res.status(400).send('Bad request').end();
+    });
+});
+
 router.delete('/:id', (req, res) => {
   toolsController
     .deleteToolById(req.params.id)
-    .then((result) => {
-      // If result is equal to 0, then that means the categories id does not exist
-      if (result === 0) {
-        res.status(404).send('The tool ID you provided does not exist.');
-      } else {
-        res.json({ success: true });
-      }
-    })
-    // eslint-disable-next-line no-console
-    .catch((error) => console.log(error));
+    .then((result) => res.json(result))
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.log(error);
+      res.status(400).send('Bad request').end();
+    });
 });
 
 module.exports = router;
