@@ -8,7 +8,7 @@ const router = require('./api/routes/index');
 const admin = require('firebase-admin');
 const { authenticate } = require('./firebase/auth');
 
-var serviceAccount = require('./firebase/serviceAccountKey.json');
+const serviceAccount = require('./firebase/serviceAccountKey.json');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -16,7 +16,6 @@ admin.initializeApp({
 
 const app = express();
 
-//app.use(authenticate);
 app.use(logger('dev'));
 app.use(cors());
 app.use(express.json());
