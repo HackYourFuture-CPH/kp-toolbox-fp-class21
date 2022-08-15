@@ -6,19 +6,19 @@ exports.seed = async function (knex) {
   await knex('categories')
     .insert([
       {
-        id: '1',
+        id: 1,
         name: 'Team',
       },
       {
-        id: '2',
+        id: 2,
         name: 'Action',
       },
       {
-        id: '3',
+        id: 3,
         name: 'Innovation',
       },
       {
-        id: '4',
+        id: 4,
         name: 'Energizer',
       },
     ])

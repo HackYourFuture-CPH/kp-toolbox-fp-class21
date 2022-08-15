@@ -9,6 +9,7 @@ import { FavouritePage } from './components/FavoritesToolPage/FavoritesToolPage.
 import { ToolDetailsPage } from './components/ToolDetailsPage/ToolDetailsPage.component';
 import { Footer } from './components/Footer/Footer.component';
 import { AuthContextProvider } from './firebase/AuthContext';
+import { AboutToolbox } from './components/AboutToolbox/AboutToolbox.component';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
               <Route path="/" element={<LandingPage />} />
               <Route path="*" element={<PageNotFound />} />
               <Route path="/tools/:id" element={<ToolDetailsPage />} />
-              <Route path="/about-toolbox" element="" />
+              <Route path="/about-toolbox" element={<AboutToolbox />} />
               <Route path="/contact-us" element="" />
               <Route path="/user-name" element="" />
               <Route path="/favourites" element={<FavouritePage />} />
