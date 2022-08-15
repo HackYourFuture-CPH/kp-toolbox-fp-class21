@@ -189,6 +189,7 @@ li {
   background: transparent;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .tool-button a {
