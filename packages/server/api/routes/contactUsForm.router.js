@@ -7,9 +7,16 @@ const contactUsFormController = require('../controllers/contactUsForm.controller
 
 /**
  * @swagger
- * /exampleResource:
+ * tags:
+ *    name: ContactUsForm
+ *    description: ContactUs API
+ */
+
+/**
+ * @swagger
+ * /contactUsForm:
  *  get:
- *    tags: [user_enquiry]
+ *    tags: [ContactUsForm]
  *    summary: Get the list of the users inquiry left in contact form
  *    description:
  *      Will return all users inquiry.
@@ -30,9 +37,9 @@ router.get('/', (req, res, next) => {
 
 /**
  * @swagger
- * /exampleResources:
+ * /contactUsForm:
  *  post:
- *    tags: [user_enquiry]
+ *    tags: [ContactUsForm]
  *    summary: Create a user_enquiry
  *    description:
  *      Will create a user_enquiry.

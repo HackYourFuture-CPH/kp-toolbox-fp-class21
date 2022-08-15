@@ -7,6 +7,8 @@ import { Navbar } from './components/Navigation/Navbar.component';
 import { Main } from './components/Main/Main';
 import { ToolDetailsPage } from './components/ToolDetailsPage/ToolDetailsPage.component';
 import { Footer } from './components/Footer/Footer.component';
+import { ContactUs } from './components/ContactUs/ContactUs/ContactUs.component'
+import { Inbox } from './components/InboxMessageAdmin/Inbox.component'
 
 function App() {
   return (
@@ -20,11 +22,12 @@ function App() {
             <Route path="*" element={<PageNotFound />} />
             <Route path="/tools/:id" element={<ToolDetailsPage />} />
             <Route path="/about-toolbox" element="" />
-            <Route path="/contact-us" element="" />
+            <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/user-name" element="" />
             <Route path="/sign-in" element="" />
             <Route path="/sign-out" element="" />
             <Route path="/favourites" element="" />
+            <Route path="/inbox-admin" element={<Inbox />} />
           </Routes>
         </Main>
         <Footer />
