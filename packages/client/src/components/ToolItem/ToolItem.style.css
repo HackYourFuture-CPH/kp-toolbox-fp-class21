@@ -31,6 +31,14 @@ li {
   );
 }
 
+.hide-sorting {
+  display: none;
+}
+
+.message-text {
+  margin-top: 2rem;
+}
+
 .favourites-icon {
   justify-content: flex-end;
 }
@@ -89,14 +97,17 @@ li {
 .category-names li {
   padding-right: 0.906rem;
 }
+
 .selected-category {
   color: rgba(217, 217, 217, 1);
   text-decoration: none;
 }
+
 .not-selected-category {
   color: rgba(217, 217, 217, 0.5);
   text-decoration: line-through;
 }
+
 .category-names {
   flex-direction: row;
   padding: 0;

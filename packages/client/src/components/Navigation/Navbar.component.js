@@ -33,7 +33,10 @@ export const Navbar = ({ ...props }) => {
           </Link>
           {accountStatus}
           <div className="favourite-container">
-            <Link className="navbar-link" to="/favourites">
+            <Link
+              className={`navbar-link ${!user ? 'disabled-link' : ''}`}
+              to="/favourites"
+            >
               <img
                 className="navbar-icon"
                 src={

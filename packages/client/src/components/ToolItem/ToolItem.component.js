@@ -1,24 +1,69 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './ToolItem.style.css';
 import { Link } from 'react-router-dom';
+import getApiBaseUrl from '../../utils/getApiBaseURL';
+import { UserAuth } from '../../firebase/AuthContext';
 
 export const ToolItem = ({ tool }) => {
+  const { userId } = UserAuth();
   const title = tool.name;
   const { picture } = tool;
+  const { id } = tool;
   const timeFrameMin = tool.time_frame_min;
   const timeFrameMax = tool.time_frame_max;
   const groupSizeMin = tool.group_size_min;
   const groupSizeMax = tool.group_size_max;
   const { pitch } = tool;
   const { categories } = tool;
+
   const [isFavourite, setIsFavourite] = useState(false);
 
   const handleChangeFavourite = () => {
-    setIsFavourite((previousIcon) => {
-      return !previousIcon;
-    });
+    if (userId) {
+      if (isFavourite) {
+        fetch(`${getApiBaseUrl()}/api/favourites`, {
+          method: 'DELETE',
+          body: JSON.stringify({ user_id: userId, tool_id: id }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }).then((result) => {
+          if (result.ok) {
+            setIsFavourite(false);
+          }
+        });
+      } else {
+        fetch(`${getApiBaseUrl()}/api/favourites`, {
+          method: 'POST',
+          body: JSON.stringify({ user_id: userId, tool_id: id }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }).then((result) => {
+          if (result.ok) {
+            setIsFavourite(true);
+          }
+        });
+      }
+    }
   };
+
+  useEffect(() => {
+    if (userId) {
+      fetch(`${getApiBaseUrl()}/api/favourites/${userId}`)
+        .then((response) => response.json())
+        .then((result) => {
+          const filteredResult = result.filter((item) => item.id === id);
+          if (filteredResult.length > 0) {
+            setIsFavourite(true);
+          }
+        });
+    } else {
+      setIsFavourite(false);
+    }
+  }, [userId, id]);
+
   const availableCategories = ['Innovation', 'Action', 'Energizer', 'Team'];
   const categoriesStreakOut = availableCategories.map((category) => {
     return categories.includes(category) ? (
@@ -85,6 +130,7 @@ export const ToolItem = ({ tool }) => {
 
 ToolItem.propTypes = {
   tool: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+  id: PropTypes.number,
   name: PropTypes.string,
   time_frame_min: PropTypes.number,
   time_frame_max: PropTypes.number,
@@ -97,6 +143,7 @@ ToolItem.propTypes = {
 
 ToolItem.defaultProps = {
   tool: [],
+  id: null,
   name: null,
   time_frame_min: null,
   time_frame_max: null,
