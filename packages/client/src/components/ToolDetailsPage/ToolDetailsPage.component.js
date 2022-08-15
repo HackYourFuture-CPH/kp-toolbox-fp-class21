@@ -101,10 +101,7 @@ export const ToolDetailsPage = () => {
           <p>{tool.pitch}</p>
           <p>{tool.description}</p>
           <p />
-          <img
-            src="/assets/images/Kaospilot_admissionworkshop9_2016_BW 1.png"
-            alt="Kaospilot Admission workshop 2016"
-          />
+          <img src={tool.banner} alt="" />
         </div>
 
         <div className="tool-instructions">
