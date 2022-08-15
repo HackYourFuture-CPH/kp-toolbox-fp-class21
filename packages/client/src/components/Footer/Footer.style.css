@@ -41,17 +41,32 @@ footer {
 
 .footer-container {
   width: 1220px;
-  height: 140px;
+  height: 155px;
   background-color: rgba(245, 245, 245, 0.05);
+}
+
+.footer-container::after {
+  position: absolute;
+  width: 100%;
+  content: '';
+  left: 0;
+  margin-bottom: 140px;
+  height: 1rem;
+  background-image: url('../../../public/assets/images/tape-cut.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .copyright-disclaimer-container {
   height: 100px;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   text-align: left;
   margin-left: 15px;
+}
+
+.copyright-disclaimer-container p {
+  font-size: 18px;
+  line-height: 24px;
+  text-align: left;
 }
 
 .links-container {
@@ -86,16 +101,6 @@ footer {
     width: 90vw;
     gap: 1rem;
   }
-
-  .copyright-disclaimer-text {
-    font-size: 0.9rem;
-  }
-}
-
-@media screen and (max-width: 1184px) {
-  .copyright-disclaimer-text {
-    font-size: 0.875rem;
-  }
 }
 
 @media screen and (max-width: 1070px) {
@@ -105,18 +110,31 @@ footer {
     padding: 0.625rem;
   }
 
-  .copyright-disclaimer-text {
-    font-size: 0.875rem;
-    line-height: 1rem;
-  }
-
-  .copyright-disclaimer-text:first-child {
-    margin-bottom: 1rem;
+  .copyright-disclaimer-container p {
+    font-size: 14px;
+    line-height: 20px;
   }
 
   .links-container {
     width: 172px;
     margin: 0 10% 0 32px;
+  }
+}
+
+@media screen and (max-width: 865px) {
+  .copyright-disclaimer-container p {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .copyright-disclaimer-container p {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .footer-container::after {
+    height: 0.5rem;
   }
 }
 
@@ -129,14 +147,12 @@ footer {
     height: 262px;
     flex-direction: column-reverse;
   }
-
+  .footer-container::after {
+    margin-bottom: 254px;
+  }
   .copyright-disclaimer-container {
     width: fit-content;
     margin: 1.71rem 1.375rem 0.95rem 1.375rem;
-  }
-
-  .copyright-disclaimer-text {
-    font-size: 0.75rem;
   }
 
   .links-container {
@@ -152,6 +168,14 @@ footer {
   .social-media-logo {
     width: 38px;
     height: 38px;
+  }
+
+  .copyright-disclaimer-container p {
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
   }
 }
 
@@ -176,5 +200,13 @@ footer {
   .social-media-logo {
     width: 36px;
     height: 36px;
+  }
+
+  .copyright-disclaimer-container p {
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
   }
 }

@@ -12,6 +12,7 @@ export const Footer = () => {
               Find out more about KAOSPILOT and follow us on LinkedIn, Instagram
               and Facebook!
               <br />
+              <br />
               Copyright Kaospilot. All methods & tools © their respective
               owners.
               <br />
