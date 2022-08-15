@@ -15,11 +15,13 @@ import {
 } from 'firebase/auth';
 import { auth } from './firebase';
 import PropTypes from 'prop-types';
+import getApiBaseUrl from '../utils/getApiBaseURL';
 
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  const [userId, setUserId] = useState(null);
   const navigate = useNavigate();
 
   const googleSignIn = useCallback(() => {
@@ -42,12 +44,51 @@ export const AuthContextProvider = ({ children }) => {
 
   const logOut = useCallback(() => {
     signOut(auth);
+    setUserId(null);
     navigate('/');
   }, [navigate]);
 
+  function addUser(authUser) {
+    fetch(`${getApiBaseUrl()}/api/users`, {
+      method: 'POST',
+      body: JSON.stringify({
+        name: authUser.displayName,
+        email: authUser.email,
+        firebase_id: authUser.uid,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          return Promise.reject(response.error);
+        }
+        return response;
+      })
+      .then((result) => result.json())
+      .then((data) => {
+        setUserId(data[0]);
+      });
+  }
+
   useEffect(() => {
+    function checkUserExist(authUser) {
+      fetch(`${getApiBaseUrl()}/api/users/${authUser.uid}`)
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.length === 0) {
+            addUser(authUser);
+          } else {
+            setUserId(result[0].id);
+          }
+        });
+    }
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      if (currentUser) {
+        checkUserExist(currentUser);
+      }
     });
     return () => {
       unsubscribe();
@@ -55,8 +96,8 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   const contextValues = useMemo(
-    () => ({ googleSignIn, logOut, user }),
-    [googleSignIn, logOut, user],
+    () => ({ googleSignIn, logOut, user, userId }),
+    [googleSignIn, logOut, user, userId],
   );
 
   return (
