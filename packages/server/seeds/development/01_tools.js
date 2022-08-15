@@ -593,11 +593,7 @@ exports.seed = async function (knex) {
         picture: '/assets/images/tool-pic-line-of-alignment.png',
       },
       {
-<<<<<<< HEAD
-        id: '12',
-=======
         id: 12,
->>>>>>> ff7cbe057df63f5b1b0ee664543c3799fc09889a
         name: 'TROIKA CONSULTING',
         time_frame_min: 5,
         time_frame_max: 30,
