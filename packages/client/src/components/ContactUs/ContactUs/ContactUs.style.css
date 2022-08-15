@@ -57,7 +57,6 @@
 .placeholder-text {
   color: rgba(99, 133, 125, 0.9);
   font-family: 'Open Sans', sans-serif;
-
 }
 
 .input-field {
@@ -135,7 +134,6 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-
 @media screen and (max-width: 1000px) {
   .form-container {
     padding: 10% 11% 30% 11%;
@@ -152,8 +150,8 @@
   }
 
   .header-container-contact-us {
-  border-bottom: none;
-}
+    border-bottom: none;
+  }
 
   .header-text-contact-us {
     font-size: 2rem;
