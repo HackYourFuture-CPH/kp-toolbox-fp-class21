@@ -1,28 +1,12 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import './ToolsGrid.style.css';
-import getApiBaseUrl from '../../utils/getApiBaseURL';
 import { ToolItem } from '../ToolItem/ToolItem.component';
 import { Sorting } from '../Sorting/Sorting.component';
+import { Loader } from '../Loader/Loader.component';
 
-export const ToolsGrid = () => {
-  const [tools, setResult] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+export const ToolsGrid = ({ tools, isLoading }) => {
   const [selected, setSelected] = useState('');
-
-  function getTools() {
-    const promise = fetch(`${getApiBaseUrl()}/api/tools`).then((response) =>
-      response.json(),
-    );
-    return promise;
-  }
-  useEffect(() => {
-    setIsLoading(true);
-    getTools().then((response) => {
-      setResult(response);
-      setIsLoading(false);
-    });
-  }, []);
-
   const sortedTools = useMemo(() => {
     let result = tools;
     if (selected === 'a-z') {
@@ -48,19 +32,27 @@ export const ToolsGrid = () => {
   }, [tools, selected]);
 
   const toolsToRender = isLoading ? (
-    <p>Loading...</p>
+    <div className="LoadingMessage">
+      <span>Loading tool...</span>
+      <Loader />
+    </div>
   ) : (
-    <>
+    <div className="grid-tools-container">
       {sortedTools.map((tool, i) => {
         return <ToolItem index={i} key={tool.id} tool={tool} />;
       })}
-    </>
+    </div>
   );
 
   return (
     <div>
       <Sorting setSelected={setSelected} />
-      <div className="grid-tools-container">{toolsToRender}</div>
+      <div>{toolsToRender}</div>
     </div>
   );
+};
+
+ToolsGrid.propTypes = {
+  tools: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };

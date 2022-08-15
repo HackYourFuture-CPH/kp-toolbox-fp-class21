@@ -1,43 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import './FilteringArea.css';
-import { FilteringSection } from './FilteringSection';
-import {
-  categories,
-  timeframes,
-  numberOfParticipants,
-} from './FilterArea.config';
 
-export const FilteringArea = () => {
-  const [categoriesSelected, setCategoriesSelected] = useState([]);
-  const [timeframesSelected, setTimeframesSelected] = useState([]);
-  const [participantsNumSelected, setParticipantsNumSelected] = useState([]);
+export const FilteringArea = ({ children }) => {
+  return <section className="filtering-area">{children}</section>;
+};
 
-  return (
-    <section className="filtering-area">
-      <FilteringSection
-        data={categories}
-        title="CATEGORY"
-        iconName="vector-categories"
-        checkboxName="category"
-        selectedValue={categoriesSelected}
-        setSelectedValue={setCategoriesSelected}
-      />
-      <FilteringSection
-        data={numberOfParticipants}
-        title="NUMBER OF PARTICIPANTS"
-        iconName="vector-people"
-        checkboxName="participants"
-        selectedValue={participantsNumSelected}
-        setSelectedValue={setParticipantsNumSelected}
-      />
-      <FilteringSection
-        data={timeframes}
-        title="TIME FRAME [minutes]"
-        iconName="vector-clock"
-        checkboxName="timeframe"
-        selectedValue={timeframesSelected}
-        setSelectedValue={setTimeframesSelected}
-      />
-    </section>
-  );
+FilteringArea.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };
