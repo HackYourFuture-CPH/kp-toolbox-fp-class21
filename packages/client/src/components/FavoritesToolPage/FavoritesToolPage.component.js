@@ -55,20 +55,27 @@ export const FavouritePage = () => {
     return result;
   }, [favourites, selected]);
 
-  const toolsToRender = isLoading ? (
-    <p>Loading...</p>
-  ) : (
-    <>
-      {sortedTools.map((tool, i) => {
-        return <ToolItem index={i} key={tool.id} tool={tool} />;
-      })}
-    </>
-  );
+  let toolsToRender;
+  if (isLoading) {
+    toolsToRender = <p className="message-text">Loading...</p>;
+  } else if (sortedTools.length > 0) {
+    toolsToRender = (
+      <div className="grid-tools-container">
+        {sortedTools.map((tool, i) => {
+          return <ToolItem index={i} key={tool.id} tool={tool} />;
+        })}
+      </div>
+    );
+  } else {
+    toolsToRender = <p className="message-text">No tools favored yet...</p>;
+  }
 
   return (
     <div>
-      <Sorting setSelected={setSelected} />
-      <div className="grid-tools-container">{toolsToRender}</div>
+      <div className={favourites.length === 0 ? 'hide-sorting' : ''}>
+        <Sorting setSelected={setSelected} />
+      </div>
+      {toolsToRender}
     </div>
   );
 };

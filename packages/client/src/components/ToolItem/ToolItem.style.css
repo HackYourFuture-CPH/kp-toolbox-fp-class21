@@ -24,11 +24,17 @@ li {
   box-sizing: border-box;
   border-radius: 0.125rem;
   border: 0.25rem solid rgba(0, 0, 0, 0.5);
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.4) 0%,
-    rgba(0, 0, 0, 0.2) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.2) 100%);
+}
+
+.hide-sorting {
+  display: none;
+}
+
+.message-text {
+  margin-top: 2rem;
 }
 
 .favourites-icon {
@@ -89,14 +95,17 @@ li {
 .category-names li {
   padding-right: 0.906rem;
 }
+
 .selected-category {
   color: rgba(217, 217, 217, 1);
   text-decoration: none;
 }
+
 .not-selected-category {
   color: rgba(217, 217, 217, 0.5);
   text-decoration: line-through;
 }
+
 .category-names {
   flex-direction: row;
   padding: 0;
@@ -189,7 +198,7 @@ li {
   height: 12.19%;
 }
 
-.tape-cut-img > img {
+.tape-cut-img>img {
   width: 100%;
 }
 
@@ -198,6 +207,7 @@ li {
 }
 
 @media screen and (max-width: 1249px) {
+
   .toolbox-participants,
   .product-description {
     font-size: 0.8rem;
@@ -258,6 +268,7 @@ li {
 }
 
 @media screen and (max-width: 990px) {
+
   .toolbox-participants,
   .category-names {
     font-size: 0.7rem;
@@ -356,6 +367,7 @@ li {
 }
 
 @media screen and (max-width: 809px) {
+
   .toolbox-participants,
   .category-names {
     font-size: 0.9rem;
@@ -422,6 +434,7 @@ li {
 }
 
 @media screen and (max-width: 560px) {
+
   .toolbox-participants,
   .category-names {
     font-size: 0.6rem;
