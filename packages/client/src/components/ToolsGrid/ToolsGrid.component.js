@@ -5,10 +5,16 @@ import { ToolItem } from '../ToolItem/ToolItem.component';
 import { Sorting } from '../Sorting/Sorting.component';
 import { Loader } from '../Loader/Loader.component';
 
-export const ToolsGrid = ({ tools, isLoading }) => {
+export const ToolsGrid = ({ searchBarText, tools, isLoading }) => {
   const [selected, setSelected] = useState('');
   const sortedTools = useMemo(() => {
     let result = tools;
+    if (searchBarText) {
+      result = result.filter((tooltomap) =>
+        tooltomap.name.toLowerCase().includes(searchBarText.toLowerCase()),
+      );
+      return result;
+    }
     if (selected === 'a-z') {
       result = result.sort((a, b) => {
         const titleA = a.name.toUpperCase();
@@ -29,7 +35,7 @@ export const ToolsGrid = ({ tools, isLoading }) => {
       });
     }
     return result;
-  }, [tools, selected]);
+  }, [tools, selected, searchBarText]);
 
   const toolsToRender = isLoading ? (
     <div className="LoadingMessage">
@@ -52,7 +58,12 @@ export const ToolsGrid = ({ tools, isLoading }) => {
   );
 };
 
+ToolsGrid.defaultProps = {
+  searchBarText: null,
+};
+
 ToolsGrid.propTypes = {
+  searchBarText: PropTypes.string,
   tools: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   isLoading: PropTypes.bool.isRequired,
 };
