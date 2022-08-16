@@ -157,12 +157,12 @@ export const ContactUs = () => {
                   onSubmit={handleSubmit}
                 >
                   {status}
-                </button>{' '}
+                </button>
               </>
             )}
             {isFilled && (
               <button
-                className="submit-button uppercase-text"
+                className="submit-button uppercase-text extra-space-submit-button"
                 type="submit"
                 onSubmit={handleSubmit}
               >
