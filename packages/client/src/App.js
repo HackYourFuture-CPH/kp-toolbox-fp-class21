@@ -24,6 +24,8 @@ function App() {
               <Route path="/tools/:id" element={<ToolDetailsPage />} />
               <Route path="/about-toolbox" element={<AboutToolbox />} />
               <Route path="/contact-us" element="" />
+              <Route path="/tools/delete-confirmation/:id" element="" />
+              <Route path="/tools/edit/:id" element="" />
               <Route path="/user-name" element="" />
               <Route path="/favourites" element={<FavouritePage />} />
             </Routes>
