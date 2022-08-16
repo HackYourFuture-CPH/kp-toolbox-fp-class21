@@ -42,7 +42,7 @@ footer {
 .footer-container {
   width: 1220px;
   height: 155px;
-  background-color: rgba(245, 245, 245, 0.05);
+  background-color: rgba(245, 245, 245);
 }
 
 .footer-container::after {
@@ -91,7 +91,7 @@ footer {
 }
 
 .footer-black-bar {
-  background: rgba(23, 23, 23, 1);
+  background: #171717;
   height: 40px;
   width: 100%;
 }
