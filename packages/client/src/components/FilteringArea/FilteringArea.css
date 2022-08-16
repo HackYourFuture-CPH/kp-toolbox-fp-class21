@@ -39,32 +39,18 @@
   font-size: 1.25rem;
   line-height: 1.25rem;
   font-weight: 400;
-  /* margin-top: 1.25rem; */
 }
 
 .filtering-category {
   flex-direction: row;
-  /* width: 264px; */
   gap: 1.155rem;
   height: 2.406rem;
   justify-content: center;
 }
 
-/* .filtering-category-title {
-  text-align: left;
-  font-weight: 400;
-  margin-bottom: 0;
-  line-height: 160%;
-} */
-
 .lower-case {
   text-transform: lowercase;
 }
-
-/* .filtering-category-mobile-view {
-  width: 100%;
-  max-width: 14.101rem;
-} */
 
 .filtering-horizontal-flex {
   width: 100%;
@@ -92,7 +78,6 @@
   width: 9.624rem;
   font-size: 1.125rem;
   line-height: 1.5rem;
-  /* border-color: rgba(140, 92, 2, 1); */
 }
 
 .filtering-checkbox {
