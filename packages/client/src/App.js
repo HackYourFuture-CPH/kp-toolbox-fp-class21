@@ -10,6 +10,7 @@ import { ToolDetailsPage } from './components/ToolDetailsPage/ToolDetailsPage.co
 import { Footer } from './components/Footer/Footer.component';
 import { AuthContextProvider } from './firebase/AuthContext';
 import { AboutToolbox } from './components/AboutToolbox/AboutToolbox.component';
+import { DeleteConfirmation } from './components/DeleteToolConfirmation/DeleteToolConfirmation.component';
 
 function App() {
   return (
@@ -24,7 +25,10 @@ function App() {
               <Route path="/tools/:id" element={<ToolDetailsPage />} />
               <Route path="/about-toolbox" element={<AboutToolbox />} />
               <Route path="/contact-us" element="" />
-              <Route path="/tools/delete-confirmation/:id" element="" />
+              <Route
+                path="/tools/delete-confirmation/:id"
+                element={<DeleteConfirmation />}
+              />
               <Route path="/tools/edit/:id" element="" />
               <Route path="/user-name" element="" />
               <Route path="/favourites" element={<FavouritePage />} />
