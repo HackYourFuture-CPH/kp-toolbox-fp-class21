@@ -28,12 +28,12 @@ const contactUsFormController = require('../controllers/contactUsForm.controller
  *        description: Unexpected error.
  */
 
-router.get('/', (req, res, next) => {
-  contactUsFormController
-    .getContactFormData()
-    .then((result) => res.json(result))
-    .catch(next);
-});
+// router.get('/', (req, res, next) => {
+//   contactUsFormController
+//     .getContactFormData()
+//     .then((result) => res.json(result))
+//     .catch(next);
+// });
 
 /**
  * @swagger

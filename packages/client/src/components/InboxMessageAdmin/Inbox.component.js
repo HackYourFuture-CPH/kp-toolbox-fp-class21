@@ -3,24 +3,30 @@ import React, { useEffect, useState } from 'react';
 import './Inbox.style.css';
 import { Link } from 'react-router-dom';
 import getApiBaseUrl from '../../utils/getApiBaseURL';
+import { UserAuth } from '../../firebase/AuthContext';
 
 export const Inbox = () => {
+  const { idToken } = UserAuth();
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  function getMessages() {
-    const promise = fetch(`${getApiBaseUrl()}/api/contactUsForm`).then(
-      (response) => response.json(),
-    );
-    return promise;
-  }
   useEffect(() => {
+    function getMessages() {
+      const promise = fetch(`${getApiBaseUrl()}/admin/inbox-admin`, {
+        method: 'GET',
+        header: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${idToken}`,
+        },
+      }).then((response) => response.json());
+      return promise;
+    }
     setIsLoading(true);
     getMessages().then((response) => {
       setMessages(response);
       setIsLoading(false);
     });
-  }, []);
+  }, [idToken]);
 
   const messagesToRender = isLoading ? (
     <p>Loading...</p>

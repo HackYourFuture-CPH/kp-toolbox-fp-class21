@@ -23,13 +23,15 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [userId, setUserId] = useState(null);
   const navigate = useNavigate();
+  const [idToken, setIdToken] = useState();
 
   const googleSignIn = useCallback(() => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
-        // const token = credential.accessToken;
+        const token = credential.accessToken;
+        setIdToken(token);
         // const { userInfo } = result;
         return credential;
       })
@@ -96,8 +98,8 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   const contextValues = useMemo(
-    () => ({ googleSignIn, logOut, user, userId }),
-    [googleSignIn, logOut, user, userId],
+    () => ({ googleSignIn, logOut, user, userId, idToken }),
+    [googleSignIn, logOut, user, userId, idToken],
   );
 
   return (
