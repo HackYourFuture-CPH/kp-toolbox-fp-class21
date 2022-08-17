@@ -6,7 +6,7 @@ import getApiBaseUrl from '../../utils/getApiBaseURL';
 import { UserAuth } from '../../firebase/AuthContext';
 
 export const Inbox = () => {
-  const { idToken } = UserAuth();
+  const { user } = UserAuth();
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -16,7 +16,7 @@ export const Inbox = () => {
         method: 'GET',
         header: {
           'Content-Type': 'application/json',
-          authorization: `Bearer ${idToken}`,
+          authorization: `Bearer ${user.accessToken}`,
         },
       }).then((response) => response.json());
       return promise;
@@ -26,7 +26,7 @@ export const Inbox = () => {
       setMessages(response);
       setIsLoading(false);
     });
-  }, [idToken]);
+  }, [user.accessToken]);
 
   const messagesToRender = isLoading ? (
     <p>Loading...</p>
