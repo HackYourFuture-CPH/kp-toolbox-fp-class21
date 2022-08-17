@@ -2,12 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const exampleResources = require('./exampleResources.router');
-
 const tools = require('./tools.router');
-const favourites = require('./favourites.router');
-const users = require('./users.router');
-const categories = require('./categories.router');
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -26,10 +21,10 @@ const swaggerOptions = {
       contact: {},
     },
     host: '',
-    basePath: '/api',
+    basePath: '/admin',
   },
   securityDefinitions: {},
-  apis: ['./api/routes/*.js'],
+  apis: ['./admin/routes/*.js'],
 };
 
 const swaggerDocument = swaggerJsDoc(swaggerOptions);
@@ -37,11 +32,6 @@ const swaggerDocument = swaggerJsDoc(swaggerOptions);
 // Route for Swagger API Documentation
 router.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-router.use('/exampleResources', exampleResources);
-
 router.use('/tools', tools);
-router.use('/favourites', favourites);
-router.use('/users', users);
-router.use('/categories', categories);
 
 module.exports = router;
