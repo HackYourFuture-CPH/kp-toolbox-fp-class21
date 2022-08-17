@@ -119,11 +119,14 @@ export const ToolItem = ({ tool }) => {
           </div>
         </div>
       </div>
-      <div className="button-container">
-        <button type="button" className="tool-button">
-          <Link to={`/tools/${tool.id}`}>VIEW TOOL</Link>
-        </button>
-      </div>
+
+      <Link to={`/tools/${tool.id}`}>
+        <div className="button-container">
+          <button type="button" className="tool-button">
+            VIEW TOOL
+          </button>
+        </div>
+      </Link>
     </div>
   );
 };
