@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 export default function SearchBar({ filterByToolNameAction }) {
   return (
     <div className="searchBarDiv">
-      <img src="/assets/vectors/vector-search.svg" alt="search icon" />
       <input
         type="text"
-        placeholder="search bar..."
+        placeholder="search tools..."
         className="searchInputDiv"
         onChange={(e) => filterByToolNameAction(e.target.value)}
       />
+      <img src="/assets/vectors/vector-search.svg" alt="search icon" />
     </div>
   );
 }
