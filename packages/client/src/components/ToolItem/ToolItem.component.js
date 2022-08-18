@@ -124,7 +124,12 @@ export const ToolItem = ({ tool }) => {
           <Link to={`/tools/${tool.id}`}>VIEW TOOL</Link>
         </button>
         <button type="button" className="tool-button delete-tool">
-          <Link to={`/tools/delete-confirmation/${tool.id}`}>DELETE TOOL</Link>
+          <Link
+            to={`/tools/delete-confirmation/${tool.id}`}
+            state={{ id: tool.id }}
+          >
+            DELETE TOOL
+          </Link>
         </button>
         <button type="button" className="tool-button edit-tool">
           <Link to={`/tools/edit/${tool.id}`}>EDIT TOOL</Link>
