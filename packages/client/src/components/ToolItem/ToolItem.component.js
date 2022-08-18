@@ -1,51 +1,69 @@
-import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import './ToolItem.style.css';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import getApiBaseUrl from '../../utils/getApiBaseURL';
 import { UserAuth } from '../../firebase/AuthContext';
+import getApiBaseUrl from '../../utils/getApiBaseURL';
+import './ToolItem.style.css';
 
 export const ToolItem = ({ tool }) => {
-  const { userId } = UserAuth();
+  const { googleSignIn, userId, user } = UserAuth();
   const title = tool.name;
-  const { picture } = tool;
-  const { id } = tool;
+  const { picture, id, pitch, categories } = tool;
   const timeFrameMin = tool.time_frame_min;
   const timeFrameMax = tool.time_frame_max;
   const groupSizeMin = tool.group_size_min;
   const groupSizeMax = tool.group_size_max;
-  const { pitch } = tool;
-  const { categories } = tool;
 
   const [isFavourite, setIsFavourite] = useState(false);
 
   const handleChangeFavourite = () => {
-    if (userId) {
-      if (isFavourite) {
-        fetch(`${getApiBaseUrl()}/api/favourites`, {
-          method: 'DELETE',
-          body: JSON.stringify({ user_id: userId, tool_id: id }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }).then((result) => {
-          if (result.ok) {
-            setIsFavourite(false);
-          }
-        });
-      } else {
-        fetch(`${getApiBaseUrl()}/api/favourites`, {
-          method: 'POST',
-          body: JSON.stringify({ user_id: userId, tool_id: id }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }).then((result) => {
-          if (result.ok) {
-            setIsFavourite(true);
-          }
-        });
+    if (user) {
+      if (userId) {
+        if (isFavourite) {
+          fetch(`${getApiBaseUrl()}/api/favourites`, {
+            method: 'DELETE',
+            body: JSON.stringify({
+              user_id: userId,
+              tool_id: id,
+            }),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }).then((result) => {
+            if (result.ok) {
+              setIsFavourite(false);
+            }
+          });
+        } else {
+          fetch(`${getApiBaseUrl()}/api/favourites`, {
+            method: 'POST',
+            body: JSON.stringify({
+              user_id: userId,
+              tool_id: id,
+            }),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }).then((result) => {
+            if (result.ok) {
+              setIsFavourite(true);
+            }
+          });
+        }
       }
+    } else {
+      googleSignIn();
+      fetch(`${getApiBaseUrl()}/api/favourites`, {
+        method: 'POST',
+        body: JSON.stringify({ user_id: userId, tool_id: id }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).then((result) => {
+        if (result.ok) {
+          setIsFavourite(false);
+        }
+      });
     }
   };
 
