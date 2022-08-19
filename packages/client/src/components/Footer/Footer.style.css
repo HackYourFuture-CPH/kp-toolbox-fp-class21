@@ -42,7 +42,7 @@ footer {
 .footer-container {
   width: 1220px;
   height: 155px;
-  background-color: rgba(245, 245, 245);
+  background-color: (0, 0, 0, 0.3);
 }
 
 .footer-container::after {
