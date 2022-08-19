@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+.inbox-wrapper {
+  margin: 0px 111px 0px 111px;
+}
+
+.header-container-inbox {
+  border-bottom: 2px solid rgba(245, 245, 245, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.uppercase-text {
+  text-transform: uppercase;
+}
+
+.header-text-inbox,
+.breadcrumbs-inbox {
+  font-family: 'Open Sans', sans-serif;
+  color: rgba(245, 245, 245, 1);
+}
+
+.header-text-inbox {
+  font-size: 3rem;
+  margin: 1.625rem 0;
+}
+
+.breadcrumbs-inbox {
+  font-size: 1rem;
+}
+
+.inbox-container {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: 60px;
+}
+
+.message-field {
+  border: 2px solid rgba(245, 245, 245, 1);
+  padding: 25px 25px 50px 25px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 24px 32px;
+  justify-items: start;
+  justify-content: start;
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.message-header {
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin-right: 1rem;
+}
+
+.message-info {
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+@media screen and (max-width: 1000px) {
+  .inbox-wrapper {
+    margin: 0px 5%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header-container-inbox {
+    border-bottom: none;
+  }
+
+  .header-text-inbox {
+    font-size: 2rem;
+  }
+
+  .message-header {
+    font-size: 1.2rem;
+  }
+
+  .message-info {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .message-field {
+    padding: 15px 15px 20px 15px;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .uppercase-text {
+    margin-bottom: 0;
+  }
+
+  .message-header {
+    font-size: 1rem;
+  }
+
+  .message-info {
+    font-size: 0.8rem;
+  }
+
+  .header-text-inbox {
+    font-size: 1.5rem;
+  }
+}
