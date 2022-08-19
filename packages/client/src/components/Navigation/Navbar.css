@@ -83,7 +83,7 @@ header > * {
 .favourite-container,
 .navbar-links-container {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
 }
 
@@ -101,7 +101,7 @@ header > * {
   font-size: 1.25rem;
   text-decoration: none;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .navbar-icon {
@@ -148,12 +148,23 @@ header > * {
   .user-name-container {
     margin-right: 1.5rem;
   }
+
+  .navbar-link,
+  .navbar-button,
+  .user-name-container {
+    font-size: 1.1rem;
+  }
+
+  .logo a {
+    font-size: 1.65rem;
+  }
 }
 
 @media screen and (max-width: 1230px) {
   .navbar-links-container > .navbar-link,
   .navbar-link span,
-  .user-name-container span {
+  .log-in-container span,
+  .log-out-container span {
     display: none;
   }
 
@@ -237,7 +248,7 @@ header > * {
 
 @media screen and (max-width: 400px) {
   .logo a {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 
