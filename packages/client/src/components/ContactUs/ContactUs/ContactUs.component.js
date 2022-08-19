@@ -29,6 +29,9 @@ export const ContactUs = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
+    if (e.target.value.length > 0) {
+      setIsFilled(true);
+    }
   };
 
   const handleSubmit = async (e) => {

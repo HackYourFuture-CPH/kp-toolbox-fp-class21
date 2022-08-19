@@ -55,7 +55,7 @@
   margin-right: 1rem;
 }
 
-.message-text {
+.message-info {
   font-size: 1.2rem;
   text-align: left;
 }
@@ -79,7 +79,7 @@
     font-size: 1.2rem;
   }
 
-  .message-text {
+  .message-info {
     font-size: 1rem;
   }
 }
@@ -99,7 +99,7 @@
     font-size: 1rem;
   }
 
-  .message-text {
+  .message-info {
     font-size: 0.8rem;
   }
 
