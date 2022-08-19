@@ -33,7 +33,6 @@ export const FilteringSection = ({
   return (
     <div className="filtering-category">
       <div className="filtering-category-mobile-view">
-        <h4 className="filtering-category-title">{title}</h4>
         <div className="filtering-horizontal-flex">
           <img src={iconLink} alt="category" />
           <button
