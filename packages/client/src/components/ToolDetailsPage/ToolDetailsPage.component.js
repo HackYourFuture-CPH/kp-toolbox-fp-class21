@@ -98,9 +98,9 @@ export const ToolDetailsPage = () => {
         </ul>
 
         <div className="tool-description">
-          <p>{tool.pitch}</p>
-          <p>{tool.description}</p>
-          <p />
+          <p id="description-pitch">{tool.pitch}</p>
+          <p id="description-text">{tool.description}</p>
+          <p id="description-tape" />
           <img src={tool.banner} alt="" />
         </div>
 

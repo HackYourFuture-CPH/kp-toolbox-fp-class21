@@ -13,6 +13,7 @@
   color: rgba(245, 245, 245, 0.5);
   text-align: left;
 }
+
 .LoadingMessage {
   display: flex;
   width: 100%;
@@ -20,6 +21,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .LoadingMessage span {
   position: absolute;
   font-size: 15px;
@@ -98,17 +100,17 @@ h3 {
   margin: 2.5rem 0;
 }
 
-.tool-description > p:first-child {
+#description-pitch {
   font-size: 1.625rem;
   margin-bottom: 2.5rem;
 }
 
-.tool-description > p:nth-child(2) {
+#description-text {
   font-size: 1.375rem;
   margin-bottom: 2.5rem;
 }
 
-.tool-description > p:nth-child(3) {
+#description-tape {
   width: 100%;
   height: 1rem;
   background-image: url('../../../public/assets/images/tape-cut.png');
@@ -116,7 +118,7 @@ h3 {
   background-size: cover;
 }
 
-.tool-description > img:nth-child(4) {
+.tool-description > img {
   position: relative;
   width: 100%;
   height: auto;
@@ -154,7 +156,7 @@ h3 {
     margin-bottom: 1.75rem;
   }
 
-  .tool-description > p:first-child,
+  #description-pitch,
   .tool-instructions h2 {
     margin-bottom: 1.75rem;
   }
@@ -186,7 +188,7 @@ h3 {
 }
 
 @media screen and (max-width: 650px) {
-  .tool-description > p:nth-child(3) {
+  #description-tape {
     height: 0.5rem;
   }
 
@@ -246,14 +248,14 @@ h3 {
     font-size: 1.5rem;
   }
 
-  .tool-description > p:first-child,
+  #description-pitch,
   .tool-instructions h2,
-  .tool-description > p:nth-child(2) {
+  #description-text {
     margin-bottom: 1.5rem;
   }
 
-  .tool-description > p:first-child,
-  .tool-description > p:nth-child(2) {
+  #description-pitch,
+  #description-text {
     font-size: 1rem;
     line-height: 1.2rem;
   }
@@ -308,14 +310,14 @@ h3 {
     line-height: 0.875rem;
   }
 
-  .tool-description > p:first-child,
+  #description-pitch,
   .tool-instructions h2,
-  .tool-description > p:nth-child(2) {
+  #description-text {
     margin-bottom: 1.25rem;
   }
 
-  .tool-description > p:first-child,
-  .tool-description > p:nth-child(2) {
+  #description-pitch,
+  #description-text {
     font-size: 0.75rem;
     line-height: 0.85rem;
   }
