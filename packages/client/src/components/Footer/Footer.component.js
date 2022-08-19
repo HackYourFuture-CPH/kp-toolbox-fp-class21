@@ -8,28 +8,15 @@ export const Footer = () => {
       <div className="footer-bg">
         <div className="footer-container">
           <div className="copyright-disclaimer-container">
-            <p className="copyright-disclaimer-text">
-              Copyright Kaospilot. All methods & tools © their respective
-              owners.
-            </p>
-            <p className="copyright-disclaimer-text">
-              Are you an owner to a method/tool, please
-              <Link
-                to="#"
-                onClick={(e) => {
-                  window.location.href = 'mailto:no-reply@example.com';
-                  e.preventDefault();
-                }}
-              >
-                contact us
-              </Link>
-              .
-            </p>
-          </div>
-          <div className="find-information-container">
-            <p className="find-information-text">
+            <p>
               Find out more about KAOSPILOT and follow us on LinkedIn, Instagram
               and Facebook!
+              <br />
+              <br />
+              Copyright Kaospilot. All methods & tools © their respective
+              owners.
+              <br />
+              Are you an owner of a method or tool? Please contact us.
             </p>
           </div>
           <div className="links-container">
@@ -39,32 +26,32 @@ export const Footer = () => {
               </Link>
             </div>
             <div className="social-media-logo-container">
-              <Link to="/">
+              <a href="https://www.linkedin.com/school/kaospilot/?originalSubdomain=dk">
                 <img
                   className="social-media-logo"
                   src="/assets/vectors/vector-linked-in.svg"
                   alt="Linkedin-icon"
                 />
-              </Link>
-              <Link to="/">
+              </a>
+              <a href="https://www.instagram.com/kaospilot_denmark/">
                 <img
                   className="social-media-logo"
                   src="/assets/vectors/vector-instagram.svg"
                   alt="Instagram-icon"
                 />
-              </Link>
-              <Link to="/">
+              </a>
+              <a href="https://www.facebook.com/Kaospilots/">
                 <img
                   className="social-media-logo"
                   src="/assets/vectors/vector-facebook.svg"
                   alt="Facebook-icon"
                 />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
       </div>
-      <div className="footer-rectangle-background" />
+      <div className="footer-black-bar" />
     </footer>
   );
 };

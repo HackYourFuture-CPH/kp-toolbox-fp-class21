@@ -8,6 +8,8 @@ const tools = require('./tools.router');
 const favourites = require('./favourites.router');
 const users = require('./users.router');
 
+const contactUsForm = require('./contactUsForm.router');
+
 /* GET home page. */
 // router.get('/', function(req, res, next) {
 //   res.render('index', { title: 'Express' });
@@ -41,5 +43,7 @@ router.use('/exampleResources', exampleResources);
 router.use('/tools', tools);
 router.use('/favourites', favourites);
 router.use('/users', users);
+
+router.use('/contactUsForm', contactUsForm);
 
 module.exports = router;
