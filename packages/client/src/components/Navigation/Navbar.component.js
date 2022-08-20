@@ -59,7 +59,10 @@ export const Navbar = ({ ...props }) => {
             {isMobileNavOpen ? <span>&times;</span> : <span>&#x2630;</span>}
           </button>
         </nav>
-        <MobileNavigation open={isMobileNavOpen} />
+        <MobileNavigation
+          open={isMobileNavOpen}
+          handleMobile={setIsMobileNavOpen}
+        />
       </div>
     </header>
   );
