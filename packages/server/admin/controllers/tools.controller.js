@@ -2,7 +2,9 @@ const knex = require('../../config/db');
 const HttpError = require('../../api/lib/utils/http-error');
 
 const getTools = async (uid) => {
-  const isAdmin = await knex('users').select('is_admin').where({ firebase_id: uid })
+  const isAdmin = await knex('users')
+    .select('is_admin')
+    .where({ firebase_id: uid });
   if (!Number(parseInt(isAdmin[0].is_admin))) {
     throw new HttpError('Unauthorized user', 403);
   }
@@ -32,7 +34,9 @@ const getTools = async (uid) => {
 };
 
 const createTool = async (uid, body) => {
-  const isAdmin = await knex('users').select('is_admin').where({ firebase_id: uid })
+  const isAdmin = await knex('users')
+    .select('is_admin')
+    .where({ firebase_id: uid });
   if (!Number(parseInt(isAdmin[0].is_admin))) {
     throw new HttpError('Unauthorized user', 403);
   }
@@ -61,7 +65,9 @@ const createTool = async (uid, body) => {
 };
 
 const updateToolById = async (uid, toolId, updatedInfo) => {
-  const isAdmin = await knex('users').select('is_admin').where({ firebase_id: uid })
+  const isAdmin = await knex('users')
+    .select('is_admin')
+    .where({ firebase_id: uid });
   if (!Number(parseInt(isAdmin[0].is_admin))) {
     throw new HttpError('Unauthorized user', 403);
   }
@@ -69,7 +75,9 @@ const updateToolById = async (uid, toolId, updatedInfo) => {
 };
 
 const deleteToolById = async (uid, toolId) => {
-  const isAdmin = await knex('users').select('is_admin').where({ firebase_id: uid })
+  const isAdmin = await knex('users')
+    .select('is_admin')
+    .where({ firebase_id: uid });
   if (!Number(parseInt(isAdmin[0].is_admin))) {
     throw new HttpError('Unauthorized user', 403);
   }
