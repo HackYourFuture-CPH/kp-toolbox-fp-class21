@@ -19,6 +19,13 @@ exports.seed = async function (knex) {
         firebase_id: 'eDY00EtawdMMdINupXtNaL7iTXF3',
         is_admin: false,
       },
+      {
+        id: '3',
+        name: 'Svitlana Burlaka',
+        email: 'svit0199@spcmidt.dk',
+        firebase_id: 'tMcFLlD0PBNgek2yhfwSZjMo3rR2',
+        is_admin: false,
+      },
     ])
     .onConflict('id')
     .merge();

@@ -5,10 +5,10 @@ const getTools = async (uid) => {
   const isAdmin = await knex('users')
     .select('is_admin')
     .where({ firebase_id: uid });
-  if (!Number(parseInt(isAdmin[0].is_admin))) {
+  if (!Number(isAdmin[0].is_admin)) {
     throw new HttpError('Unauthorized user', 403);
   }
-  let tools = knex
+  const tools = knex
     .select(
       'tools.id',
       'tools.name',
@@ -37,7 +37,7 @@ const createTool = async (uid, body) => {
   const isAdmin = await knex('users')
     .select('is_admin')
     .where({ firebase_id: uid });
-  if (!Number(parseInt(isAdmin[0].is_admin))) {
+  if (!Number(isAdmin[0].is_admin)) {
     throw new HttpError('Unauthorized user', 403);
   }
   if (Object.keys(body).length === 0 || body === {}) {
@@ -68,7 +68,7 @@ const updateToolById = async (uid, toolId, updatedInfo) => {
   const isAdmin = await knex('users')
     .select('is_admin')
     .where({ firebase_id: uid });
-  if (!Number(parseInt(isAdmin[0].is_admin))) {
+  if (!Number(isAdmin[0].is_admin)) {
     throw new HttpError('Unauthorized user', 403);
   }
   return knex('tools').where({ id: toolId }).update(updatedInfo);
@@ -78,7 +78,7 @@ const deleteToolById = async (uid, toolId) => {
   const isAdmin = await knex('users')
     .select('is_admin')
     .where({ firebase_id: uid });
-  if (!Number(parseInt(isAdmin[0].is_admin))) {
+  if (!Number(isAdmin[0].is_admin)) {
     throw new HttpError('Unauthorized user', 403);
   }
   return knex('tools').where({ id: toolId }).del();
