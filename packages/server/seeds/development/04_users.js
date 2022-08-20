@@ -6,22 +6,18 @@ exports.seed = async function (knex) {
   await knex('users')
     .insert([
       {
-        id: '1',
-        name: 'user1',
-        email: 'user1@gmail.com',
-        firebase_id: 'test1',
+        'id': '1',
+        'name': 'Somayeh Davari',
+        'email': 'somayehdvr@gmail.com',
+        'firebase_id': 'mGB238KDl6hOmuVRBVekIjwqv493',
+        'is_admin': true,
       },
       {
-        id: '2',
-        name: 'user2',
-        email: 'user2@gmail.com',
-        firebase_id: 'test2',
-      },
-      {
-        id: '3',
-        name: 'user3',
-        email: 'user3@gmail.com',
-        firebase_id: 'test3',
+        'id': '2',
+        'name': 'Somayeh Davari',
+        'email': 'somayedavary@gmail.com',
+        'firebase_id': 'eDY00EtawdMMdINupXtNaL7iTXF3',
+        'is_admin': false,
       },
     ])
     .onConflict('id')

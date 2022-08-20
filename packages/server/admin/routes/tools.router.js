@@ -4,6 +4,13 @@ const router = express.Router({ mergeParams: true });
 
 const toolsController = require('../controllers/tools.controller');
 
+router.get('/', (req, res, next) => {
+  toolsController
+    .getTools(req.user.uid)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
 /**
  * @swagger
  * /tools:
@@ -33,7 +40,7 @@ const toolsController = require('../controllers/tools.controller');
  */
 router.post('/', (req, res) => {
   toolsController
-    .createTool(req.body)
+    .createTool(req.user.uid, req.body)
     .then((result) => res.json(result))
     .catch((error) => {
       // eslint-disable-next-line no-console
@@ -72,7 +79,7 @@ router.post('/', (req, res) => {
  */
 router.put('/:id', (req, res) => {
   toolsController
-    .updateToolById(req.params.id, req.body)
+    .updateToolById(req.user.uid, req.params.id, req.body)
     .then((result) => res.json(result))
     .catch((error) => {
       // eslint-disable-next-line no-console
@@ -103,7 +110,7 @@ router.put('/:id', (req, res) => {
  */
 router.delete('/:id', (req, res) => {
   toolsController
-    .deleteToolById(req.params.id)
+    .deleteToolById(req.user.uid, req.params.id)
     .then((result) => res.json(result))
     .catch((error) => {
       // eslint-disable-next-line no-console
