@@ -6,13 +6,14 @@
 }
 
 .tool-details-container {
-  padding-top: 2.75rem;
   padding: 2.75rem 6.875rem;
+  padding-top: 1.563rem;
   margin: 0px auto;
   font-family: 'Abel';
   color: rgba(245, 245, 245, 0.5);
   text-align: left;
 }
+
 .LoadingMessage {
   display: flex;
   width: 100%;
@@ -20,6 +21,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .LoadingMessage span {
   position: absolute;
   font-size: 15px;
@@ -43,8 +45,10 @@ h1 {
 h1 {
   font-weight: 400;
   font-size: 3rem;
-  margin-top: 3.5rem;
-  margin-bottom: 2.5rem;
+  margin-top: 3.125rem;
+  margin-bottom: 3.125rem;
+  padding-bottom: 1.563rem;
+  border-bottom: 2px solid rgb(245 245 245 / 50%);
 }
 
 .breadcrumbs span,
@@ -75,8 +79,8 @@ h3 {
   padding-left: 0;
   list-style-type: none;
   padding: 1.5rem 0;
-  border-top: 2px solid rgba(245, 245, 245);
-  border-bottom: 2px solid rgba(245, 245, 245);
+  border-top: 2px solid rgb(245 245 245 / 50%);
+  border-bottom: 2px solid rgb(245 245 245 / 50%);
 }
 
 .tool-criteria-summary li {
@@ -96,8 +100,30 @@ h3 {
   margin: 2.5rem 0;
 }
 
-.tool-description > p:first-child {
+#description-pitch {
+  font-size: 1.625rem;
   margin-bottom: 2.5rem;
+}
+
+#description-text {
+  font-size: 1.375rem;
+  margin-bottom: 2.5rem;
+}
+
+#description-tape {
+  width: 100%;
+  height: 1rem;
+  background-image: url('../../../public/assets/images/tape-cut.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tool-description > img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: luminosity;
+  opacity: 0.7;
 }
 
 .tool-instructions h2 {
@@ -130,7 +156,7 @@ h3 {
     margin-bottom: 1.75rem;
   }
 
-  .tool-description > p:first-child,
+  #description-pitch,
   .tool-instructions h2 {
     margin-bottom: 1.75rem;
   }
@@ -162,6 +188,10 @@ h3 {
 }
 
 @media screen and (max-width: 650px) {
+  #description-tape {
+    height: 0.5rem;
+  }
+
   .tool-details-container {
     padding: 1.5rem 1rem;
   }
@@ -183,16 +213,21 @@ h3 {
 
 @media screen and (max-width: 490px) {
   .tool-details-container {
-    padding: 0.5rem 0.825rem;
+    padding: 0.5rem 0.375rem;
+  }
+
+  .tool-criteria-summary {
+    border-width: 1px;
   }
 
   .tool-criteria-summary li {
     font-size: 1rem;
-    line-height: 1.5rem;
+    line-height: 1.25rem;
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    border-bottom-width: 1px;
   }
 
   h2 {
@@ -202,21 +237,32 @@ h3 {
   p,
   h3 {
     font-size: 1rem;
-    line-height: 1.75rem;
+    line-height: 1.5rem;
   }
 
   .tool-instructions h3 {
     margin-bottom: 1rem;
   }
 
-  .tool-description > p:first-child,
   .tool-instructions h2 {
+    font-size: 1.5rem;
+  }
+
+  #description-pitch,
+  .tool-instructions h2,
+  #description-text {
     margin-bottom: 1.5rem;
+  }
+
+  #description-pitch,
+  #description-text {
+    font-size: 1rem;
+    line-height: 1.2rem;
   }
 
   .instructions-description,
   .step-container {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
 
   .tool-image {
@@ -228,7 +274,7 @@ h3 {
   }
 
   .tool-description {
-    margin: 2rem 0;
+    margin: 1.5rem 0;
   }
 
   .tool-criteria-summary {
@@ -237,13 +283,60 @@ h3 {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
   .breadcrumbs {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
 
   h1 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+  }
+
+  .tool-criteria-summary li {
+    font-size: 0.75rem;
+    line-height: 1.2rem;
+  }
+
+  .tool-instructions h2 {
+    font-size: 1.125rem;
+  }
+
+  .tool-instructions h3,
+  .step-container p {
+    font-size: 0.75rem;
+  }
+
+  .step-container p {
+    line-height: 0.875rem;
+  }
+
+  #description-pitch,
+  .tool-instructions h2,
+  #description-text {
+    margin-bottom: 1.25rem;
+  }
+
+  #description-pitch,
+  #description-text {
+    font-size: 0.75rem;
+    line-height: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .tool-image {
+    height: 6.5rem;
+  }
+
+  .breadcrumbs {
+    font-size: 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
   }
 
   h2 {
@@ -271,7 +364,8 @@ h3 {
   }
 
   .tool-description {
-    margin: 1.75rem 0;
+    margin: 1.25rem 0;
+    margin-bottom: 1rem;
   }
 
   .tool-instructions h3 {

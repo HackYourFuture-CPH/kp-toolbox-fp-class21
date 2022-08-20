@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import getApiBaseUrl from '../../utils/getApiBaseURL';
 import './ToolDetailsPage.css';
 import { Loader } from '../Loader/Loader.component';
@@ -67,7 +67,9 @@ export const ToolDetailsPage = () => {
     pageContent = (
       <>
         <p className="breadcrumbs">
-          KAOSPILOT toolbox / <span>{tool.name}</span>
+          <Link to="/">
+            KAOSPILOT toolbox / <span>{tool.name}</span>
+          </Link>
         </p>
         <h1>{tool.name}</h1>
         <img
@@ -96,8 +98,10 @@ export const ToolDetailsPage = () => {
         </ul>
 
         <div className="tool-description">
-          <p>{tool.pitch}</p>
-          <p>{tool.description}</p>
+          <p id="description-pitch">{tool.pitch}</p>
+          <p id="description-text">{tool.description}</p>
+          <p id="description-tape" />
+          <img src={tool.banner} alt="" />
         </div>
 
         <div className="tool-instructions">

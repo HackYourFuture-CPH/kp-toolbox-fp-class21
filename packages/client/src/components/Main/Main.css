@@ -31,3 +31,9 @@ main {
     width: 90vw;
   }
 }
+
+@media screen and (max-width: 650px) {
+  .main-container {
+    padding-top: 4.5rem;
+  }
+}
