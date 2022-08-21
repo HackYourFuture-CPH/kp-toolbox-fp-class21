@@ -20,6 +20,7 @@ import getApiBaseUrl from '../utils/getApiBaseURL';
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
+  const [localUser, setLocalUser] = useState({});
   const [user, setUser] = useState({});
   const [userId, setUserId] = useState(null);
   const navigate = useNavigate();
@@ -74,6 +75,9 @@ export const AuthContextProvider = ({ children }) => {
       });
   }
 
+  // eslint-disable-next-line no-console
+  console.log(user);
+
   useEffect(() => {
     function checkUserExist(authUser) {
       fetch(`${getApiBaseUrl()}/api/users/${authUser.uid}`)
@@ -83,6 +87,7 @@ export const AuthContextProvider = ({ children }) => {
             addUser(authUser);
           } else {
             setUserId(result[0].id);
+            setLocalUser(result[0]);
           }
         });
     }
@@ -98,8 +103,8 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   const contextValues = useMemo(
-    () => ({ googleSignIn, logOut, user, userId, idToken }),
-    [googleSignIn, logOut, user, userId, idToken],
+    () => ({ googleSignIn, logOut, user, userId, idToken, localUser }),
+    [googleSignIn, logOut, user, userId, idToken, localUser],
   );
 
   return (

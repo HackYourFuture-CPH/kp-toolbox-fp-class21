@@ -28,6 +28,10 @@ export const Inbox = () => {
     });
   }, [user.accessToken]);
 
+  if (!user) {
+    return null;
+  }
+
   const messagesToRender = isLoading ? (
     <p>Loading...</p>
   ) : (
