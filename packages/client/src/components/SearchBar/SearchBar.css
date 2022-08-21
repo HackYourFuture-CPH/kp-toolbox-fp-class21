@@ -1,71 +1,65 @@
 .searchInputDiv {
-  width: 30%;
-  height: 26px;
+  width: 100%;
+  height: 2.625rem;
   background-color: rgba(245, 245, 245, 0.05);
-  margin: 10px 0px 25px 0px;
-  padding-left: 2.5rem;
-  border: 1px solid #eee;
+  padding-left: 3rem;
+  border: 2px solid rgba(245, 245, 245, 0.7);
   border-radius: 2px;
   -webkit-appearance: none;
+  box-sizing: border-box;
+  font-size: 1.375rem;
+  color: rgb(245 245 245);
+  caret-color: rgb(255 165 0);
 }
-::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: rgb(245, 245, 245);
-  opacity: 1; /* Firefox */
+
+.searchBarDiv input::placeholder {
+  font-size: 1.125rem;
+  color: rgba(245, 245, 245, 0.7);
 }
+
 .searchInputDiv:focus {
   outline: none;
+  border: 2px solid rgb(245 245 245);
+}
+
+.searchBarDiv img {
+  opacity: 0.7;
+}
+
+.searchInputDiv:focus ~ img {
+  opacity: 1;
 }
 
 .searchBarDiv {
   position: relative;
-  width: 100%;
+  width: 30rem;
+  height: 5rem;
+  margin: 1.563rem auto;
 }
 
 .searchBarDiv img {
   position: absolute;
-  left: 34%;
+  left: 1rem;
   pointer-events: none;
-  top: 1rem;
-}
-@media screen and (min-width: 1000px) and (max-width: 1200px) {
-  .searchInputDiv {
-    width: 30vw;
-  }
-  .searchBarDiv img {
-    left: 32%;
-  }
-}
-@media screen and (min-width: 800px) and (max-width: 999px) {
-  .searchInputDiv {
-    width: 35vw;
-  }
-  .searchBarDiv img {
-    left: 29%;
-  }
-}
-@media screen and (min-width: 491px) and (max-width: 799px) {
-  .searchInputDiv {
-    width: 40vw;
-  }
-  .searchBarDiv img {
-    left: 26%;
-  }
+  top: 27%;
+  transform: translateY(-50%);
 }
 
-@media screen and (min-width: 301px) and (max-width: 490px) {
-  .searchInputDiv {
-    width: 76vw;
-  }
-  .searchBarDiv img {
-    left: 5%;
-  }
+.searchBarDiv:focus img {
+  display: none;
 }
-@media screen and (min-width: 1px) and (max-width: 300px) {
-  .searchInputDiv {
-    width: 73vw;
+
+.search-result-null {
+  font-size: 12px;
+}
+
+@media screen and (max-width: 559px) {
+  .searchBarDiv {
+    width: calc(100% - 0.9rem);
+    margin: 0.95rem auto;
   }
-  .searchBarDiv img {
-    left: 5%;
+
+  .search-result-null {
+    line-height: normal;
   }
 }
