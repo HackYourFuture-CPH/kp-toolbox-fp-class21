@@ -17,6 +17,7 @@ import {
 
 export const LandingPage = () => {
   const [searchBarText, setSearchBarText] = useState('');
+  const [searchResultNull, setSearchResultNull] = useState(false);
 
   const filterByToolName = (value) => {
     setSearchBarText(value);
@@ -37,7 +38,10 @@ export const LandingPage = () => {
   return (
     <div className="landing-page-container">
       <WelcomeBox />
-      <SearchBar filterByToolNameAction={filterByToolName} />
+      <SearchBar
+        filterByToolNameAction={filterByToolName}
+        searchResultNull={searchResultNull}
+      />
       <FilteringArea>
         <FilteringSection
           selectedOptions={filters.category}
@@ -67,7 +71,11 @@ export const LandingPage = () => {
           {...filterActions}
         />
       </FilteringArea>
-      <ToolsGrid {...tools} searchBarText={searchBarText} />
+      <ToolsGrid
+        {...tools}
+        searchBarText={searchBarText}
+        setSearchResultNull={setSearchResultNull}
+      />
     </div>
   );
 };
