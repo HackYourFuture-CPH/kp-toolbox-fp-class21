@@ -69,7 +69,7 @@ export const ToolsGrid = ({
     toolsToRender = (
       <div className="no-tools-message">
         <p>
-          No tools has been found.
+          No tools have been found.
           <br /> Please try another filtering option(s) or/and different
           keywords
         </p>
