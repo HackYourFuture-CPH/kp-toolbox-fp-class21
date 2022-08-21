@@ -5,6 +5,11 @@
   grid-gap: 0.625rem;
 }
 
+.no-tools-message {
+  height: 44px;
+  padding: 66px 20px 0px 20px;
+}
+
 @media screen and (max-width: 820px) {
   .grid-tools-container {
     grid-template-columns: repeat(2, 1fr);

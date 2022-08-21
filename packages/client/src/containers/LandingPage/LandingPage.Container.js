@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import SearchBar from '../../components/SearchBar/SearchBar';
 import { WelcomeBox } from '../../components/WelcomeBox/WelcomeBox';
 import {
   FilteringArea,
@@ -15,6 +16,12 @@ import {
 } from './filterMockData';
 
 export const LandingPage = () => {
+  const [searchBarText, setSearchBarText] = useState('');
+  const [searchResultNull, setSearchResultNull] = useState(false);
+
+  const filterByToolName = (value) => {
+    setSearchBarText(value);
+  };
   const { filterActions, tools, filters } = useFilteredTools();
   const categories = useFilteringSection();
   const numberOfParticipants = useFilteringSection();
@@ -31,6 +38,10 @@ export const LandingPage = () => {
   return (
     <div className="landing-page-container">
       <WelcomeBox />
+      <SearchBar
+        filterByToolNameAction={filterByToolName}
+        searchResultNull={searchResultNull}
+      />
       <FilteringArea>
         <FilteringSection
           selectedOptions={filters.category}
@@ -60,7 +71,11 @@ export const LandingPage = () => {
           {...filterActions}
         />
       </FilteringArea>
-      <ToolsGrid {...tools} />
+      <ToolsGrid
+        {...tools}
+        searchBarText={searchBarText}
+        setSearchResultNull={setSearchResultNull}
+      />
     </div>
   );
 };

@@ -50,6 +50,7 @@ exports.seed = async function (knex) {
         },
         source: 'Liberating Structures',
         picture: '/assets/images/tool-pic-124-all.png',
+        banner: '/assets/images/tool-banner-124-all.png',
       },
       {
         id: 2,
@@ -100,6 +101,7 @@ exports.seed = async function (knex) {
         },
         source: 'Hyper Island',
         picture: '/assets/images/tool-pic-stinky-fish.png',
+        banner: '/assets/images/tool-banner-stinky-fish.png',
       },
       {
         id: 3,
@@ -158,6 +160,7 @@ exports.seed = async function (knex) {
         },
         source: 'Liberating Structures',
         picture: '/assets/images/tool-pic-purpose-to-practice.png',
+        banner: '/assets/images/tool-banner-purpose-to-practice.png',
       },
       {
         id: 4,
@@ -190,6 +193,7 @@ exports.seed = async function (knex) {
         },
         source: 'unknown',
         picture: '/assets/images/tool-pic-count-up.png',
+        banner: '/assets/images/tool-banner-count-up.png',
       },
       {
         id: 5,
@@ -237,6 +241,7 @@ exports.seed = async function (knex) {
         },
         source: 'World Café Community Foundation',
         picture: '/assets/images/tool-pic-world-cafe.png',
+        banner: '/assets/images/tool-banner-world-cafe.png',
       },
       {
         id: 6,
@@ -285,6 +290,7 @@ exports.seed = async function (knex) {
         },
         source: 'Harrison Owen',
         picture: '/assets/images/tool-pic-open-space-technology.png',
+        banner: '/assets/images/tool-banner-open-space-technology.png',
       },
       {
         id: 7,
@@ -356,6 +362,7 @@ exports.seed = async function (knex) {
         },
         source: 'Liberating Struuctures',
         picture: '/assets/images/tool-pic-ecocycle-planning.png',
+        banner: '/assets/images/tool-banner-ecocycle-planning.png',
       },
       {
         id: 8,
@@ -457,6 +464,7 @@ exports.seed = async function (knex) {
         },
         source: 'AJ&Smart Berlin',
         picture: '/assets/images/tool-pic-lightning-decision-jam.png',
+        banner: '/assets/images/tool-banner-lightning-decision-jam.png',
       },
       {
         id: 9,
@@ -497,6 +505,7 @@ exports.seed = async function (knex) {
         },
         source: 'unknown/ Hyper Island',
         picture: '/assets/images/tool-pic-parking-lot.png',
+        banner: '/assets/images/tool-banner-parking-lot.png',
       },
       {
         id: 10,
@@ -554,6 +563,7 @@ exports.seed = async function (knex) {
         },
         source: 'Henrik Johansson, Thomas Reibke and Sarah Juhl Gregersen',
         picture: '/assets/images/tool-pic-apple-drawing-ideation.png',
+        banner: '/assets/images/tool-banner-apple-drawing-ideation.png',
       },
       {
         id: 11,
@@ -591,6 +601,7 @@ exports.seed = async function (knex) {
         },
         source: 'unknown',
         picture: '/assets/images/tool-pic-line-of-alignment.png',
+        banner: '/assets/images/tool-banner-line-of-alignment.png',
       },
       {
         id: 12,
@@ -652,6 +663,7 @@ exports.seed = async function (knex) {
         },
         source: 'Liberating Structures',
         picture: '/assets/images/tool-pic-troika-consulting.png',
+        banner: '/assets/images/tool-banner-troika-consulting.png',
       },
     ])
     .onConflict('id')

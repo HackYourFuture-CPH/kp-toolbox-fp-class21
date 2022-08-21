@@ -29,6 +29,9 @@ export const ContactUs = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
+    if (e.target.value.length > 0) {
+      setIsFilled(true);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -157,12 +160,12 @@ export const ContactUs = () => {
                   onSubmit={handleSubmit}
                 >
                   {status}
-                </button>{' '}
+                </button>
               </>
             )}
             {isFilled && (
               <button
-                className="submit-button uppercase-text"
+                className="submit-button uppercase-text extra-space-submit-button"
                 type="submit"
                 onSubmit={handleSubmit}
               >

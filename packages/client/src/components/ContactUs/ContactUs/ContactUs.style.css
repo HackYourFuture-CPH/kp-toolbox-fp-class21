@@ -57,7 +57,6 @@
 .placeholder-text {
   color: rgba(99, 133, 125, 0.9);
   font-family: 'Open Sans', sans-serif;
-
 }
 
 .input-field {
@@ -113,7 +112,12 @@
   align-self: flex-end;
   font-size: 1.125rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
+  text-align: right;
+}
+
+.extra-space-submit-button {
+  margin-top: 2.625rem;
 }
 
 .submit-button {
@@ -135,7 +139,6 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-
 @media screen and (max-width: 1000px) {
   .form-container {
     padding: 10% 11% 30% 11%;
@@ -152,15 +155,15 @@
   }
 
   .header-container-contact-us {
-  border-bottom: none;
-}
+    border-bottom: none;
+  }
 
   .header-text-contact-us {
     font-size: 2rem;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
   .contact-us-wrapper {
     margin: 0 5% 10% 5%;
   }
@@ -171,6 +174,22 @@
 
   .form-field-wrapper {
     margin-top: 40px;
+  }
+
+  .input-field {
+    font-size: 1rem;
+    padding: 0.9rem 0.7rem;
+  }
+
+  .placeholder-text {
+    top: 0.9rem;
+    left: 0.8rem;
+    font-size: 1rem;
+  }
+
+  .input-field:focus ~ .placeholder-text,
+  .input-field:not(:placeholder-shown) ~ .placeholder-text {
+    transform: translateY(-0.7rem) scale(0.6);
   }
 
   .input-gap {

@@ -40,13 +40,13 @@ export const Inbox = () => {
         return (
           <div className="message-field">
             <p className="message-header uppercase-text">First name:</p>
-            <p className="message-text">{message.first_name}</p>
+            <p className="message-info">{message.first_name}</p>
             <p className="message-header uppercase-text">Surname:</p>
-            <p className="message-text">{message.surname}</p>
+            <p className="message-info">{message.surname}</p>
             <p className="message-header uppercase-text">E-mail:</p>
-            <p className="message-text">{message.email}</p>
+            <p className="message-info">{message.email}</p>
             <p className="message-header uppercase-text">Message:</p>
-            <p className="message-text">{message.message}</p>
+            <p className="message-info">{message.message}</p>
           </div>
         );
       })}

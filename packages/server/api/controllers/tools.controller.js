@@ -114,6 +114,7 @@ const getToolById = async (id) => {
         'instructions',
         'source',
         'picture',
+        'banner',
         'created_at',
       )
       .where({ id });

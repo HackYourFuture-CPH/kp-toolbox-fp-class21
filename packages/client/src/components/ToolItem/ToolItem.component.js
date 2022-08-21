@@ -94,6 +94,16 @@ export const ToolItem = ({ tool }) => {
             />
           )}
         </div>
+        <div className="toolbox-description-container">
+          <h6 className="product-title">{title}</h6>
+          <span className="product-description">{pitch}</span>
+        </div>
+        <div className="title-image">
+          <img src={picture} alt={`Tool ${altForToolPicture}`} />
+        </div>
+        <div className="categories-container">
+          <ul className="category-names">{categoriesStreakOut}</ul>
+        </div>
         <div className="icon-container">
           <div className="container-participants">
             <div className="toolbox-img">
@@ -108,22 +118,15 @@ export const ToolItem = ({ tool }) => {
             <div className="toolbox-participants">{`${timeFrameMin}-${timeFrameMax}`}</div>
           </div>
         </div>
-        <div className="categories-container">
-          <ul className="category-names">{categoriesStreakOut}</ul>
-        </div>
-        <div className="toolbox-description-container">
-          <span className="product-description">{pitch}</span>
-          <h6 className="product-title">{title}</h6>
-        </div>
-        <div className="title-image">
-          <img src={picture} alt={`Tool ${altForToolPicture}`} />
-        </div>
       </div>
-      <div className="button-container">
-        <button type="button" className="tool-button">
-          <Link to={`/tools/${tool.id}`}>VIEW TOOL</Link>
-        </button>
-      </div>
+
+      <Link to={`/tools/${tool.id}`}>
+        <div className="button-container">
+          <button type="button" className="tool-button">
+            VIEW TOOL
+          </button>
+        </div>
+      </Link>
     </div>
   );
 };
