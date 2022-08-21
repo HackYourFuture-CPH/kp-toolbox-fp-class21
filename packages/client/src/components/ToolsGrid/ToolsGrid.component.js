@@ -56,7 +56,7 @@ export const ToolsGrid = ({
         <Loader />
       </div>
     );
-  } else if (isLoading === false && sortedTools.length !== 0) {
+  } else if (!isLoading && sortedTools.length !== 0) {
     setSearchResultNull(false);
     toolsToRender = (
       <div className="grid-tools-container">
