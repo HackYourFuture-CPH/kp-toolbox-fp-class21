@@ -39,7 +39,7 @@ export const Navbar = ({ ...props }) => {
           {accountStatus}
           <div className="favourite-container">
             <Link
-              className={`navbar-link `}
+              className="navbar-link"
               onClick={() => runGoogleAuth()}
               to="/favourites"
             >

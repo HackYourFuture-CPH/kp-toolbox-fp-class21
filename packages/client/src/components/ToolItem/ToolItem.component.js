@@ -17,39 +17,37 @@ export const ToolItem = ({ tool }) => {
   const [isFavourite, setIsFavourite] = useState(false);
 
   const handleChangeFavourite = () => {
-    if (user) {
-      if (userId) {
-        if (isFavourite) {
-          fetch(`${getApiBaseUrl()}/api/favourites`, {
-            method: 'DELETE',
-            body: JSON.stringify({
-              user_id: userId,
-              tool_id: id,
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }).then((result) => {
-            if (result.ok) {
-              setIsFavourite(false);
-            }
-          });
-        } else {
-          fetch(`${getApiBaseUrl()}/api/favourites`, {
-            method: 'POST',
-            body: JSON.stringify({
-              user_id: userId,
-              tool_id: id,
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }).then((result) => {
-            if (result.ok) {
-              setIsFavourite(true);
-            }
-          });
-        }
+    if (userId) {
+      if (isFavourite) {
+        fetch(`${getApiBaseUrl()}/api/favourites`, {
+          method: 'DELETE',
+          body: JSON.stringify({
+            user_id: userId,
+            tool_id: id,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }).then((result) => {
+          if (result.ok) {
+            setIsFavourite(false);
+          }
+        });
+      } else {
+        fetch(`${getApiBaseUrl()}/api/favourites`, {
+          method: 'POST',
+          body: JSON.stringify({
+            user_id: userId,
+            tool_id: id,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }).then((result) => {
+          if (result.ok) {
+            setIsFavourite(true);
+          }
+        });
       }
     } else {
       googleSignIn();
