@@ -6,7 +6,7 @@ import getApiBaseUrl from '../../utils/getApiBaseURL';
 import './ToolItem.style.css';
 
 export const ToolItem = ({ tool }) => {
-  const { googleSignIn, userId, user } = UserAuth();
+  const { googleSignIn, userId } = UserAuth();
   const title = tool.name;
   const { picture, id, pitch, categories } = tool;
   const timeFrameMin = tool.time_frame_min;
