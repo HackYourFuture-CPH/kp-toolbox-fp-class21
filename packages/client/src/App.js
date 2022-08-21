@@ -21,7 +21,11 @@ import { AboutToolbox } from './components/AboutToolbox/AboutToolbox.component';
 const Wrapper = ({ children }) => {
   const location = useLocation();
   useLayoutEffect(() => {
-    document.documentElement.scrollTo(0, 0);
+    document.documentElement.scrollTo({
+      top: 100,
+      left: 100,
+      behavior: 'smooth',
+    });
   }, [location.pathname]);
   return children;
 };
