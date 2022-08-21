@@ -7,8 +7,7 @@ const administrator = require('./admin/routes/index');
 const router = require('./api/routes/index');
 const admin = require('firebase-admin');
 const { authenticate } = require('./firebase/auth');
-
-const serviceAccount = require('./firebase/serviceAccountKey.json');
+const serviceAccount = require('./firebase/serviceAccountKey');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),

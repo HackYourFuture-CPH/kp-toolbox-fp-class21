@@ -7,6 +7,7 @@ const exampleResources = require('./exampleResources.router');
 const tools = require('./tools.router');
 const favourites = require('./favourites.router');
 const users = require('./users.router');
+const categories = require('./categories.router');
 
 const contactUsForm = require('./contactUsForm.router');
 
@@ -43,6 +44,7 @@ router.use('/exampleResources', exampleResources);
 router.use('/tools', tools);
 router.use('/favourites', favourites);
 router.use('/users', users);
+router.use('/categories', categories);
 
 router.use('/contactUsForm', contactUsForm);
 
