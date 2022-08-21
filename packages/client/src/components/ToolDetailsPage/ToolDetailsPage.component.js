@@ -71,7 +71,7 @@ export const ToolDetailsPage = () => {
             KAOSPILOT toolbox / <span>{tool.name}</span>
           </Link>
         </p>
-        <h1>{tool.name}</h1>
+        <h1 className="tools-name-title">{tool.name}</h1>
         <img
           className="tool-image"
           src={tool.picture}

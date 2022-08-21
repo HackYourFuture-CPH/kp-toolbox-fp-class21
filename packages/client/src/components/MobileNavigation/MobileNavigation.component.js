@@ -9,11 +9,26 @@ export const MobileNavigation = (props) => {
     : 'mobile-navigation';
   return (
     <nav className={isOpenClass}>
-      <Link to="/about-toolbox">about toolbox</Link>
-      <Link to="/contact-us">contact us</Link>
+      <Link
+        to="/about-toolbox"
+        onClick={() => {
+          props.handleMobile(false);
+        }}
+      >
+        about toolbox
+      </Link>
+      <Link
+        to="/contact-us"
+        onClick={() => {
+          props.handleMobile(false);
+        }}
+      >
+        contact us
+      </Link>
     </nav>
   );
 };
 MobileNavigation.propTypes = {
   open: PropTypes.bool.isRequired,
+  handleMobile: PropTypes.func.isRequired,
 };

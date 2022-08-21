@@ -33,6 +33,7 @@
 .searchBarDiv {
   position: relative;
   width: 30rem;
+  height: 5rem;
   margin: 1.563rem auto;
 }
 
@@ -40,7 +41,7 @@
   position: absolute;
   left: 1rem;
   pointer-events: none;
-  top: 50%;
+  top: 27%;
   transform: translateY(-50%);
 }
 
@@ -48,9 +49,17 @@
   display: none;
 }
 
+.search-result-null {
+  font-size: 12px;
+}
+
 @media screen and (max-width: 559px) {
   .searchBarDiv {
     width: calc(100% - 0.9rem);
     margin: 0.95rem auto;
+  }
+
+  .search-result-null {
+    line-height: normal;
   }
 }
