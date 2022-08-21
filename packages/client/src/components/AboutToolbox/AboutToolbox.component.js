@@ -8,7 +8,6 @@ export const AboutToolbox = () => {
         KAOSPILOT toolbox /ABOUT TOOLBOX
       </h4>
       <h1 className="about-toolbox-main-title">ABOUT KAOSPILOT toolbox</h1>
-      <hr className="horizontal-solid-line" />
       <div className="about-toolbox-main-section">
         <img
           className="about-toolbox-image"
@@ -50,7 +49,7 @@ export const AboutToolbox = () => {
       </div>
       <img
         className="kaospilot-image"
-        src="assets/images/kp.png"
+        src="assets/images/welcome-box.png"
         alt="KAOSPILOT"
       />
     </div>
