@@ -14,7 +14,7 @@ export const Inbox = () => {
     function getMessages() {
       const promise = fetch(`${getApiBaseUrl()}/admin/inbox-admin`, {
         method: 'GET',
-        header: {
+        headers: {
           'Content-Type': 'application/json',
           authorization: `Bearer ${user.accessToken}`,
         },

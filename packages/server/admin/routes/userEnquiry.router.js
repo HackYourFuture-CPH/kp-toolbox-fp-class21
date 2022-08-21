@@ -30,7 +30,7 @@ const userEnquiryController = require('../controllers/userEnquiry.controller');
 
 router.get('/', (req, res, next) => {
   userEnquiryController
-    .getUserEnquiry()
+    .getUserEnquiry(req.user.uid)
     .then((result) => res.json(result))
     .catch(next);
 });

@@ -32,6 +32,9 @@ function App() {
 const RouteList = () => {
   const { localUser } = UserAuth();
 
+  // eslint-disable-next-line no-console
+  console.log(localUser);
+
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
