@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Abel&family=Inter:wght@400;600;700&display=swap');
-
 * {
   margin: 0;
 }
@@ -17,7 +14,8 @@
 .LoadingMessage {
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 30vh;
+  padding-top: 30px;
   justify-content: center;
   align-items: center;
 }
@@ -34,10 +32,10 @@
 .breadcrumbs,
 h1 {
   text-align: center;
+  font-family: 'Abel', sans-serif;
 }
 
 .breadcrumbs {
-  font-family: 'Open Sans';
   font-size: 1rem;
   color: rgba(245, 245, 245);
 }
@@ -197,6 +195,10 @@ h3 {
 
   .tool-details-container {
     padding: 1.5rem 1rem;
+  }
+
+  .LoadingMessage {
+    height: 15vh;
   }
 
   .LoadingMessage span {

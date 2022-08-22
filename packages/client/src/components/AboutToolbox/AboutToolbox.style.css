@@ -14,7 +14,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: left;
-  font-family: 'Open Sans';
+  font-family: 'Abel', sans-serif;
   font-style: normal;
   font-weight: 400;
   height: 100%;
@@ -36,7 +36,7 @@
 .about-toolbox-small-title {
   margin: auto;
   margin-top: 1.563rem;
-  font-family: 'Open Sans';
+  font-family: 'Abel', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 1rem;
