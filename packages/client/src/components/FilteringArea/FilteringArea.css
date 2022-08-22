@@ -64,6 +64,10 @@
   flex-grow: 1;
 }
 
+.filtering-horizontal-flex > img {
+  mix-blend-mode: luminosity;
+}
+
 .show-all-button,
 .filtering-option {
   text-transform: uppercase;

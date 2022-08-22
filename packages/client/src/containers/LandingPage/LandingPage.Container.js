@@ -38,42 +38,40 @@ export const LandingPage = () => {
   return (
     <div className="landing-page-container">
       <div className="image-background-wrapper">
-        <div>
-          <WelcomeBox />
-          <SearchBar
-            filterByToolNameAction={filterByToolName}
-            searchResultNull={searchResultNull}
+        <WelcomeBox />
+        <SearchBar
+          filterByToolNameAction={filterByToolName}
+          searchResultNull={searchResultNull}
+        />
+        <FilteringArea>
+          <FilteringSection
+            selectedOptions={filters.category}
+            {...categories}
+            title="CATEGORY"
+            iconName="vector-categories"
+            checkboxName="category"
+            fetchKey="category"
+            {...filterActions}
           />
-          <FilteringArea>
-            <FilteringSection
-              selectedOptions={filters.category}
-              {...categories}
-              title="CATEGORY"
-              iconName="vector-categories"
-              checkboxName="category"
-              fetchKey="category"
-              {...filterActions}
-            />
-            <FilteringSection
-              selectedOptions={filters.participantsNumber}
-              {...numberOfParticipants}
-              title="NUMBER OF PARTICIPANTS"
-              iconName="vector-people"
-              checkboxName="participants"
-              fetchKey="participantsNumber"
-              {...filterActions}
-            />
-            <FilteringSection
-              selectedOptions={filters.timeframe}
-              {...timeframes}
-              title="TIME FRAME [minutes]"
-              iconName="vector-clock"
-              checkboxName="timeframe"
-              fetchKey="timeframe"
-              {...filterActions}
-            />
-          </FilteringArea>
-        </div>
+          <FilteringSection
+            selectedOptions={filters.participantsNumber}
+            {...numberOfParticipants}
+            title="NUMBER OF PARTICIPANTS"
+            iconName="vector-people"
+            checkboxName="participants"
+            fetchKey="participantsNumber"
+            {...filterActions}
+          />
+          <FilteringSection
+            selectedOptions={filters.timeframe}
+            {...timeframes}
+            title="TIME FRAME [minutes]"
+            iconName="vector-clock"
+            checkboxName="timeframe"
+            fetchKey="timeframe"
+            {...filterActions}
+          />
+        </FilteringArea>
       </div>
 
       <ToolsGrid
