@@ -7,7 +7,7 @@ const postUser = async (body) => {
 
 const getUserByFireBaseId = async (firebaseId) => {
   const user = await knex('users')
-    .select('id', 'name', 'email', 'firebase_id')
+    .select('id', 'name', 'email', 'firebase_id', 'is_admin')
     .where('firebase_id', '=', firebaseId);
   return user;
 };

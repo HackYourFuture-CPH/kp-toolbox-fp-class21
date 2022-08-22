@@ -15,7 +15,7 @@ import { ToolDetailsPage } from './components/ToolDetailsPage/ToolDetailsPage.co
 import { Footer } from './components/Footer/Footer.component';
 import { ContactUs } from './components/ContactUs/ContactUs/ContactUs.component';
 import { Inbox } from './components/InboxMessageAdmin/Inbox.component';
-import { AuthContextProvider } from './firebase/AuthContext';
+import { AuthContextProvider, UserAuth } from './firebase/AuthContext';
 import { AboutToolbox } from './components/AboutToolbox/AboutToolbox.component';
 
 const Wrapper = ({ children }) => {
@@ -38,16 +38,7 @@ function App() {
           <Navbar />
           <Wrapper>
             <Main>
-              <Routes>
-                <Route path="/" element={<LandingPage />} />
-                <Route path="*" element={<PageNotFound />} />
-                <Route path="/tools/:id" element={<ToolDetailsPage />} />
-                <Route path="/about-toolbox" element={<AboutToolbox />} />
-                <Route path="/contact-us" element={<ContactUs />} />
-                <Route path="/user-name" element="" />
-                <Route path="/favourites" element={<FavouritePage />} />
-                <Route path="/inbox-admin" element={<Inbox />} />
-              </Routes>
+              <RouteList />
             </Main>
           </Wrapper>
           <Footer />
@@ -56,5 +47,24 @@ function App() {
     </div>
   );
 }
+
+const RouteList = () => {
+  const { localUser } = UserAuth();
+
+  return (
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="*" element={<PageNotFound />} />
+      <Route path="/tools/:id" element={<ToolDetailsPage />} />
+      <Route path="/about-toolbox" element={<AboutToolbox />} />
+      <Route path="/contact-us" element={<ContactUs />} />
+      <Route path="/user-name" element="" />
+      <Route path="/favourites" element={<FavouritePage />} />
+      {localUser && localUser.is_admin && (
+        <Route path="/inbox-admin" element={<Inbox />} />
+      )}
+    </Routes>
+  );
+};
 
 export default App;

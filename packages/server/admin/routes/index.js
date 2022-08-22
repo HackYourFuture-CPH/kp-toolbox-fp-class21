@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const tools = require('./tools.router');
+const userEnquiry = require('./userEnquiry.router');
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -33,5 +34,7 @@ const swaggerDocument = swaggerJsDoc(swaggerOptions);
 router.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 router.use('/tools', tools);
+
+router.use('/inbox-admin', userEnquiry);
 
 module.exports = router;
