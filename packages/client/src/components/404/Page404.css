@@ -50,7 +50,7 @@
 
 .plane {
   position: absolute;
-  animation: fly_high 17.666s infinite;
+  animation: fly_high 7.666s infinite;
   z-index: 10;
   display: flex;
   flex-direction: row;
@@ -70,61 +70,128 @@
 
 @keyframes fly_high {
   000% {
-    left: +000vw;
-    top: +020vw;
-    transform: rotate(083deg);
+    left: 15.5vw;
+    top: 9.8vw;
+    transform: rotate(085deg);
   }
   001% {
-    left: +000vw;
-    top: +020vw;
-    transform: rotate(083deg);
+    left: +015.5vw;
+    top: +09.8vw;
+    transform: rotate(085deg);
   }
   002% {
-    left: +005vw;
-    top: +014vw;
-    transform: rotate(083deg);
+    left: +023.8vw;
+    top: +05.5vw;
+    transform: rotate(085deg);
+  }
+  003% {
+    left: +032.8vw;
+    top: +02.4vw;
+    transform: rotate(095deg);
   }
   004% {
-    left: +010vw;
-    top: +010vw;
-    transform: rotate(083deg);
-  }
-  006% {
-    left: +024vw;
-    top: +005vw;
-    transform: rotate(083deg);
-  }
-  008% {
-    left: +035vw;
-    top: +002vw;
-    transform: rotate(107deg);
-  }
-  010% {
-    left: +045vw;
-    top: +006vw;
+    left: 41.7vw;
+    top: 1.6vw;
     transform: rotate(115deg);
   }
-  011% {
-    left: +049vw;
-    top: +008vw;
-    transform: rotate(135deg);
+  005% {
+    left: +047.4vw;
+    top: +03.5vw;
+    transform: rotate(126deg);
   }
-  012% {
-    left: +053vw;
-    top: +012vw;
-    transform: rotate(155deg);
+  006% {
+    left: +052.6vw;
+    top: +06.5vw;
+    transform: rotate(145deg);
   }
-  013% {
-    left: +053vw;
-    top: +017vw;
+  007% {
+    left: +055.8vw;
+    top: +010.8vw;
     transform: rotate(165deg);
   }
-
+  008% {
+    left: +057vw;
+    top: +015vw;
+    transform: rotate(196deg);
+  }
+  009% {
+    left: +055.9vw;
+    top: +019.8vw;
+    transform: rotate(217deg);
+  }
+  010% {
+    left: +053.8vw;
+    top: +023.6vw;
+    transform: rotate(236deg);
+  }
+  011% {
+    left: +050.4vw;
+    top: +026.4vw;
+    transform: rotate(256deg);
+  }
+  012% {
+    left: +046.1vw;
+    top: +027.9vw;
+    transform: rotate(275.2deg);
+  }
+  013% {
+    left: +041.8vw;
+    top: +027.7vw;
+    transform: rotate(303deg);
+  }
+  014% {
+    left: +037.8vw;
+    top: +024.8vw;
+    transform: rotate(335deg);
+  }
+  015% {
+    left: +035.8vw;
+    top: +020.2vw;
+    transform: rotate(365deg);
+  }
+  016% {
+    left: +035.7vw;
+    top: +014.6vw;
+    transform: rotate(385deg);
+  }
+  017% {
+    left: +038vw;
+    top: +09.8vw;
+    transform: rotate(415deg);
+  }
+  018% {
+    left: +042.8vw;
+    top: +06.3vw;
+    transform: rotate(445deg);
+  }
+  019% {
+    left: +048.4vw;
+    top: +04.3vw;
+    transform: rotate(455deg);
+  }
+  020% {
+    left: +054vw;
+    top: +02.9vw;
+    transform: rotate(455deg);
+  }
+  021% {
+    left: +061vw;
+    top: +01.5vw;
+    transform: rotate(455deg);
+  }
+  022% {
+    left: +069.5vw;
+    top: +00vw;
+    transform: rotate(455deg);
+  }
   /* KEEP GOING HERE */
-
+  023%,
+  024%,
+  025%,
   100% {
-    left: +092vw;
-    top: -009vw;
+    left: 85vw;
+    top: -3vw;
+    transform: rotate(455deg);
   }
 }
 
@@ -147,12 +214,141 @@
 @media screen and (max-width: 1200px) {
   .sky,
   .sky-image {
-    margin: 0vw 4vw 0vw 4vw;
+    margin: 0vw 5vw 0vw 5vw;
     width: 90vw;
     height: 60vw;
   }
-
   .button {
     top: 70vw;
+  }
+  .plane {
+    animation: fly_high 7.666s infinite;
+  }
+
+  @keyframes fly_high {
+    000% {
+      left: +000vw;
+      top: +020vw;
+      transform: rotate(085deg);
+    }
+    001% {
+      left: +05.5vw;
+      top: +012.5vw;
+      transform: rotate(085deg);
+    }
+    002% {
+      left: +016.5vw;
+      top: +07vw;
+      transform: rotate(085deg);
+    }
+    003% {
+      left: +028vw;
+      top: +03vw;
+      transform: rotate(095deg);
+    }
+    004% {
+      left: 39.6vw;
+      top: 1.9vw;
+      transform: rotate(115deg);
+    }
+    005% {
+      left: +046.6vw;
+      top: +04.5vw;
+      transform: rotate(126deg);
+    }
+    006% {
+      left: +054vw;
+      top: +08.5vw;
+      transform: rotate(145deg);
+    }
+    007% {
+      left: +057.6vw;
+      top: +013.5vw;
+      transform: rotate(165deg);
+    }
+    008% {
+      left: +059.1vw;
+      top: +019.3vw;
+      transform: rotate(196deg);
+    }
+    009% {
+      left: 57.8vw;
+      top: 25.3vw;
+      transform: rotate(217deg);
+    }
+    010% {
+      left: +055.2vw;
+      top: +030vw;
+      transform: rotate(236deg);
+    }
+    011% {
+      left: +050.6vw;
+      top: +033.8vw;
+      transform: rotate(256deg);
+    }
+    012% {
+      left: +045vw;
+      top: +035.6vw;
+      transform: rotate(275.2deg);
+    }
+    013% {
+      left: +039.3vw;
+      top: +035.4vw;
+      transform: rotate(303deg);
+    }
+    014% {
+      left: +034.5vw;
+      top: +031.8vw;
+      transform: rotate(335deg);
+    }
+    015% {
+      left: +031.8vw;
+      top: +025.5vw;
+      transform: rotate(365deg);
+    }
+    016% {
+      left: +031.8vw;
+      top: +018.5vw;
+      transform: rotate(385deg);
+    }
+    017% {
+      left: +034.8vw;
+      top: +012.5vw;
+      transform: rotate(415deg);
+    }
+    018% {
+      left: +040.8vw;
+      top: +08vw;
+      transform: rotate(445deg);
+    }
+    019% {
+      left: +048vw;
+      top: +05.4vw;
+      transform: rotate(455deg);
+    }
+    020% {
+      left: +055vw;
+      top: +03.8vw;
+      transform: rotate(455deg);
+    }
+    021% {
+      left: +064.5vw;
+      top: +01.8vw;
+      transform: rotate(455deg);
+    }
+    022% {
+      left: +075vw;
+      top: -0.2vw;
+      transform: rotate(455deg);
+    }
+    /* KEEP GOING HERE */
+    023%,
+    024%,
+    025%,
+    100% {
+      left: +090vw;
+      top: -6.2vw;
+      transform: rotate(455deg);
+    }
   }
 }

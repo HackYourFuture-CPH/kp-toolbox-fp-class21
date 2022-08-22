@@ -45,9 +45,12 @@ export const ToolDetailsPage = () => {
       </div>
     );
   } else if (isDataEmpty) {
-    pageContent = <div><p>Tool not found</p>
-      <Page404/>
-    </div>;
+    pageContent = (
+      <div>
+        <p>Tool not found</p>
+        <Page404 />
+      </div>
+    );
   } else {
     const toolCategoriesList = tool.categories
       ? tool.categories.map((category, index) => (
