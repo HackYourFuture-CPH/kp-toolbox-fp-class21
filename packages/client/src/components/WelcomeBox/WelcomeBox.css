@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
-
 .welcome-box-wrapper,
 .welcome-box-content {
   display: flex;
@@ -17,20 +15,26 @@
 
 .welcome-box-heading,
 .welcome-box-paragraph {
-  font-family: 'Open Sans';
+  text-shadow: 1px 1px 8px rgba(28, 56, 64, 0.7);
+  font-family: 'Abel', sans-serif;
 }
 
 .welcome-box-heading {
   text-transform: none;
   font-weight: 400;
-  font-size: 2.5rem;
-  margin-top: 1.875rem;
-  margin-bottom: 1.25rem;
+  font-size: 3rem;
+  margin: 1.75rem auto;
+  padding: 0;
+}
+
+.welcome-box-heading > span {
+  font-family: 'Open Sans';
+  font-weight: 600;
 }
 
 .welcome-box-image-placeholder {
   width: 25rem;
-  margin-bottom: 1.25rem;
+  margin-top: 1.625rem;
 }
 
 .welcome-box-image-placeholder img {
@@ -42,8 +46,8 @@
 
 .welcome-box-paragraph {
   max-width: 65%;
-  font-size: 1.25rem;
-  line-height: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.625rem;
 }
 
 @media screen and (max-width: 1219px) {
@@ -80,8 +84,6 @@
 
   .welcome-box-image-placeholder {
     width: 15rem;
-    order: 1;
-    margin-bottom: 0;
     margin-top: 0.95rem;
   }
 }
@@ -112,7 +114,7 @@
 
   .welcome-box-paragraph {
     font-size: 0.688rem;
-    line-height: 0.75rem;
+    line-height: 0.8rem;
   }
 
   .welcome-box-image-placeholder {

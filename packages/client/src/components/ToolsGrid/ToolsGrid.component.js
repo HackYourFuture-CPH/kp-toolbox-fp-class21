@@ -52,7 +52,7 @@ export const ToolsGrid = ({
   if (isLoading) {
     toolsToRender = (
       <div className="LoadingMessage">
-        <span>Loading tool...</span>
+        <span>Loading tools...</span>
         <Loader />
       </div>
     );
