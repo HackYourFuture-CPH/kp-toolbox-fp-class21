@@ -21,7 +21,9 @@ export const Navbar = ({ ...props }) => {
       <div className="navigation-bar-container">
         <div className="logo">
           <Link to="/">
-            <span>KAOSPILOT toolbox</span>
+            <span>
+              KAOSPILOT <span>toolbox</span>
+            </span>
           </Link>
         </div>
         <nav className="navbar-links-container">
@@ -59,7 +61,10 @@ export const Navbar = ({ ...props }) => {
             {isMobileNavOpen ? <span>&times;</span> : <span>&#x2630;</span>}
           </button>
         </nav>
-        <MobileNavigation open={isMobileNavOpen} />
+        <MobileNavigation
+          open={isMobileNavOpen}
+          handleMobile={setIsMobileNavOpen}
+        />
       </div>
     </header>
   );

@@ -20,16 +20,19 @@ import getApiBaseUrl from '../utils/getApiBaseURL';
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
+  const [localUser, setLocalUser] = useState({});
   const [user, setUser] = useState({});
   const [userId, setUserId] = useState(null);
   const navigate = useNavigate();
+  const [idToken, setIdToken] = useState();
 
   const googleSignIn = useCallback(() => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
-        // const token = credential.accessToken;
+        const token = credential.accessToken;
+        setIdToken(token);
         // const { userInfo } = result;
         return credential;
       })
@@ -81,6 +84,7 @@ export const AuthContextProvider = ({ children }) => {
             addUser(authUser);
           } else {
             setUserId(result[0].id);
+            setLocalUser(result[0]);
           }
         });
     }
@@ -96,8 +100,8 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   const contextValues = useMemo(
-    () => ({ googleSignIn, logOut, user, userId }),
-    [googleSignIn, logOut, user, userId],
+    () => ({ googleSignIn, logOut, user, userId, idToken, localUser }),
+    [googleSignIn, logOut, user, userId, idToken, localUser],
   );
 
   return (

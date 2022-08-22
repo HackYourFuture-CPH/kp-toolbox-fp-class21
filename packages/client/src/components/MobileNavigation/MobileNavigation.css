@@ -29,9 +29,8 @@
 }
 
 .mobile-navigation a {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: rgb(245 245 245);
   text-decoration: none;
-  font-weight: 600;
-  font-family: 'Open Sans';
+  font-family: 'Abel', sans-serif;
 }

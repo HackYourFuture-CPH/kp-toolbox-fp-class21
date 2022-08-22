@@ -9,8 +9,8 @@ export const WelcomeBox = () => {
     <section className="welcome-box-wrapper">
       <div className="welcome-box-content">
         <Heading />
-        <ImagePlaceHolder />
         <Paragraph />
+        <ImagePlaceHolder />
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import SearchBar from '../../components/SearchBar/SearchBar';
 import { WelcomeBox } from '../../components/WelcomeBox/WelcomeBox';
 import {
   FilteringArea,
@@ -15,6 +16,12 @@ import {
 } from './filterMockData';
 
 export const LandingPage = () => {
+  const [searchBarText, setSearchBarText] = useState('');
+  const [searchResultNull, setSearchResultNull] = useState(false);
+
+  const filterByToolName = (value) => {
+    setSearchBarText(value);
+  };
   const { filterActions, tools, filters } = useFilteredTools();
   const categories = useFilteringSection();
   const numberOfParticipants = useFilteringSection();
@@ -30,37 +37,50 @@ export const LandingPage = () => {
 
   return (
     <div className="landing-page-container">
-      <WelcomeBox />
-      <FilteringArea>
-        <FilteringSection
-          selectedOptions={filters.category}
-          {...categories}
-          title="CATEGORY"
-          iconName="vector-categories"
-          checkboxName="category"
-          fetchKey="category"
-          {...filterActions}
-        />
-        <FilteringSection
-          selectedOptions={filters.participantsNumber}
-          {...numberOfParticipants}
-          title="NUMBER OF PARTICIPANTS"
-          iconName="vector-people"
-          checkboxName="participants"
-          fetchKey="participantsNumber"
-          {...filterActions}
-        />
-        <FilteringSection
-          selectedOptions={filters.timeframe}
-          {...timeframes}
-          title="TIME FRAME [minutes]"
-          iconName="vector-clock"
-          checkboxName="timeframe"
-          fetchKey="timeframe"
-          {...filterActions}
-        />
-      </FilteringArea>
-      <ToolsGrid {...tools} />
+      <div className="image-background-wrapper">
+        <div>
+          <WelcomeBox />
+          <SearchBar
+            filterByToolNameAction={filterByToolName}
+            searchResultNull={searchResultNull}
+          />
+          <FilteringArea>
+            <FilteringSection
+              selectedOptions={filters.category}
+              {...categories}
+              title="CATEGORY"
+              iconName="vector-categories"
+              checkboxName="category"
+              fetchKey="category"
+              {...filterActions}
+            />
+            <FilteringSection
+              selectedOptions={filters.participantsNumber}
+              {...numberOfParticipants}
+              title="NUMBER OF PARTICIPANTS"
+              iconName="vector-people"
+              checkboxName="participants"
+              fetchKey="participantsNumber"
+              {...filterActions}
+            />
+            <FilteringSection
+              selectedOptions={filters.timeframe}
+              {...timeframes}
+              title="TIME FRAME [minutes]"
+              iconName="vector-clock"
+              checkboxName="timeframe"
+              fetchKey="timeframe"
+              {...filterActions}
+            />
+          </FilteringArea>
+        </div>
+      </div>
+
+      <ToolsGrid
+        {...tools}
+        searchBarText={searchBarText}
+        setSearchResultNull={setSearchResultNull}
+      />
     </div>
   );
 };
