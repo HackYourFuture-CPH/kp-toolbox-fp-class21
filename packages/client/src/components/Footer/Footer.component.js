@@ -9,12 +9,12 @@ export const Footer = () => {
         <div className="footer-container">
           <div className="copyright-disclaimer-container">
             <p>
-              Find out more about KAOSPILOT and follow us on LinkedIn, Instagram
-              and Facebook!
+              Find out more about <strong>KAOSPILOT</strong> and follow us on
+              LinkedIn, Instagram and Facebook!
               <br />
               <br />
-              Copyright Kaospilot. All methods & tools © their respective
-              owners.
+              Copyright <strong>KAOSPILOT</strong>. All methods & tools © their
+              respective owners.
               <br />
               Are you an owner of a method or tool? Please contact us.
             </p>
