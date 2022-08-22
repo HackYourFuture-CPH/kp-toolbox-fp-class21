@@ -25,24 +25,25 @@ footer {
   height: 180px;
   background: linear-gradient(
       180deg,
-      rgba(28, 56, 64, 0.7) 0%,
+      rgba(28, 56, 64, 0.6) 0%,
       rgba(28, 65, 64, 0.8) 0.01%,
-      rgba(7, 27, 32, 0.5) 100%
+      rgba(28, 65, 64, 0.6) 100%
     ),
     url('../../../public/assets/images/concrete-bw.png');
   background-repeat: repeat;
+
   mix-blend-mode: normal;
 }
 
 .footer-bg {
-  background-color: rgba(0, 0, 0, 0.3);
-  mix-blend-mode: normal;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 .footer-container {
   width: 1220px;
   height: 155px;
-  background-color: (0, 0, 0, 0.3);
+  margin: auto;
 }
 
 .footer-container::after {
@@ -133,6 +134,7 @@ footer {
     font-size: 12px;
     line-height: 16px;
   }
+
   .footer-container::after {
     height: 0.5rem;
   }
@@ -147,9 +149,11 @@ footer {
     height: 262px;
     flex-direction: column-reverse;
   }
+
   .footer-container::after {
     margin-bottom: 254px;
   }
+
   .copyright-disclaimer-container {
     width: fit-content;
     margin: 1.71rem 1.375rem 0.95rem 1.375rem;
