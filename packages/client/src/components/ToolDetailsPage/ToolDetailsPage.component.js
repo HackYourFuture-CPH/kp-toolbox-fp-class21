@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import getApiBaseUrl from '../../utils/getApiBaseURL';
 import './ToolDetailsPage.css';
 import { Loader } from '../Loader/Loader.component';
+import { Page404 } from '../404/Page404.component';
 
 export const ToolDetailsPage = () => {
   const [tool, setTool] = useState({});
@@ -44,7 +45,9 @@ export const ToolDetailsPage = () => {
       </div>
     );
   } else if (isDataEmpty) {
-    pageContent = <p>Tool not found</p>;
+    pageContent = <div><p>Tool not found</p>
+      <Page404/>
+    </div>;
   } else {
     const toolCategoriesList = tool.categories
       ? tool.categories.map((category, index) => (
