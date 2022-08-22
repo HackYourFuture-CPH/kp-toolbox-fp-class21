@@ -15,29 +15,6 @@ const contactUsFormController = require('../controllers/contactUsForm.controller
 /**
  * @swagger
  * /contactUsForm:
- *  get:
- *    tags: [ContactUsForm]
- *    summary: Get the list of the users inquiry left in contact form
- *    description:
- *      Will return all users inquiry.
- *    produces: application/json
- *    responses:
- *      200:
- *        description: Successful request
- *      5XX:
- *        description: Unexpected error.
- */
-
-// router.get('/', (req, res, next) => {
-//   contactUsFormController
-//     .getContactFormData()
-//     .then((result) => res.json(result))
-//     .catch(next);
-// });
-
-/**
- * @swagger
- * /contactUsForm:
  *  post:
  *    tags: [ContactUsForm]
  *    summary: Create a user_enquiry
@@ -73,10 +50,7 @@ router.post('/', (req, res) => {
   contactUsFormController
     .addDataFromContactForm(req.body)
     .then((result) => res.json(result))
-    .catch((error) => {
-      // eslint-disable-next-line no-console
-      console.log(error);
-
+    .catch(() => {
       res.status(400).send('Bad request').end();
     });
 });
