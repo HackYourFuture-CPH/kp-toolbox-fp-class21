@@ -17,6 +17,7 @@ import { ContactUs } from './components/ContactUs/ContactUs/ContactUs.component'
 import { Inbox } from './components/InboxMessageAdmin/Inbox.component';
 import { AuthContextProvider, UserAuth } from './firebase/AuthContext';
 import { AboutToolbox } from './components/AboutToolbox/AboutToolbox.component';
+import { DeleteConfirmation } from './components/DeleteToolConfirmation/DeleteToolConfirmation.component';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -60,6 +61,11 @@ const RouteList = () => {
       <Route path="/contact-us" element={<ContactUs />} />
       <Route path="/user-name" element="" />
       <Route path="/favourites" element={<FavouritePage />} />
+      <Route
+        path="/tools/delete-confirmation/:id"
+        element={<DeleteConfirmation />}
+      />
+      <Route path="/tools/edit/:id" element="" />
       {localUser && localUser.is_admin && (
         <Route path="/inbox-admin" element={<Inbox />} />
       )}
