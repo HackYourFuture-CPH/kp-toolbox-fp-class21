@@ -19,13 +19,17 @@ footer,
   flex-direction: column;
 }
 
+.copyright-disclaimer-container strong {
+  font-family: 'Open Sans';
+}
+
 footer {
   height: 180px;
   background: linear-gradient(
       180deg,
-      rgba(28, 56, 64, 0.7) 0%,
+      rgba(28, 56, 64, 0.6) 0%,
       rgba(28, 65, 64, 0.8) 0.01%,
-      rgba(7, 27, 32, 0.5) 100%
+      rgba(28, 65, 64, 0.6) 100%
     ),
     url('../../../public/assets/images/concrete-bw.png');
   background-repeat: repeat;
@@ -33,14 +37,15 @@ footer {
 }
 
 .footer-bg {
-  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
   mix-blend-mode: normal;
 }
 
 .footer-container {
   width: 1220px;
   height: 155px;
-  background-color: (0, 0, 0, 0.3);
+  margin: auto;
   font-family: 'Abel', sans-serif;
 }
 
@@ -49,7 +54,7 @@ footer {
   width: 100%;
   content: '';
   left: 0;
-  margin-bottom: 140px;
+  margin-bottom: 170px;
   height: 1rem;
   background-image: url('../../../public/assets/images/tape-cut.png');
   background-repeat: no-repeat;
@@ -100,6 +105,10 @@ footer {
   .footer-container {
     width: 90vw;
     gap: 1rem;
+  }
+
+  .footer-container {
+    height: 162px;
   }
 }
 
@@ -176,8 +185,6 @@ footer {
   .copyright-disclaimer-container p {
     font-size: 12px;
     line-height: 16px;
-    display: flex;
-    align-items: center;
     text-align: center;
   }
 }
@@ -208,8 +215,6 @@ footer {
   .copyright-disclaimer-container p {
     font-size: 12px;
     line-height: 16px;
-    display: flex;
-    align-items: center;
     text-align: center;
   }
 }
