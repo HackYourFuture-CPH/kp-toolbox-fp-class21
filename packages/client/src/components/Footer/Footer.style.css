@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 footer,
-footer > * {
+footer>* {
   box-sizing: border-box;
 }
 
@@ -23,12 +23,10 @@ footer,
 
 footer {
   height: 180px;
-  background: linear-gradient(
-      180deg,
+  background: linear-gradient(180deg,
       rgba(28, 56, 64, 0.6) 0%,
       rgba(28, 65, 64, 0.8) 0.01%,
-      rgba(28, 65, 64, 0.6) 100%
-    ),
+      rgba(28, 65, 64, 0.6) 100%),
     url('../../../public/assets/images/concrete-bw.png');
   background-repeat: repeat;
 
@@ -44,6 +42,11 @@ footer {
   width: 1220px;
   height: 155px;
   margin: auto;
+}
+
+.footer-bg {
+  background-color: rgba(0, 0, 0, 0.3);
+  mix-blend-mode: normal;
 }
 
 .footer-container::after {
@@ -101,6 +104,10 @@ footer {
   .footer-container {
     width: 90vw;
     gap: 1rem;
+  }
+
+  .footer-container {
+    height: 162px;
   }
 }
 
@@ -177,8 +184,6 @@ footer {
   .copyright-disclaimer-container p {
     font-size: 12px;
     line-height: 16px;
-    display: flex;
-    align-items: center;
     text-align: center;
   }
 }
@@ -209,8 +214,6 @@ footer {
   .copyright-disclaimer-container p {
     font-size: 12px;
     line-height: 16px;
-    display: flex;
-    align-items: center;
     text-align: center;
   }
 }
