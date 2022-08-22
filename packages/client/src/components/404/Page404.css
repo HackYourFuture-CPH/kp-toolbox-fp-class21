@@ -1,3 +1,158 @@
-.Page404-container{
-    background-color: black;
+.page404-container {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 6rem;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: linear-gradient(
+      180deg,
+      rgba(28, 56, 64, 0.7) 0%,
+      rgba(28, 65, 64, 0.7) 0.01%,
+      rgba(28, 65, 64, 0.7) 100%
+    ),
+    url('../../../public/assets/images/concrete-bw.png');
+  background-repeat: repeat;
+}
+
+.sky {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  margin: 0vw 15vw 0vw 15vw;
+  width: 70vw;
+  height: 47vw;
+  overflow: hidden;
+}
+
+.sky-image {
+  display: block;
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  margin: 0vw 15vw 0vw 15vw;
+  width: 70vw;
+  height: 47vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: 100% 100%;
+  background-image: url('../../../public/assets/images/clouds.png');
+  filter: opacity(100%) saturate(100%);
+  mix-blend-mode: luminosity;
+  overflow: hidden;
+}
+
+.plane {
+  position: absolute;
+  animation: fly_high 17.666s infinite;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  width: 004vw;
+  height: 004vw;
+  border-radius: 0%;
+  transition: 1000ms;
+  filter: opacity(100%);
+  background-image: url('../../../public/assets/vectors/vector-kp-logo-paper-plane.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: none;
+  overflow: hidden;
+}
+
+@keyframes fly_high {
+  000% {
+    left: +000vw;
+    top: +020vw;
+    transform: rotate(083deg);
+  }
+  001% {
+    left: +000vw;
+    top: +020vw;
+    transform: rotate(083deg);
+  }
+  002% {
+    left: +005vw;
+    top: +014vw;
+    transform: rotate(083deg);
+  }
+  004% {
+    left: +010vw;
+    top: +010vw;
+    transform: rotate(083deg);
+  }
+  006% {
+    left: +024vw;
+    top: +005vw;
+    transform: rotate(083deg);
+  }
+  008% {
+    left: +035vw;
+    top: +002vw;
+    transform: rotate(107deg);
+  }
+  010% {
+    left: +045vw;
+    top: +006vw;
+    transform: rotate(115deg);
+  }
+  011% {
+    left: +049vw;
+    top: +008vw;
+    transform: rotate(135deg);
+  }
+  012% {
+    left: +053vw;
+    top: +012vw;
+    transform: rotate(155deg);
+  }
+  013% {
+    left: +053vw;
+    top: +017vw;
+    transform: rotate(165deg);
+  }
+
+  /* KEEP GOING HERE */
+
+  100% {
+    left: +092vw;
+    top: -009vw;
+  }
+}
+
+.button {
+  display: flex;
+  position: absolute;
+  z-index: 20;
+  top: 40vw;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 200px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  border: pink dotted 2px;
+}
+
+@media screen and (max-width: 1200px) {
+  .sky,
+  .sky-image {
+    margin: 0vw 4vw 0vw 4vw;
+    width: 90vw;
+    height: 60vw;
+  }
+
+  .button {
+    top: 70vw;
+  }
 }
