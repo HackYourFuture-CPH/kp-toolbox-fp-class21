@@ -19,6 +19,10 @@ footer,
   flex-direction: column;
 }
 
+.copyright-disclaimer-container strong {
+  font-family: 'Open Sans';
+}
+
 footer {
   height: 180px;
   background: linear-gradient(
