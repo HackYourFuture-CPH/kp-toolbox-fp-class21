@@ -1,5 +1,10 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useLayoutEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from 'react-router-dom';
 import './App.css';
 import { LandingPage } from './containers/LandingPage/LandingPage.Container';
 import { PageNotFound } from './containers/PageNotFound/PageNotFound.Container';
@@ -13,15 +18,29 @@ import { Inbox } from './components/InboxMessageAdmin/Inbox.component';
 import { AuthContextProvider, UserAuth } from './firebase/AuthContext';
 import { AboutToolbox } from './components/AboutToolbox/AboutToolbox.component';
 
+const Wrapper = ({ children }) => {
+  const location = useLocation();
+  useLayoutEffect(() => {
+    document.documentElement.scrollTo({
+      top: 100,
+      left: 100,
+      behavior: 'smooth',
+    });
+  }, [location.pathname]);
+  return children;
+};
+
 function App() {
   return (
     <div className="app">
       <Router>
         <AuthContextProvider>
           <Navbar />
-          <Main>
-            <RouteList />
-          </Main>
+          <Wrapper>
+            <Main>
+              <RouteList />
+            </Main>
+          </Wrapper>
           <Footer />
         </AuthContextProvider>
       </Router>
@@ -31,9 +50,6 @@ function App() {
 
 const RouteList = () => {
   const { localUser } = UserAuth();
-
-  // eslint-disable-next-line no-console
-  console.log(localUser);
 
   return (
     <Routes>
