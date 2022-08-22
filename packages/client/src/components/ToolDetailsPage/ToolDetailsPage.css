@@ -17,7 +17,8 @@
 .LoadingMessage {
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 30vh;
+  padding-top: 30px;
   justify-content: center;
   align-items: center;
 }
@@ -197,6 +198,10 @@ h3 {
 
   .tool-details-container {
     padding: 1.5rem 1rem;
+  }
+
+  .LoadingMessage {
+    height: 15vh;
   }
 
   .LoadingMessage span {
