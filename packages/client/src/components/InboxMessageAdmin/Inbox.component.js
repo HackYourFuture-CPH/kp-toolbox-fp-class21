@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import PropTypes from 'prop-types';
 import './Inbox.style.css';
 import { Link } from 'react-router-dom';
 import getApiBaseUrl from '../../utils/getApiBaseURL';
@@ -11,21 +10,19 @@ export const Inbox = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    function getMessages() {
-      const promise = fetch(`${getApiBaseUrl()}/admin/inbox-admin`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          authorization: `Bearer ${user.accessToken}`,
-        },
-      }).then((response) => response.json());
-      return promise;
-    }
     setIsLoading(true);
-    getMessages().then((response) => {
-      setMessages(response);
-      setIsLoading(false);
-    });
+    fetch(`${getApiBaseUrl()}/admin/inbox-admin`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        setMessages(response);
+        setIsLoading(false);
+      });
   }, [user.accessToken]);
 
   if (!user) {

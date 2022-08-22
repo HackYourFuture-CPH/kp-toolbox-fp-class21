@@ -75,9 +75,6 @@ export const AuthContextProvider = ({ children }) => {
       });
   }
 
-  // eslint-disable-next-line no-console
-  console.log(user);
-
   useEffect(() => {
     function checkUserExist(authUser) {
       fetch(`${getApiBaseUrl()}/api/users/${authUser.uid}`)
