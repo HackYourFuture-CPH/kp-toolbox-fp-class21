@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
-
 .contact-us-wrapper {
   margin: 0px 111px 0px 111px;
 }
@@ -24,7 +22,7 @@
 .breadcrumbs-contact-us,
 .validation-text,
 .submit-button {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Abel', sans-serif;
   color: rgba(245, 245, 245, 1);
 }
 
@@ -56,7 +54,7 @@
 .input-field,
 .placeholder-text {
   color: rgba(99, 133, 125, 0.9);
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Abel', sans-serif;
 }
 
 .input-field {
