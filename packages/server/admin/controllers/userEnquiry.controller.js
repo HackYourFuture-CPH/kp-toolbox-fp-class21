@@ -1,8 +1,7 @@
 const knex = require('../../config/db');
-// const HttpError = require('../../api/lib/utils/http-error');
+const HttpError = require('../../api/lib/utils/http-error');
 
 const getUserEnquiry = async (uid) => {
-  console.log(uid);
   const isAdmin = await knex('users')
     .select('is_admin')
     .where({ firebase_id: uid });
