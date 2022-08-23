@@ -17,8 +17,6 @@ export const ToolItem = ({ tool }) => {
   const [isFavourite, setIsFavourite] = useState(false);
 
   const handleChangeFavourite = () => {
-    // eslint-disable-next-line no-console
-    console.log('user', user);
     if (userId) {
       if (isFavourite) {
         fetch(`${getApiBaseUrl()}/api/favourites`, {
