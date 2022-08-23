@@ -42,7 +42,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-size: 100% 100%;
-  background-image: url('../../../public/assets/images/clouds.png');
+  background-image: url('../../../public/assets/images/clouds-404-text.png');
   filter: opacity(100%) saturate(100%);
   mix-blend-mode: luminosity;
   overflow: hidden;
@@ -204,8 +204,16 @@
   height: 40px;
   align-items: center;
   justify-content: center;
-  background-color: black;
-  border: pink dotted 2px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 4px solid #F5F5F5;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.button:hover {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 @media screen and (max-width: 1200px) {
@@ -214,6 +222,10 @@
     margin: 0vw 5vw 0vw 5vw;
     width: 90vw;
     height: 60vw;
+  }
+  .plane {
+    width: 005vw;
+    height: 005vw;
   }
   .button {
     top: 70vw;
@@ -338,7 +350,7 @@
 
     100% {
       left: +090vw;
-      top: -6.2vw;
+      top: -3.8vw;
       transform: rotate(455deg);
     }
   }
