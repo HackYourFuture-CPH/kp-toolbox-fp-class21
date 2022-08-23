@@ -12,26 +12,20 @@ const favouritesController = require('../controllers/favourites.controller');
 
 /**
  * @swagger
- * /api/favorites:
+ * /favorites:
  *  post:
  *    tags: [Favourites]
- *    summary: Add favourite tools
+ *    summary: Add favourite tool
  *    description:
  *      Will add tool to favourite table
  *    produces: application/json
  *    parameters:
  *      - in: body
- *        name: tool_id
+ *        name: toolId
  *        schema:
  *           type: integer
  *           required: true
  *           description: The tool id
- *      - in: body
- *        name: user_id
- *        schema:
- *           type: integer
- *           required: true
- *           description: The user id
  *    responses:
  *      200:
  *        description: Successful request
@@ -41,23 +35,23 @@ const favouritesController = require('../controllers/favourites.controller');
 
 router.post('/', (req, res, next) => {
   favouritesController
-    .postFavorites(req.body)
+    .postFavorites(req.user.uid, req.body.toolId)
     .then((result) => res.json(result))
     .catch(next);
 });
 
 /**
  * @swagger
- * /favourites/{id}:
+ * /favourites/{userId}:
  *   get:
  *     tags: [Favourites]
- *     summary: Get all users favourite tools
+ *     summary: Get all user's favourite tools
  *     description:
- *       Will return all favourite tools with matching user_id
+ *       Will return all favourite tools for current user's id
  *     produces: application/json
  *     parameters:
  *      - in: params
- *        name: id
+ *        name: userId
  *        schema:
  *           type: integer
  *           required: true
@@ -71,7 +65,7 @@ router.post('/', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
   favouritesController
-    .getAllUsersFavourites(req.params.id)
+    .getAllUsersFavourites(req.user.uid)
     .then((result) => res.json(result))
     .catch(next);
 });
@@ -83,21 +77,15 @@ router.get('/:id', (req, res, next) => {
  *     tags: [Favourites]
  *     summary: Delete favourite tool for user
  *     description:
- *       Will delete favourite tool with matching user_id
+ *       Will delete favourite tool with current user's id
  *     produces: application/json
  *     parameters:
  *      - in: body
- *        name: tool_id
+ *        name: toolId
  *        schema:
  *           type: integer
  *           required: true
  *           description: The tool id
- *      - in: body
- *        name: user_id
- *        schema:
- *           type: integer
- *           required: true
- *           description: The user id
  *     responses:
  *       200:
  *         description: Successful request
@@ -107,7 +95,7 @@ router.get('/:id', (req, res, next) => {
 
 router.delete('/', (req, res, next) => {
   favouritesController
-    .deleteFavourites(req.body)
+    .deleteFavourites(req.user.uid, req.body.toolId)
     .then((result) => res.json(result))
     .catch(next);
 });

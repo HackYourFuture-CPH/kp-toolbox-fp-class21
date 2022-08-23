@@ -16,6 +16,11 @@ export const Navbar = ({ ...props }) => {
     accountStatus = GuestUser(googleSignIn);
   }
 
+  function runGoogleAuth() {
+    if (!user) {
+      googleSignIn();
+    }
+  }
   return (
     <header className="navigation-bar">
       <div className="navigation-bar-container">
@@ -36,7 +41,8 @@ export const Navbar = ({ ...props }) => {
           {accountStatus}
           <div className="favourite-container">
             <Link
-              className={`navbar-link ${!user ? 'disabled-link' : ''}`}
+              className="navbar-link"
+              onClick={() => runGoogleAuth()}
               to="/favourites"
             >
               <img

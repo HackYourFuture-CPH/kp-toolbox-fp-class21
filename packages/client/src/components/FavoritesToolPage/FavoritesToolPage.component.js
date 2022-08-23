@@ -6,7 +6,7 @@ import { KpImage } from '../KpImage/KpImage';
 import { UserAuth } from '../../firebase/AuthContext';
 
 export const FavouritePage = () => {
-  const { userId } = UserAuth();
+  const { userId, user } = UserAuth();
   const [favourites, setFavourites] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selected, setSelected] = useState('');
@@ -17,6 +17,12 @@ export const FavouritePage = () => {
         setIsLoading(true);
         const response = await fetch(
           `${getApiBaseUrl()}/api/favourites/${userId}`,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              authorization: `Bearer ${user.accessToken}`,
+            },
+          },
         );
         const favoritesJson = await response.json();
         setFavourites(favoritesJson);
@@ -29,7 +35,7 @@ export const FavouritePage = () => {
     if (userId) {
       fetchFavourites();
     }
-  }, [userId]);
+  }, [user, userId]);
 
   const sortedTools = useMemo(() => {
     let result = favourites;
