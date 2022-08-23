@@ -218,9 +218,6 @@
   .button {
     top: 70vw;
   }
-  .plane {
-    animation: fly_high 7.666s infinite;
-  }
 
   @keyframes fly_high {
     000% {
@@ -228,120 +225,117 @@
       top: +020vw;
       transform: rotate(085deg);
     }
-    001% {
+    002% {
       left: +05.5vw;
       top: +012.5vw;
       transform: rotate(085deg);
     }
-    002% {
+    004% {
       left: +016.5vw;
       top: +07vw;
       transform: rotate(085deg);
     }
-    003% {
+    006% {
       left: +028vw;
       top: +03vw;
       transform: rotate(095deg);
     }
-    004% {
+    008% {
       left: 39.6vw;
       top: 1.9vw;
       transform: rotate(115deg);
     }
-    005% {
+    010% {
       left: +046.6vw;
       top: +04.5vw;
       transform: rotate(126deg);
     }
-    006% {
+    012% {
       left: +054vw;
       top: +08.5vw;
       transform: rotate(145deg);
     }
-    007% {
+    014% {
       left: +057.6vw;
       top: +013.5vw;
       transform: rotate(165deg);
     }
-    008% {
+    016% {
       left: +059.1vw;
       top: +019.3vw;
       transform: rotate(196deg);
     }
-    009% {
+    018% {
       left: 57.8vw;
       top: 25.3vw;
       transform: rotate(217deg);
     }
-    010% {
+    020% {
       left: +055.2vw;
       top: +030vw;
       transform: rotate(236deg);
     }
-    011% {
+    022% {
       left: +050.6vw;
       top: +033.8vw;
       transform: rotate(256deg);
     }
-    012% {
+    024% {
       left: +045vw;
       top: +035.6vw;
       transform: rotate(275.2deg);
     }
-    013% {
+    026% {
       left: +039.3vw;
       top: +035.4vw;
       transform: rotate(303deg);
     }
-    014% {
+    028% {
       left: +034.5vw;
       top: +031.8vw;
       transform: rotate(335deg);
     }
-    015% {
+    030% {
       left: +031.8vw;
       top: +025.5vw;
       transform: rotate(365deg);
     }
-    016% {
+    032% {
       left: +031.8vw;
       top: +018.5vw;
       transform: rotate(385deg);
     }
-    017% {
+    034% {
       left: +034.8vw;
       top: +012.5vw;
       transform: rotate(415deg);
     }
-    018% {
+    036% {
       left: +040.8vw;
       top: +08vw;
       transform: rotate(445deg);
     }
-    019% {
+    038% {
       left: +048vw;
       top: +05.4vw;
       transform: rotate(455deg);
     }
-    020% {
+    040% {
       left: +055vw;
       top: +03.8vw;
       transform: rotate(455deg);
     }
-    021% {
+    042% {
       left: +064.5vw;
       top: +01.8vw;
       transform: rotate(455deg);
     }
-    022% {
+    044% {
       left: +075vw;
       top: -0.2vw;
       transform: rotate(455deg);
     }
-    /* KEEP GOING HERE */
-    023%,
-    024%,
-    025%,
+
     100% {
       left: +090vw;
       top: -6.2vw;
