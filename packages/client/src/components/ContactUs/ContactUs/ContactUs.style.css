@@ -1,5 +1,5 @@
 .contact-us-wrapper {
-  margin: 0px 111px 0px 111px;
+  padding: 0px 111px 0px 111px;
 }
 
 .header-container-contact-us,
@@ -11,7 +11,7 @@
 .header-container-contact-us {
   border-bottom: 2px solid rgba(245, 245, 245, 1);
   align-items: center;
-  margin-top: 10px;
+  padding-top: 0.625rem;
 }
 
 .uppercase-text {
@@ -149,7 +149,7 @@
 
 @media screen and (max-width: 800px) {
   .contact-us-wrapper {
-    margin: 0 10% 20% 10%;
+    padding: 0 10% 20% 10%;
   }
 
   .header-container-contact-us {
@@ -163,7 +163,7 @@
 
 @media screen and (max-width: 550px) {
   .contact-us-wrapper {
-    margin: 0 5% 10% 5%;
+    padding: 0 5% 10% 5%;
   }
 
   .form-container {

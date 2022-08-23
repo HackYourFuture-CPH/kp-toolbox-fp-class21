@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import getApiBaseUrl from '../../utils/getApiBaseURL';
 import { ToolItem } from '../ToolItem/ToolItem.component';
 import { Sorting } from '../Sorting/Sorting.component';
+import { KpImage } from '../KpImage/KpImage';
 import { UserAuth } from '../../firebase/AuthContext';
 
 export const FavouritePage = () => {
@@ -76,6 +77,7 @@ export const FavouritePage = () => {
         <Sorting setSelected={setSelected} />
       </div>
       {toolsToRender}
+      <KpImage />
     </div>
   );
 };

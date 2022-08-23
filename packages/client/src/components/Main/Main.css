@@ -11,31 +11,20 @@ main {
 }
 
 .main-container {
-  background: rgba(245, 245, 245, 0.05);
   width: 1220px;
   margin: auto;
   min-height: 100vh;
   padding-top: 6rem;
 }
 
-.kpImg {
-  width: 100%;
-  height: auto;
-  margin-top: 6.25rem;
-  margin-bottom: 2rem;
-  mix-blend-mode: luminosity;
+.main-container > div:not(.landing-page-container) {
+  background: rgba(245, 245, 245, 0.05);
+  min-height: 100vh;
 }
 
 @media screen and (max-width: 1300px) {
   .main-container {
     width: 90vw;
-  }
-}
-
-@media screen and (max-width: 820px) {
-  .kpImg {
-    margin-top: 3rem;
-    margin-bottom: 1rem;
   }
 }
 

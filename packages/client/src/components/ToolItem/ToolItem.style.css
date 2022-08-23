@@ -35,7 +35,7 @@ li {
 }
 
 .message-text {
-  margin-top: 2rem;
+  padding-top: 2rem;
 }
 
 .favourites-icon {
@@ -169,6 +169,7 @@ li {
   display: flex;
   align-items: flex-end;
 }
+
 .button-container button {
   border: 4px solid rgba(0, 0, 0, 0.2);
 }
@@ -224,6 +225,7 @@ li {
     font-size: 0.9rem;
     line-height: 1.125rem;
   }
+
   .toolbox-participants,
   .category-names {
     font-size: 1.125rem;
@@ -337,6 +339,7 @@ li {
     margin-bottom: 0.313rem;
     margin-top: auto;
   }
+
   .title-image img {
     max-width: 50%;
   }
@@ -368,6 +371,7 @@ li {
   .grid-tools-container {
     gap: 0.25rem;
   }
+
   .toolbox-participants {
     font-size: 1rem;
   }
@@ -439,6 +443,7 @@ li {
   .category-names {
     font-size: 1rem;
   }
+
   .toolbox-participants {
     font-size: 0.9rem;
   }
@@ -482,6 +487,7 @@ li {
   .category-names {
     font-size: 0.8rem;
   }
+
   .toolbox-participants {
     font-size: 0.7rem;
   }
@@ -508,6 +514,7 @@ li {
   .category-names {
     font-size: 0.6rem;
   }
+
   .toolbox-participants {
     font-size: 0.5rem;
   }
@@ -530,6 +537,7 @@ li {
     margin-bottom: 0.15rem;
     margin-top: auto;
   }
+
   .title-image img {
     max-width: 45%;
   }

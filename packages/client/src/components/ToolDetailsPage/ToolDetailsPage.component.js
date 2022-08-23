@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import getApiBaseUrl from '../../utils/getApiBaseURL';
 import './ToolDetailsPage.css';
 import { Loader } from '../Loader/Loader.component';
+import { KpImage } from '../KpImage/KpImage';
 
 export const ToolDetailsPage = () => {
   const [tool, setTool] = useState({});
@@ -128,5 +129,10 @@ export const ToolDetailsPage = () => {
     );
   }
 
-  return <div className="tool-details-container">{pageContent}</div>;
+  return (
+    <div>
+      <div className="tool-details-container">{pageContent}</div>
+      <KpImage />
+    </div>
+  );
 };

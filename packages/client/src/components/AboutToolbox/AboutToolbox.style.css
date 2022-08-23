@@ -35,7 +35,7 @@
 
 .about-toolbox-small-title {
   margin: auto;
-  margin-top: 1.563rem;
+  padding-top: 1.563rem;
   font-family: 'Abel', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -109,7 +109,7 @@
   }
 
   .about-toolbox-small-title {
-    margin-top: 0.75rem;
+    padding-top: 0.75rem;
   }
 
   .about-toolbox-main-title {
