@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import getApiBaseUrl from '../../utils/getApiBaseURL';
 import { ToolItem } from '../ToolItem/ToolItem.component';
 import { Sorting } from '../Sorting/Sorting.component';
+import { KpImage } from '../KpImage/KpImage';
 import { UserAuth } from '../../firebase/AuthContext';
 
 export const FavouritePage = () => {
@@ -67,7 +68,11 @@ export const FavouritePage = () => {
       </div>
     );
   } else {
-    toolsToRender = <p className="message-text">No tools favored yet...</p>;
+    toolsToRender = (
+      <p className="message-text">
+        You haven&#39;t added anything to favourite tools yet...
+      </p>
+    );
   }
 
   return (
@@ -76,6 +81,7 @@ export const FavouritePage = () => {
         <Sorting setSelected={setSelected} />
       </div>
       {toolsToRender}
+      <KpImage />
     </div>
   );
 };

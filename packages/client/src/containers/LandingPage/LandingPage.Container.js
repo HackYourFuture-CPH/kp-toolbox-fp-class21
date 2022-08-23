@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { WelcomeBox } from '../../components/WelcomeBox/WelcomeBox';
+import { KpImage } from '../../components/KpImage/KpImage';
+
 import {
   FilteringArea,
   FilteringSection,
@@ -81,6 +83,7 @@ export const LandingPage = () => {
         searchBarText={searchBarText}
         setSearchResultNull={setSearchResultNull}
       />
+      <KpImage />
     </div>
   );
 };

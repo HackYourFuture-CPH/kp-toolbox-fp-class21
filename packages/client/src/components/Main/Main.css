@@ -18,24 +18,9 @@ main {
   padding-top: 6rem;
 }
 
-.kpImg {
-  width: 100%;
-  height: auto;
-  margin-top: 6.25rem;
-  margin-bottom: 2rem;
-  mix-blend-mode: luminosity;
-}
-
 @media screen and (max-width: 1300px) {
   .main-container {
     width: 90vw;
-  }
-}
-
-@media screen and (max-width: 820px) {
-  .kpImg {
-    margin-top: 3rem;
-    margin-bottom: 1rem;
   }
 }
 
