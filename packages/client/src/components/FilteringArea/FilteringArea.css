@@ -64,6 +64,10 @@
   flex-grow: 1;
 }
 
+.filtering-horizontal-flex > img {
+  mix-blend-mode: luminosity;
+}
+
 .show-all-button,
 .filtering-option {
   text-transform: uppercase;
@@ -93,7 +97,7 @@
 }
 
 .checked {
-  border-color: rgba(140, 92, 2, 1);
+  border-color: #f5f5f5;
 }
 
 @media screen and (max-width: 950px) {
