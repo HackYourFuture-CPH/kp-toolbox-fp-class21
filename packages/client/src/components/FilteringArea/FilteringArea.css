@@ -78,6 +78,12 @@
   cursor: pointer;
 }
 
+.searchBarDiv,
+.filtering-checkbox-element,
+.show-all-button {
+  z-index: 1;
+}
+
 .filtering-option {
   width: calc(100%-8px);
   height: 2rem;
