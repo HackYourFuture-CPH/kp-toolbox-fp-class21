@@ -12,26 +12,20 @@ const favouritesController = require('../controllers/favourites.controller');
 
 /**
  * @swagger
- * /api/favorites:
+ * /favorites:
  *  post:
  *    tags: [Favourites]
- *    summary: Add favourite tools
+ *    summary: Add favourite tool
  *    description:
  *      Will add tool to favourite table
  *    produces: application/json
  *    parameters:
  *      - in: body
- *        name: tool_id
+ *        name: toolId
  *        schema:
  *           type: integer
  *           required: true
  *           description: The tool id
- *      - in: user.uid
- *        name: user_id
- *        schema:
- *           type: string
- *           required: true
- *           description: The user id
  *    responses:
  *      200:
  *        description: Successful request
@@ -48,16 +42,16 @@ router.post('/', (req, res, next) => {
 
 /**
  * @swagger
- * /favourites/{id}:
+ * /favourites/{userId}:
  *   get:
  *     tags: [Favourites]
- *     summary: Get all users favourite tools
+ *     summary: Get all user's favourite tools
  *     description:
- *       Will return all favourite tools with matching user.uid
+ *       Will return all favourite tools for current user's id
  *     produces: application/json
  *     parameters:
  *      - in: params
- *        name: id
+ *        name: userId
  *        schema:
  *           type: integer
  *           required: true
@@ -83,21 +77,15 @@ router.get('/:id', (req, res, next) => {
  *     tags: [Favourites]
  *     summary: Delete favourite tool for user
  *     description:
- *       Will delete favourite tool with matching user_id
+ *       Will delete favourite tool with current user's id
  *     produces: application/json
  *     parameters:
  *      - in: body
- *        name: tool_id
+ *        name: toolId
  *        schema:
  *           type: integer
  *           required: true
  *           description: The tool id
- *      - in: req.user.uid
- *        name: user_id
- *        schema:
- *           type: string
- *           required: true
- *           description: The user id
  *     responses:
  *       200:
  *         description: Successful request
