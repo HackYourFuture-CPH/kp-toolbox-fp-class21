@@ -6,7 +6,7 @@ import getApiBaseUrl from '../../utils/getApiBaseURL';
 import './ToolItem.style.css';
 
 export const ToolItem = ({ tool }) => {
-  const { googleSignIn, userId } = UserAuth();
+  const { googleSignIn, userId, user } = UserAuth();
   const title = tool.name;
   const { picture, id, pitch, categories } = tool;
   const timeFrameMin = tool.time_frame_min;
@@ -17,16 +17,18 @@ export const ToolItem = ({ tool }) => {
   const [isFavourite, setIsFavourite] = useState(false);
 
   const handleChangeFavourite = () => {
+    // eslint-disable-next-line no-console
+    console.log('user', user);
     if (userId) {
       if (isFavourite) {
         fetch(`${getApiBaseUrl()}/api/favourites`, {
           method: 'DELETE',
           body: JSON.stringify({
-            user_id: userId,
             tool_id: id,
           }),
           headers: {
             'Content-Type': 'application/json',
+            authorization: `Bearer ${user.accessToken}`,
           },
         }).then((result) => {
           if (result.ok) {
@@ -37,11 +39,11 @@ export const ToolItem = ({ tool }) => {
         fetch(`${getApiBaseUrl()}/api/favourites`, {
           method: 'POST',
           body: JSON.stringify({
-            user_id: userId,
             tool_id: id,
           }),
           headers: {
             'Content-Type': 'application/json',
+            authorization: `Bearer ${user.accessToken}`,
           },
         }).then((result) => {
           if (result.ok) {
@@ -53,9 +55,10 @@ export const ToolItem = ({ tool }) => {
       googleSignIn();
       fetch(`${getApiBaseUrl()}/api/favourites`, {
         method: 'POST',
-        body: JSON.stringify({ user_id: userId, tool_id: id }),
+        body: JSON.stringify({ tool_id: id }),
         headers: {
           'Content-Type': 'application/json',
+          authorization: `Bearer ${user.accessToken}`,
         },
       }).then((result) => {
         if (result.ok) {

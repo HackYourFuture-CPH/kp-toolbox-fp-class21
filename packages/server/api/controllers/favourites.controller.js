@@ -1,7 +1,11 @@
 const knex = require('../../config/db');
 
-const postFavorites = async (body) => {
-  const favourites = await knex('favourites').insert(body);
+const postFavorites = async (uid, toolId) => {
+  const user = await knex('users').select('id').where({ firebase_id: uid });
+  const favourites = await knex('favourites').insert({
+    user_id: user.id,
+    tool_id: toolId,
+  });
   return favourites;
 };
 

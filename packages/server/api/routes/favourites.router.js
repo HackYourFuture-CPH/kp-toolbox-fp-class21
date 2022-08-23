@@ -26,10 +26,10 @@ const favouritesController = require('../controllers/favourites.controller');
  *           type: integer
  *           required: true
  *           description: The tool id
- *      - in: body
+ *      - in: req.user.uid
  *        name: user_id
  *        schema:
- *           type: integer
+ *           type: string
  *           required: true
  *           description: The user id
  *    responses:
@@ -41,7 +41,7 @@ const favouritesController = require('../controllers/favourites.controller');
 
 router.post('/', (req, res, next) => {
   favouritesController
-    .postFavorites(req.body)
+    .postFavorites(req.user.uid, req.body.toolId)
     .then((result) => res.json(result))
     .catch(next);
 });
@@ -71,7 +71,7 @@ router.post('/', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
   favouritesController
-    .getAllUsersFavourites(req.params.id)
+    .getAllUsersFavourites(req.user.uid)
     .then((result) => res.json(result))
     .catch(next);
 });
@@ -92,10 +92,10 @@ router.get('/:id', (req, res, next) => {
  *           type: integer
  *           required: true
  *           description: The tool id
- *      - in: body
+ *      - in: req.user.uid
  *        name: user_id
  *        schema:
- *           type: integer
+ *           type: string
  *           required: true
  *           description: The user id
  *     responses:
