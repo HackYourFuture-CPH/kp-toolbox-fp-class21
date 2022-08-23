@@ -4,6 +4,8 @@ import { ToolItem } from '../ToolItem/ToolItem.component';
 import { Sorting } from '../Sorting/Sorting.component';
 import { KpImage } from '../KpImage/KpImage';
 import { UserAuth } from '../../firebase/AuthContext';
+import { ImagePlaceHolder } from '../WelcomeBox/ImagePlaceHolder/ImagePlaceHolder.component';
+import './FavoritesToolPage.style.css';
 
 export const FavouritePage = () => {
   const { userId } = UserAuth();
@@ -77,6 +79,13 @@ export const FavouritePage = () => {
 
   return (
     <div>
+      <section className="favourites-welcome-box-wrapper">
+        <p className="favourites-heading">KAOSPILOT toolbox / favourites</p>
+        <p className="favourites-welcome-text">
+          Here are your favourite tools :
+        </p>
+        <ImagePlaceHolder />
+      </section>
       <div className={favourites.length === 0 ? 'hide-sorting' : ''}>
         <Sorting setSelected={setSelected} />
       </div>
