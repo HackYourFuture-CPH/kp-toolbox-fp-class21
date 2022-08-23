@@ -46,12 +46,7 @@ export const ToolDetailsPage = () => {
       </div>
     );
   } else if (isDataEmpty) {
-    pageContent = (
-      <div>
-        <p>Tool not found</p>
-        <Page404 />
-      </div>
-    );
+    pageContent = <Page404 />;
   } else {
     const toolCategoriesList = tool.categories
       ? tool.categories.map((category, index) => (
@@ -73,72 +68,69 @@ export const ToolDetailsPage = () => {
 
     pageContent = (
       <>
-        <p className="breadcrumbs">
-          <Link to="/">
-            KAOSPILOT toolbox / <span>{tool.name}</span>
-          </Link>
-        </p>
-        <h1 className="tools-name-title">{tool.name}</h1>
-        <img
-          className="tool-image"
-          src={tool.picture}
-          alt={`${tool.name} icon`}
-        />
-
-        <ul className="tool-criteria-summary">
-          <li>CATEGORY: {toolCategoriesList}</li>
-          <li>
-            TIME FRAME: <span>{toolTimeFrame}</span>
-          </li>
-          <li>
-            NUMBER OF PARTICIPANTS: <span>{toolGroupSize}</span>
-          </li>
-          <li>
-            FACILITATION LEVEL: <span> {tool.facilitation_level}</span>
-          </li>
-          <li>
-            MATERIALS: <span>{tool.materials}</span>
-          </li>
-          <li>
-            SOURCE: <span>{tool.source}</span>
-          </li>
-        </ul>
-
-        <div className="tool-description">
-          <p id="description-pitch">{tool.pitch}</p>
-          <p id="description-text">{tool.description}</p>
-          <p id="description-tape" />
-          <img src={tool.banner} alt="" />
+        <div className="tool-details-container">
+          <p className="breadcrumbs">
+            <Link to="/">
+              KAOSPILOT toolbox / <span>{tool.name}</span>
+            </Link>
+          </p>
+          <h1 className="tools-name-title">{tool.name}</h1>
+          <img
+            className="tool-image"
+            src={tool.picture}
+            alt={`${tool.name} icon`}
+          />
+          <ul className="tool-criteria-summary">
+            <li>CATEGORY: {toolCategoriesList}</li>
+            <li>
+              TIME FRAME: <span>{toolTimeFrame}</span>
+            </li>
+            <li>
+              NUMBER OF PARTICIPANTS: <span>{toolGroupSize}</span>
+            </li>
+            <li>
+              FACILITATION LEVEL: <span> {tool.facilitation_level}</span>
+            </li>
+            <li>
+              MATERIALS: <span>{tool.materials}</span>
+            </li>
+            <li>
+              SOURCE: <span>{tool.source}</span>
+            </li>
+          </ul>
+          <div className="tool-description">
+            <p id="description-pitch">{tool.pitch}</p>
+            <p id="description-text">{tool.description}</p>
+            <p id="description-tape" />
+            <img src={tool.banner} alt="" />
+          </div>
+          <div className="tool-instructions">
+            <h2>Instructions:</h2>
+            {tool.instructions.description.length > 0 ? (
+              <div className="instructions-description">
+                {tool.instructions.description.map((descriptionParagraph) => {
+                  return (
+                    <p key={descriptionParagraph}>{descriptionParagraph}</p>
+                  );
+                })}
+              </div>
+            ) : (
+              ''
+            )}
+            {tool.instructions.steps.map((step) => (
+              <div className="step-container" key={step.header}>
+                <h3>{step.header}</h3>
+                {step.text.map((textItem) => (
+                  <p key={textItem}>{textItem}</p>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
-
-        <div className="tool-instructions">
-          <h2>Instructions:</h2>
-          {tool.instructions.description.length > 0 ? (
-            <div className="instructions-description">
-              {tool.instructions.description.map((descriptionParagraph) => {
-                return <p key={descriptionParagraph}>{descriptionParagraph}</p>;
-              })}
-            </div>
-          ) : (
-            ''
-          )}
-          {tool.instructions.steps.map((step) => (
-            <div className="step-container" key={step.header}>
-              <h3>{step.header}</h3>
-              {step.text.map((textItem) => (
-                <p key={textItem}>{textItem}</p>
-              ))}
-            </div>
-          ))}
-        </div>
+        <KpImage />
       </>
     );
   }
 
-  return (
-    <div>
-      <div className="tool-details-container">{pageContent}</div>
-      <KpImage />
-    </div>
-  );
+  return <div>{pageContent}</div>;
 };

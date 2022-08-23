@@ -11,15 +11,11 @@ main {
 }
 
 .main-container {
+  background: rgba(245, 245, 245, 0.05);
   width: 1220px;
   margin: auto;
   min-height: 100vh;
   padding-top: 6rem;
-}
-
-.main-container > div:not(.landing-page-container) {
-  background: rgba(245, 245, 245, 0.05);
-  min-height: 100vh;
 }
 
 @media screen and (max-width: 1300px) {

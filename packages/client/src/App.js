@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import { LandingPage } from './containers/LandingPage/LandingPage.Container';
-import { PageNotFound } from './containers/PageNotFound/PageNotFound.Container';
+import { Page404 } from './components/404/Page404.component';
 import { Navbar } from './components/Navigation/Navbar.component';
 import { Main } from './components/Main/Main';
 import { FavouritePage } from './components/FavoritesToolPage/FavoritesToolPage.component';
@@ -54,7 +54,7 @@ const RouteList = () => {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path="*" element={<PageNotFound />} />
+      <Route path="*" element={<Page404 />} />
       <Route path="/tools/:id" element={<ToolDetailsPage />} />
       <Route path="/about-toolbox" element={<AboutToolbox />} />
       <Route path="/contact-us" element={<ContactUs />} />
