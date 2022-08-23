@@ -1,0 +1,63 @@
+.favourites-welcome-box-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favourites-heading {
+  margin-top: 0.875rem;
+  font-size: 1.125rem;
+  line-height: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: rgba(245, 245, 245, 1);
+  font-family: 'Abel';
+}
+
+.favourites-welcome-text {
+  margin-top: 1.125rem;
+  color: rgba(245, 245, 245, 1);
+  font-family: 'Abel';
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 2.5rem;
+  text-shadow: 1px 1px 8px rgba(28, 56, 64, 0.7);
+}
+
+@media screen and (max-width: 800px) {
+  .favourites-welcome-text {
+    font-size: 2.8rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .favourites-heading {
+    font-size: 0.9rem;
+  }
+
+  .favourites-welcome-text {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .favourites-welcome-text {
+    font-size: 2.1rem;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .favourites-welcome-text {
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .favourites-welcome-text {
+    font-size: 1.3rem;
+  }
+
+  .favourites-heading {
+    font-size: 0.7rem;
+  }
+}
