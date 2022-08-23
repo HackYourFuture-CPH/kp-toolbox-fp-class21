@@ -34,3 +34,7 @@
   text-decoration: none;
   font-family: 'Abel', sans-serif;
 }
+
+.mobile-navigation a:first-child {
+  margin-bottom: 0.5rem;
+}
