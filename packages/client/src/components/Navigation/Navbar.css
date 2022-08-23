@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
-
 header,
 header > * {
   box-sizing: border-box;
@@ -19,7 +17,6 @@ header > * {
     ),
     url('../../../public/assets/images/concrete-bw.png');
   background-repeat: repeat;
-  font-family: 'Open Sans';
   z-index: 999;
 }
 
@@ -54,15 +51,34 @@ header > * {
   text-underline-offset: 0.5rem;
 }
 
-.logo a span {
+.logo a > span {
+  font-family: 'Open Sans';
+  font-weight: 600;
   display: block;
   text-align: left;
 }
 
+.logo a > span > span {
+  font-family: 'Abel', sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.navbar-button {
+  background-color: inherit;
+  outline: none;
+  border: none;
+  padding: 0;
+}
+
+.navbar-button:hover {
+  cursor: pointer;
+}
+
 .logo a,
 .navbar-link,
+.navbar-button,
 .user-name-container {
-  font-weight: 600;
   color: rgb(245 245 245);
 }
 
@@ -72,7 +88,7 @@ header > * {
 .favourite-container,
 .navbar-links-container {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
 }
 
@@ -85,11 +101,13 @@ header > * {
 }
 
 .navbar-link,
+.navbar-button,
 .user-name-container {
-  font-size: 1.25rem;
+  font-family: 'Abel', sans-serif;
+  font-size: 1.5rem;
   text-decoration: none;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .navbar-icon {
@@ -120,6 +138,10 @@ header > * {
   display: none;
 }
 
+.disabled-link {
+  pointer-events: none;
+}
+
 @media screen and (max-width: 1300px) {
   .navigation-bar-container {
     width: 90vw;
@@ -132,12 +154,27 @@ header > * {
   .user-name-container {
     margin-right: 1.5rem;
   }
+
+  .navbar-link,
+  .navbar-button,
+  .user-name-container {
+    font-size: 1.25rem;
+  }
+
+  .logo a > span {
+    font-size: 1.65rem;
+  }
+
+  .logo a > span > span {
+    font-size: 1.35rem;
+  }
 }
 
 @media screen and (max-width: 1230px) {
   .navbar-links-container > .navbar-link,
   .navbar-link span,
-  .user-name-container span {
+  .log-in-container span,
+  .log-out-container span {
     display: none;
   }
 
@@ -176,8 +213,15 @@ header > * {
   }
 
   .logo a {
-    font-size: 1.3rem;
     text-underline-offset: 0.3rem;
+  }
+
+  .logo a > span {
+    font-size: 1.3rem;
+  }
+
+  .logo a > span > span {
+    font-size: 1.25rem;
   }
 
   .navbar-icon {
@@ -214,14 +258,22 @@ header > * {
     font-size: 3.1rem;
   }
 
-  .logo a {
-    font-size: 1.2rem;
+  .logo a > span {
+    font-size: 1.15rem;
+  }
+
+  .logo a > span > span {
+    font-size: 1rem;
   }
 }
 
 @media screen and (max-width: 400px) {
-  .logo a {
-    font-size: 1rem;
+  .logo a > span {
+    font-size: 0.9rem;
+  }
+
+  .logo a > span > span {
+    font-size: 0.7rem;
   }
 }
 

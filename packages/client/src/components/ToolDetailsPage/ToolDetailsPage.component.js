@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import getApiBaseUrl from '../../utils/getApiBaseURL';
 import './ToolDetailsPage.css';
 import { Loader } from '../Loader/Loader.component';
 import { Page404 } from '../404/Page404.component';
+import { KpImage } from '../KpImage/KpImage';
 
 export const ToolDetailsPage = () => {
   const [tool, setTool] = useState({});
@@ -73,9 +74,11 @@ export const ToolDetailsPage = () => {
     pageContent = (
       <>
         <p className="breadcrumbs">
-          KAOSPILOT toolbox / <span>{tool.name}</span>
+          <Link to="/">
+            KAOSPILOT toolbox / <span>{tool.name}</span>
+          </Link>
         </p>
-        <h1>{tool.name}</h1>
+        <h1 className="tools-name-title">{tool.name}</h1>
         <img
           className="tool-image"
           src={tool.picture}
@@ -102,8 +105,10 @@ export const ToolDetailsPage = () => {
         </ul>
 
         <div className="tool-description">
-          <p>{tool.pitch}</p>
-          <p>{tool.description}</p>
+          <p id="description-pitch">{tool.pitch}</p>
+          <p id="description-text">{tool.description}</p>
+          <p id="description-tape" />
+          <img src={tool.banner} alt="" />
         </div>
 
         <div className="tool-instructions">
@@ -130,5 +135,10 @@ export const ToolDetailsPage = () => {
     );
   }
 
-  return <div className="tool-details-container">{pageContent}</div>;
+  return (
+    <div>
+      <div className="tool-details-container">{pageContent}</div>
+      <KpImage />
+    </div>
+  );
 };

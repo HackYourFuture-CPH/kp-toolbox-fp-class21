@@ -1,48 +1,19 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { MobileNavigation } from '../MobileNavigation/MobileNavigation.component';
 import './Navbar.css';
+import { UserAuth } from '../../firebase/AuthContext';
+import { LoggedInUser } from './LoggedInUser.component';
+import { GuestUser } from './GuestUser.component';
 
-export const Navbar = ({ isLogedIn, userName, ...props }) => {
+export const Navbar = ({ ...props }) => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-
+  const { googleSignIn, logOut, user } = UserAuth();
   let accountStatus = null;
-
-  if (isLogedIn) {
-    accountStatus = (
-      <div className="log-out-container">
-        <div className="user-name-container">
-          <img
-            className="navbar-icon"
-            src="/assets/vectors/vector-person-logged.svg"
-            alt="icon with person for user name in logged-in state"
-          />
-          <span> Hi, {userName}!</span>
-        </div>
-        <Link className="navbar-link" to="/sign-out">
-          <img
-            className="navbar-icon"
-            src="/assets/vectors/vector-log-out.svg"
-            alt="icon with person for logged-in state"
-          />
-          <span>sign out</span>
-        </Link>
-      </div>
-    );
+  if (user) {
+    accountStatus = LoggedInUser(logOut, user);
   } else {
-    accountStatus = (
-      <div className="log-in-container">
-        <Link className="navbar-link" to="/sign-in">
-          <img
-            className="navbar-icon"
-            src="/assets/vectors/vector-person-not-logged.svg"
-            alt="icon with person for logged-out state"
-          />
-          <span>sign in</span>
-        </Link>
-      </div>
-    );
+    accountStatus = GuestUser(googleSignIn);
   }
 
   return (
@@ -50,7 +21,9 @@ export const Navbar = ({ isLogedIn, userName, ...props }) => {
       <div className="navigation-bar-container">
         <div className="logo">
           <Link to="/">
-            <span>KAOSPILOT toolbox</span>
+            <span>
+              KAOSPILOT <span>toolbox</span>
+            </span>
           </Link>
         </div>
         <nav className="navbar-links-container">
@@ -62,11 +35,14 @@ export const Navbar = ({ isLogedIn, userName, ...props }) => {
           </Link>
           {accountStatus}
           <div className="favourite-container">
-            <Link className="navbar-link" to="/favourites">
+            <Link
+              className={`navbar-link ${!user ? 'disabled-link' : ''}`}
+              to="/favourites"
+            >
               <img
                 className="navbar-icon"
                 src={
-                  !isLogedIn
+                  !user
                     ? '/assets/vectors/vector-favourites-empty-heart.svg'
                     : '/assets/vectors/vector-favourites-full-heart.svg'
                 }
@@ -85,13 +61,11 @@ export const Navbar = ({ isLogedIn, userName, ...props }) => {
             {isMobileNavOpen ? <span>&times;</span> : <span>&#x2630;</span>}
           </button>
         </nav>
-        <MobileNavigation open={isMobileNavOpen} />
+        <MobileNavigation
+          open={isMobileNavOpen}
+          handleMobile={setIsMobileNavOpen}
+        />
       </div>
     </header>
   );
-};
-
-Navbar.propTypes = {
-  isLogedIn: PropTypes.bool.isRequired,
-  userName: PropTypes.string.isRequired,
 };

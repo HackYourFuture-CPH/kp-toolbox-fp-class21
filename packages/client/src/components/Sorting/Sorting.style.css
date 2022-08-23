@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
-
 .sorting-wrapper {
   height: 44px;
   width: 100%;
@@ -17,7 +15,7 @@
 .sorting-area {
   width: 166px;
   height: 120px;
-  font-family: 'Open Sans';
+  font-family: 'Abel', sans-serif;
   color: rgb(245 245 245);
   padding-right: 15px;
 }
@@ -26,7 +24,7 @@
   cursor: pointer;
   border: none;
   color: rgb(245 245 245);
-  font-family: 'Open Sans';
+  font-family: 'Abel', sans-serif;
   text-transform: uppercase;
   font-weight: 400;
 }

@@ -1,14 +1,30 @@
 import React, { useState, useMemo } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { func } from 'prop-types';
 import './ToolsGrid.style.css';
 import { ToolItem } from '../ToolItem/ToolItem.component';
 import { Sorting } from '../Sorting/Sorting.component';
 import { Loader } from '../Loader/Loader.component';
 
-export const ToolsGrid = ({ tools, isLoading }) => {
+export const ToolsGrid = ({
+  searchBarText,
+  tools,
+  isLoading,
+  setSearchResultNull,
+}) => {
   const [selected, setSelected] = useState('');
   const sortedTools = useMemo(() => {
     let result = tools;
+    if (searchBarText) {
+      result = result.filter((tooltomap) =>
+        tooltomap.name.toLowerCase().includes(searchBarText.toLowerCase()),
+      );
+      if (result.length === 0) {
+        setSearchResultNull(true);
+      } else {
+        setSearchResultNull(false);
+      }
+      return result;
+    }
     if (selected === 'a-z') {
       result = result.sort((a, b) => {
         const titleA = a.name.toUpperCase();
@@ -29,30 +45,54 @@ export const ToolsGrid = ({ tools, isLoading }) => {
       });
     }
     return result;
-  }, [tools, selected]);
+  }, [tools, selected, searchBarText, setSearchResultNull]);
 
-  const toolsToRender = isLoading ? (
-    <div className="LoadingMessage">
-      <span>Loading tool...</span>
-      <Loader />
-    </div>
-  ) : (
-    <div className="grid-tools-container">
-      {sortedTools.map((tool, i) => {
-        return <ToolItem index={i} key={tool.id} tool={tool} />;
-      })}
-    </div>
-  );
+  let toolsToRender;
+
+  if (isLoading) {
+    toolsToRender = (
+      <div className="LoadingMessage">
+        <span>Loading tools...</span>
+        <Loader />
+      </div>
+    );
+  } else if (!isLoading && sortedTools.length !== 0) {
+    setSearchResultNull(false);
+    toolsToRender = (
+      <div className="grid-tools-container">
+        {sortedTools.map((tool, i) => {
+          return <ToolItem index={i} key={tool.id} tool={tool} />;
+        })}
+      </div>
+    );
+  } else {
+    toolsToRender = (
+      <div className="no-tools-message">
+        <p>
+          No tools have been found.
+          <br /> Please try another filtering option(s) or/and different
+          keywords
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div>
-      <Sorting setSelected={setSelected} />
+      {sortedTools.length !== 0 ? <Sorting setSelected={setSelected} /> : null}
       <div>{toolsToRender}</div>
     </div>
   );
 };
 
+ToolsGrid.defaultProps = {
+  searchBarText: null,
+  setSearchResultNull: func,
+};
+
 ToolsGrid.propTypes = {
+  searchBarText: PropTypes.string,
   tools: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   isLoading: PropTypes.bool.isRequired,
+  setSearchResultNull: PropTypes.func,
 };
