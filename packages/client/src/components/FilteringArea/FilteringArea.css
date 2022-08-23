@@ -78,6 +78,7 @@
   cursor: pointer;
 }
 
+.searchBarDiv,
 .filtering-checkbox-element,
 .show-all-button {
   z-index: 1;
