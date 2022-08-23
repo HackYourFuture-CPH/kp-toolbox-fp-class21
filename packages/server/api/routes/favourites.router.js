@@ -107,7 +107,7 @@ router.get('/:id', (req, res, next) => {
 
 router.delete('/', (req, res, next) => {
   favouritesController
-    .deleteFavourites(req.body)
+    .deleteFavourites(req.user.uid, req.body.toolId)
     .then((result) => res.json(result))
     .catch(next);
 });

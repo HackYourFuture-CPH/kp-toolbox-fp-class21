@@ -70,7 +70,12 @@ export const ToolItem = ({ tool }) => {
 
   useEffect(() => {
     if (userId) {
-      fetch(`${getApiBaseUrl()}/api/favourites/${userId}`)
+      fetch(`${getApiBaseUrl()}/api/favourites/${userId}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      })
         .then((response) => response.json())
         .then((result) => {
           const filteredResult = result.filter((item) => item.id === id);
@@ -81,7 +86,7 @@ export const ToolItem = ({ tool }) => {
     } else {
       setIsFavourite(false);
     }
-  }, [userId, id]);
+  }, [userId, id, user.accessToken]);
 
   const availableCategories = ['Innovation', 'Action', 'Energizer', 'Team'];
   const categoriesStreakOut = availableCategories.map((category) => {
