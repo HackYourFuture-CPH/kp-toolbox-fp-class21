@@ -7,6 +7,7 @@ import { UserAuth } from '../../firebase/AuthContext';
 
 export const ToolItem = ({ tool }) => {
   const { userId } = UserAuth();
+  const { localUser } = UserAuth();
   const title = tool.name;
   const { picture } = tool;
   const { id } = tool;
@@ -120,13 +121,30 @@ export const ToolItem = ({ tool }) => {
         </div>
       </div>
 
-      <Link to={`/tools/${tool.id}`}>
+      {localUser && localUser.is_admin ? (
         <div className="button-container">
           <button type="button" className="tool-button">
-            VIEW TOOL
+            <Link to={`/tools/${tool.id}`}>VIEW TOOL</Link>
+          </button>
+          <button type="button" className="tool-button delete-tool">
+            <Link
+              to={`/tools/delete-confirmation/${tool.id}`}
+              state={{ id: tool.id }}
+            >
+              DELETE TOOL
+            </Link>
+          </button>
+          <button type="button" className="tool-button edit-tool">
+            <Link to={`/tools/edit/${tool.id}`}>EDIT TOOL</Link>
           </button>
         </div>
-      </Link>
+      ) : (
+        <div className="button-container">
+          <button type="button" className="tool-button">
+            <Link to={`/tools/${tool.id}`}>VIEW TOOL</Link>
+          </button>
+        </div>
+      )}
     </div>
   );
 };
