@@ -18,6 +18,7 @@ const contactUsForm = require('./contactUsForm.router');
 
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
+const { authenticate } = require('../../firebase/auth');
 
 const swaggerOptions = {
   swaggerDefinition: {
@@ -42,7 +43,7 @@ router.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 router.use('/exampleResources', exampleResources);
 
 router.use('/tools', tools);
-router.use('/favourites', favourites);
+router.use('/favourites', authenticate, favourites);
 router.use('/users', users);
 router.use('/categories', categories);
 

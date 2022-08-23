@@ -1,11 +1,22 @@
 const knex = require('../../config/db');
 
-const postFavorites = async (body) => {
-  const favourites = await knex('favourites').insert(body);
+const postFavorites = async (uid, toolId) => {
+  const user = await knex('users')
+    .select('id')
+    .where({ firebase_id: uid })
+    .first();
+  const favourites = await knex('favourites').insert({
+    user_id: user.id,
+    tool_id: toolId,
+  });
   return favourites;
 };
 
-const getAllUsersFavourites = async (userId) => {
+const getAllUsersFavourites = async (uid) => {
+  const user = await knex('users')
+    .select('id')
+    .where({ firebase_id: uid })
+    .first();
   const favourites = await knex('tools')
     .select(
       'tools.id',
@@ -28,15 +39,19 @@ const getAllUsersFavourites = async (userId) => {
     .join('users', 'users.id', '=', 'favourites.user_id')
     .join('tools_categories', 'tools_categories.tool_id', '=', 'tools.id')
     .join('categories', 'tools_categories.category_id', '=', 'categories.id')
-    .where('users.id', '=', userId)
+    .where('users.id', '=', user.id)
     .groupBy('tools.id');
   return favourites;
 };
 
-const deleteFavourites = async (body) => {
+const deleteFavourites = async (uid, toolId) => {
+  const user = await knex('users')
+    .select('id')
+    .where({ firebase_id: uid })
+    .first();
   const favourites = await knex('favourites')
-    .where({ tool_id: body.tool_id })
-    .andWhere({ user_id: body.user_id })
+    .where({ tool_id: toolId })
+    .andWhere({ user_id: user.id })
     .del();
   return favourites;
 };

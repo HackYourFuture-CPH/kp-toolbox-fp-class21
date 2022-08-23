@@ -1,21 +1,18 @@
-import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import './ToolItem.style.css';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import getApiBaseUrl from '../../utils/getApiBaseURL';
 import { UserAuth } from '../../firebase/AuthContext';
+import getApiBaseUrl from '../../utils/getApiBaseURL';
+import './ToolItem.style.css';
 
 export const ToolItem = ({ tool }) => {
-  const { userId } = UserAuth();
+  const { googleSignIn, userId, user } = UserAuth();
   const title = tool.name;
-  const { picture } = tool;
-  const { id } = tool;
+  const { picture, id, pitch, categories } = tool;
   const timeFrameMin = tool.time_frame_min;
   const timeFrameMax = tool.time_frame_max;
   const groupSizeMin = tool.group_size_min;
   const groupSizeMax = tool.group_size_max;
-  const { pitch } = tool;
-  const { categories } = tool;
 
   const [isFavourite, setIsFavourite] = useState(false);
 
@@ -24,9 +21,12 @@ export const ToolItem = ({ tool }) => {
       if (isFavourite) {
         fetch(`${getApiBaseUrl()}/api/favourites`, {
           method: 'DELETE',
-          body: JSON.stringify({ user_id: userId, tool_id: id }),
+          body: JSON.stringify({
+            toolId: id,
+          }),
           headers: {
             'Content-Type': 'application/json',
+            authorization: `Bearer ${user.accessToken}`,
           },
         }).then((result) => {
           if (result.ok) {
@@ -36,9 +36,12 @@ export const ToolItem = ({ tool }) => {
       } else {
         fetch(`${getApiBaseUrl()}/api/favourites`, {
           method: 'POST',
-          body: JSON.stringify({ user_id: userId, tool_id: id }),
+          body: JSON.stringify({
+            toolId: id,
+          }),
           headers: {
             'Content-Type': 'application/json',
+            authorization: `Bearer ${user.accessToken}`,
           },
         }).then((result) => {
           if (result.ok) {
@@ -46,12 +49,31 @@ export const ToolItem = ({ tool }) => {
           }
         });
       }
+    } else {
+      googleSignIn();
+      fetch(`${getApiBaseUrl()}/api/favourites`, {
+        method: 'POST',
+        body: JSON.stringify({ toolId: id }),
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      }).then((result) => {
+        if (result.ok) {
+          setIsFavourite(false);
+        }
+      });
     }
   };
 
   useEffect(() => {
-    if (userId) {
-      fetch(`${getApiBaseUrl()}/api/favourites/${userId}`)
+    if (userId && user) {
+      fetch(`${getApiBaseUrl()}/api/favourites/${userId}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      })
         .then((response) => response.json())
         .then((result) => {
           const filteredResult = result.filter((item) => item.id === id);
@@ -62,7 +84,7 @@ export const ToolItem = ({ tool }) => {
     } else {
       setIsFavourite(false);
     }
-  }, [userId, id]);
+  }, [userId, id, user]);
 
   const availableCategories = ['Innovation', 'Action', 'Energizer', 'Team'];
   const categoriesStreakOut = availableCategories.map((category) => {
