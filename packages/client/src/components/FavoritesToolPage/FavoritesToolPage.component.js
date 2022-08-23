@@ -34,7 +34,7 @@ export const FavouritePage = () => {
     if (userId) {
       fetchFavourites();
     }
-  }, [user.accessToken, userId]);
+  }, [user, userId]);
 
   const sortedTools = useMemo(() => {
     let result = favourites;

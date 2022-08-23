@@ -26,7 +26,7 @@ const favouritesController = require('../controllers/favourites.controller');
  *           type: integer
  *           required: true
  *           description: The tool id
- *      - in: req.user.uid
+ *      - in: user.uid
  *        name: user_id
  *        schema:
  *           type: string
@@ -53,7 +53,7 @@ router.post('/', (req, res, next) => {
  *     tags: [Favourites]
  *     summary: Get all users favourite tools
  *     description:
- *       Will return all favourite tools with matching user_id
+ *       Will return all favourite tools with matching user.uid
  *     produces: application/json
  *     parameters:
  *      - in: params

@@ -1,7 +1,10 @@
 const knex = require('../../config/db');
 
 const postFavorites = async (uid, toolId) => {
-  const user = await knex('users').select('id').where({ firebase_id: uid });
+  const user = await knex('users')
+    .select('id')
+    .where({ firebase_id: uid })
+    .first();
   const favourites = await knex('favourites').insert({
     user_id: user.id,
     tool_id: toolId,
@@ -10,7 +13,10 @@ const postFavorites = async (uid, toolId) => {
 };
 
 const getAllUsersFavourites = async (uid) => {
-  const user = await knex('users').select('id').where({ firebase_id: uid });
+  const user = await knex('users')
+    .select('id')
+    .where({ firebase_id: uid })
+    .first();
   const favourites = await knex('tools')
     .select(
       'tools.id',
@@ -39,7 +45,10 @@ const getAllUsersFavourites = async (uid) => {
 };
 
 const deleteFavourites = async (uid, toolId) => {
-  const user = await knex('users').select('id').where({ firebase_id: uid });
+  const user = await knex('users')
+    .select('id')
+    .where({ firebase_id: uid })
+    .first();
   const favourites = await knex('favourites')
     .where({ tool_id: toolId })
     .andWhere({ user_id: user.id })

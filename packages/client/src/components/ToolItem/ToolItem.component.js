@@ -22,7 +22,7 @@ export const ToolItem = ({ tool }) => {
         fetch(`${getApiBaseUrl()}/api/favourites`, {
           method: 'DELETE',
           body: JSON.stringify({
-            tool_id: id,
+            toolId: id,
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ export const ToolItem = ({ tool }) => {
         fetch(`${getApiBaseUrl()}/api/favourites`, {
           method: 'POST',
           body: JSON.stringify({
-            tool_id: id,
+            toolId: id,
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ export const ToolItem = ({ tool }) => {
       googleSignIn();
       fetch(`${getApiBaseUrl()}/api/favourites`, {
         method: 'POST',
-        body: JSON.stringify({ tool_id: id }),
+        body: JSON.stringify({ toolId: id }),
         headers: {
           'Content-Type': 'application/json',
           authorization: `Bearer ${user.accessToken}`,
@@ -67,7 +67,7 @@ export const ToolItem = ({ tool }) => {
   };
 
   useEffect(() => {
-    if (userId) {
+    if (userId && user) {
       fetch(`${getApiBaseUrl()}/api/favourites/${userId}`, {
         headers: {
           'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ export const ToolItem = ({ tool }) => {
     } else {
       setIsFavourite(false);
     }
-  }, [userId, id, user.accessToken]);
+  }, [userId, id, user]);
 
   const availableCategories = ['Innovation', 'Action', 'Energizer', 'Team'];
   const categoriesStreakOut = availableCategories.map((category) => {
