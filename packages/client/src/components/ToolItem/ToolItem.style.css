@@ -35,6 +35,7 @@ li {
 }
 
 .message-text {
+  font-family: 'Abel', sans-serif;
   padding-top: 2rem;
 }
 
@@ -84,7 +85,7 @@ li {
 .category-names,
 .product-description,
 .tool-button {
-  font-family: 'Abel';
+  font-family: 'Abel', sans-serif;
   font-style: normal;
 }
 

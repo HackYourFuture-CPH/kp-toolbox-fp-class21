@@ -68,7 +68,11 @@ export const FavouritePage = () => {
       </div>
     );
   } else {
-    toolsToRender = <p className="message-text">No tools favored yet...</p>;
+    toolsToRender = (
+      <p className="message-text">
+        You haven&#39;t added anything to favourite tools yet...
+      </p>
+    );
   }
 
   return (

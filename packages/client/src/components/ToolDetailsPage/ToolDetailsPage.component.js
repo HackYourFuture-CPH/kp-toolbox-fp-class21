@@ -127,6 +127,12 @@ export const ToolDetailsPage = () => {
             ))}
           </div>
         </div>
+        <Link to="/">
+          <div className="back-home-button back-home-button--tool-page">
+            {' '}
+            BACK HOME{' '}
+          </div>
+        </Link>
         <KpImage />
       </>
     );

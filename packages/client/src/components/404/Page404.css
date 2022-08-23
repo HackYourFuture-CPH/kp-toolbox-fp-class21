@@ -8,14 +8,9 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background: linear-gradient(
-      180deg,
-      rgba(28, 56, 64, 0.7) 0%,
-      rgba(28, 65, 64, 0.7) 0.01%,
-      rgba(28, 65, 64, 0.7) 100%
-    ),
-    url('../../../public/assets/images/concrete-bw.png');
+
   background-repeat: repeat;
+  transform: scale(0.95);
 }
 
 .sky {
@@ -28,6 +23,13 @@
   width: 70vw;
   height: 47vw;
   overflow: hidden;
+  background: linear-gradient(
+      180deg,
+      rgba(28, 56, 64, 0.7) 0%,
+      rgba(28, 65, 64, 0.7) 0.01%,
+      rgba(28, 65, 64, 0.7) 100%
+    ),
+    url('../../../public/assets/images/concrete-bw.png');
 }
 
 .sky-image {
@@ -74,111 +76,133 @@
     top: 9.8vw;
     transform: rotate(085deg);
   }
+
   002% {
     left: +015.5vw;
     top: +09.8vw;
     transform: rotate(085deg);
   }
+
   004% {
     left: +023.8vw;
     top: +05.5vw;
     transform: rotate(085deg);
   }
+
   006% {
     left: +032.8vw;
     top: +02.4vw;
     transform: rotate(095deg);
   }
+
   008% {
     left: 41.7vw;
     top: 1.6vw;
     transform: rotate(115deg);
   }
+
   010% {
     left: +047.4vw;
     top: +03.5vw;
     transform: rotate(126deg);
   }
+
   012% {
     left: +052.6vw;
     top: +06.5vw;
     transform: rotate(145deg);
   }
+
   014% {
     left: +055.8vw;
     top: +010.8vw;
     transform: rotate(165deg);
   }
+
   016% {
     left: +057vw;
     top: +015vw;
     transform: rotate(196deg);
   }
+
   018% {
     left: +055.9vw;
     top: +019.8vw;
     transform: rotate(217deg);
   }
+
   020% {
     left: +053.8vw;
     top: +023.6vw;
     transform: rotate(236deg);
   }
+
   022% {
     left: +050.4vw;
     top: +026.4vw;
     transform: rotate(256deg);
   }
+
   024% {
     left: +046.1vw;
     top: +027.9vw;
     transform: rotate(275.2deg);
   }
+
   026% {
     left: +041.8vw;
     top: +027.7vw;
     transform: rotate(303deg);
   }
+
   028% {
     left: +037.8vw;
     top: +024.8vw;
     transform: rotate(335deg);
   }
+
   030% {
     left: +035.8vw;
     top: +020.2vw;
     transform: rotate(365deg);
   }
+
   032% {
     left: +035.7vw;
     top: +014.6vw;
     transform: rotate(385deg);
   }
+
   034% {
     left: +038vw;
     top: +09.8vw;
     transform: rotate(415deg);
   }
+
   036% {
     left: +042.8vw;
     top: +06.3vw;
     transform: rotate(445deg);
   }
+
   038% {
     left: +048.4vw;
     top: +04.3vw;
     transform: rotate(455deg);
   }
+
   040% {
     left: +054vw;
     top: +02.9vw;
     transform: rotate(455deg);
   }
+
   042% {
     left: +061vw;
     top: +01.5vw;
     transform: rotate(455deg);
   }
+
   044% {
     left: +069.5vw;
     top: +00vw;
@@ -192,7 +216,7 @@
   }
 }
 
-.button {
+.back-home-button {
   display: flex;
   position: absolute;
   z-index: 20;
@@ -212,7 +236,7 @@
   font-size: 18px;
 }
 
-.button:hover {
+.back-home-button:hover {
   background: rgba(0, 0, 0, 0.5);
 }
 
@@ -223,10 +247,12 @@
     width: 90vw;
     height: 60vw;
   }
+
   .plane {
     width: 005vw;
     height: 005vw;
   }
+
   .button {
     top: 70vw;
   }
@@ -237,111 +263,133 @@
       top: +020vw;
       transform: rotate(085deg);
     }
+
     002% {
       left: +05.5vw;
       top: +012.5vw;
       transform: rotate(085deg);
     }
+
     004% {
       left: +016.5vw;
       top: +07vw;
       transform: rotate(085deg);
     }
+
     006% {
       left: +028vw;
       top: +03vw;
       transform: rotate(095deg);
     }
+
     008% {
       left: 39.6vw;
       top: 1.9vw;
       transform: rotate(115deg);
     }
+
     010% {
       left: +046.6vw;
       top: +04.5vw;
       transform: rotate(126deg);
     }
+
     012% {
       left: +054vw;
       top: +08.5vw;
       transform: rotate(145deg);
     }
+
     014% {
       left: +057.6vw;
       top: +013.5vw;
       transform: rotate(165deg);
     }
+
     016% {
       left: +059.1vw;
       top: +019.3vw;
       transform: rotate(196deg);
     }
+
     018% {
       left: 57.8vw;
       top: 25.3vw;
       transform: rotate(217deg);
     }
+
     020% {
       left: +055.2vw;
       top: +030vw;
       transform: rotate(236deg);
     }
+
     022% {
       left: +050.6vw;
       top: +033.8vw;
       transform: rotate(256deg);
     }
+
     024% {
       left: +045vw;
       top: +035.6vw;
       transform: rotate(275.2deg);
     }
+
     026% {
       left: +039.3vw;
       top: +035.4vw;
       transform: rotate(303deg);
     }
+
     028% {
       left: +034.5vw;
       top: +031.8vw;
       transform: rotate(335deg);
     }
+
     030% {
       left: +031.8vw;
       top: +025.5vw;
       transform: rotate(365deg);
     }
+
     032% {
       left: +031.8vw;
       top: +018.5vw;
       transform: rotate(385deg);
     }
+
     034% {
       left: +034.8vw;
       top: +012.5vw;
       transform: rotate(415deg);
     }
+
     036% {
       left: +040.8vw;
       top: +08vw;
       transform: rotate(445deg);
     }
+
     038% {
       left: +048vw;
       top: +05.4vw;
       transform: rotate(455deg);
     }
+
     040% {
       left: +055vw;
       top: +03.8vw;
       transform: rotate(455deg);
     }
+
     042% {
       left: +064.5vw;
       top: +01.8vw;
       transform: rotate(455deg);
     }
+
     044% {
       left: +075vw;
       top: -0.2vw;
@@ -353,5 +401,14 @@
       top: -3.8vw;
       transform: rotate(455deg);
     }
+  }
+}
+
+@media screen and (max-width: 549px) {
+  .back-home-button {
+    width: 145px;
+    height: 32px;
+    border: 2px solid #f5f5f5;
+    font-size: 14px;
   }
 }

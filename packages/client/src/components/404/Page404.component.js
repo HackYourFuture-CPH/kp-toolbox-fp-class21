@@ -9,7 +9,7 @@ export const Page404 = () => {
       <div className="sky-image"> </div>
       <div className="plane"> </div>
       <Link to="/">
-        <div className="button"> BACK HOME </div>
+        <div className="back-home-button"> BACK HOME </div>
       </Link>
     </div>
   );
